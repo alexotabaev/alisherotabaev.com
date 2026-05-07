@@ -1,0 +1,905 @@
+ErrorDocument 403 /404.html
+ErrorDocument 404 /404.html
+
+DirectoryIndex page37945565.html
+
+RewriteEngine On
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =http
+RewriteRule ^(.*)$ https://alisherotabaev\.com/$1 [R=301,L]
+
+RewriteCond %{HTTP:X-Forwarded-Proto} =https
+RewriteCond %{HTTP_HOST} ^www\.alisherotabaev.com [NC]
+RewriteRule ^(.*)$ https://alisherotabaev\.com/$1 [R=301,L]
+
+RewriteCond %{REQUEST_FILENAME} /robots.txt
+RewriteCond "%{DOCUMENT_ROOT}/robots_%{HTTP_HOST}.txt" -f
+RewriteRule ^(.*)$ robots_%{HTTP_HOST}.txt [NC,L]
+RewriteRule ^about_$ page2633104.html [NC]
+RewriteRule ^about_/$ page2633104.html [NC]
+
+RewriteRule ^blog$ page2633415.html [NC]
+RewriteRule ^blog/$ page2633415.html [NC]
+
+RewriteRule ^consulting$ page3796089.html [NC]
+RewriteRule ^consulting/$ page3796089.html [NC]
+
+RewriteRule ^strategyplan$ page2632568.html [NC]
+RewriteRule ^strategyplan/$ page2632568.html [NC]
+
+RewriteRule ^books$ page2632629.html [NC]
+RewriteRule ^books/$ page2632629.html [NC]
+
+RewriteRule ^appearances$ page2632834.html [NC]
+RewriteRule ^appearances/$ page2632834.html [NC]
+
+RewriteRule ^mediakit$ page2633165.html [NC]
+RewriteRule ^mediakit/$ page2633165.html [NC]
+
+RewriteRule ^coaching$ page2665991.html [NC]
+RewriteRule ^coaching/$ page2665991.html [NC]
+
+RewriteRule ^kak_zarabotat$ page3690435.html [NC]
+RewriteRule ^kak_zarabotat/$ page3690435.html [NC]
+
+RewriteRule ^price$ page3690545.html [NC]
+RewriteRule ^price/$ page3690545.html [NC]
+
+RewriteRule ^bonus$ page3692520.html [NC]
+RewriteRule ^bonus/$ page3692520.html [NC]
+
+RewriteRule ^links$ page11622079.html [NC]
+RewriteRule ^links/$ page11622079.html [NC]
+
+RewriteRule ^blackwhite$ page17827708.html [NC]
+RewriteRule ^blackwhite/$ page17827708.html [NC]
+
+RewriteRule ^club$ page17835577.html [NC]
+RewriteRule ^club/$ page17835577.html [NC]
+
+RewriteRule ^step3dz$ page17977696.html [NC]
+RewriteRule ^step3dz/$ page17977696.html [NC]
+
+RewriteRule ^personal$ page18176736.html [NC]
+RewriteRule ^personal/$ page18176736.html [NC]
+
+RewriteRule ^webinar$ page18512555.html [NC]
+RewriteRule ^webinar/$ page18512555.html [NC]
+
+RewriteRule ^webinar1$ page20167433.html [NC]
+RewriteRule ^webinar1/$ page20167433.html [NC]
+
+RewriteRule ^spasibo$ page18576323.html [NC]
+RewriteRule ^spasibo/$ page18576323.html [NC]
+
+RewriteRule ^s1$ page20430952.html [NC]
+RewriteRule ^s1/$ page20430952.html [NC]
+
+RewriteRule ^zoomanalyzes$ page21122957.html [NC]
+RewriteRule ^zoomanalyzes/$ page21122957.html [NC]
+
+RewriteRule ^success$ page21124809.html [NC]
+RewriteRule ^success/$ page21124809.html [NC]
+
+RewriteRule ^consalting$ page22086146.html [NC]
+RewriteRule ^consalting/$ page22086146.html [NC]
+
+RewriteRule ^about$ page24586827.html [NC]
+RewriteRule ^about/$ page24586827.html [NC]
+
+RewriteRule ^mini$ page37945565.html [NC]
+RewriteRule ^mini/$ page37945565.html [NC]
+
+RewriteRule ^gamechangersecrets$ page37621104.html [NC]
+RewriteRule ^gamechangersecrets/$ page37621104.html [NC]
+
+RewriteRule ^game_changer1$ page36924433.html [NC]
+RewriteRule ^game_changer1/$ page36924433.html [NC]
+
+RewriteRule ^game_changer2$ page36924711.html [NC]
+RewriteRule ^game_changer2/$ page36924711.html [NC]
+
+RewriteRule ^million_za_2_nedeli$ page36895323.html [NC]
+RewriteRule ^million_za_2_nedeli/$ page36895323.html [NC]
+
+RewriteRule ^game_changer3$ page36924735.html [NC]
+RewriteRule ^game_changer3/$ page36924735.html [NC]
+
+RewriteRule ^gamechanger/step2$ page37484116.html [NC]
+RewriteRule ^gamechanger/step2/$ page37484116.html [NC]
+
+RewriteRule ^otkazototvetstvennosti$ page2632378.html [NC]
+RewriteRule ^otkazototvetstvennosti/$ page2632378.html [NC]
+
+RewriteRule ^privacypolicy$ page2632440.html [NC]
+RewriteRule ^privacypolicy/$ page2632440.html [NC]
+
+RewriteRule ^agreement$ page2632455.html [NC]
+RewriteRule ^agreement/$ page2632455.html [NC]
+
+RewriteRule ^oferta$ page19287336.html [NC]
+RewriteRule ^oferta/$ page19287336.html [NC]
+
+RewriteRule ^mechta$ page17917712.html [NC]
+RewriteRule ^mechta/$ page17917712.html [NC]
+
+RewriteRule ^blog/psixologicheskie-triggery$ page2644203.html [NC]
+RewriteRule ^blog/psixologicheskie-triggery/$ page2644203.html [NC]
+
+RewriteRule ^blog/kak-prodavat-mnogo$ page2646781.html [NC]
+RewriteRule ^blog/kak-prodavat-mnogo/$ page2646781.html [NC]
+
+RewriteRule ^blog/pochemu-lyudi-pokupayut$ page2633677.html [NC]
+RewriteRule ^blog/pochemu-lyudi-pokupayut/$ page2633677.html [NC]
+
+RewriteRule ^blog/kak-dogovarivatsya-o-krupnyx-semejnyx-tratax$ page2635253.html [NC]
+RewriteRule ^blog/kak-dogovarivatsya-o-krupnyx-semejnyx-tratax/$ page2635253.html [NC]
+
+RewriteRule ^blog/kto-v-seme-kontroliruet-byudzhet$ page2635552.html [NC]
+RewriteRule ^blog/kto-v-seme-kontroliruet-byudzhet/$ page2635552.html [NC]
+
+RewriteRule ^blog/kto-v-seme-zarabatyvaet$ page2635633.html [NC]
+RewriteRule ^blog/kto-v-seme-zarabatyvaet/$ page2635633.html [NC]
+
+RewriteRule ^blog/kak-zarabatyvat-dengi-na-lyubimom-dele$ page2635771.html [NC]
+RewriteRule ^blog/kak-zarabatyvat-dengi-na-lyubimom-dele/$ page2635771.html [NC]
+
+RewriteRule ^blog/stabilnyj-zarabotok$ page2642208.html [NC]
+RewriteRule ^blog/stabilnyj-zarabotok/$ page2642208.html [NC]
+
+RewriteRule ^blog/vyxod-na-novyj-uroven-doxodov$ page2642289.html [NC]
+RewriteRule ^blog/vyxod-na-novyj-uroven-doxodov/$ page2642289.html [NC]
+
+RewriteRule ^blog/chto-skryvaetsya-za-dengami$ page2642542.html [NC]
+RewriteRule ^blog/chto-skryvaetsya-za-dengami/$ page2642542.html [NC]
+
+RewriteRule ^blog/biznes-po-muzhski-i-po-zhenski$ page2642576.html [NC]
+RewriteRule ^blog/biznes-po-muzhski-i-po-zhenski/$ page2642576.html [NC]
+
+RewriteRule ^blog/sekretnyj-rastvoritel-problem$ page2642691.html [NC]
+RewriteRule ^blog/sekretnyj-rastvoritel-problem/$ page2642691.html [NC]
+
+RewriteRule ^blog/skolko-nuzhno-vkladyvat-v-svoe-razvitie$ page2644093.html [NC]
+RewriteRule ^blog/skolko-nuzhno-vkladyvat-v-svoe-razvitie/$ page2644093.html [NC]
+
+RewriteRule ^blog/teoriya-etazhej$ page2644114.html [NC]
+RewriteRule ^blog/teoriya-etazhej/$ page2644114.html [NC]
+
+RewriteRule ^blog/psixologiya-izmeneniya-nauka-samorazvitiya$ page2644254.html [NC]
+RewriteRule ^blog/psixologiya-izmeneniya-nauka-samorazvitiya/$ page2644254.html [NC]
+
+RewriteRule ^blog/privlechenie-i-uderzhanie-denezhnyx-potokov$ page2644262.html [NC]
+RewriteRule ^blog/privlechenie-i-uderzhanie-denezhnyx-potokov/$ page2644262.html [NC]
+
+RewriteRule ^blog/raznye-sposoby-zarabatyvaniya-deneg$ page2644299.html [NC]
+RewriteRule ^blog/raznye-sposoby-zarabatyvaniya-deneg/$ page2644299.html [NC]
+
+RewriteRule ^blog/pochemu-zhenshhina-ne-mozhet-zarabatyvat-dengi-kak-muzhchina$ page2644438.html [NC]
+RewriteRule ^blog/pochemu-zhenshhina-ne-mozhet-zarabatyvat-dengi-kak-muzhchina/$ page2644438.html [NC]
+
+RewriteRule ^blog/raznye-pravila-zarabatyvaniya-deneg-u-muzhchin-i-zhenshhin$ page2644528.html [NC]
+RewriteRule ^blog/raznye-pravila-zarabatyvaniya-deneg-u-muzhchin-i-zhenshhin/$ page2644528.html [NC]
+
+RewriteRule ^blog/pochemu-poyavlyaetsya-denezhnyj-potolok$ page2644583.html [NC]
+RewriteRule ^blog/pochemu-poyavlyaetsya-denezhnyj-potolok/$ page2644583.html [NC]
+
+RewriteRule ^blog/myshlenie-i-konechnyj-finansovyj-rezultat$ page2644644.html [NC]
+RewriteRule ^blog/myshlenie-i-konechnyj-finansovyj-rezultat/$ page2644644.html [NC]
+
+RewriteRule ^blog/pochemu-dengi-utekayut-bystro$ page2644697.html [NC]
+RewriteRule ^blog/pochemu-dengi-utekayut-bystro/$ page2644697.html [NC]
+
+RewriteRule ^blog/pochemu-bogatye-bogateyut-bednye-bedneyut$ page2644737.html [NC]
+RewriteRule ^blog/pochemu-bogatye-bogateyut-bednye-bedneyut/$ page2644737.html [NC]
+
+RewriteRule ^blog/pochemu-ne-rabotayut-vizualizacii$ page2644776.html [NC]
+RewriteRule ^blog/pochemu-ne-rabotayut-vizualizacii/$ page2644776.html [NC]
+
+RewriteRule ^blog/prichiny-poyavleniya-ogranichivayushhix-ubezhdenij$ page2644834.html [NC]
+RewriteRule ^blog/prichiny-poyavleniya-ogranichivayushhix-ubezhdenij/$ page2644834.html [NC]
+
+RewriteRule ^blog/otkuda-berutsya-negativnye-denezhnye-mysli$ page2644909.html [NC]
+RewriteRule ^blog/otkuda-berutsya-negativnye-denezhnye-mysli/$ page2644909.html [NC]
+
+RewriteRule ^blog/principy-denezhnogo-myshleniya-millionerov$ page2644967.html [NC]
+RewriteRule ^blog/principy-denezhnogo-myshleniya-millionerov/$ page2644967.html [NC]
+
+RewriteRule ^blog/oshibki-vizualizacii$ page2645092.html [NC]
+RewriteRule ^blog/oshibki-vizualizacii/$ page2645092.html [NC]
+
+RewriteRule ^blog/koefficient-finansovogo-rosta$ page2645106.html [NC]
+RewriteRule ^blog/koefficient-finansovogo-rosta/$ page2645106.html [NC]
+
+RewriteRule ^blog/vliyanie-okruzheniya-na-denezhnoe-myshlenie$ page2645167.html [NC]
+RewriteRule ^blog/vliyanie-okruzheniya-na-denezhnoe-myshlenie/$ page2645167.html [NC]
+
+RewriteRule ^blog/effektivnye-sposoby-otkladyvat-dengi$ page2646248.html [NC]
+RewriteRule ^blog/effektivnye-sposoby-otkladyvat-dengi/$ page2646248.html [NC]
+
+RewriteRule ^blog/ochishhenie-ot-denezhnyx-blokov$ page2646331.html [NC]
+RewriteRule ^blog/ochishhenie-ot-denezhnyx-blokov/$ page2646331.html [NC]
+
+RewriteRule ^blog/kak-umnozhit-dengi$ page2646365.html [NC]
+RewriteRule ^blog/kak-umnozhit-dengi/$ page2646365.html [NC]
+
+RewriteRule ^blog/kak-probit-denezhnyj-barer-navsegda$ page2646476.html [NC]
+RewriteRule ^blog/kak-probit-denezhnyj-barer-navsegda/$ page2646476.html [NC]
+
+RewriteRule ^blog/kak-ubrat-musor-iz-golovy-i-nachat-zarabatyvat$ page2646561.html [NC]
+RewriteRule ^blog/kak-ubrat-musor-iz-golovy-i-nachat-zarabatyvat/$ page2646561.html [NC]
+
+RewriteRule ^blog/kak-razvit-intuiciyu-na-dengi$ page2646637.html [NC]
+RewriteRule ^blog/kak-razvit-intuiciyu-na-dengi/$ page2646637.html [NC]
+
+RewriteRule ^blog/kak-razvit-nestandartnoe-myshlenie$ page2646677.html [NC]
+RewriteRule ^blog/kak-razvit-nestandartnoe-myshlenie/$ page2646677.html [NC]
+
+RewriteRule ^blog/kak-rabotat-menshe-i-poluchat-bolshe$ page2646708.html [NC]
+RewriteRule ^blog/kak-rabotat-menshe-i-poluchat-bolshe/$ page2646708.html [NC]
+
+RewriteRule ^blog/kak-pravilno-formulirovat-finansovye-celi$ page2647361.html [NC]
+RewriteRule ^blog/kak-pravilno-formulirovat-finansovye-celi/$ page2647361.html [NC]
+
+RewriteRule ^blog/kak-pravilno-sostavit-kollazh-mechty$ page2647561.html [NC]
+RewriteRule ^blog/kak-pravilno-sostavit-kollazh-mechty/$ page2647561.html [NC]
+
+RewriteRule ^blog/kak-pravilno-investirovat$ page2648021.html [NC]
+RewriteRule ^blog/kak-pravilno-investirovat/$ page2648021.html [NC]
+
+RewriteRule ^blog/kak-pravilno-zarabatyvat-dengi$ page2648114.html [NC]
+RewriteRule ^blog/kak-pravilno-zarabatyvat-dengi/$ page2648114.html [NC]
+
+RewriteRule ^blog/kak-podruzhitsya-s-dengami$ page2648149.html [NC]
+RewriteRule ^blog/kak-podruzhitsya-s-dengami/$ page2648149.html [NC]
+
+RewriteRule ^blog/kak-ne-panikovat-kogda-dengi-tayut$ page2648188.html [NC]
+RewriteRule ^blog/kak-ne-panikovat-kogda-dengi-tayut/$ page2648188.html [NC]
+
+RewriteRule ^blog/kak-iskorenit-negativnye-denezhnye-ustanovki$ page2648278.html [NC]
+RewriteRule ^blog/kak-iskorenit-negativnye-denezhnye-ustanovki/$ page2648278.html [NC]
+
+RewriteRule ^blog/kak-zarabatyvat-dengi-stabilno$ page2648655.html [NC]
+RewriteRule ^blog/kak-zarabatyvat-dengi-stabilno/$ page2648655.html [NC]
+
+RewriteRule ^blog/kak-dumat-chtoby-bogatet$ page2648696.html [NC]
+RewriteRule ^blog/kak-dumat-chtoby-bogatet/$ page2648696.html [NC]
+
+RewriteRule ^blog/kak-poluchat-stolko-deneg-skolko-xochetsya$ page2648756.html [NC]
+RewriteRule ^blog/kak-poluchat-stolko-deneg-skolko-xochetsya/$ page2648756.html [NC]
+
+RewriteRule ^blog/kak-vytyanut-sebya-iz-bolota$ page2648845.html [NC]
+RewriteRule ^blog/kak-vytyanut-sebya-iz-bolota/$ page2648845.html [NC]
+
+RewriteRule ^blog/finansovye-celi-dlya-muzhchin-i-zhenshhin$ page2648892.html [NC]
+RewriteRule ^blog/finansovye-celi-dlya-muzhchin-i-zhenshhin/$ page2648892.html [NC]
+
+RewriteRule ^blog/volshebnye-slova-dlya-privlecheniya-deneg$ page2648949.html [NC]
+RewriteRule ^blog/volshebnye-slova-dlya-privlecheniya-deneg/$ page2648949.html [NC]
+
+RewriteRule ^blog/dengi-dobro-ili-zlo$ page2649023.html [NC]
+RewriteRule ^blog/dengi-dobro-ili-zlo/$ page2649023.html [NC]
+
+RewriteRule ^blog/osobennosti-uspeshnyx-evreev$ page2649071.html [NC]
+RewriteRule ^blog/osobennosti-uspeshnyx-evreev/$ page2649071.html [NC]
+
+RewriteRule ^blog/futer$ page17976685.html [NC]
+RewriteRule ^blog/futer/$ page17976685.html [NC]
+
+RewriteRule ^catalog$ page15502166.html [NC]
+RewriteRule ^catalog/$ page15502166.html [NC]
+
+RewriteRule ^onecommaclub$ page15502169.html [NC]
+RewriteRule ^onecommaclub/$ page15502169.html [NC]
+
+RewriteRule ^sredavoronok$ page15502174.html [NC]
+RewriteRule ^sredavoronok/$ page15502174.html [NC]
+
+RewriteRule ^funnel_xfactor$ page15502176.html [NC]
+RewriteRule ^funnel_xfactor/$ page15502176.html [NC]
+
+RewriteRule ^consult-vebinar$ page15502179.html [NC]
+RewriteRule ^consult-vebinar/$ page15502179.html [NC]
+
+RewriteRule ^consult-vebinar-uspeh$ page15502182.html [NC]
+RewriteRule ^consult-vebinar-uspeh/$ page15502182.html [NC]
+
+RewriteRule ^consult-vebinar-translyaciya$ page15502183.html [NC]
+RewriteRule ^consult-vebinar-translyaciya/$ page15502183.html [NC]
+
+RewriteRule ^3corefunnels$ page15502188.html [NC]
+RewriteRule ^3corefunnels/$ page15502188.html [NC]
+
+RewriteRule ^napredele$ page15502191.html [NC]
+RewriteRule ^napredele/$ page15502191.html [NC]
+
+RewriteRule ^napredele-offer$ page15502196.html [NC]
+RewriteRule ^napredele-offer/$ page15502196.html [NC]
+
+RewriteRule ^napredele-translyaciya$ page15502198.html [NC]
+RewriteRule ^napredele-translyaciya/$ page15502198.html [NC]
+
+RewriteRule ^oplata$ page15502205.html [NC]
+RewriteRule ^oplata/$ page15502205.html [NC]
+
+RewriteRule ^instruction_club_registration$ page15502207.html [NC]
+RewriteRule ^instruction_club_registration/$ page15502207.html [NC]
+
+RewriteRule ^oplata2$ page15502214.html [NC]
+RewriteRule ^oplata2/$ page15502214.html [NC]
+
+RewriteRule ^selfproduce$ page15502219.html [NC]
+RewriteRule ^selfproduce/$ page15502219.html [NC]
+
+RewriteRule ^closed_order$ page15502220.html [NC]
+RewriteRule ^closed_order/$ page15502220.html [NC]
+
+RewriteRule ^workshop_vhod$ page15502227.html [NC]
+RewriteRule ^workshop_vhod/$ page15502227.html [NC]
+
+RewriteRule ^consult$ page15502230.html [NC]
+RewriteRule ^consult/$ page15502230.html [NC]
+
+RewriteRule ^self-produce$ page15502232.html [NC]
+RewriteRule ^self-produce/$ page15502232.html [NC]
+
+RewriteRule ^consult-step2$ page16854022.html [NC]
+RewriteRule ^consult-step2/$ page16854022.html [NC]
+
+RewriteRule ^zapusk-intensive$ page15502091.html [NC]
+RewriteRule ^zapusk-intensive/$ page15502091.html [NC]
+
+RewriteRule ^copywriting_training$ page15502095.html [NC]
+RewriteRule ^copywriting_training/$ page15502095.html [NC]
+
+RewriteRule ^launchmanager$ page15502098.html [NC]
+RewriteRule ^launchmanager/$ page15502098.html [NC]
+
+RewriteRule ^freecourse$ page15502590.html [NC]
+RewriteRule ^freecourse/$ page15502590.html [NC]
+
+RewriteRule ^thanks$ page15502591.html [NC]
+RewriteRule ^thanks/$ page15502591.html [NC]
+
+RewriteRule ^urok1$ page15502594.html [NC]
+RewriteRule ^urok1/$ page15502594.html [NC]
+
+RewriteRule ^urok2$ page15502597.html [NC]
+RewriteRule ^urok2/$ page15502597.html [NC]
+
+RewriteRule ^urok3$ page15502598.html [NC]
+RewriteRule ^urok3/$ page15502598.html [NC]
+
+RewriteRule ^urok4$ page15502602.html [NC]
+RewriteRule ^urok4/$ page15502602.html [NC]
+
+RewriteRule ^urok5$ page15502603.html [NC]
+RewriteRule ^urok5/$ page15502603.html [NC]
+
+RewriteRule ^urok6$ page15502607.html [NC]
+RewriteRule ^urok6/$ page15502607.html [NC]
+
+RewriteRule ^zapusk/episode1$ page15502612.html [NC]
+RewriteRule ^zapusk/episode1/$ page15502612.html [NC]
+
+RewriteRule ^zapusk/episode2$ page15502618.html [NC]
+RewriteRule ^zapusk/episode2/$ page15502618.html [NC]
+
+RewriteRule ^zapusk/episode3$ page15502622.html [NC]
+RewriteRule ^zapusk/episode3/$ page15502622.html [NC]
+
+RewriteRule ^zapusk/episode4$ page15502626.html [NC]
+RewriteRule ^zapusk/episode4/$ page15502626.html [NC]
+
+RewriteRule ^freewebinar$ page15502719.html [NC]
+RewriteRule ^freewebinar/$ page15502719.html [NC]
+
+RewriteRule ^step2$ page15502721.html [NC]
+RewriteRule ^step2/$ page15502721.html [NC]
+
+RewriteRule ^step3$ page15502722.html [NC]
+RewriteRule ^step3/$ page15502722.html [NC]
+
+RewriteRule ^flow$ page15502723.html [NC]
+RewriteRule ^flow/$ page15502723.html [NC]
+
+RewriteRule ^avtofunnel-step2$ page15502729.html [NC]
+RewriteRule ^avtofunnel-step2/$ page15502729.html [NC]
+
+RewriteRule ^autofunnelonmillion$ page15502730.html [NC]
+RewriteRule ^autofunnelonmillion/$ page15502730.html [NC]
+
+RewriteRule ^autofunnelonmillion_thanks$ page15502732.html [NC]
+RewriteRule ^autofunnelonmillion_thanks/$ page15502732.html [NC]
+
+RewriteRule ^autofunnelweb$ page15502734.html [NC]
+RewriteRule ^autofunnelweb/$ page15502734.html [NC]
+
+RewriteRule ^autofunnel-video1$ page15502738.html [NC]
+RewriteRule ^autofunnel-video1/$ page15502738.html [NC]
+
+RewriteRule ^autofunnel-video2$ page15502742.html [NC]
+RewriteRule ^autofunnel-video2/$ page15502742.html [NC]
+
+RewriteRule ^autofunnel-video3$ page15502744.html [NC]
+RewriteRule ^autofunnel-video3/$ page15502744.html [NC]
+
+RewriteRule ^funnelxfactor$ page15502747.html [NC]
+RewriteRule ^funnelxfactor/$ page15502747.html [NC]
+
+RewriteRule ^secretsofproducts$ page15502756.html [NC]
+RewriteRule ^secretsofproducts/$ page15502756.html [NC]
+
+RewriteRule ^create_product_video$ page15502766.html [NC]
+RewriteRule ^create_product_video/$ page15502766.html [NC]
+
+RewriteRule ^create_product_free$ page15502767.html [NC]
+RewriteRule ^create_product_free/$ page15502767.html [NC]
+
+RewriteRule ^online_business_models$ page15502768.html [NC]
+RewriteRule ^online_business_models/$ page15502768.html [NC]
+
+RewriteRule ^webinar_secrets$ page15502772.html [NC]
+RewriteRule ^webinar_secrets/$ page15502772.html [NC]
+
+RewriteRule ^webinar_secrets_thanks$ page15502775.html [NC]
+RewriteRule ^webinar_secrets_thanks/$ page15502775.html [NC]
+
+RewriteRule ^online_business_models_copy$ page15502783.html [NC]
+RewriteRule ^online_business_models_copy/$ page15502783.html [NC]
+
+RewriteRule ^online_business_video$ page15502790.html [NC]
+RewriteRule ^online_business_video/$ page15502790.html [NC]
+
+RewriteRule ^web_secrets$ page15502797.html [NC]
+RewriteRule ^web_secrets/$ page15502797.html [NC]
+
+RewriteRule ^147_servisov$ page18829837.html [NC]
+RewriteRule ^147_servisov/$ page18829837.html [NC]
+
+RewriteRule ^proinstagram-video1$ page15503022.html [NC]
+RewriteRule ^proinstagram-video1/$ page15503022.html [NC]
+
+RewriteRule ^proinstagram-video2$ page15503024.html [NC]
+RewriteRule ^proinstagram-video2/$ page15503024.html [NC]
+
+RewriteRule ^proinstagram-video3$ page15503025.html [NC]
+RewriteRule ^proinstagram-video3/$ page15503025.html [NC]
+
+RewriteRule ^spasibo-proinstagram$ page15503030.html [NC]
+RewriteRule ^spasibo-proinstagram/$ page15503030.html [NC]
+
+RewriteRule ^proinstagram-vebinar1$ page15503032.html [NC]
+RewriteRule ^proinstagram-vebinar1/$ page15503032.html [NC]
+
+RewriteRule ^proinstagram-vebinar-spasibo$ page15503035.html [NC]
+RewriteRule ^proinstagram-vebinar-spasibo/$ page15503035.html [NC]
+
+RewriteRule ^offer$ page15503036.html [NC]
+RewriteRule ^offer/$ page15503036.html [NC]
+
+RewriteRule ^proinstagram-vebinar-translyaciya$ page15503046.html [NC]
+RewriteRule ^proinstagram-vebinar-translyaciya/$ page15503046.html [NC]
+
+RewriteRule ^proinstagram-vebinar$ page15503054.html [NC]
+RewriteRule ^proinstagram-vebinar/$ page15503054.html [NC]
+
+RewriteRule ^proinstagram$ page15503074.html [NC]
+RewriteRule ^proinstagram/$ page15503074.html [NC]
+
+RewriteRule ^3corefunnels-uspeh$ page15503078.html [NC]
+RewriteRule ^3corefunnels-uspeh/$ page15503078.html [NC]
+
+RewriteRule ^academy_politika$ page15503231.html [NC]
+RewriteRule ^academy_politika/$ page15503231.html [NC]
+
+RewriteRule ^academy_soglasie-s-rassilkoi$ page15503235.html [NC]
+RewriteRule ^academy_soglasie-s-rassilkoi/$ page15503235.html [NC]
+
+RewriteRule ^academy_otkaz-ot-otvetstvennocti$ page15503238.html [NC]
+RewriteRule ^academy_otkaz-ot-otvetstvennocti/$ page15503238.html [NC]
+
+RewriteRule ^academy_publichnaya-oferta$ page15503243.html [NC]
+RewriteRule ^academy_publichnaya-oferta/$ page15503243.html [NC]
+
+RewriteRule ^wizart/course_star_project$ page37058000.html [NC]
+RewriteRule ^wizart/course_star_project/$ page37058000.html [NC]
+
+RewriteRule ^wizart/launch_algoritm$ page37058048.html [NC]
+RewriteRule ^wizart/launch_algoritm/$ page37058048.html [NC]
+
+RewriteRule ^wizart/star_project_waiting_list$ page37419384.html [NC]
+RewriteRule ^wizart/star_project_waiting_list/$ page37419384.html [NC]
+
+RewriteRule ^wizart/star_project$ page38139001.html [NC]
+RewriteRule ^wizart/star_project/$ page38139001.html [NC]
+
+RewriteRule ^shablonmini$ page39248210.html [NC]
+RewriteRule ^shablonmini/$ page39248210.html [NC]
+
+RewriteRule ^dik$ page41779547.html [NC]
+RewriteRule ^dik/$ page41779547.html [NC]
+
+RewriteRule ^mestosily$ page45488977.html [NC]
+RewriteRule ^mestosily/$ page45488977.html [NC]
+
+RewriteRule ^mestosily_shablon$ page46713669.html [NC]
+RewriteRule ^mestosily_shablon/$ page46713669.html [NC]
+
+RewriteRule ^sekrety_daty_rozhdeniya$ page60335891.html [NC]
+RewriteRule ^sekrety_daty_rozhdeniya/$ page60335891.html [NC]
+
+RewriteRule ^prednaznachenie_po_date$ page60354443.html [NC]
+RewriteRule ^prednaznachenie_po_date/$ page60354443.html [NC]
+
+RewriteRule ^anketa_projectmanager$ page65000909.html [NC]
+RewriteRule ^anketa_projectmanager/$ page65000909.html [NC]
+
+RewriteRule ^support$ page40339418.html [NC]
+RewriteRule ^support/$ page40339418.html [NC]
+
+RewriteRule ^footer$ page40381452.html [NC]
+RewriteRule ^footer/$ page40381452.html [NC]
+
+RewriteRule ^menu$ page40381477.html [NC]
+RewriteRule ^menu/$ page40381477.html [NC]
+
+RewriteRule ^privacy$ page39030654.html [NC]
+RewriteRule ^privacy/$ page39030654.html [NC]
+
+RewriteRule ^cookie$ page39030896.html [NC]
+RewriteRule ^cookie/$ page39030896.html [NC]
+
+RewriteRule ^oferta-75128$ page40257988.html [NC]
+RewriteRule ^oferta-75128/$ page40257988.html [NC]
+
+RewriteRule ^agreement-89375$ page39029686.html [NC]
+RewriteRule ^agreement-89375/$ page39029686.html [NC]
+
+RewriteRule ^events$ page22107018.html [NC]
+RewriteRule ^events/$ page22107018.html [NC]
+
+RewriteRule ^partner_program$ page22661768.html [NC]
+RewriteRule ^partner_program/$ page22661768.html [NC]
+
+RewriteRule ^testimonials$ page8150248.html [NC]
+RewriteRule ^testimonials/$ page8150248.html [NC]
+
+RewriteRule ^shop$ page18801430.html [NC]
+RewriteRule ^shop/$ page18801430.html [NC]
+
+RewriteRule ^main$ page26419893.html [NC]
+RewriteRule ^main/$ page26419893.html [NC]
+
+RewriteRule ^webinar-38498$ page26732628.html [NC]
+RewriteRule ^webinar-38498/$ page26732628.html [NC]
+
+RewriteRule ^online_broadcast$ page27113282.html [NC]
+RewriteRule ^online_broadcast/$ page27113282.html [NC]
+
+RewriteRule ^mm$ page31075034.html [NC]
+RewriteRule ^mm/$ page31075034.html [NC]
+
+RewriteRule ^redir$ page31960817.html [NC]
+RewriteRule ^redir/$ page31960817.html [NC]
+
+RewriteRule ^tg$ page41199556.html [NC]
+RewriteRule ^tg/$ page41199556.html [NC]
+
+RewriteRule ^svoyashkola$ page41485696.html [NC]
+RewriteRule ^svoyashkola/$ page41485696.html [NC]
+
+RewriteRule ^svoykurs$ page41574194.html [NC]
+RewriteRule ^svoykurs/$ page41574194.html [NC]
+
+RewriteRule ^svoykurs_web$ page41742185.html [NC]
+RewriteRule ^svoykurs_web/$ page41742185.html [NC]
+
+RewriteRule ^tribe1$ page41940307.html [NC]
+RewriteRule ^tribe1/$ page41940307.html [NC]
+
+RewriteRule ^tribe3$ page41948667.html [NC]
+RewriteRule ^tribe3/$ page41948667.html [NC]
+
+RewriteRule ^tribe33$ page41945156.html [NC]
+RewriteRule ^tribe33/$ page41945156.html [NC]
+
+RewriteRule ^tribe2$ page41945112.html [NC]
+RewriteRule ^tribe2/$ page41945112.html [NC]
+
+RewriteRule ^karmanumero$ page42453036.html [NC]
+RewriteRule ^karmanumero/$ page42453036.html [NC]
+
+RewriteRule ^web_prognoz2024$ page42552316.html [NC]
+RewriteRule ^web_prognoz2024/$ page42552316.html [NC]
+
+RewriteRule ^toolkit$ page20948979.html [NC]
+RewriteRule ^toolkit/$ page20948979.html [NC]
+
+RewriteRule ^secretsofproducts-53955$ page20949423.html [NC]
+RewriteRule ^secretsofproducts-53955/$ page20949423.html [NC]
+
+RewriteRule ^freecasestudy$ page27376630.html [NC]
+RewriteRule ^freecasestudy/$ page27376630.html [NC]
+
+RewriteRule ^promoaudit$ page20949511.html [NC]
+RewriteRule ^promoaudit/$ page20949511.html [NC]
+
+RewriteRule ^secretsofproducts1$ page21062153.html [NC]
+RewriteRule ^secretsofproducts1/$ page21062153.html [NC]
+
+RewriteRule ^7steps$ page26326765.html [NC]
+RewriteRule ^7steps/$ page26326765.html [NC]
+
+RewriteRule ^7steps1$ page26948325.html [NC]
+RewriteRule ^7steps1/$ page26948325.html [NC]
+
+RewriteRule ^7simplesteps$ page26470541.html [NC]
+RewriteRule ^7simplesteps/$ page26470541.html [NC]
+
+RewriteRule ^microproduct_part1$ page27074715.html [NC]
+RewriteRule ^microproduct_part1/$ page27074715.html [NC]
+
+RewriteRule ^microproduct_part2$ page27076900.html [NC]
+RewriteRule ^microproduct_part2/$ page27076900.html [NC]
+
+RewriteRule ^microproduct_part3$ page27077603.html [NC]
+RewriteRule ^microproduct_part3/$ page27077603.html [NC]
+
+RewriteRule ^secrets_of_experts$ page27160973.html [NC]
+RewriteRule ^secrets_of_experts/$ page27160973.html [NC]
+
+RewriteRule ^secrets_of_experts1$ page27162511.html [NC]
+RewriteRule ^secrets_of_experts1/$ page27162511.html [NC]
+
+RewriteRule ^secrets_of_experts2$ page27178843.html [NC]
+RewriteRule ^secrets_of_experts2/$ page27178843.html [NC]
+
+RewriteRule ^secrets_of_experts3$ page27178848.html [NC]
+RewriteRule ^secrets_of_experts3/$ page27178848.html [NC]
+
+RewriteRule ^coach_marketing_machine$ page29359049.html [NC]
+RewriteRule ^coach_marketing_machine/$ page29359049.html [NC]
+
+RewriteRule ^coach_marketing_machine/promo$ page29359069.html [NC]
+RewriteRule ^coach_marketing_machine/promo/$ page29359069.html [NC]
+
+RewriteRule ^coach_marketing_machine/promo2$ page29359063.html [NC]
+RewriteRule ^coach_marketing_machine/promo2/$ page29359063.html [NC]
+
+RewriteRule ^coach_marketing_machine/offer$ page29359055.html [NC]
+RewriteRule ^coach_marketing_machine/offer/$ page29359055.html [NC]
+
+RewriteRule ^coach_marketing_machine/test$ page30929034.html [NC]
+RewriteRule ^coach_marketing_machine/test/$ page30929034.html [NC]
+
+RewriteRule ^coach_marketing_machine/template$ page31110491.html [NC]
+RewriteRule ^coach_marketing_machine/template/$ page31110491.html [NC]
+
+RewriteRule ^30days-chapter1-russelbrunson$ page28371043.html [NC]
+RewriteRule ^30days-chapter1-russelbrunson/$ page28371043.html [NC]
+
+RewriteRule ^from_zero_to_hero$ page22441960.html [NC]
+RewriteRule ^from_zero_to_hero/$ page22441960.html [NC]
+
+RewriteRule ^trends_2021_2022$ page22442081.html [NC]
+RewriteRule ^trends_2021_2022/$ page22442081.html [NC]
+
+RewriteRule ^blog-36590$ page21919546.html [NC]
+RewriteRule ^blog-36590/$ page21919546.html [NC]
+
+RewriteRule ^case$ page25189351.html [NC]
+RewriteRule ^case/$ page25189351.html [NC]
+
+RewriteRule ^olga-skorohodova$ page21889108.html [NC]
+RewriteRule ^olga-skorohodova/$ page21889108.html [NC]
+
+RewriteRule ^alesya-shandro$ page22197776.html [NC]
+RewriteRule ^alesya-shandro/$ page22197776.html [NC]
+
+RewriteRule ^tatyana-mitrophanova$ page22212151.html [NC]
+RewriteRule ^tatyana-mitrophanova/$ page22212151.html [NC]
+
+RewriteRule ^natalia-yurieva$ page22285088.html [NC]
+RewriteRule ^natalia-yurieva/$ page22285088.html [NC]
+
+RewriteRule ^tamara-kruglova-$ page22285804.html [NC]
+RewriteRule ^tamara-kruglova-/$ page22285804.html [NC]
+
+RewriteRule ^svetlana-grant-$ page22527268.html [NC]
+RewriteRule ^svetlana-grant-/$ page22527268.html [NC]
+
+RewriteRule ^natalya-pikulina$ page22617421.html [NC]
+RewriteRule ^natalya-pikulina/$ page22617421.html [NC]
+
+RewriteRule ^anna-nikishina$ page22626654.html [NC]
+RewriteRule ^anna-nikishina/$ page22626654.html [NC]
+
+RewriteRule ^ekaterina-keshchan$ page22633218.html [NC]
+RewriteRule ^ekaterina-keshchan/$ page22633218.html [NC]
+
+RewriteRule ^dzhanavi-fedoseenko$ page22911501.html [NC]
+RewriteRule ^dzhanavi-fedoseenko/$ page22911501.html [NC]
+
+RewriteRule ^sergey-artemyev$ page22936449.html [NC]
+RewriteRule ^sergey-artemyev/$ page22936449.html [NC]
+
+RewriteRule ^darya-shubina-$ page22937454.html [NC]
+RewriteRule ^darya-shubina-/$ page22937454.html [NC]
+
+RewriteRule ^olga-kiyko$ page22953262.html [NC]
+RewriteRule ^olga-kiyko/$ page22953262.html [NC]
+
+RewriteRule ^valeriya-kozmina$ page23288371.html [NC]
+RewriteRule ^valeriya-kozmina/$ page23288371.html [NC]
+
+RewriteRule ^viktoriya-ogay$ page23316628.html [NC]
+RewriteRule ^viktoriya-ogay/$ page23316628.html [NC]
+
+RewriteRule ^elena-lorets$ page23663745.html [NC]
+RewriteRule ^elena-lorets/$ page23663745.html [NC]
+
+RewriteRule ^pavel-karyakin_$ page24027043.html [NC]
+RewriteRule ^pavel-karyakin_/$ page24027043.html [NC]
+
+RewriteRule ^pavel-karyakin$ page24597394.html [NC]
+RewriteRule ^pavel-karyakin/$ page24597394.html [NC]
+
+RewriteRule ^olga-skorobogatova$ page24674273.html [NC]
+RewriteRule ^olga-skorobogatova/$ page24674273.html [NC]
+
+RewriteRule ^madina-onova$ page24677504.html [NC]
+RewriteRule ^madina-onova/$ page24677504.html [NC]
+
+RewriteRule ^damir-saetov$ page24708223.html [NC]
+RewriteRule ^damir-saetov/$ page24708223.html [NC]
+
+RewriteRule ^anton-tarasov$ page24720605.html [NC]
+RewriteRule ^anton-tarasov/$ page24720605.html [NC]
+
+RewriteRule ^evgeniia-mavrina$ page24723512.html [NC]
+RewriteRule ^evgeniia-mavrina/$ page24723512.html [NC]
+
+RewriteRule ^darya-shubina$ page24733426.html [NC]
+RewriteRule ^darya-shubina/$ page24733426.html [NC]
+
+RewriteRule ^svetlana-grant$ page24736960.html [NC]
+RewriteRule ^svetlana-grant/$ page24736960.html [NC]
+
+RewriteRule ^aleksei-zhiganov$ page24807602.html [NC]
+RewriteRule ^aleksei-zhiganov/$ page24807602.html [NC]
+
+RewriteRule ^tamara-kruglova$ page24808872.html [NC]
+RewriteRule ^tamara-kruglova/$ page24808872.html [NC]
+
+RewriteRule ^sonya-pash$ page25215393.html [NC]
+RewriteRule ^sonya-pash/$ page25215393.html [NC]
+
+RewriteRule ^natalia-pikulina$ page25215999.html [NC]
+RewriteRule ^natalia-pikulina/$ page25215999.html [NC]
+
+RewriteRule ^natalya-yurieva$ page25216845.html [NC]
+RewriteRule ^natalya-yurieva/$ page25216845.html [NC]
+
+RewriteRule ^janavi-fedoseyenko$ page25256335.html [NC]
+RewriteRule ^janavi-fedoseyenko/$ page25256335.html [NC]
+
+RewriteRule ^anna-kotick$ page25955839.html [NC]
+RewriteRule ^anna-kotick/$ page25955839.html [NC]
+
+RewriteRule ^larisa-nedera$ page26152719.html [NC]
+RewriteRule ^larisa-nedera/$ page26152719.html [NC]
+
+RewriteRule ^privacypolicy-78675$ page22528152.html [NC]
+RewriteRule ^privacypolicy-78675/$ page22528152.html [NC]
+
+RewriteRule ^agreement-67772$ page24281179.html [NC]
+RewriteRule ^agreement-67772/$ page24281179.html [NC]
+
+RewriteRule ^license$ page26874463.html [NC]
+RewriteRule ^license/$ page26874463.html [NC]
+
+RewriteRule ^dogovor-publichnoj-oferty$ page36094473.html [NC]
+RewriteRule ^dogovor-publichnoj-oferty/$ page36094473.html [NC]
+
+RewriteRule ^work$ page25199285.html [NC]
+RewriteRule ^work/$ page25199285.html [NC]
+
+RewriteRule ^product-manager$ page25220537.html [NC]
+RewriteRule ^product-manager/$ page25220537.html [NC]
+
+RewriteRule ^curator$ page25381332.html [NC]
+RewriteRule ^curator/$ page25381332.html [NC]
+
+RewriteRule ^sale$ page25381817.html [NC]
+RewriteRule ^sale/$ page25381817.html [NC]
+
+RewriteRule ^designer$ page25382539.html [NC]
+RewriteRule ^designer/$ page25382539.html [NC]
+
+RewriteRule ^copywriter$ page25384763.html [NC]
+RewriteRule ^copywriter/$ page25384763.html [NC]
+
+RewriteRule ^analyst$ page25385714.html [NC]
+RewriteRule ^analyst/$ page25385714.html [NC]
+
+RewriteRule ^traffic-manager$ page25386658.html [NC]
+RewriteRule ^traffic-manager/$ page25386658.html [NC]
+
+RewriteRule ^program-manager$ page25388435.html [NC]
+RewriteRule ^program-manager/$ page25388435.html [NC]
+
+RewriteRule ^content$ page25389353.html [NC]
+RewriteRule ^content/$ page25389353.html [NC]
+
+RewriteRule ^zoom$ page20976095.html [NC]
+RewriteRule ^zoom/$ page20976095.html [NC]
+
+RewriteRule ^masters$ page21987463.html [NC]
+RewriteRule ^masters/$ page21987463.html [NC]
+
+RewriteRule ^instruction_zoom$ page24069638.html [NC]
+RewriteRule ^instruction_zoom/$ page24069638.html [NC]
+
+RewriteRule ^rockstarproduct$ page27109506.html [NC]
+RewriteRule ^rockstarproduct/$ page27109506.html [NC]
+
+RewriteRule ^application_form_step2$ page17977595.html [NC]
+RewriteRule ^application_form_step2/$ page17977595.html [NC]
+
+RewriteRule ^homework_step3$ page22109052.html [NC]
+RewriteRule ^homework_step3/$ page22109052.html [NC]
+
+RewriteRule ^application_form$ page22264095.html [NC]
+RewriteRule ^application_form/$ page22264095.html [NC]
+
+RewriteRule ^blackwhite-77467$ page19689661.html [NC]
+RewriteRule ^blackwhite-77467/$ page19689661.html [NC]
+
+RewriteRule ^audit$ page19448980.html [NC]
+RewriteRule ^audit/$ page19448980.html [NC]
+
+RewriteRule ^blackfriday$ page23824406.html [NC]
+RewriteRule ^blackfriday/$ page23824406.html [NC]
+
+RewriteRule ^strategic_planning$ page16382896.html [NC]
+RewriteRule ^strategic_planning/$ page16382896.html [NC]
+
+RewriteRule ^trends_2021$ page16720632.html [NC]
+RewriteRule ^trends_2021/$ page16720632.html [NC]
+
+RewriteRule ^ny_sale$ page24282609.html [NC]
+RewriteRule ^ny_sale/$ page24282609.html [NC]
+
+RewriteRule ^products$ page25012265.html [NC]
+RewriteRule ^products/$ page25012265.html [NC]
+
+RewriteRule ^clients$ page25963284.html [NC]
+RewriteRule ^clients/$ page25963284.html [NC]
+
+RewriteRule ^exponent$ page17420316.html [NC]
+RewriteRule ^exponent/$ page17420316.html [NC]
+
+RewriteRule ^fastresultcoach$ page26262666.html [NC]
+RewriteRule ^fastresultcoach/$ page26262666.html [NC]
+
+RewriteRule ^repack$ page26561125.html [NC]
+RewriteRule ^repack/$ page26561125.html [NC]
+
+RewriteRule ^booksprint$ page28244000.html [NC]
+RewriteRule ^booksprint/$ page28244000.html [NC]
+
+RewriteRule ^knigi$ https://alisherotabaev\.com/books [R=301,NC,L]
+
+RewriteRule ^vystupleniya$ https://alisherotabaev\.com/appearances [R=301,NC,L]
+
+RewriteRule ^coaching$ https://alisherotabaev\.com/consulting [R=301,NC,L]
+
+RewriteRule ^knigi/$ https://alisherotabaev\.com/books [R=301,NC,L]
+
+RewriteRule ^vystupleniya/$ https://alisherotabaev\.com/appearances [R=301,NC,L]
+
+RewriteRule ^coaching/$ https://alisherotabaev\.com/consulting [R=301,NC,L]
+
+RewriteRule ^members/ ma_start.html [NC,L]
+
+
