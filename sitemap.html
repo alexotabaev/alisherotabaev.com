@@ -1,0 +1,3820 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Карта сайта — alisherotabaev.com</title>
+<style>
+  :root {
+    --bg: #0d0d0d;
+    --surface: #161616;
+    --surface2: #1e1e1e;
+    --border: #2a2a2a;
+    --gold: #e8a020;
+    --gold2: #c8851a;
+    --text: #e8e8e0;
+    --muted: #7a7a70;
+    --radius: 10px;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    line-height: 1.5;
+  }
+
+  /* HEADER */
+  .site-header {
+    background: linear-gradient(135deg, #111 0%, #1a1200 100%);
+    border-bottom: 1px solid #2a2000;
+    padding: 40px 24px 36px;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+  .site-header::before {
+    content: '';
+    position: absolute;
+    top: -60px; left: 50%; transform: translateX(-50%);
+    width: 600px; height: 200px;
+    background: radial-gradient(ellipse, rgba(232,160,32,0.12) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .logo-line {
+    font-size: 13px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 12px;
+    opacity: 0.8;
+  }
+  .site-header h1 {
+    font-size: clamp(24px, 4vw, 42px);
+    font-weight: 300;
+    letter-spacing: -0.5px;
+    color: #fff;
+    margin-bottom: 8px;
+  }
+  .site-header h1 span {
+    color: var(--gold);
+    font-weight: 600;
+  }
+  .header-sub {
+    color: var(--muted);
+    font-size: 15px;
+    margin-top: 10px;
+  }
+  .total-badge {
+    display: inline-block;
+    margin-top: 20px;
+    background: rgba(232,160,32,0.1);
+    border: 1px solid rgba(232,160,32,0.3);
+    color: var(--gold);
+    padding: 6px 18px;
+    border-radius: 20px;
+    font-size: 14px;
+    letter-spacing: 1px;
+  }
+
+  /* NAV */
+  .sticky-nav {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(13,13,13,0.95);
+    backdrop-filter: blur(10px);
+    border-bottom: 1px solid var(--border);
+    padding: 0;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sticky-nav::-webkit-scrollbar { display: none; }
+  .nav-inner {
+    display: flex;
+    gap: 2px;
+    padding: 10px 16px;
+    min-width: max-content;
+  }
+  .nav-item {
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    padding: 6px 12px;
+    border-radius: 6px;
+    font-size: 12px;
+    color: var(--muted);
+    text-decoration: none;
+    white-space: nowrap;
+    transition: all 0.2s;
+    border: 1px solid transparent;
+  }
+  .nav-item:hover {
+    color: var(--c, var(--gold));
+    background: rgba(255,255,255,0.04);
+    border-color: var(--c, var(--gold));
+  }
+  .nav-cnt {
+    background: rgba(255,255,255,0.08);
+    color: var(--muted);
+    padding: 1px 6px;
+    border-radius: 10px;
+    font-size: 10px;
+  }
+
+  /* MAIN */
+  .main-content {
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 32px 20px 80px;
+  }
+
+  /* CATEGORY SECTION */
+  .category {
+    margin-bottom: 48px;
+  }
+  .cat-header {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+    padding: 14px 18px;
+    background: var(--surface);
+    border-radius: var(--radius);
+    margin-bottom: 16px;
+  }
+  .cat-icon { font-size: 24px; flex-shrink: 0; }
+  .cat-title {
+    font-size: 18px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.3px;
+  }
+  .cat-count {
+    font-size: 12px;
+    color: var(--muted);
+    display: block;
+    margin-top: 2px;
+  }
+
+  /* PAGE GRID */
+  .pages-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
+    gap: 10px;
+  }
+  .page-card {
+    background: var(--surface2);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    transition: all 0.2s;
+    overflow: hidden;
+  }
+  .page-card:hover {
+    border-color: var(--accent, var(--gold));
+    background: #222;
+    transform: translateY(-1px);
+    box-shadow: 0 4px 20px rgba(0,0,0,0.4);
+  }
+  .page-link {
+    display: flex;
+    align-items: center;
+    padding: 12px 14px;
+    text-decoration: none;
+    color: inherit;
+    gap: 10px;
+    min-height: 64px;
+  }
+  .page-link.no-url { cursor: default; opacity: 0.5; }
+  .page-inner { flex: 1; min-width: 0; }
+  .page-title {
+    font-size: 13px;
+    font-weight: 500;
+    color: #d8d8d0;
+    line-height: 1.4;
+    margin-bottom: 4px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .page-card:hover .page-title { color: #fff; }
+  .page-alias {
+    font-size: 11px;
+    color: var(--muted);
+    font-family: 'SF Mono', 'Fira Code', monospace;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+  .page-card:hover .page-alias { color: var(--accent, var(--gold)); }
+  .ext-icon {
+    font-size: 14px;
+    color: var(--muted);
+    flex-shrink: 0;
+    opacity: 0.5;
+    transition: opacity 0.2s;
+  }
+  .ext-icon.muted { font-size: 12px; }
+  .page-card:hover .ext-icon { opacity: 1; color: var(--accent, var(--gold)); }
+
+  /* FOOTER */
+  .site-footer {
+    text-align: center;
+    padding: 32px;
+    border-top: 1px solid var(--border);
+    color: var(--muted);
+    font-size: 13px;
+  }
+  .site-footer a { color: var(--gold); text-decoration: none; }
+
+  @media (max-width: 600px) {
+    .pages-grid { grid-template-columns: 1fr; }
+  }
+</style>
+</head>
+<body>
+
+<header class="site-header">
+  <div class="logo-line">alisherotabaev.com</div>
+  <h1>Карта <span>сайта</span></h1>
+  <p class="header-sub">Полный список страниц, разбитых по разделам</p>
+  <div class="total-badge">🗺 334 страниц · 17 разделов</div>
+</header>
+
+<nav class="sticky-nav">
+  <div class="nav-inner">
+    <a href="#cat-main" class="nav-item" style="--c:#e8a020">🏠 Основные страницы <span class="nav-cnt">11</span></a>
+<a href="#cat-blog" class="nav-item" style="--c:#d4a853">✍️ Блог <span class="nav-cnt">53</span></a>
+<a href="#cat-consulting" class="nav-item" style="--c:#c98a2e">💼 Консалтинг и коучинг <span class="nav-cnt">17</span></a>
+<a href="#cat-academy" class="nav-item" style="--c:#b87333">🎓 Академия востребованных экспертов <span class="nav-cnt">19</span></a>
+<a href="#cat-events" class="nav-item" style="--c:#a06020">📡 Вебинары и мероприятия <span class="nav-cnt">21</span></a>
+<a href="#cat-courses" class="nav-item" style="--c:#c8a060">📚 Курсы и программы <span class="nav-cnt">54</span></a>
+<a href="#cat-funnels" class="nav-item" style="--c:#d4924a">🔄 Воронки продаж <span class="nav-cnt">10</span></a>
+<a href="#cat-gamechanger" class="nav-item" style="--c:#e09030">🎮 GameChanger <span class="nav-cnt">6</span></a>
+<a href="#cat-instagram" class="nav-item" style="--c:#c47820">📸 Instagram / Продвижение <span class="nav-cnt">11</span></a>
+<a href="#cat-cmm" class="nav-item" style="--c:#b86818">⚙️ Coach Marketing Machine <span class="nav-cnt">6</span></a>
+<a href="#cat-wizart" class="nav-item" style="--c:#d8a840">🌟 WizArt <span class="nav-cnt">4</span></a>
+<a href="#cat-coaches" class="nav-item" style="--c:#b89040">🏆 Истории успеха / Коучи <span class="nav-cnt">34</span></a>
+<a href="#cat-jobs" class="nav-item" style="--c:#a07830">💼 Вакансии <span class="nav-cnt">10</span></a>
+<a href="#cat-legal" class="nav-item" style="--c:#806040">📋 Юридические документы <span class="nav-cnt">12</span></a>
+<a href="#cat-utility" class="nav-item" style="--c:#605040">🔧 Служебные страницы <span class="nav-cnt">20</span></a>
+<a href="#cat-service" class="nav-item" style="--c:#504030">📄 Черновики / Копии <span class="nav-cnt">44</span></a>
+<a href="#cat-other" class="nav-item" style="--c:#705030">📌 Прочее <span class="nav-cnt">2</span></a>
+
+  </div>
+</nav>
+
+<main class="main-content">
+  
+    <section class="category" id="cat-main">
+      <div class="cat-header" style="border-left: 4px solid #e8a020;">
+        <span class="cat-icon">🏠</span>
+        <div>
+          <h2 class="cat-title">Основные страницы</h2>
+          <span class="cat-count">11 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/about_/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Обо мне</div>
+            <div class="page-alias">/about_</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/books/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Книги Алишера Отабаева</div>
+            <div class="page-alias">/books</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/appearances/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Выступления Алишера Отабаева</div>
+            <div class="page-alias">/appearances</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/mediakit/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Медиа-кит</div>
+            <div class="page-alias">/mediakit</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/links/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Алишер Отабаев. Link</div>
+            <div class="page-alias">/links</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/about/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Алишер Отабаев - официальный сайт</div>
+            <div class="page-alias">/about</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Алишер Отабаев - продюсер, CEO Digital агентства clienthunter.pro</div>
+            <div class="page-alias">/mini</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/catalog/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Каталог курсов</div>
+            <div class="page-alias">/catalog</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/support/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Контактная информация</div>
+            <div class="page-alias">/support</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/events/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Актуальные мероприятия</div>
+            <div class="page-alias">/events</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e8a020">
+          <a href="https://alisherotabaev.com/main/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Академия Востребованных Экспертов</div>
+            <div class="page-alias">/main</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-blog">
+      <div class="cat-header" style="border-left: 4px solid #d4a853;">
+        <span class="cat-icon">✍️</span>
+        <div>
+          <h2 class="cat-title">Блог</h2>
+          <span class="cat-count">53 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/psixologicheskie-triggery/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Психологические триггеры</div>
+            <div class="page-alias">/blog/psixologicheskie-triggery</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-prodavat-mnogo/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как продавать много везде и без риска потерять друзей</div>
+            <div class="page-alias">/blog/kak-prodavat-mnogo</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/pochemu-lyudi-pokupayut/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему люди покупают</div>
+            <div class="page-alias">/blog/pochemu-lyudi-pokupayut</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-dogovarivatsya-o-krupnyx-semejnyx-tratax/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как договариваться о крупных семейных тратах</div>
+            <div class="page-alias">/blog/kak-dogovarivatsya-o-krupnyx-semejnyx-tratax</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kto-v-seme-kontroliruet-byudzhet/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Кто в семье контролирует бюджет</div>
+            <div class="page-alias">/blog/kto-v-seme-kontroliruet-byudzhet</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kto-v-seme-zarabatyvaet/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как решить, кто в семье зарабатывает?</div>
+            <div class="page-alias">/blog/kto-v-seme-zarabatyvaet</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-zarabatyvat-dengi-na-lyubimom-dele/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как зарабатывать деньги на любимом деле</div>
+            <div class="page-alias">/blog/kak-zarabatyvat-dengi-na-lyubimom-dele</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/stabilnyj-zarabotok/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Что такое стабильный заработок?</div>
+            <div class="page-alias">/blog/stabilnyj-zarabotok</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/vyxod-na-novyj-uroven-doxodov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Что предпринять для выхода на новый уровень доходов?</div>
+            <div class="page-alias">/blog/vyxod-na-novyj-uroven-doxodov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/chto-skryvaetsya-za-dengami/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Что на самом деле скрывается за деньгами?</div>
+            <div class="page-alias">/blog/chto-skryvaetsya-za-dengami</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/biznes-po-muzhski-i-po-zhenski/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Чем отличается бизнес по-мужски и бизнес по-женски</div>
+            <div class="page-alias">/blog/biznes-po-muzhski-i-po-zhenski</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/sekretnyj-rastvoritel-problem/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Существует ли секретный "растворитель" проблем</div>
+            <div class="page-alias">/blog/sekretnyj-rastvoritel-problem</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/skolko-nuzhno-vkladyvat-v-svoe-razvitie/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Сколько нужно вкладывать в свое развитие</div>
+            <div class="page-alias">/blog/skolko-nuzhno-vkladyvat-v-svoe-razvitie</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/teoriya-etazhej/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Теория этажей</div>
+            <div class="page-alias">/blog/teoriya-etazhej</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/psixologiya-izmeneniya-nauka-samorazvitiya/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Психология изменения - наука саморазвития</div>
+            <div class="page-alias">/blog/psixologiya-izmeneniya-nauka-samorazvitiya</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/privlechenie-i-uderzhanie-denezhnyx-potokov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Привлечение и удержание денежных потоков</div>
+            <div class="page-alias">/blog/privlechenie-i-uderzhanie-denezhnyx-potokov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/raznye-sposoby-zarabatyvaniya-deneg/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему у мужчин и женщин разные способы зарабатывания денег</div>
+            <div class="page-alias">/blog/raznye-sposoby-zarabatyvaniya-deneg</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/pochemu-zhenshhina-ne-mozhet-zarabatyvat-dengi-kak-muzhchina/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему у женщины не получается зарабатывать деньги так же, как у мужчины</div>
+            <div class="page-alias">/blog/pochemu-zhenshhina-ne-mozhet-zarabatyvat-dengi-kak-muzhchina</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/raznye-pravila-zarabatyvaniya-deneg-u-muzhchin-i-zhenshhin/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему у мужчин и женщин разные правила зарабатывания денег</div>
+            <div class="page-alias">/blog/raznye-pravila-zarabatyvaniya-deneg-u-muzhchin-i-zhenshhin</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/pochemu-poyavlyaetsya-denezhnyj-potolok/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему появляется денежный потолок?</div>
+            <div class="page-alias">/blog/pochemu-poyavlyaetsya-denezhnyj-potolok</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/myshlenie-i-konechnyj-finansovyj-rezultat/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему мышление оказывает влияние на конечный финансовый результат</div>
+            <div class="page-alias">/blog/myshlenie-i-konechnyj-finansovyj-rezultat</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/pochemu-dengi-utekayut-bystro/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему деньги «утекают» быстрее, чем приходят?</div>
+            <div class="page-alias">/blog/pochemu-dengi-utekayut-bystro</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/pochemu-bogatye-bogateyut-bednye-bedneyut/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему богатые богатеют, а бедные беднеют?</div>
+            <div class="page-alias">/blog/pochemu-bogatye-bogateyut-bednye-bedneyut</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/pochemu-ne-rabotayut-vizualizacii/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему аффирмации, визуализация и коллажи мечты не работают?</div>
+            <div class="page-alias">/blog/pochemu-ne-rabotayut-vizualizacii</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/prichiny-poyavleniya-ogranichivayushhix-ubezhdenij/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Откуда растут корни ограничивающих убеждений при получении денег</div>
+            <div class="page-alias">/blog/prichiny-poyavleniya-ogranichivayushhix-ubezhdenij</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/otkuda-berutsya-negativnye-denezhnye-mysli/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Откуда берутся негативные денежные мысли</div>
+            <div class="page-alias">/blog/otkuda-berutsya-negativnye-denezhnye-mysli</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/principy-denezhnogo-myshleniya-millionerov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Основные принципы денежного мышления миллионеров</div>
+            <div class="page-alias">/blog/principy-denezhnogo-myshleniya-millionerov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/oshibki-vizualizacii/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Основные ошибки визуализации</div>
+            <div class="page-alias">/blog/oshibki-vizualizacii</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/koefficient-finansovogo-rosta/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Коэффициент финансового роста</div>
+            <div class="page-alias">/blog/koefficient-finansovogo-rosta</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/vliyanie-okruzheniya-na-denezhnoe-myshlenie/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Какое влияние оказывает окружение на денежное мышление?</div>
+            <div class="page-alias">/blog/vliyanie-okruzheniya-na-denezhnoe-myshlenie</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/effektivnye-sposoby-otkladyvat-dengi/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Самые эффективные способы откладывать деньги</div>
+            <div class="page-alias">/blog/effektivnye-sposoby-otkladyvat-dengi</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/ochishhenie-ot-denezhnyx-blokov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Варианты очищения от денежных блоков</div>
+            <div class="page-alias">/blog/ochishhenie-ot-denezhnyx-blokov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-umnozhit-dengi/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как умножить деньги, чтобы их было много</div>
+            <div class="page-alias">/blog/kak-umnozhit-dengi</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-probit-denezhnyj-barer-navsegda/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как убрать предел по деньгам и пробить этот барьер навсегда</div>
+            <div class="page-alias">/blog/kak-probit-denezhnyj-barer-navsegda</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-ubrat-musor-iz-golovy-i-nachat-zarabatyvat/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как убрать мусор из головы и начать зарабатывать легко и с удовольствием</div>
+            <div class="page-alias">/blog/kak-ubrat-musor-iz-golovy-i-nachat-zarabatyvat</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-razvit-intuiciyu-na-dengi/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как развить интуицию и «нюх» на деньги?</div>
+            <div class="page-alias">/blog/kak-razvit-intuiciyu-na-dengi</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-razvit-nestandartnoe-myshlenie/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как развить в себе нестандартное мышление</div>
+            <div class="page-alias">/blog/kak-razvit-nestandartnoe-myshlenie</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-rabotat-menshe-i-poluchat-bolshe/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как работать меньше, а получать больше</div>
+            <div class="page-alias">/blog/kak-rabotat-menshe-i-poluchat-bolshe</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-pravilno-formulirovat-finansovye-celi/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как правильно формулировать финансовые цели, чтобы они достигались</div>
+            <div class="page-alias">/blog/kak-pravilno-formulirovat-finansovye-celi</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-pravilno-sostavit-kollazh-mechty/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как правильно составить коллаж мечты для привлечения денежных потоков</div>
+            <div class="page-alias">/blog/kak-pravilno-sostavit-kollazh-mechty</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-pravilno-investirovat/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как правильно инвестировать</div>
+            <div class="page-alias">/blog/kak-pravilno-investirovat</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-pravilno-zarabatyvat-dengi/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как правильно зарабатывать деньги, чтобы доход постоянно рос?</div>
+            <div class="page-alias">/blog/kak-pravilno-zarabatyvat-dengi</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-podruzhitsya-s-dengami/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как подружиться с деньгами?</div>
+            <div class="page-alias">/blog/kak-podruzhitsya-s-dengami</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-ne-panikovat-kogda-dengi-tayut/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как не паниковать еще больше, когда денежный поток все «тает»</div>
+            <div class="page-alias">/blog/kak-ne-panikovat-kogda-dengi-tayut</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-iskorenit-negativnye-denezhnye-ustanovki/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как искоренить негативные денежные установки</div>
+            <div class="page-alias">/blog/kak-iskorenit-negativnye-denezhnye-ustanovki</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-zarabatyvat-dengi-stabilno/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как зарабатывать деньги стабильно и ни о чем не переживать?</div>
+            <div class="page-alias">/blog/kak-zarabatyvat-dengi-stabilno</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-dumat-chtoby-bogatet/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как думать, чтобы богатеть быстро и легко?</div>
+            <div class="page-alias">/blog/kak-dumat-chtoby-bogatet</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-poluchat-stolko-deneg-skolko-xochetsya/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как «намутить» столько денег, сколько хочется, а не сколько получится?</div>
+            <div class="page-alias">/blog/kak-poluchat-stolko-deneg-skolko-xochetsya</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/kak-vytyanut-sebya-iz-bolota/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как «вытянуть» себя, когда ничего не хочется?</div>
+            <div class="page-alias">/blog/kak-vytyanut-sebya-iz-bolota</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/finansovye-celi-dlya-muzhchin-i-zhenshhin/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Есть ли разница в формировании финансовых целей для мужчин и женщин?</div>
+            <div class="page-alias">/blog/finansovye-celi-dlya-muzhchin-i-zhenshhin</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/volshebnye-slova-dlya-privlecheniya-deneg/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Есть ли волшебные слова и мантры для привлечения денежных потоков</div>
+            <div class="page-alias">/blog/volshebnye-slova-dlya-privlecheniya-deneg</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/dengi-dobro-ili-zlo/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Деньги - это «добро» или «зло»?</div>
+            <div class="page-alias">/blog/dengi-dobro-ili-zlo</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4a853">
+          <a href="https://alisherotabaev.com/blog/osobennosti-uspeshnyx-evreev/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Главные отличия евреев, которые делают их столь успешными</div>
+            <div class="page-alias">/blog/osobennosti-uspeshnyx-evreev</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-consulting">
+      <div class="cat-header" style="border-left: 4px solid #c98a2e;">
+        <span class="cat-icon">💼</span>
+        <div>
+          <h2 class="cat-title">Консалтинг и коучинг</h2>
+          <span class="cat-count">17 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/consulting/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Индивидуальные консультации Алишера Отабаева</div>
+            <div class="page-alias">/consulting</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/strategyplan/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Стратегическая сессия Алишера Отабаева</div>
+            <div class="page-alias">/strategyplan</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/coaching/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Личный коучинг Алишера Отабаева</div>
+            <div class="page-alias">/coaching</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/zoomanalyzes/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ZOOM РАЗБОРЫ</div>
+            <div class="page-alias">/zoomanalyzes</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/onecommaclub/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Клуб одной запятой для экспертов и профессионалов</div>
+            <div class="page-alias">/onecommaclub</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/consult-vebinar/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Бесплатный онлайн-интенсив: Секреты масштабирования образовательного бизнеса</div>
+            <div class="page-alias">/consult-vebinar</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/consult-vebinar-uspeh/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Регистрация прошла успешно</div>
+            <div class="page-alias">/consult-vebinar-uspeh</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/consult-vebinar-translyaciya/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Вход на интенсив по консалтингу</div>
+            <div class="page-alias">/consult-vebinar-translyaciya</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/consult/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Оплата услуг ClientHunter Консультация</div>
+            <div class="page-alias">/consult</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/consult-step2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Анкета для записи на консалтинг</div>
+            <div class="page-alias">/consult-step2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/mm/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">МастерМайнд</div>
+            <div class="page-alias">/mm</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/promoaudit/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Бизнес-аудит онлайн-проекта</div>
+            <div class="page-alias">/promoaudit</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/zoom/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Стратегический групповой разбор с Алишером Отабаевым</div>
+            <div class="page-alias">/zoom</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/masters/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Предоплата за программы Алишера</div>
+            <div class="page-alias">/masters</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/instruction_zoom/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Инструкция как пользоваться ZOOM</div>
+            <div class="page-alias">/instruction_zoom</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/audit/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Бизнес-аудит онлайн-проекта</div>
+            <div class="page-alias">/audit</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c98a2e">
+          <a href="https://alisherotabaev.com/fastresultcoach/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Установочная стратегическая сессия</div>
+            <div class="page-alias">/fastresultcoach</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-academy">
+      <div class="cat-header" style="border-left: 4px solid #b87333;">
+        <span class="cat-icon">🎓</span>
+        <div>
+          <h2 class="cat-title">Академия востребованных экспертов</h2>
+          <span class="cat-count">19 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/blackwhite/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ЧёрноБелое: программа развития онлайн бизнеса</div>
+            <div class="page-alias">/blackwhite</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/club/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Академия Востребованных Экспертов</div>
+            <div class="page-alias">/club</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/instruction_club_registration/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Инструкция по регистрации в клуб</div>
+            <div class="page-alias">/instruction_club_registration</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/closed_order/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Закрытый орден экспертов</div>
+            <div class="page-alias">/closed_order</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/workshop_vhod/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Вход на практикум</div>
+            <div class="page-alias">/workshop_vhod</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/secretsofproducts/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты создания востребованных онлайн-продуктов</div>
+            <div class="page-alias">/secretsofproducts</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/academy_politika/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Политика конфиденциальности</div>
+            <div class="page-alias">/academy_politika</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/academy_soglasie-s-rassilkoi/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Согласие с рассылкой</div>
+            <div class="page-alias">/academy_soglasie-s-rassilkoi</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/academy_otkaz-ot-otvetstvennocti/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Отказ от ответственности</div>
+            <div class="page-alias">/academy_otkaz-ot-otvetstvennocti</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/academy_publichnaya-oferta/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Публичная оферта</div>
+            <div class="page-alias">/academy_publichnaya-oferta</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/partner_program/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Партнерская программа Академии Востребованных Экспертов</div>
+            <div class="page-alias">/partner_program</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/testimonials/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Отзывы клиентов ClientHunter</div>
+            <div class="page-alias">/testimonials</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/shop/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Каталог продуктов Академии Востребованных Экспертов</div>
+            <div class="page-alias">/shop</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/secretsofproducts-53955/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты создания востребованных инфопродуктов</div>
+            <div class="page-alias">/secretsofproducts-53955</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/secretsofproducts1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">"Секреты создания востребованных инфопродуктов"</div>
+            <div class="page-alias">/secretsofproducts1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/blackwhite-77467/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ЧёрноБелое: программа развития онлайн бизнеса</div>
+            <div class="page-alias">/blackwhite-77467</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/products/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Каталог продуктов академии</div>
+            <div class="page-alias">/products</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/clients/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Программа Клиенты</div>
+            <div class="page-alias">/clients</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b87333">
+          <a href="https://alisherotabaev.com/exponent/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ЭКСПОНЕНТА</div>
+            <div class="page-alias">/exponent</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-events">
+      <div class="cat-header" style="border-left: 4px solid #a06020;">
+        <span class="cat-icon">📡</span>
+        <div>
+          <h2 class="cat-title">Вебинары и мероприятия</h2>
+          <span class="cat-count">21 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/webinar/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как создать очередь клиентов</div>
+            <div class="page-alias">/webinar</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/webinar1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как создать очередь клиентов</div>
+            <div class="page-alias">/webinar1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/3corefunnels/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">3 ключевых воронки в бизнесе</div>
+            <div class="page-alias">/3corefunnels</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/napredele/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Марафон  "На пределе"</div>
+            <div class="page-alias">/napredele</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/napredele-offer/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Коммерческое предложение: Марафон  "На пределе"</div>
+            <div class="page-alias">/napredele-offer</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/napredele-translyaciya/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Трансляция марафона "На пределе"</div>
+            <div class="page-alias">/napredele-translyaciya</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/zapusk-intensive/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Интенсив - Готовая схема запуска на миллион рублей</div>
+            <div class="page-alias">/zapusk-intensive</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/freewebinar/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как за 3 месяца стать высокооплачиваемым маркетологом с доходом 150-300 т.р.</div>
+            <div class="page-alias">/freewebinar</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/flow/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">3х дневный интенсив ПОТОК</div>
+            <div class="page-alias">/flow</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/webinar_secrets/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Мастер-класс Секреты привлечения клиентов</div>
+            <div class="page-alias">/webinar_secrets</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/webinar_secrets_thanks/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Успешная регистрация Секреты привлечения клиентов</div>
+            <div class="page-alias">/webinar_secrets_thanks</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/web_secrets/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Онлайн мастер-класс Секреты привлечения клиентов</div>
+            <div class="page-alias">/web_secrets</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/3corefunnels-uspeh/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Благодарим за подписку на чек-лист "3 ключевые воронки в бизнесе".</div>
+            <div class="page-alias">/3corefunnels-uspeh</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/webinar-38498/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Вебинарная платформа</div>
+            <div class="page-alias">/webinar-38498</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/online_broadcast/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как превратить свой онлайн-проект в источник стабильного дохода</div>
+            <div class="page-alias">/online_broadcast</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/web_prognoz2024/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Вебинар "Ваш персональный нумерологический прогноз на 2024 год"</div>
+            <div class="page-alias">/web_prognoz2024</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/trends_2021_2022/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Тренды онлайн образования 2021-2022гг.</div>
+            <div class="page-alias">/trends_2021_2022</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/rockstarproduct/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Внедрение продуктового превосходства</div>
+            <div class="page-alias">/rockstarproduct</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/strategic_planning/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Онлайн-интенсив Стратегическое планирование жизни и бизнеса</div>
+            <div class="page-alias">/strategic_planning</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/repack/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Практический интенсив "ПереУпаковка"</div>
+            <div class="page-alias">/repack</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a06020">
+          <a href="https://alisherotabaev.com/booksprint/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Книжный марафон</div>
+            <div class="page-alias">/booksprint</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-courses">
+      <div class="cat-header" style="border-left: 4px solid #c8a060;">
+        <span class="cat-icon">📚</span>
+        <div>
+          <h2 class="cat-title">Курсы и программы</h2>
+          <span class="cat-count">54 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/personal/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Анкета на личную работу</div>
+            <div class="page-alias">/personal</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/mechta/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Сделать мечту реальностью</div>
+            <div class="page-alias">/mechta</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/selfproduce/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Самопродюсирование</div>
+            <div class="page-alias">/selfproduce</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/self-produce/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Самопродюсирование - спец предложение</div>
+            <div class="page-alias">/self-produce</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/copywriting_training/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Взрывной копирайтинг</div>
+            <div class="page-alias">/copywriting_training</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/launchmanager/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Коучинговая программа №1 по подготовке Launch Manager</div>
+            <div class="page-alias">/launchmanager</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/freecourse/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Бесплатный курс "Денежный бульдозер"</div>
+            <div class="page-alias">/freecourse</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/urok1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Урок 1</div>
+            <div class="page-alias">/urok1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/urok2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Урок 2</div>
+            <div class="page-alias">/urok2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/urok3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Урок 3</div>
+            <div class="page-alias">/urok3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/urok4/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Урок 4</div>
+            <div class="page-alias">/urok4</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/urok5/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Урок 5</div>
+            <div class="page-alias">/urok5</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/urok6/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Урок 6 бонусный</div>
+            <div class="page-alias">/urok6</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/zapusk/episode1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты успешных запусков - Урок 1</div>
+            <div class="page-alias">/zapusk/episode1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/zapusk/episode2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты успешных запусков - Урок 2</div>
+            <div class="page-alias">/zapusk/episode2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/zapusk/episode3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты успешных запусков - Урок 3</div>
+            <div class="page-alias">/zapusk/episode3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/zapusk/episode4/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты успешных запусков - Урок 4</div>
+            <div class="page-alias">/zapusk/episode4</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/create_product_video/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Забрать продукт 7 простых шагов к созданию онлайн-продукта</div>
+            <div class="page-alias">/create_product_video</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/create_product_free/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">7 простых шагов к созданию онлайн-продукта</div>
+            <div class="page-alias">/create_product_free</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/online_business_models/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">9 бизнес-моделей онлайн-бизнеса</div>
+            <div class="page-alias">/online_business_models</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/online_business_models_copy/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">9 бизнес-моделей онлайн-бизнеса</div>
+            <div class="page-alias">/online_business_models_copy</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/online_business_video/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Забрать 9 бизнес-моделей онлайн-бизнеса</div>
+            <div class="page-alias">/online_business_video</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/147_servisov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">147 Полезных  сервисов для  образовательного  бизнеса</div>
+            <div class="page-alias">/147_servisov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/shablonmini/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Шаблон мини-страницы для инсты</div>
+            <div class="page-alias">/shablonmini</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/dik/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">(без названия)</div>
+            <div class="page-alias">/dik</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/mestosily/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Активация предназначения</div>
+            <div class="page-alias">/mestosily</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/mestosily_shablon/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Активация предназначения</div>
+            <div class="page-alias">/mestosily_shablon</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/sekrety_daty_rozhdeniya/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты Даты Рождения</div>
+            <div class="page-alias">/sekrety_daty_rozhdeniya</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/prednaznachenie_po_date/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как узнать предназначение по дате рождения?</div>
+            <div class="page-alias">/prednaznachenie_po_date</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/anketa_projectmanager/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Анкета на вакансию</div>
+            <div class="page-alias">/anketa_projectmanager</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/svoyashkola/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">СВОЯ ОНЛАЙН-ШКОЛА ЗА 3 НЕДЕЛИ</div>
+            <div class="page-alias">/svoyashkola</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/svoykurs/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">КАЧЕСТВЕННЫЙ ОНЛАЙН-КУРС ЗА НЕДЕЛЮ</div>
+            <div class="page-alias">/svoykurs</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/svoykurs_web/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Микровебинар "СВОЯ ОНЛАЙН-ШКОЛА ЗА 3 НЕДЕЛИ"</div>
+            <div class="page-alias">/svoykurs_web</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/tribe1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Мини курс "Свое ПЛЕМЯ" 1</div>
+            <div class="page-alias">/tribe1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/tribe3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Мини курс "Свое ПЛЕМЯ" 3</div>
+            <div class="page-alias">/tribe3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/tribe33/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Мини курс "Свое ПЛЕМЯ" 3</div>
+            <div class="page-alias">/tribe33</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/tribe2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Мини курс "Свое ПЛЕМЯ" 2</div>
+            <div class="page-alias">/tribe2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/karmanumero/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Фокус-группа Кармической Нумерологии</div>
+            <div class="page-alias">/karmanumero</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/toolkit/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Азбука инфобизнеса</div>
+            <div class="page-alias">/toolkit</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/freecasestudy/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Разбор кейса: 10 млн. чистой прибыли на базу 7500 подписчиков</div>
+            <div class="page-alias">/freecasestudy</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/7steps/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">7 шагов к созданию продукта</div>
+            <div class="page-alias">/7steps</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/7steps1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ДУБЛЬ 7 шагов к созданию продукта</div>
+            <div class="page-alias">/7steps1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/7simplesteps/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">7 простых шагов к созданию инфопродукта</div>
+            <div class="page-alias">/7simplesteps</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/microproduct_part1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Микропродукты: Часть 1</div>
+            <div class="page-alias">/microproduct_part1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/microproduct_part2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Микропродукты: Часть 2</div>
+            <div class="page-alias">/microproduct_part2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/microproduct_part3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Микропродукты: Часть 3</div>
+            <div class="page-alias">/microproduct_part3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/secrets_of_experts/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты востребованных экспертов</div>
+            <div class="page-alias">/secrets_of_experts</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/secrets_of_experts1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">секрет1: цикл квантового роста</div>
+            <div class="page-alias">/secrets_of_experts1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/secrets_of_experts2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">секрет 2: рецепт выживания</div>
+            <div class="page-alias">/secrets_of_experts2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/secrets_of_experts3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">секрет 3: карта сокровищ</div>
+            <div class="page-alias">/secrets_of_experts3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/30days-chapter1-russelbrunson/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Трей Льюэллен - Реактивный стартап</div>
+            <div class="page-alias">/30days-chapter1-russelbrunson</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/from_zero_to_hero/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">с 0 до 1,5 млн на личной практике и групповой программе</div>
+            <div class="page-alias">/from_zero_to_hero</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/blackfriday/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Черная пятница</div>
+            <div class="page-alias">/blackfriday</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c8a060">
+          <a href="https://alisherotabaev.com/ny_sale/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">новогодняя распродажа</div>
+            <div class="page-alias">/ny_sale</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-funnels">
+      <div class="cat-header" style="border-left: 4px solid #d4924a;">
+        <span class="cat-icon">🔄</span>
+        <div>
+          <h2 class="cat-title">Воронки продаж</h2>
+          <span class="cat-count">10 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/sredavoronok/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Бесплатные вебинары по воронкам продаж</div>
+            <div class="page-alias">/sredavoronok</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/funnel_xfactor/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Воронки продаж: создать, настроить, автоматизировать</div>
+            <div class="page-alias">/funnel_xfactor</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/avtofunnel-step2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Регистрация на вебинар "автоворонка на миллион"</div>
+            <div class="page-alias">/avtofunnel-step2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/autofunnelonmillion/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Автоворонка на миллион</div>
+            <div class="page-alias">/autofunnelonmillion</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/autofunnelonmillion_thanks/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Спасибо за регистрацию</div>
+            <div class="page-alias">/autofunnelonmillion_thanks</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/autofunnelweb/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Онлайн мастер-класс "Автоворонка на миллион"</div>
+            <div class="page-alias">/autofunnelweb</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/autofunnel-video1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Автоворонка на миллион: приветствие на интенсив</div>
+            <div class="page-alias">/autofunnel-video1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/autofunnel-video2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Автоворонка на миллион: видео 2</div>
+            <div class="page-alias">/autofunnel-video2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/autofunnel-video3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Автоворонка на миллион: видео 3</div>
+            <div class="page-alias">/autofunnel-video3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d4924a">
+          <a href="https://alisherotabaev.com/funnelxfactor/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Заявка на Funnel X Factor</div>
+            <div class="page-alias">/funnelxfactor</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-gamechanger">
+      <div class="cat-header" style="border-left: 4px solid #e09030;">
+        <span class="cat-icon">🎮</span>
+        <div>
+          <h2 class="cat-title">GameChanger</h2>
+          <span class="cat-count">6 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#e09030">
+          <a href="https://alisherotabaev.com/gamechangersecrets/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты GameChanger</div>
+            <div class="page-alias">/gamechangersecrets</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e09030">
+          <a href="https://alisherotabaev.com/game_changer1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">GameChanger1</div>
+            <div class="page-alias">/game_changer1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e09030">
+          <a href="https://alisherotabaev.com/game_changer2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">GameChanger2</div>
+            <div class="page-alias">/game_changer2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e09030">
+          <a href="https://alisherotabaev.com/million_za_2_nedeli/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Миллион за 2 недели на фокус-группе</div>
+            <div class="page-alias">/million_za_2_nedeli</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e09030">
+          <a href="https://alisherotabaev.com/game_changer3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">GameChanger3</div>
+            <div class="page-alias">/game_changer3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#e09030">
+          <a href="https://alisherotabaev.com/gamechanger/step2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Анкета на собеседование в программу GameChanger</div>
+            <div class="page-alias">/gamechanger/step2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-instagram">
+      <div class="cat-header" style="border-left: 4px solid #c47820;">
+        <span class="cat-icon">📸</span>
+        <div>
+          <h2 class="cat-title">Instagram / Продвижение</h2>
+          <span class="cat-count">11 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram-video1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Видео 1.  Как заработать миллион в Instagram.</div>
+            <div class="page-alias">/proinstagram-video1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram-video2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Видео 2.  3 навыка, которых достаточно, чтобы быстро раскрутить свой аккаунт в Instagram</div>
+            <div class="page-alias">/proinstagram-video2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram-video3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Видео 3.  Как Instsgram-аккаунту увеличить количество подписчиков с 5 до 30 тыс. всего лишь за месяц.</div>
+            <div class="page-alias">/proinstagram-video3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/spasibo-proinstagram/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Успешная регистрация</div>
+            <div class="page-alias">/spasibo-proinstagram</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram-vebinar1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Продвижение в инстаграм: бесплатный интенсив</div>
+            <div class="page-alias">/proinstagram-vebinar1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram-vebinar-spasibo/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Успешная регистрация на бесплатный интенсив</div>
+            <div class="page-alias">/proinstagram-vebinar-spasibo</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/offer/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Коммерческое предложение: Инстаграм</div>
+            <div class="page-alias">/offer</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram-vebinar-translyaciya/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Вход на интенсив по инстаграм</div>
+            <div class="page-alias">/proinstagram-vebinar-translyaciya</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram-vebinar/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Продвижение в инстаграм: бесплатный интенсив</div>
+            <div class="page-alias">/proinstagram-vebinar</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/proinstagram/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Инстаграм: обучающий курс</div>
+            <div class="page-alias">/proinstagram</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#c47820">
+          <a href="https://alisherotabaev.com/trends_2021/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Тренды 2021 года в Инстаграм</div>
+            <div class="page-alias">/trends_2021</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-cmm">
+      <div class="cat-header" style="border-left: 4px solid #b86818;">
+        <span class="cat-icon">⚙️</span>
+        <div>
+          <h2 class="cat-title">Coach Marketing Machine</h2>
+          <span class="cat-count">6 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#b86818">
+          <a href="https://alisherotabaev.com/coach_marketing_machine/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Coach Marketing Machine™</div>
+            <div class="page-alias">/coach_marketing_machine</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b86818">
+          <a href="https://alisherotabaev.com/coach_marketing_machine/promo/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Coach marketing machine</div>
+            <div class="page-alias">/coach_marketing_machine/promo</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b86818">
+          <a href="https://alisherotabaev.com/coach_marketing_machine/promo2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как работет система «Coach Marketing Machine™»</div>
+            <div class="page-alias">/coach_marketing_machine/promo2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b86818">
+          <a href="https://alisherotabaev.com/coach_marketing_machine/offer/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Offer coach marketing machine</div>
+            <div class="page-alias">/coach_marketing_machine/offer</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b86818">
+          <a href="https://alisherotabaev.com/coach_marketing_machine/test/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Coach Marketing Machine™</div>
+            <div class="page-alias">/coach_marketing_machine/test</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b86818">
+          <a href="https://alisherotabaev.com/coach_marketing_machine/template/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Coach Marketing Machine™</div>
+            <div class="page-alias">/coach_marketing_machine/template</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-wizart">
+      <div class="cat-header" style="border-left: 4px solid #d8a840;">
+        <span class="cat-icon">🌟</span>
+        <div>
+          <h2 class="cat-title">WizArt</h2>
+          <span class="cat-count">4 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#d8a840">
+          <a href="https://alisherotabaev.com/wizart/course_star_project/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Страница курса</div>
+            <div class="page-alias">/wizart/course_star_project</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d8a840">
+          <a href="https://alisherotabaev.com/wizart/launch_algoritm/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Статья</div>
+            <div class="page-alias">/wizart/launch_algoritm</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d8a840">
+          <a href="https://alisherotabaev.com/wizart/star_project_waiting_list/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Регистрация в лист ожидания</div>
+            <div class="page-alias">/wizart/star_project_waiting_list</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#d8a840">
+          <a href="https://alisherotabaev.com/wizart/star_project/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">star project</div>
+            <div class="page-alias">/wizart/star_project</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-coaches">
+      <div class="cat-header" style="border-left: 4px solid #b89040;">
+        <span class="cat-icon">🏆</span>
+        <div>
+          <h2 class="cat-title">Истории успеха / Коучи</h2>
+          <span class="cat-count">34 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/case/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Истории успеха</div>
+            <div class="page-alias">/case</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/olga-skorohodova/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Ольга Скороходова</div>
+            <div class="page-alias">/olga-skorohodova</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/alesya-shandro/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Алеся Шандро</div>
+            <div class="page-alias">/alesya-shandro</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/tatyana-mitrophanova/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Татьяна Митрофанова</div>
+            <div class="page-alias">/tatyana-mitrophanova</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/natalia-yurieva/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Наталья Юрьева</div>
+            <div class="page-alias">/natalia-yurieva</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/tamara-kruglova-/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Тамара Круглова</div>
+            <div class="page-alias">/tamara-kruglova-</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/svetlana-grant-/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Светлана Грант</div>
+            <div class="page-alias">/svetlana-grant-</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/natalya-pikulina/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Наталья Пикулина</div>
+            <div class="page-alias">/natalya-pikulina</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/anna-nikishina/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Анна Никишина</div>
+            <div class="page-alias">/anna-nikishina</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/ekaterina-keshchan/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Екатерина Кещян</div>
+            <div class="page-alias">/ekaterina-keshchan</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/dzhanavi-fedoseenko/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Джанави Федосеенко</div>
+            <div class="page-alias">/dzhanavi-fedoseenko</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/sergey-artemyev/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Сергей Артемьев</div>
+            <div class="page-alias">/sergey-artemyev</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/darya-shubina-/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Дарья Шубина</div>
+            <div class="page-alias">/darya-shubina-</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/olga-kiyko/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Ольга Кийко</div>
+            <div class="page-alias">/olga-kiyko</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/valeriya-kozmina/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Валерия Козьмина</div>
+            <div class="page-alias">/valeriya-kozmina</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/viktoriya-ogay/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Виктория Огай</div>
+            <div class="page-alias">/viktoriya-ogay</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/elena-lorets/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Елена Лорец</div>
+            <div class="page-alias">/elena-lorets</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/pavel-karyakin_/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Павел Карякин</div>
+            <div class="page-alias">/pavel-karyakin_</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/pavel-karyakin/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Павел Карякин</div>
+            <div class="page-alias">/pavel-karyakin</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/olga-skorobogatova/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Ольга Скоробогатова</div>
+            <div class="page-alias">/olga-skorobogatova</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/madina-onova/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Мадина Онова</div>
+            <div class="page-alias">/madina-onova</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/damir-saetov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Дамир Саетов</div>
+            <div class="page-alias">/damir-saetov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/anton-tarasov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Антон Тарасов</div>
+            <div class="page-alias">/anton-tarasov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/evgeniia-mavrina/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Евгения Маврина</div>
+            <div class="page-alias">/evgeniia-mavrina</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/darya-shubina/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Дарья Шубина</div>
+            <div class="page-alias">/darya-shubina</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/svetlana-grant/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Светлана Грант</div>
+            <div class="page-alias">/svetlana-grant</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/aleksei-zhiganov/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Алексей Жиганов</div>
+            <div class="page-alias">/aleksei-zhiganov</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/tamara-kruglova/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Тамара Круглова</div>
+            <div class="page-alias">/tamara-kruglova</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/sonya-pash/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Соня Паш</div>
+            <div class="page-alias">/sonya-pash</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/natalia-pikulina/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Наталья Пикулина</div>
+            <div class="page-alias">/natalia-pikulina</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/natalya-yurieva/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Наталья Юрьева</div>
+            <div class="page-alias">/natalya-yurieva</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/janavi-fedoseyenko/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Джанави Федосеенко</div>
+            <div class="page-alias">/janavi-fedoseyenko</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/anna-kotick/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Анна Котик</div>
+            <div class="page-alias">/anna-kotick</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#b89040">
+          <a href="https://alisherotabaev.com/larisa-nedera/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Лариса Недера</div>
+            <div class="page-alias">/larisa-nedera</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-jobs">
+      <div class="cat-header" style="border-left: 4px solid #a07830;">
+        <span class="cat-icon">💼</span>
+        <div>
+          <h2 class="cat-title">Вакансии</h2>
+          <span class="cat-count">10 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/work/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Вакансии Академии Востребованных Экспертов</div>
+            <div class="page-alias">/work</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/product-manager/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ПРОДАКТ - МЕНЕДЖЕР</div>
+            <div class="page-alias">/product-manager</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/curator/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">КУРАТОР ОБУЧАЮЩИХ ПРОГРАММ</div>
+            <div class="page-alias">/curator</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/sale/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">МЕНЕДЖЕР ПО ПРОДАЖАМ</div>
+            <div class="page-alias">/sale</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/designer/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ДИЗАЙНЕР</div>
+            <div class="page-alias">/designer</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/copywriter/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">КОПИРАЙТЕР</div>
+            <div class="page-alias">/copywriter</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/analyst/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ИНТЕРНЕТ-МАРКЕТОЛОГ/АНАЛИТИК</div>
+            <div class="page-alias">/analyst</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/traffic-manager/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">ТРАФИК-МЕНЕДЖЕР</div>
+            <div class="page-alias">/traffic-manager</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/program-manager/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">МЕНЕДЖЕР ПАРТНЕРСКИХ ПРОГРАММ</div>
+            <div class="page-alias">/program-manager</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#a07830">
+          <a href="https://alisherotabaev.com/content/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">КОНТЕНТ-МАРКЕТОЛОГ</div>
+            <div class="page-alias">/content</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-legal">
+      <div class="cat-header" style="border-left: 4px solid #806040;">
+        <span class="cat-icon">📋</span>
+        <div>
+          <h2 class="cat-title">Юридические документы</h2>
+          <span class="cat-count">12 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/otkazototvetstvennosti/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Отказ от ответственности</div>
+            <div class="page-alias">/otkazototvetstvennosti</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/privacypolicy/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Политика конфиденциальности</div>
+            <div class="page-alias">/privacypolicy</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/agreement/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Согласие с рассылкой</div>
+            <div class="page-alias">/agreement</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/oferta/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Публичная оферта</div>
+            <div class="page-alias">/oferta</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/privacy/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Политика конфиденциальности</div>
+            <div class="page-alias">/privacy</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/cookie/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Политика использования cookie-файлов</div>
+            <div class="page-alias">/cookie</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/oferta-75128/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Публичная оферта</div>
+            <div class="page-alias">/oferta-75128</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/agreement-89375/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Пользовательское соглашение</div>
+            <div class="page-alias">/agreement-89375</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/privacypolicy-78675/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Соглашение об обработке персональных данных и политика конфиденциальности</div>
+            <div class="page-alias">/privacypolicy-78675</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/agreement-67772/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Пользовательское соглашение</div>
+            <div class="page-alias">/agreement-67772</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/license/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Лицензия на образовательную деятельность</div>
+            <div class="page-alias">/license</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#806040">
+          <a href="https://alisherotabaev.com/dogovor-publichnoj-oferty/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Публичная оферта</div>
+            <div class="page-alias">/dogovor-publichnoj-oferty</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-utility">
+      <div class="cat-header" style="border-left: 4px solid #605040;">
+        <span class="cat-icon">🔧</span>
+        <div>
+          <h2 class="cat-title">Служебные страницы</h2>
+          <span class="cat-count">20 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/kak_zarabotat/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Как заработать на выступлениях Алишера Отабаева</div>
+            <div class="page-alias">/kak_zarabotat</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/price/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Расценки Алишера Отабаева</div>
+            <div class="page-alias">/price</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/bonus/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Бонусы для организаторов</div>
+            <div class="page-alias">/bonus</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/step3dz/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Шаг 3. Домашнее задание: 3 видео для невероятного успеха.</div>
+            <div class="page-alias">/step3dz</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/spasibo/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Спасибо за регистрацию</div>
+            <div class="page-alias">/spasibo</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/s1/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Спасибо за повторную регистрацию</div>
+            <div class="page-alias">/s1</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/success/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Успешная регистрация</div>
+            <div class="page-alias">/success</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/consalting/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">переадресация</div>
+            <div class="page-alias">/consalting</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/oplata/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Оплата услуг ClientHunter</div>
+            <div class="page-alias">/oplata</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/oplata2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Оплата услуг ClientHunter2</div>
+            <div class="page-alias">/oplata2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/thanks/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Страница благодарности</div>
+            <div class="page-alias">/thanks</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/step2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Шаг 2 регистрации на вебинар</div>
+            <div class="page-alias">/step2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/step3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Шаг 3 регистрации на вебинар</div>
+            <div class="page-alias">/step3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/footer/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Footer</div>
+            <div class="page-alias">/footer</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/menu/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">menu</div>
+            <div class="page-alias">/menu</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/redir/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Blank page</div>
+            <div class="page-alias">/redir</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/tg/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Рилс</div>
+            <div class="page-alias">/tg</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/application_form_step2/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Шаг 2. Анкета</div>
+            <div class="page-alias">/application_form_step2</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/homework_step3/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Шаг 3. Домашнее задание</div>
+            <div class="page-alias">/homework_step3</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#605040">
+          <a href="https://alisherotabaev.com/application_form/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">анкета "Заявка на стратегическую сессию"</div>
+            <div class="page-alias">/application_form</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-service">
+      <div class="cat-header" style="border-left: 4px solid #504030;">
+        <span class="cat-icon">📄</span>
+        <div>
+          <h2 class="cat-title">Черновики / Копии</h2>
+          <span class="cat-count">44 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page2631680.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Меню</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page2632210.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">футер</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page20496167.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Как создать очередь клиентов</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page21458137.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Успешная регистрация</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page37367447.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты GameChanger (до правок)</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/blog/futer/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Футер для потока</div>
+            <div class="page-alias">/blog/futer</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15377972.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Подвал для статей блога</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15501465.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Психологические триггеры</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15501491.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Почему люди покупают</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15501506.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Кто в семье контролирует бюджет</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15501514.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Психология изменения - наука саморазвития</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15501523.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Коэффициент финансового роста</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15501530.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Какое влияние оказывает окружение на денежное мышление?</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15502202.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Самопродюссирование - коуч группа для экспертов (старая страница)</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503633.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Ошибка 404</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15502101.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Blank page</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15502751.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Секреты создания продуктов на миллион (старая страница)</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15502760.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">7 простых шагов к созданию онлайн-продукта (старая версия)</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503039.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of #PROInstagram: обучающий курс</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503312.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Курс  #ProInstagram</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503317.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Отзывы клиентов Академии ClientHunter</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503409.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Секреты больших продаж и запусков на миллион</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503413.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Закрытый вебинар - Секреты больших запусков</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503440.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Вебинар</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503441.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Премиум</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503445.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Анкета</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503453.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Домашнее задание</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503458.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Трипваер</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503462.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Лид-магнит 1</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503466.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Лид-магнит 2</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503468.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Лид- магнит 3</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503470.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of СЛБ. Об авторе</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503473.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Контакты</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503480.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Шаблон Футера сайта</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page15503485.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Шаблон шапки сайта</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page39572066.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Шаблон мини-страницы для инсты</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page58313029.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Новая реальность</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page38989819.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">WhiteFunnels - Сервис по созданию воронок продаж в телеграм</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page39361022.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Blank page</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page19690685.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Header</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page22342137.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Футер для академии</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page42454819.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Фокус-группа Кармической Нумерологии</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page21919761.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of Футер для потока</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#504030">
+          <a href="https://alisherotabaev.com/page23701977.html" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Copy of 7 шагов с нуля  до востребованного астролога</div>
+            <div class="page-alias">/—</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section class="category" id="cat-other">
+      <div class="cat-header" style="border-left: 4px solid #705030;">
+        <span class="cat-icon">📌</span>
+        <div>
+          <h2 class="cat-title">Прочее</h2>
+          <span class="cat-count">2 страниц</span>
+        </div>
+      </div>
+      <div class="pages-grid">
+
+        <div class="page-card" style="--accent:#705030">
+          <a href="https://alisherotabaev.com/blog/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Блог Алишера Отабаева</div>
+            <div class="page-alias">/blog</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+
+        <div class="page-card" style="--accent:#705030">
+          <a href="https://alisherotabaev.com/blog-36590/" target="_blank" class="page-link">
+          <div class="page-inner">
+            <div class="page-title">Блог Академии Востребованных Экспертов Алишера Отабаева</div>
+            <div class="page-alias">/blog-36590</div>
+          </div>
+          <div class="ext-icon">↗</div>
+          </a>
+        </div>
+      </div>
+    </section>
+
+</main>
+
+<footer class="site-footer">
+  Карта сайта сгенерирована для <a href="https://alisherotabaev.com" target="_blank">alisherotabaev.com</a> · 334 страниц
+</footer>
+
+</body>
+</html>
