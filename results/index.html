@@ -1,0 +1,805 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Результаты — Алишер Отабаев</title>
+<meta name="description" content="Коллекция реальных результатов учеников Алишера Отабаева. Кейсы с цифрами до и после.">
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --surface: #111;
+    --gold: #d4962a;
+    --gold2: #e8b84b;
+    --gold3: #b87820;
+    --gold-dim: rgba(212,150,42,0.15);
+    --text: #ede8df;
+    --muted: #7a7060;
+    --radius: 12px;
+    --card-bg: #0f0f0f;
+  }
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", sans-serif;
+    line-height: 1.6;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ─── HERO ─────────────────────────────────── */
+  .hero {
+    position: relative;
+    background: linear-gradient(180deg, #0a0800 0%, #0d0a00 60%, var(--bg) 100%);
+    padding: 72px 24px 64px;
+    text-align: center;
+    overflow: hidden;
+  }
+  .hero::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background:
+      radial-gradient(ellipse 900px 500px at 50% -80px, rgba(212,150,42,0.13) 0%, transparent 70%);
+    pointer-events: none;
+  }
+  .hero-inner { position: relative; max-width: 800px; margin: 0 auto; }
+
+  /* Avatar */
+  .avatar-wrap {
+    width: 96px; height: 96px;
+    margin: 0 auto 24px;
+    border-radius: 50%;
+    background: linear-gradient(135deg, var(--gold3), var(--gold2));
+    padding: 3px;
+  }
+  .avatar-inner {
+    width: 100%; height: 100%;
+    border-radius: 50%;
+    background: #1a1200;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 38px;
+    letter-spacing: -1px;
+    font-weight: 700;
+    color: var(--gold2);
+    font-family: Georgia, serif;
+  }
+
+  .hero-label {
+    font-size: 11px;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    color: var(--gold);
+    opacity: 0.7;
+    margin-bottom: 14px;
+  }
+  .hero-name {
+    font-size: clamp(30px, 5vw, 52px);
+    font-weight: 300;
+    letter-spacing: -1px;
+    color: #fff;
+    margin-bottom: 10px;
+    font-family: Georgia, "Times New Roman", serif;
+  }
+  .hero-name span { color: var(--gold2); font-weight: 600; }
+
+  .hero-titles {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 8px;
+    margin: 20px 0 28px;
+  }
+  .hero-tag {
+    background: rgba(212,150,42,0.08);
+    border: 1px solid rgba(212,150,42,0.25);
+    color: var(--gold);
+    padding: 5px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+  }
+
+  .hero-about {
+    font-size: 16px;
+    color: #b8b0a0;
+    max-width: 580px;
+    margin: 0 auto 40px;
+    line-height: 1.7;
+  }
+  .hero-about strong { color: var(--gold2); font-weight: 500; }
+
+  .hero-divider {
+    width: 60px; height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold), transparent);
+    margin: 0 auto 40px;
+  }
+
+  /* ─── SECTION TITLE ─────────────────────────── */
+  .section-wrap { max-width: 1280px; margin: 0 auto; padding: 0 24px 96px; }
+  .section-title {
+    font-size: clamp(22px, 3.5vw, 36px);
+    font-weight: 300;
+    font-family: Georgia, serif;
+    color: #fff;
+    text-align: center;
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+  }
+  .section-title span { color: var(--gold2); font-weight: 600; font-style: italic; }
+  .section-sub {
+    text-align: center;
+    color: var(--muted);
+    font-size: 14px;
+    margin-bottom: 56px;
+    letter-spacing: 0.5px;
+  }
+
+  /* ─── CARDS GRID ────────────────────────────── */
+  .cases-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 24px;
+  }
+  @media (max-width: 960px) { .cases-grid { grid-template-columns: repeat(2,1fr); } }
+  @media (max-width: 600px) { .cases-grid { grid-template-columns: 1fr; } }
+
+  /* ─── AWARD CARD ────────────────────────────── */
+  .case-card {
+    position: relative;
+    background: var(--card-bg);
+    border-radius: 16px;
+    overflow: hidden;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    /* Gold frame via border + box-shadow */
+    border: 1px solid var(--gold3);
+    box-shadow:
+      0 0 0 1px rgba(232,184,75,0.08),
+      inset 0 1px 0 rgba(232,184,75,0.15),
+      0 8px 40px rgba(0,0,0,0.6);
+  }
+  .case-card:hover {
+    transform: translateY(-4px);
+    box-shadow:
+      0 0 0 1px rgba(232,184,75,0.2),
+      inset 0 1px 0 rgba(232,184,75,0.25),
+      0 20px 60px rgba(0,0,0,0.7),
+      0 0 40px rgba(212,150,42,0.07);
+  }
+
+  /* Gold top border accent */
+  .case-card::before {
+    content: "";
+    position: absolute;
+    top: 0; left: 0; right: 0;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, var(--gold2), var(--gold), var(--gold2), transparent);
+    opacity: 0.7;
+  }
+
+  /* Corner ornaments */
+  .case-card::after {
+    content: "✦";
+    position: absolute;
+    top: 10px; right: 14px;
+    font-size: 10px;
+    color: var(--gold);
+    opacity: 0.4;
+  }
+
+  /* Photo strip */
+  .card-photo {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+    object-position: top center;
+    display: block;
+    border-bottom: 1px solid rgba(212,150,42,0.15);
+  }
+  .card-photo-placeholder {
+    width: 100%;
+    height: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: linear-gradient(160deg, #111 0%, #1a1200 100%);
+    border-bottom: 1px solid rgba(212,150,42,0.15);
+    font-size: 64px;
+    color: rgba(212,150,42,0.25);
+    font-family: Georgia, serif;
+    font-weight: 700;
+  }
+
+  .card-body { padding: 22px 22px 24px; }
+
+  .card-name {
+    font-size: 17px;
+    font-weight: 600;
+    color: #fff;
+    letter-spacing: -0.3px;
+    margin-bottom: 5px;
+  }
+  .card-role {
+    font-size: 12px;
+    color: var(--muted);
+    line-height: 1.4;
+    margin-bottom: 18px;
+  }
+  .card-role .handle {
+    color: rgba(212,150,42,0.6);
+    font-style: italic;
+  }
+
+  /* Result bar */
+  .result-block {
+    background: rgba(212,150,42,0.05);
+    border: 1px solid rgba(212,150,42,0.12);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    align-items: center;
+    gap: 10px;
+  }
+  .result-col { text-align: center; }
+  .result-label {
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    color: var(--muted);
+    margin-bottom: 4px;
+    display: block;
+  }
+  .result-val {
+    font-size: 15px;
+    font-weight: 600;
+    font-family: Georgia, serif;
+  }
+  .result-val.before { color: #7a7060; }
+  .result-val.after { color: var(--gold2); }
+  .result-arrow {
+    font-size: 20px;
+    color: var(--gold);
+    opacity: 0.5;
+  }
+
+  /* Quote */
+  .card-quote {
+    font-size: 13px;
+    font-style: italic;
+    color: #a09880;
+    line-height: 1.6;
+    padding-left: 12px;
+    border-left: 2px solid var(--gold3);
+    margin-top: 14px;
+  }
+
+  /* Badge */
+  .card-badge {
+    display: inline-block;
+    margin-top: 16px;
+    background: linear-gradient(135deg, var(--gold3), var(--gold));
+    color: #000;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 4px 10px;
+    border-radius: 4px;
+  }
+
+  /* Link */
+  .card-link {
+    display: block;
+    margin-top: 16px;
+    font-size: 12px;
+    color: rgba(212,150,42,0.6);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+  .card-link:hover { color: var(--gold2); }
+
+  /* ─── FOOTER ─────────────────────────────────── */
+  .cta-section {
+    text-align: center;
+    padding: 64px 24px 80px;
+    border-top: 1px solid rgba(212,150,42,0.1);
+    background: linear-gradient(180deg, var(--bg), #0a0800);
+  }
+  .cta-section h2 {
+    font-size: clamp(20px, 3vw, 32px);
+    font-weight: 300;
+    font-family: Georgia, serif;
+    color: #fff;
+    margin-bottom: 12px;
+    letter-spacing: -0.5px;
+  }
+  .cta-section p { color: var(--muted); font-size: 15px; margin-bottom: 32px; }
+  .cta-btn {
+    display: inline-block;
+    background: linear-gradient(135deg, var(--gold3) 0%, var(--gold2) 100%);
+    color: #000;
+    font-weight: 700;
+    font-size: 14px;
+    letter-spacing: 1px;
+    text-transform: uppercase;
+    padding: 16px 40px;
+    border-radius: 8px;
+    text-decoration: none;
+    transition: opacity 0.2s, transform 0.2s;
+  }
+  .cta-btn:hover { opacity: 0.9; transform: translateY(-2px); }
+
+  .page-footer {
+    text-align: center;
+    padding: 24px;
+    color: rgba(122,112,96,0.5);
+    font-size: 12px;
+    letter-spacing: 0.5px;
+  }
+  .page-footer a { color: rgba(212,150,42,0.5); text-decoration: none; }
+</style>
+</head>
+<body>
+
+<!-- ═══ HERO ══════════════════════════════════════ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="avatar-wrap">
+      <div class="avatar-inner">АО</div>
+    </div>
+
+    <p class="hero-label">официальный сайт</p>
+    <h1 class="hero-name">Алишер <span>Отабаев</span></h1>
+
+    <div class="hero-titles">
+      <span class="hero-tag">🎓 Продюсер онлайн-экспертов</span>
+      <span class="hero-tag">💼 CEO ClientHunter.Pro</span>
+      <span class="hero-tag">📈 Стратег образовательного бизнеса</span>
+      <span class="hero-tag">🎤 Спикер &amp; автор</span>
+    </div>
+
+    <p class="hero-about">
+      Помогаю <strong>экспертам, коучам и специалистам</strong> построить системный онлайн-бизнес,
+      упаковать свою экспертизу и выйти на стабильный доход.<br>
+      За 10+ лет в digital — <strong>сотни учеников</strong>, <strong>десятки миллионов</strong> совокупной выручки.
+    </p>
+
+    <div class="hero-divider"></div>
+  </div>
+</section>
+
+<!-- ═══ CASES ══════════════════════════════════════ -->
+<div class="section-wrap">
+  <h2 class="section-title">Моя коллекция <span>результатов</span></h2>
+  <p class="section-sub">Реальные кейсы учеников — с цифрами, именами и историями</p>
+
+  <div class="cases-grid">
+
+    <!-- 1. Елена Лорец -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild6332-3033-4832-a165-613666616131__-__resize__20x__photo_2021-10-28_09-.jpg"
+           alt="Елена Лорец">
+      <div class="card-body">
+        <div class="card-name">Елена Лорец</div>
+        <div class="card-role">Наставник по раскрытию потенциала и мотивационный оратор <span class="handle">@elena_lorets</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">18 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">220 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Самое ценное — глубокая личная трансформация. Эта программа не только про клиентов и финансовый результат. Она про жизнь»</p>
+        <span class="card-badge">×12 рост</span>
+        <a class="card-link" href="/elena-lorets/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 2. Наталья Юрьева -->
+    <div class="case-card">
+      <div class="card-photo-placeholder">НЮ</div>
+      <div class="card-body">
+        <div class="card-name">Наталья Юрьева</div>
+        <div class="card-role">Основатель художественной школы «Живопись маслом» <span class="handle">@natasha_yuryeva</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">300 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">5 500 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Благодаря системе Алишера моя школа круто работает и приносит те результаты, которые мне хотелось»</p>
+        <span class="card-badge">×18 рост</span>
+        <a class="card-link" href="/natalya-yurieva/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 3. Дарья Шубина -->
+    <div class="case-card">
+      <div class="card-photo-placeholder">ДШ</div>
+      <div class="card-body">
+        <div class="card-name">Дарья Шубина</div>
+        <div class="card-role">Наставник экспертов, дипломированный коуч, бизнес-тренер <span class="handle">@krasadarya</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">0 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">2 200 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Появилась структура. Появилась система, я чётко понимаю, что мне нужно делать»</p>
+        <span class="card-badge">с нуля</span>
+        <a class="card-link" href="/darya-shubina/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 4. Ольга Скоробогатова -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3663-6364-4264-b736-626233353333__-__resize__20x__-2.png"
+           alt="Ольга Скоробогатова">
+      <div class="card-body">
+        <div class="card-name">Ольга Скоробогатова</div>
+        <div class="card-role">Бизнес-тренер, телесный энерготерапевт, клинический психолог</div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">40–60 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">350 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Прежде всего произошли внутренние изменения. И они помогли мне, наконец, начать проявляться»</p>
+        <span class="card-badge">×6+ рост</span>
+        <a class="card-link" href="/olga-skorobogatova/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 5. Тамара Круглова -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3130-3831-4235-b733-353263363839__-__resize__20x__img_1610.jpg"
+           alt="Тамара Круглова">
+      <div class="card-body">
+        <div class="card-name">Тамара Круглова</div>
+        <div class="card-role">Астролог предпринимателей и блогеров, мастер Таро <span class="handle">@tamara.kruglova.astro</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">10–30 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">800 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Получила конкретные схемы и алгоритмы, по которым всё работает и ты получаешь результат»</p>
+        <span class="card-badge">×27 рост</span>
+        <a class="card-link" href="/tamara-kruglova/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 6. Павел Карякин -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3964-3230-4665-a163-383032366561__-__resize__20x__group_10.png"
+           alt="Павел Карякин">
+      <div class="card-body">
+        <div class="card-name">Павел Карякин</div>
+        <div class="card-role">Интернет-маркетолог, наставник экспертов <span class="handle">@pavel.karyakin</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">100–120 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">250 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Одно из самых сильных осознаний — надо не бояться открываться миру»</p>
+        <span class="card-badge">×2+ рост</span>
+        <a class="card-link" href="/pavel-karyakin/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 7. Антон Тарасов -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3038-3839-4461-a236-633337326462__-__resize__20x__1-2.png"
+           alt="Антон Тарасов">
+      <div class="card-body">
+        <div class="card-name">Антон Тарасов</div>
+        <div class="card-role">Бизнес-психолог, мотивационный оратор <span class="handle">@tarasov.biz</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">100–150 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">500 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«В работе с Алишером я словил инсайт — момент, когда стану крутым экспертом, не наступит никогда, если не начать сегодня»</p>
+        <span class="card-badge">×4 рост</span>
+        <a class="card-link" href="/anton-tarasov/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 8. Евгения Маврина -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3163-3337-4138-b563-613738356161__-__resize__20x__11.png"
+           alt="Евгения Маврина">
+      <div class="card-body">
+        <div class="card-name">Евгения Маврина</div>
+        <div class="card-role">Художник, тату-мастер и женский тренер <span class="handle">@lesnaya_tattoo</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">150–250 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">500 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«После того, как пришла к Алишеру, я практически каждый месяц начала продавать личное наставничество»</p>
+        <span class="card-badge">×3 рост</span>
+        <a class="card-link" href="/evgeniia-mavrina/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 9. Джанави Федосеенко -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild6333-3130-4030-a366-373662653765__-__resize__20x__8.jpg"
+           alt="Джанави Федосеенко">
+      <div class="card-body">
+        <div class="card-name">Джанави Федосеенко</div>
+        <div class="card-role">Психолог, психосоматолог, психолог-терапевт ТВУ <span class="handle">@jahnavi_coach</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">120–150 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">400 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Программы Алишера — это систематизация и структуризация, выделение ценного из хаоса»</p>
+        <span class="card-badge">×3 рост</span>
+        <a class="card-link" href="/janavi-fedoseyenko/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 10. Мадина Онова -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3563-3438-4335-b932-306166383932__-__resize__20x__photo.png"
+           alt="Мадина Онова">
+      <div class="card-body">
+        <div class="card-name">Мадина Онова</div>
+        <div class="card-role">Дипломированный васту-наставник, Казахстан <span class="handle">@madinaonova</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">50 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">150 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Алишер — просто гений! Нет таких курсов, где в комплексе идёт развитие и проекта, и личности»</p>
+        <span class="card-badge">×3 рост</span>
+        <a class="card-link" href="/madina-onova/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 11. Дамир Саетов -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3632-3131-4035-a231-613038316165__-__resize__20x__photo.png"
+           alt="Дамир Саетов">
+      <div class="card-body">
+        <div class="card-name">Дамир Саетов</div>
+        <div class="card-role">Детский врач-реабилитолог, массажист <span class="handle">@damir_saetov</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">10 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">150 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Людей надо учить вытаскивать свои смыслы, ценить себя и свой труд»</p>
+        <span class="card-badge">×15 рост</span>
+        <a class="card-link" href="/damir-saetov/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 12. Светлана Грант -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3631-3866-4561-b765-313639663563__-__resize__20x______.jpg"
+           alt="Светлана Грант">
+      <div class="card-body">
+        <div class="card-name">Светлана Грант</div>
+        <div class="card-role">Коуч, эксперт по финансовой грамотности; г. Лондон, Великобритания <span class="handle">@svetlana.grantt</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">—</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">Лондон ✓</div>
+          </div>
+        </div>
+        <p class="card-quote">«Программа на 100% трансформационная. Она разворачивает мышление на 360 градусов»</p>
+        <span class="card-badge">трансформация</span>
+        <a class="card-link" href="/svetlana-grant/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 13. Анна Котик -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3436-6362-4665-b230-316237363838__-__resize__20x__group_10.png"
+           alt="Анна Котик">
+      <div class="card-body">
+        <div class="card-name">Анна Котик</div>
+        <div class="card-role">Наставник экспертов, владелица рекламного агентства «Бренд», 12 лет в PR <span class="handle">@annakotik.brand</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">25–80 000 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">200 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Когда начала проходить программу, поняла — она не про деньги. Самое главное: я обрела себя»</p>
+        <span class="card-badge">×4 рост</span>
+        <a class="card-link" href="/anna-kotick/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 14. Лариса Недера -->
+    <div class="case-card">
+      <img class="card-photo"
+           src="/images/tild3132-3565-4939-b632-336265326661__-__resize__20x__3-2.png"
+           alt="Лариса Недера">
+      <div class="card-body">
+        <div class="card-name">Лариса Недера</div>
+        <div class="card-role">Бизнес-коуч, эксперт по эмоциональному интеллекту, основатель «Софт-скиллс академия» <span class="handle">@larisanedera</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">0 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">300 000 ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Попали в «ЧерноБелое», сэкономили время и деньги и быстро продвинулись»</p>
+        <span class="card-badge">с нуля</span>
+        <a class="card-link" href="/larisa-nedera/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 15. Соня Паш -->
+    <div class="case-card">
+      <div class="card-photo-placeholder">СП</div>
+      <div class="card-body">
+        <div class="card-name">Соня Паш</div>
+        <div class="card-role">Эксперт по личной эффективности и созданию систем, г. Лондон <span class="handle">@soniapash</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Точка А</span>
+            <div class="result-val before">0 ₽</div>
+          </div>
+          <div class="result-arrow">→</div>
+          <div class="result-col">
+            <span class="result-label">Точка Б</span>
+            <div class="result-val after">990 000+ ₽</div>
+          </div>
+        </div>
+        <p class="card-quote">«Работа с Алишером была очень эффективной — это тот формат, который приносит огромные результаты»</p>
+        <span class="card-badge">с нуля</span>
+        <a class="card-link" href="/sonya-pash/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 16. Наталья Пикулина -->
+    <div class="case-card">
+      <div class="card-photo-placeholder">НП</div>
+      <div class="card-body">
+        <div class="card-name">Наталья Пикулина</div>
+        <div class="card-role">Продуктолог, продюсер, помогающий создавать и продвигать бизнесы <span class="handle">@natali.v.seti</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Итог</span>
+            <div class="result-val after">Готовая система</div>
+          </div>
+        </div>
+        <p class="card-quote">«Можно взять готовую пошаговую систему Алишера, которая точно работает, и внедрить в своём проекте»</p>
+        <span class="card-badge">система</span>
+        <a class="card-link" href="/natalia-pikulina/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+    <!-- 17. Алексей Жиганов -->
+    <div class="case-card">
+      <div class="card-photo-placeholder">АЖ</div>
+      <div class="card-body">
+        <div class="card-name">Алексей Жиганов</div>
+        <div class="card-role">Эксперт по заработку в интернете, победитель реалити-шоу «Время миллионеров» <span class="handle">@jiganovs</span></div>
+        <div class="result-block">
+          <div class="result-col">
+            <span class="result-label">Итог</span>
+            <div class="result-val after">Победитель шоу</div>
+          </div>
+        </div>
+        <p class="card-quote">«На меня сильно повлияли первые модули программы. Начали работать с мышлением, с позиционированием себя на рынке»</p>
+        <span class="card-badge">признание</span>
+        <a class="card-link" href="/aleksei-zhiganov/">→ Читать полный кейс</a>
+      </div>
+    </div>
+
+  </div><!-- /cases-grid -->
+</div><!-- /section-wrap -->
+
+<!-- ═══ CTA ════════════════════════════════════════ -->
+<section class="cta-section">
+  <h2>Вы сможете добиться ещё более<br>впечатляющих результатов</h2>
+  <p>Запишитесь на стратегическую консультацию и узнайте, как выйти<br>на новый уровень дохода, свободы и влияния</p>
+  <a class="cta-btn" href="/consulting/">Записаться на консультацию →</a>
+</section>
+
+<footer class="page-footer">
+  <a href="/">alisherotabaev.com</a> &nbsp;·&nbsp;
+  <a href="/about_/">Обо мне</a> &nbsp;·&nbsp;
+  <a href="/blog/">Блог</a> &nbsp;·&nbsp;
+  <a href="/sitemap.html">Карта сайта</a>
+</footer>
+
+</body>
+</html>
