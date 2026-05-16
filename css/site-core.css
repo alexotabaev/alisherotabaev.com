@@ -1,0 +1,234 @@
+/* =========================================================================
+   site-core.css — собственный CSS-фреймворк alisherotabaev.com
+   Заменяет проприетарные tilda-*.css. Написан с нуля.
+   Воспроизводит визуал «обвязки»: сетка, типографика, шапка,
+   бургер-меню, выпадающие подменю, футер, спейсеры, соц-иконки.
+   НЕ покрывает Zero Block (t396) — такие страницы пересобираются вручную.
+   ========================================================================= */
+
+:root{
+  --tao-accent:#b89168;
+  --tao-text:#000;
+  --tao-bg:#fff;
+  --tao-container:1200px;
+}
+
+*,*::before,*::after{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body.t-body{margin:0;font-family:'Open Sans','Roboto',-apple-system,'Segoe UI',Helvetica,Arial,sans-serif;color:var(--tao-text);background:var(--tao-bg);line-height:1.55;font-size:16px;-webkit-font-smoothing:antialiased}
+img{max-width:100%;border:0;vertical-align:middle}
+a{color:inherit;text-decoration:none}
+ul,ol{margin:0;padding:0;list-style:none}
+button{font-family:inherit;cursor:pointer}
+
+/* ---- Grid (заменяет tilda-grid-3.0) ---- */
+.t-rec{position:relative}
+.t-rec_pt_0{padding-top:0}
+.t-rec_pb_0{padding-bottom:0}
+.t-rec_pt_15{padding-top:15px}.t-rec_pb_15{padding-bottom:15px}
+.t-rec_pt_30{padding-top:30px}.t-rec_pb_30{padding-bottom:30px}
+.t-rec_pt_45{padding-top:45px}.t-rec_pb_45{padding-bottom:45px}
+.t-rec_pt_60{padding-top:60px}.t-rec_pb_60{padding-bottom:60px}
+.t-rec_pt_75{padding-top:75px}.t-rec_pb_75{padding-bottom:75px}
+.t-rec_pt_90{padding-top:90px}.t-rec_pb_90{padding-bottom:90px}
+.t-rec_pt_105{padding-top:105px}.t-rec_pb_105{padding-bottom:105px}
+.t-rec_pt_120{padding-top:120px}.t-rec_pb_120{padding-bottom:120px}
+
+.t-container,.t-container_100,.t345-container{
+  width:100%;max-width:var(--tao-container);margin:0 auto;padding:0 20px;
+}
+.t-container_flex{display:flex;flex-wrap:wrap}
+.t-col{position:relative;padding:0 10px;margin:0 auto;float:none}
+.t-col_1{max-width:8.333%}.t-col_2{max-width:16.66%}.t-col_3{max-width:25%}
+.t-col_4{max-width:33.33%}.t-col_5{max-width:41.66%}.t-col_6{max-width:50%}
+.t-col_7{max-width:58.33%}.t-col_8{max-width:66.66%}.t-col_9{max-width:75%}
+.t-col_10{max-width:83.33%}.t-col_11{max-width:91.66%}.t-col_12{max-width:100%}
+.t-col{width:100%}
+.t-prefix_1{margin-left:8.333%}.t-prefix_2{margin-left:16.66%}
+.t-align_center{text-align:center}
+.t-align_left{text-align:left}
+.t-align_right{text-align:right}
+.t-valign_middle{vertical-align:middle}
+
+/* ---- Typography (заменяет tilda типографные классы) ---- */
+.t-text,.t-descr,.t-name,.t-title,.t-heading{margin:0;padding:0}
+.t-title{font-weight:700;line-height:1.15}
+.t-title_xs{font-size:24px}.t-title_sm{font-size:32px}
+.t-title_md{font-size:42px}.t-title_lg{font-size:56px}
+.t-heading{font-weight:700;line-height:1.2}
+.t-heading_xs{font-size:20px}.t-heading_sm{font-size:26px}
+.t-heading_md{font-size:34px}.t-heading_lg{font-size:44px}
+.t-descr{line-height:1.55}
+.t-descr_xxs{font-size:12px}.t-descr_xs{font-size:14px}
+.t-descr_sm{font-size:16px}.t-descr_md{font-size:18px}.t-descr_lg{font-size:20px}
+.t-name{margin:0;line-height:1.35}
+.t-name_xs{font-size:15px}.t-name_sm{font-size:16px}
+.t-name_md{font-size:18px}.t-name_lg{font-size:20px}
+.t-text{font-size:16px;line-height:1.55}
+.t-text_md{font-size:18px}.t-text_lg{font-size:20px}
+.uppercase{text-transform:uppercase}
+
+/* ---- Screen visibility helpers ---- */
+@media screen and (min-width:641px){
+  .t-screenmax-640px{display:none!important}
+}
+@media screen and (max-width:640px){
+  .t-screenmin-640px{display:none!important}
+}
+
+/* ---- Preloaders / progress bars: выключаем (визуально не нужны) ---- */
+.t360,.t360__progress,.t360__bar,.t602,.t602__indicator{display:none!important}
+.t-records,.t-records_animated{opacity:1!important}
+
+/* ===========================================================
+   T456 — десктоп-шапка (фиксированная навигация)
+   =========================================================== */
+.t456{position:relative;width:100%;left:0;top:0;z-index:990;background:#fff}
+.t456__positionfixed{position:fixed;top:0;left:0}
+.t456 + *,.t456__positionfixed ~ *{}
+.t456__maincontainer{
+  display:flex;align-items:center;justify-content:space-between;
+  max-width:var(--tao-container);margin:0 auto;padding:0 20px;
+  min-height:60px;
+}
+.t456__leftwrapper{display:flex;align-items:center;flex-shrink:0}
+.t456__logowrapper a{display:block}
+.t456__imglogo{display:block;height:auto}
+.t456__rightwrapper{display:flex;align-items:center}
+.t456__menualign_right{margin-left:auto}
+.t456__list{display:flex;align-items:center;flex-wrap:wrap}
+.t456__list_item{display:flex;align-items:center}
+.t456 .t-menu__link-item{
+  display:inline-block;font-size:16px;font-weight:500;color:#000;
+  padding:6px 0;transition:opacity .2s, color .2s;white-space:nowrap;
+}
+.t456 .t-menu__link-item:hover{opacity:.6}
+/* Spacer below fixed header so content isn't hidden */
+body:has(.t456__positionfixed) #allrecords{}
+
+/* ===========================================================
+   T450 — мобильное бургер-меню
+   =========================================================== */
+.t450__menu__content{position:fixed;right:15px;z-index:1000}
+.t450__burger_container{position:relative;width:44px;height:44px;
+  display:flex;align-items:center;justify-content:center;cursor:pointer}
+.t450__burger_bg{position:absolute;inset:0;border-radius:50%}
+.t450__burger_cirqle{border-radius:50%}
+.t-menuburger{position:relative;width:24px;height:18px;padding:0;border:0;
+  background:transparent;z-index:1001}
+.t-menuburger__small{width:22px;height:14px}
+.t-menuburger span{position:absolute;left:0;width:100%;height:2px;
+  background:#000;transition:.25s ease-in-out;border-radius:2px}
+.t-menuburger span:nth-child(1){top:0}
+.t-menuburger span:nth-child(2),.t-menuburger span:nth-child(3){top:6px}
+.t-menuburger span:nth-child(4){top:12px}
+.t-menuburger.is-open span:nth-child(1),
+.t-menuburger.is-open span:nth-child(4){opacity:0}
+.t-menuburger.is-open span:nth-child(2){transform:rotate(45deg)}
+.t-menuburger.is-open span:nth-child(3){transform:rotate(-45deg)}
+.t450__overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);
+  opacity:0;visibility:hidden;transition:.3s;z-index:998}
+.t450__overlay.is-open{opacity:1;visibility:visible}
+.t450{position:fixed;top:0;right:0;height:100%;width:100%;max-width:260px;
+  background:#fff;transform:translateX(105%);transition:transform .3s ease;
+  z-index:999;overflow-y:auto;padding:24px 20px}
+.t450.is-open{transform:translateX(0)}
+.t450__close-button{position:absolute;top:14px;right:14px;width:32px;height:32px;
+  border:0;background:transparent}
+.t450__close_icon{position:relative;width:24px;height:24px}
+.t450__close_icon span{position:absolute;left:2px;top:11px;width:22px;height:2px;
+  background:#000;border-radius:2px}
+.t450__close_icon span:nth-child(1),.t450__close_icon span:nth-child(4){opacity:0}
+.t450__close_icon span:nth-child(2){transform:rotate(45deg)}
+.t450__close_icon span:nth-child(3){transform:rotate(-45deg)}
+.t450__container{margin-top:48px}
+.t450__list{display:flex;flex-direction:column;gap:6px}
+.t450__list_item{padding:8px 0}
+.t450 .t-menu__link-item{font-size:18px;font-weight:500;color:#000;display:block}
+.t450__logowrapper{margin-bottom:24px}
+.t450__logoimg{max-width:120px}
+.t450__rightside{margin-top:28px}
+.t450__right_descr{font-size:13px;color:#555;margin-bottom:16px;line-height:1.5}
+
+/* ===========================================================
+   T794 — выпадающее подменю (tooltip)
+   =========================================================== */
+.t794{position:relative}
+.t794__tooltip-menu{
+  position:absolute;top:100%;left:50%;transform:translateX(-50%);
+  min-width:200px;background:#fff;border-radius:3px;
+  box-shadow:0 0 7px rgba(0,0,0,.2);padding:6px 0;margin-top:8px;
+  opacity:0;visibility:hidden;transition:opacity .15s, visibility .15s;z-index:995;
+}
+.t794.is-open .t794__tooltip-menu,
+.t794__tooltip-menu.is-open{opacity:1;visibility:visible}
+.t794__tooltip-menu-corner{
+  position:absolute;top:-5px;left:50%;transform:translateX(-50%) rotate(45deg);
+  width:10px;height:10px;background:#fff;
+}
+.t794__content{background:#fff;border-radius:3px}
+.t794__list{display:flex;flex-direction:column;text-align:center}
+.t794__list_item{padding:0}
+.t794__link,.t794__typo{display:block;padding:9px 18px;font-size:15px;
+  font-weight:500;color:#000;white-space:nowrap;transition:background .15s}
+.t794__link:hover{background:#f5f0e9;color:var(--tao-accent)}
+
+/* ===========================================================
+   T345 — футер с реквизитами + соцсети
+   =========================================================== */
+.t345{width:100%}
+.t345-wrapper{width:100%}
+.t345-content{display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:16px;min-height:80px;padding:20px 0}
+.t345-text__wrapper{flex:1}
+.t345-text{font-size:12px;color:#000;line-height:1.5}
+.t345-socials{flex-shrink:0}
+
+/* ===========================================================
+   T229 / T258 — нижняя строка юридических ссылок
+   =========================================================== */
+.t229{width:100%;background:#fff}
+.t229__positionstatic{position:static}
+.t229__maincontainer{display:flex;align-items:center;justify-content:center;
+  max-width:var(--tao-container);margin:0 auto;padding:14px 20px;min-height:50px}
+.t229__padding40px{width:0}
+.t229__centerside{margin:0 auto}
+.t229__centerside .t-menu__list{display:flex;flex-wrap:wrap;
+  justify-content:center;gap:0}
+.t229__list_item{padding:0 15px}
+.t229 .t-menu__link-item{font-size:12px;color:#000;text-transform:uppercase;
+  letter-spacing:.5px;transition:opacity .2s}
+.t229 .t-menu__link-item:hover{opacity:.6}
+
+/* ---- Spacer T270 ---- */
+.t270{width:100%;height:1px}
+
+/* ===========================================================
+   Соц-иконки (t-sociallinks)
+   =========================================================== */
+.t-sociallinks__wrapper{display:flex;align-items:center;gap:10px;flex-wrap:wrap}
+.t-sociallinks__item{display:inline-flex}
+.t-sociallinks__item a{display:inline-flex;align-items:center;justify-content:center;
+  transition:opacity .2s}
+.t-sociallinks__item a:hover{opacity:.7}
+.t-sociallinks__svg{display:block}
+
+/* ---- Generic buttons (t-btn) ---- */
+.t-btn{display:inline-block;padding:14px 28px;border-radius:6px;
+  font-weight:600;font-size:16px;text-align:center;cursor:pointer;
+  background:var(--tao-accent);color:#fff;border:0;transition:opacity .2s}
+.t-btn:hover{opacity:.88}
+.t-btn_sm{padding:10px 20px;font-size:14px}
+.t-btn_lg{padding:18px 36px;font-size:18px}
+
+/* ---- Responsive ---- */
+@media screen and (max-width:980px){
+  .t-col{max-width:100%!important;margin-left:0!important}
+  .t456__maincontainer{min-height:56px}
+}
+@media screen and (max-width:640px){
+  .t-title_lg{font-size:36px}.t-title_md{font-size:30px}
+  .t-heading_lg{font-size:32px}.t-heading_md{font-size:26px}
+  .t345-content{flex-direction:column;text-align:center}
+  .t229__list_item{padding:6px 12px}
+}
