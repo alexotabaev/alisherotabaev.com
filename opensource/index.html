@@ -1,0 +1,523 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Готовые опенсорс-решения для быстрой разработки — Алишер Отабаев</title>
+<meta name="description" content="Исследование Алишера Отабаева: проверенные готовые опенсорс-проекты, которые экономят месяцы разработки. Сначала ищи готовое — потом кодь." />
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Готовые опенсорс-решения для быстрой разработки" />
+<meta property="og:description" content="Проверенные готовые решения, которые экономят месяцы разработки. Бери готовое — не изобретай велосипед." />
+<meta property="og:url" content="https://alisherotabaev.com/opensource" />
+<link rel="canonical" href="https://alisherotabaev.com/opensource" />
+<link rel="shortcut icon" href="/images/tild6665-3732-4262-a336-653034633261__favicon_2.ico" type="image/x-icon" />
+<link rel="preconnect" href="https://fonts.gstatic.com" />
+<link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Roboto+Condensed:wght@400;500;700&display=swap&subset=latin,cyrillic" rel="stylesheet" />
+<style>
+  :root{
+    --ink:#000d29;
+    --ink-soft:#26324a;
+    --gold:#b89168;
+    --gold-dk:#96723f;
+    --paper:#ffffff;
+    --cream:#faf8f4;
+    --cream2:#f3ede3;
+    --line:#e8e1d6;
+    --muted:#5c6472;
+    --shadow:0 10px 40px rgba(0,13,41,.08);
+    --shadow-sm:0 4px 18px rgba(0,13,41,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Roboto',Arial,Helvetica,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,.cond{font-family:'Roboto Condensed','Roboto',Arial,sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .nav .logo img{height:40px;width:auto;display:block;}
+  .nav .logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .nav .navlinks{display:flex;align-items:center;gap:26px;}
+  .nav .navlinks a{font-size:15px;color:var(--ink-soft);font-weight:500;}
+  .nav .navlinks a:hover{color:var(--gold-dk);}
+  .nav .cta-mini{background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;}
+  .nav .cta-mini:hover{background:var(--gold-dk);}
+  @media(max-width:860px){.nav .navlinks a.hideable{display:none;}}
+
+  /* Hero */
+  .hero{background:linear-gradient(180deg,var(--cream) 0%,#fff 100%);border-bottom:1px solid var(--line);
+    padding:76px 0 64px;position:relative;overflow:hidden;}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle at center,rgba(184,145,104,.16),rgba(184,145,104,0) 70%);}
+  .eyebrow{display:inline-flex;align-items:center;gap:9px;font-family:'Roboto Condensed';letter-spacing:.14em;
+    text-transform:uppercase;font-size:13px;font-weight:700;color:var(--gold-dk);
+    background:var(--cream2);border:1px solid var(--line);padding:8px 16px;border-radius:999px;}
+  .hero h1{font-size:56px;line-height:1.05;font-weight:700;margin:22px 0 18px;max-width:16ch;letter-spacing:-.01em;}
+  .hero h1 .hl{color:var(--gold-dk);}
+  .hero p.lead{font-size:20px;color:var(--ink-soft);max-width:60ch;margin:0 0 28px;}
+  .hero .stats{display:flex;gap:30px;flex-wrap:wrap;margin:26px 0 30px;}
+  .hero .stats .st{display:flex;flex-direction:column;}
+  .hero .stats .st b{font-family:'Roboto Condensed';font-size:34px;font-weight:700;line-height:1;color:var(--ink);}
+  .hero .stats .st span{font-size:14px;color:var(--muted);margin-top:6px;}
+  .btnrow{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:16px;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm);}
+  .btn-primary:hover{background:var(--gold-dk);}
+  .btn-tg{background:#29a9eb;color:#fff;}
+  .btn-max{background:var(--gold);color:#fff;}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--gold);}
+  .btn svg{width:18px;height:18px;display:block;}
+  @media(max-width:720px){.hero{padding:52px 0 44px;}.hero h1{font-size:38px;}.hero p.lead{font-size:18px;}}
+
+  /* Section */
+  section{padding:70px 0;}
+  .sec-head{max-width:720px;margin-bottom:40px;}
+  .sec-head .kicker{font-family:'Roboto Condensed';text-transform:uppercase;letter-spacing:.14em;
+    font-size:13px;font-weight:700;color:var(--gold-dk);}
+  .sec-head h2{font-size:40px;line-height:1.1;font-weight:700;margin:12px 0 12px;letter-spacing:-.01em;}
+  .sec-head p{font-size:18px;color:var(--ink-soft);margin:0;}
+  @media(max-width:720px){.sec-head h2{font-size:30px;}}
+
+  /* Philosophy */
+  .philo{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow-sm);}
+  .pcard .num{font-family:'Roboto Condensed';font-size:15px;font-weight:700;color:var(--gold-dk);letter-spacing:.1em;}
+  .pcard h3{font-size:23px;margin:12px 0 12px;font-weight:700;}
+  .pcard p{margin:0;color:var(--ink-soft);font-size:16px;}
+  .pcard .big{display:block;margin-top:16px;font-family:'Roboto Condensed';font-weight:700;color:var(--ink);
+    font-size:17px;border-top:1px dashed var(--line);padding-top:14px;}
+  .pcard .big em{color:var(--gold-dk);font-style:normal;}
+  @media(max-width:900px){.cards3{grid-template-columns:1fr;}}
+
+  /* Catalog controls */
+  .controls{position:sticky;top:72px;z-index:20;background:rgba(255,255,255,.94);backdrop-filter:blur(8px);
+    padding:18px 0 14px;border-bottom:1px solid var(--line);margin-bottom:30px;}
+  .search{display:flex;align-items:center;gap:12px;background:#fff;border:1.5px solid var(--line);border-radius:999px;
+    padding:12px 20px;max-width:460px;box-shadow:var(--shadow-sm);}
+  .search input{border:0;outline:0;font-size:16px;width:100%;font-family:inherit;color:var(--ink);background:transparent;}
+  .search svg{width:18px;height:18px;color:var(--muted);flex-shrink:0;}
+  .chips{display:flex;gap:10px;flex-wrap:wrap;margin-top:16px;}
+  .chip{cursor:pointer;border:1.5px solid var(--line);background:#fff;color:var(--ink-soft);
+    padding:8px 15px;border-radius:999px;font-size:14px;font-weight:500;white-space:nowrap;transition:all .12s ease;}
+  .chip:hover{border-color:var(--gold);}
+  .chip.active{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .chip .c{opacity:.6;font-size:12px;margin-left:4px;}
+  .countline{font-size:14px;color:var(--muted);margin:6px 0 22px;}
+
+  /* Grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}}
+  .card{display:flex;flex-direction:column;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:22px 22px 20px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;position:relative;}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold);}
+  .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
+  .card h4{font-family:'Roboto Condensed';font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin-bottom:12px;word-break:break-all;}
+  .card p{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;}
+  .card .gh{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--ink);
+    border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;align-self:flex-start;transition:all .12s ease;}
+  .card .gh:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .card .gh svg{width:16px;height:16px;}
+  .empty{grid-column:1/-1;text-align:center;color:var(--muted);padding:50px 0;font-size:17px;}
+  .note{margin-top:26px;font-size:13.5px;color:var(--muted);border-left:3px solid var(--gold);padding:8px 0 8px 16px;background:var(--cream);}
+
+  /* CTA */
+  .cta{background:var(--ink);color:#fff;text-align:center;}
+  .cta h2{font-size:42px;font-weight:700;margin:0 0 14px;color:#fff;}
+  .cta p{font-size:19px;color:#c7cfdd;max-width:56ch;margin:0 auto 30px;}
+  .cta .btnrow{justify-content:center;}
+  .cta .btn-ghost{background:transparent;color:#fff;border-color:rgba(255,255,255,.25);}
+  .cta .btn-ghost:hover{border-color:var(--gold);}
+  @media(max-width:720px){.cta h2{font-size:30px;}}
+
+  /* Footer */
+  footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0 30px;}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;}
+  .foot .fine{font-size:13px;color:var(--muted);}
+  .foot .soc{display:flex;gap:14px;}
+  .foot .soc a{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--ink);
+    border:1px solid var(--line);border-radius:50%;transition:all .12s ease;}
+  .foot .soc a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .foot .soc svg{width:17px;height:17px;}
+  .legal{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:18px;}
+  .legal a{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+  .legal a:hover{color:var(--gold-dk);}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="/"><img src="/images/tild6566-6462-4532-b137-326533313461__3-2.png" alt="Алишер Отабаев" /></a>
+    <nav class="navlinks">
+      <a class="hideable" href="/">Главная</a>
+      <a class="hideable" href="/blog">Блог</a>
+      <a class="hideable" href="#catalog">Подборка</a>
+      <a class="cta-mini" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">Telegram-канал</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="wrap">
+    <span class="eyebrow">Исследование · опенсорс для быстрой разработки</span>
+    <h1>Готовые решения, которые экономят <span class="hl">месяцы разработки</span></h1>
+    <p class="lead">Я провёл исследование и собрал проверенные опенсорс-проекты, которые ускоряют разработку в разы. Всё разложено по категориям, с прямыми ссылками на GitHub. Бери готовое — не изобретай велосипед.</p>
+    <div class="stats">
+      <div class="st"><b id="stat-count">110+</b><span>репозиториев</span></div>
+      <div class="st"><b>18</b><span>категорий</span></div>
+      <div class="st"><b>0₽</b><span>всё бесплатно и открыто</span></div>
+    </div>
+    <div class="btnrow">
+      <a class="btn btn-primary" href="#catalog">Смотреть подборку</a>
+      <a class="btn btn-tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 16.6 9.6 13l6.9-6.2c.3-.27-.07-.4-.46-.17L7.5 12.1 3.8 11c-.8-.24-.8-.8.18-1.18l14.4-5.56c.66-.3 1.3.16 1.05 1.18l-2.45 11.55c-.17.8-.65 1-1.32.62l-3.63-2.68-1.75 1.7c-.2.2-.37.36-.72.36Z"/></svg>
+        Telegram
+      </a>
+      <a class="btn btn-max" href="https://max.ru/id772836794441_biz" target="_blank" rel="noopener">Канал в Max</a>
+    </div>
+  </div>
+</div>
+
+<!-- PHILOSOPHY -->
+<section class="philo">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Мой принцип</div>
+      <h2>Сначала ищи готовое. Кодь только если не нашёл</h2>
+      <p>За этим стоит простая философия, которая экономит время, деньги и токены — и делает интернет сильнее для всех.</p>
+    </div>
+    <div class="cards3">
+      <div class="pcard">
+        <div class="num">01</div>
+        <h3>Сначала ищи, потом кодь</h3>
+        <p>Перед тем как писать хоть строчку кода — найди готовое решение. Начинай с нуля только если реально ничего не нашёл. Есть рабочий опенсорс — бери его и экономь время и токены.</p>
+      </div>
+      <div class="pcard">
+        <div class="num">02</div>
+        <h3>Улучшил — верни сообществу</h3>
+        <p>Взял готовое и доработал под себя? Отправь улучшения обратно авторам. Так решение становится сильнее и полезнее для всего интернета — а всё сообщество растёт быстрее. Мы поднимаем друг друга.</p>
+      </div>
+      <div class="pcard">
+        <div class="num">03</div>
+        <h3>Новая экономика разработки</h3>
+        <p>Секрет не в том, чтобы писать больше кода, а в том, чтобы собирать из готового.</p>
+        <span class="big">Раньше: 3 месяца и <em>$2000–3000</em>.<br>Теперь: 5 минут и <em>~$10</em> до результата.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CATALOG -->
+<section id="catalog">
+  <div class="wrap">
+    <div class="sec-head">
+      <div class="kicker">Подборка находок</div>
+      <h2>Готовые решения по категориям</h2>
+      <p>Найди нужное поиском или фильтром. Каждая карточка ведёт прямо на GitHub-проект.</p>
+    </div>
+
+    <div class="controls">
+      <div class="search">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></svg>
+        <input id="q" type="text" placeholder="Поиск: агент, база данных, видео, аналитика…" autocomplete="off" />
+      </div>
+      <div class="chips" id="chips"></div>
+    </div>
+
+    <div class="countline" id="countline"></div>
+    <div class="grid" id="grid"></div>
+
+    <div class="note">Подборка собрана в ходе исследования и отражает находки на момент публикации. Опенсорс-проекты быстро развиваются и иногда переезжают — если ссылка изменилась, найдите репозиторий по названию на GitHub. Проверяйте лицензию и актуальность перед использованием в продакшене.</div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta">
+  <div class="wrap">
+    <h2>Хочешь забирать такие находки первым?</h2>
+    <p>Я регулярно нахожу инструменты, которые ускоряют разработку в разы, и делюсь ими в своих каналах. Подписывайся — и собирай продукты из готового, пока другие пишут с нуля.</p>
+    <div class="btnrow">
+      <a class="btn btn-tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 16.6 9.6 13l6.9-6.2c.3-.27-.07-.4-.46-.17L7.5 12.1 3.8 11c-.8-.24-.8-.8.18-1.18l14.4-5.56c.66-.3 1.3.16 1.05 1.18l-2.45 11.55c-.17.8-.65 1-1.32.62l-3.63-2.68-1.75 1.7c-.2.2-.37.36-.72.36Z"/></svg>
+        Telegram-канал
+      </a>
+      <a class="btn btn-max" href="https://max.ru/id772836794441_biz" target="_blank" rel="noopener">Канал в Max</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <div class="fine">ИП Отабаев Алишер Камолович · ОГРН 324508100462661</div>
+      <div class="soc">
+        <a href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener" aria-label="Telegram"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M9.8 16.6 9.6 13l6.9-6.2c.3-.27-.07-.4-.46-.17L7.5 12.1 3.8 11c-.8-.24-.8-.8.18-1.18l14.4-5.56c.66-.3 1.3.16 1.05 1.18l-2.45 11.55c-.17.8-.65 1-1.32.62l-3.63-2.68-1.75 1.7c-.2.2-.37.36-.72.36Z"/></svg></a>
+        <a href="https://www.instagram.com/alisherotabaev/" target="_blank" rel="noopener" aria-label="Instagram"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></svg></a>
+        <a href="https://vk.com/alisherotabaev" target="_blank" rel="noopener" aria-label="VK"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M13 18c-5.5 0-8.9-3.9-9-10h2.8c.1 4.5 2.2 6.4 3.7 6.8V8h2.7v3.9c1.5-.2 3-1.8 3.6-3.9h2.6c-.5 2.3-2 3.9-3 4.6 1 .5 2.8 2 3.5 4.4h-2.9c-.5-1.6-1.9-2.9-3.8-3.1V18H13Z"/></svg></a>
+        <a href="https://www.youtube.com/channel/UCnfrMWRFTpyeCM7XK6TMtRw/about" target="_blank" rel="noopener" aria-label="YouTube"><svg viewBox="0 0 24 24" fill="currentColor"><path d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5A2.5 2.5 0 0 0 2.4 7.3C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12Zm-12 3V9l5 3-5 3Z"/></svg></a>
+      </div>
+    </div>
+    <div class="legal">
+      <a href="/privacypolicy" target="_blank">Политика конфиденциальности</a>
+      <a href="/agreement" target="_blank">Согласие с рассылкой</a>
+      <a href="/otkazototvetstvennosti" target="_blank">Отказ от ответственности</a>
+      <a href="/oferta" target="_blank">Публичная оферта</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+const CATS = [
+  ["all","Все"],
+  ["agents","AI-агенты"],
+  ["claude","Claude Code / Codex"],
+  ["code","Разработка кода"],
+  ["video","Видео"],
+  ["image","Картинки и дизайн"],
+  ["voice","Голос и речь"],
+  ["ocr","OCR и документы"],
+  ["selfhost","Замены сервисов"],
+  ["saas","Бизнес / SaaS"],
+  ["automation","Автоматизация / API"],
+  ["security","Безопасность / OSINT"],
+  ["privacy","Приватность"],
+  ["data","Данные и API"],
+  ["finance","Финансы"],
+  ["localai","Локальный AI"],
+  ["infra","Инфраструктура"],
+  ["media","Медиа и разное"],
+  ["mcp","MCP-серверы"]
+];
+const CATLABEL = Object.fromEntries(CATS.map(c=>c));
+
+const DATA = [
+  // AI-агенты
+  {n:"OpenHands",r:"All-Hands-AI/OpenHands",c:"agents",d:"Автономный ИИ-агент, который сам пишет и правит код."},
+  {n:"Dify",r:"langgenius/dify",c:"agents",d:"Платформа для сборки ИИ-агентов и LLM-приложений."},
+  {n:"Browser Use",r:"browser-use/browser-use",c:"agents",d:"ИИ-агент, который управляет браузером как человек."},
+  {n:"CrewAI",r:"crewAIInc/crewAI",c:"agents",d:"Фреймворк для команд ИИ-агентов на Python."},
+  {n:"LangGraph",r:"langchain-ai/langgraph",c:"agents",d:"Оркестрация stateful ИИ-агентов."},
+  {n:"mem0",r:"mem0ai/mem0",c:"agents",d:"Долговременная память для ИИ-агентов."},
+  {n:"Claude Task Master",r:"eyaltoledano/claude-task-master",c:"agents",d:"Менеджер задач для ИИ-разработки."},
+  {n:"Inbox Zero",r:"elie222/inbox-zero",c:"agents",d:"ИИ-ассистент, который разбирает входящую почту."},
+  {n:"Agent Skills",r:"addyosmani/agent-skills",c:"agents",d:"Набор навыков для ИИ-агентов разработки."},
+  {n:"Agency Agents",r:"msitarzewski/agency-agents",c:"agents",d:"Библиотека готовых ИИ-агентов для Claude Code, Cursor и Codex."},
+  {n:"Agent Reach",r:"Panniantong/agent-reach",c:"agents",d:"Даёт ИИ-агенту доступ в интернет: соцсети, GitHub, YouTube."},
+  {n:"Agent Memory",r:"rohitg00/agentmemory",c:"agents",d:"Долговременная память для ИИ-агентов."},
+
+  // Claude Code / Codex
+  {n:"Skills",r:"mattpocock/skills",c:"claude",d:"Набор AI-навыков для инженеров."},
+  {n:"Awesome Claude Code",r:"hesreallyhim/awesome-claude-code",c:"claude",d:"Крупнейшая подборка навыков, хуков и команд для Claude Code."},
+  {n:"Superpowers",r:"obra/superpowers",c:"claude",d:"Навыки: TDD, код-ревью, планирование задач, автономные агенты."},
+  {n:"CC Switch",r:"farion1231/cc-switch",c:"claude",d:"Менеджер Claude Code и Gemini CLI: ключи, MCP, промпты, сессии."},
+  {n:"gstack",r:"garrytan/gstack",c:"claude",d:"AI-навыки для Claude Code: роли разработчика, дизайнера, QA."},
+  {n:"SuperClaude Framework",r:"SuperClaude-Org/SuperClaude_Framework",c:"claude",d:"30 команд, агенты и интеграция с MCP."},
+  {n:"Free Claude Code",r:"Alishahryar1/free-claude-code",c:"claude",d:"Прокси для бесплатного доступа к Claude Code."},
+  {n:"System Prompts Leaks",r:"asgeirtj/system_prompts_leaks",c:"claude",d:"Коллекция системных промптов популярных ИИ."},
+  {n:"CL4R1T4S",r:"elder-plinius/CL4R1T4S",c:"claude",d:"Системные промпты AI-моделей и агентов."},
+  {n:"Awesome Design MD",r:"VoltAgent/awesome-design-md",c:"claude",d:"Готовые DESIGN.md по дизайн-системам брендов."},
+  {n:"OfficeCLI",r:"iOfficeAI/OfficeCLI",c:"claude",d:"CLI для ИИ-агентов: Word, Excel, PowerPoint без MS Office."},
+  {n:"Impeccable",r:"pbakaus/impeccable",c:"claude",d:"Дизайн-навык: правит фронтенд прямо в браузере."},
+  {n:"AI Job Search",r:"MadsLorentzen/ai-job-search",c:"claude",d:"Фреймворк на Claude Code для поиска работы."},
+  {n:"Stop Slop",r:"hardikpandya/stop-slop",c:"claude",d:"Навык, убирающий «AI-шный» стиль из текста."},
+  {n:"Cybersecurity Skills",r:"mukul975/Anthropic-Cybersecurity-Skills",c:"claude",d:"Большой набор навыков по кибербезопасности."},
+  {n:"Awesome Claude Plugins",r:"ComposioHQ/awesome-claude-plugins",c:"claude",d:"Подборка готовых плагинов для Claude Code."},
+
+  // Разработка кода
+  {n:"Understand Anything",r:"Egonex-AI/Understand-Anything",c:"code",d:"Превращает код и документацию в интерактивную карту знаний."},
+  {n:"Codebase Memory MCP",r:"DeusData/codebase-memory-mcp",c:"code",d:"MCP-сервер: граф знаний по коду (155 языков)."},
+  {n:"CodeGraph",r:"colbymchenry/codegraph",c:"code",d:"MCP: граф знаний кода."},
+  {n:"Open Code Review",r:"alibaba/open-code-review",c:"code",d:"Автоматическое код-ревью с ИИ: Git-диффы, баги, комментарии."},
+  {n:"OpenWiki",r:"langchain-ai/openwiki",c:"code",d:"CLI для авто-документации кода."},
+  {n:"TurboVec",r:"RyanCodrai/turbovec",c:"code",d:"Векторная БД на Rust со сжатием эмбеддингов."},
+  {n:"AI Website Cloner",r:"JCodesMore/ai-website-cloner-template",c:"code",d:"Клонирование сайтов в код на Next.js."},
+  {n:"anime.js",r:"juliangarnier/anime",c:"code",d:"Лёгкая библиотека веб-анимаций."},
+  {n:"xyflow",r:"xyflow/xyflow",c:"code",d:"Библиотека нод-редакторов для React и Svelte."},
+  {n:"H2O Wave",r:"h2oai/wave",c:"code",d:"Веб-приложения и дашборды на Python/R."},
+  {n:"n8n-mcp",r:"czlonkowski/n8n-mcp",c:"code",d:"MCP-сервер для n8n с валидацией JSON."},
+
+  // Видео
+  {n:"MoneyPrinterTurbo",r:"harry0703/MoneyPrinterTurbo",c:"video",d:"Авто-генерация коротких видео для TikTok и YouTube."},
+  {n:"OpenMontage",r:"calesthio/OpenMontage",c:"video",d:"Агентная система производства видео."},
+  {n:"Hyperframes",r:"heygen-com/hyperframes",c:"video",d:"Генерация видео из HTML-кода."},
+  {n:"Pixelle Video",r:"AIDC-AI/Pixelle-Video",c:"video",d:"AI-движок коротких видео на базе ComfyUI."},
+  {n:"OpenShot",r:"OpenShot/openshot-qt",c:"video",d:"Десктопный видеоредактор."},
+  {n:"Parabolic",r:"NickvisionApps/Parabolic",c:"video",d:"Удобный графический интерфейс для yt-dlp."},
+  {n:"compress0",r:"codeforreal1/compress0",c:"video",d:"Сжатие видео и изображений."},
+
+  // Картинки и дизайн
+  {n:"Fooocus",r:"lllyasviel/Fooocus",c:"image",d:"Офлайн-генерация изображений (альтернатива Midjourney)."},
+  {n:"PhotoGIMP",r:"Diolinux/PhotoGIMP",c:"image",d:"Патч, превращающий GIMP в подобие Photoshop."},
+  {n:"Piskel",r:"piskelapp/piskel",c:"image",d:"Редактор пиксель-арта."},
+  {n:"Edit-Banana",r:"BIT-DataLab/Edit-Banana",c:"image",d:"Редактирование текста прямо внутри картинок."},
+  {n:"CatVTON",r:"Zheng-Chong/CatVTON",c:"image",d:"ИИ-примерка одежды."},
+
+  // Голос и речь
+  {n:"Whisper",r:"openai/whisper",c:"voice",d:"Распознавание речи на 99 языках."},
+  {n:"Faster Whisper",r:"SYSTRAN/faster-whisper",c:"voice",d:"Быстрая локальная транскрипция."},
+  {n:"OpenVoice",r:"myshell-ai/OpenVoice",c:"voice",d:"Клонирование голоса."},
+  {n:"VoxCPM",r:"OpenBMB/VoxCPM",c:"voice",d:"Синтез речи, 30 языков, клонирование."},
+  {n:"Pocket TTS",r:"kyutai-labs/pocket-tts",c:"voice",d:"Лёгкая TTS-модель для CPU."},
+  {n:"Kokoro",r:"hexgrad/kokoro",c:"voice",d:"Локальный синтез речи."},
+
+  // OCR и документы
+  {n:"Stirling PDF",r:"Stirling-Tools/Stirling-PDF",c:"ocr",d:"Большой набор инструментов для PDF."},
+  {n:"Chandra",r:"datalab-to/chandra",c:"ocr",d:"OCR-модель (в Markdown/HTML/JSON)."},
+  {n:"Unlimited OCR",r:"baidu/Unlimited-OCR",c:"ocr",d:"OCR-модель на базе DeepSeek-OCR."},
+
+  // Замены сервисов
+  {n:"immich",r:"immich-app/immich",c:"selfhost",d:"Замена Google Photos."},
+  {n:"AppFlowy",r:"AppFlowy-IO/AppFlowy",c:"selfhost",d:"Замена Notion."},
+  {n:"NocoDB",r:"nocodb/nocodb",c:"selfhost",d:"Замена Airtable."},
+  {n:"Memos",r:"usememos/memos",c:"selfhost",d:"Лёгкие заметки на своём сервере."},
+  {n:"Jellyfin",r:"jellyfin/jellyfin",c:"selfhost",d:"Медиасервер (замена Plex)."},
+  {n:"Penpot",r:"penpot/penpot",c:"selfhost",d:"Замена Figma."},
+  {n:"ToolJet",r:"ToolJet/ToolJet",c:"selfhost",d:"Low-code платформа (замена Retool)."},
+  {n:"Nextcloud",r:"nextcloud/server",c:"selfhost",d:"Облако (замена Google Drive)."},
+  {n:"Open Notebook",r:"lfnovo/open-notebook",c:"selfhost",d:"Замена Google NotebookLM."},
+  {n:"Docmost",r:"docmost/docmost",c:"selfhost",d:"Замена Notion/Confluence."},
+  {n:"Seafile",r:"haiwen/seafile",c:"selfhost",d:"Файловое хранилище (замена Dropbox)."},
+  {n:"Baserow",r:"baserow/baserow",c:"selfhost",d:"База данных (замена Airtable)."},
+
+  // Бизнес / SaaS
+  {n:"Supabase",r:"supabase/supabase",c:"saas",d:"Бэкенд (замена Firebase)."},
+  {n:"PocketBase",r:"pocketbase/pocketbase",c:"saas",d:"Бэкенд в одном файле."},
+  {n:"Coolify",r:"coollabsio/coolify",c:"saas",d:"Деплой и хостинг (замена Vercel/Heroku)."},
+  {n:"Ghost",r:"TryGhost/Ghost",c:"saas",d:"CMS и рассылки (замена Substack)."},
+  {n:"Plane",r:"makeplane/plane",c:"saas",d:"Трекер задач (замена Jira/Linear)."},
+  {n:"Twenty",r:"twentyhq/twenty",c:"saas",d:"CRM (замена Salesforce)."},
+  {n:"Cal.com",r:"calcom/cal.com",c:"saas",d:"Запись и расписания (замена Calendly)."},
+  {n:"PostHog",r:"PostHog/posthog",c:"saas",d:"Продуктовая аналитика (замена Mixpanel)."},
+  {n:"Medusa",r:"medusajs/medusa",c:"saas",d:"Интернет-магазин (замена Shopify)."},
+  {n:"Chatwoot",r:"chatwoot/chatwoot",c:"saas",d:"Чат с клиентами (замена Intercom)."},
+  {n:"Plausible",r:"plausible/analytics",c:"saas",d:"Веб-аналитика без кук (замена Google Analytics)."},
+  {n:"Listmonk",r:"knadh/listmonk",c:"saas",d:"Email-рассылки (замена Mailchimp)."},
+  {n:"Formbricks",r:"formbricks/formbricks",c:"saas",d:"Формы и опросы (замена Typeform)."},
+  {n:"Keycloak",r:"keycloak/keycloak",c:"saas",d:"Авторизация и SSO."},
+  {n:"Sentry",r:"getsentry/sentry",c:"saas",d:"Отслеживание ошибок."},
+  {n:"GrowthBook",r:"growthbook/growthbook",c:"saas",d:"A/B-тестирование."},
+
+  // Автоматизация / API
+  {n:"n8n",r:"n8n-io/n8n",c:"automation",d:"Автоматизация процессов (замена Zapier), 400+ интеграций."},
+  {n:"Nango",r:"nangohq/nango",c:"automation",d:"Подключение к 700+ API (OAuth и токены)."},
+  {n:"Portkey Gateway",r:"Portkey-AI/gateway",c:"automation",d:"Единый API-шлюз к 1600+ LLM."},
+  {n:"OmniRoute",r:"diegosouzapw/OmniRoute",c:"automation",d:"AI-шлюз к сотням провайдеров."},
+
+  // Безопасность / OSINT
+  {n:"Maigret",r:"soxoj/maigret",c:"security",d:"OSINT-поиск аккаунтов по нику (3000+ сайтов)."},
+  {n:"Apktool",r:"iBotPeaches/Apktool",c:"security",d:"Реверс-инжиниринг Android APK."},
+  {n:"Heretic",r:"p-e-w/heretic",c:"security",d:"Снятие ограничений с локальных LLM."},
+  {n:"CyberStrikeAI",r:"Ed1s0nZ/CyberStrikeAI",c:"security",d:"AI-платформа для пентеста."},
+  {n:"Flowsint",r:"reconurge/flowsint",c:"security",d:"OSINT-инструмент с графом связей."},
+  {n:"T3MP3ST",r:"elder-plinius/T3MP3ST",c:"security",d:"Мультиагентный offensive-security фреймворк."},
+  {n:"Deep Eye",r:"zakirkun/deep-eye",c:"security",d:"AI-сканер уязвимостей."},
+
+  // Приватность
+  {n:"uBlock Origin",r:"gorhill/uBlock",c:"privacy",d:"Блокировщик рекламы."},
+  {n:"CloakBrowser",r:"CloakHQ/CloakBrowser",c:"privacy",d:"Chromium с обходом антибота."},
+  {n:"Bitwarden",r:"bitwarden/server",c:"privacy",d:"Менеджер паролей со сквозным шифрованием."},
+  {n:"SpoofDPI",r:"xvzc/spoofdpi",c:"privacy",d:"Прокси для обхода DPI-блокировок."},
+  {n:"Password Safe",r:"pwsafe/pwsafe",c:"privacy",d:"Локальный менеджер паролей."},
+
+  // Данные и API
+  {n:"API Mega List",r:"cporter202/API-mega-list",c:"data",d:"Тысячи готовых API по категориям."},
+  {n:"Social Media Scraping APIs",r:"cporter202/social-media-scraping-apis",c:"data",d:"Сбор данных из соцсетей."},
+  {n:"Google Maps Scrapper",r:"zohaibbashir/Google-Maps-Scrapper",c:"data",d:"Сбор данных о компаниях из Google Maps."},
+
+  // Финансы
+  {n:"TradingAgents",r:"TauricResearch/TradingAgents",c:"finance",d:"Мультиагентный фреймворк для трейдинга."},
+  {n:"Kronos",r:"shiyu-coder/Kronos",c:"finance",d:"Foundation-модель для финансовых свечей."},
+  {n:"Anthropic Financial Services",r:"anthropics/financial-services",c:"finance",d:"Официальные агенты Anthropic для финансов."},
+  {n:"Fincept Terminal",r:"Fincept-Corporation/FinceptTerminal",c:"finance",d:"Финтерминал уровня Bloomberg."},
+
+  // Локальный AI
+  {n:"Ollama",r:"ollama/ollama",c:"localai",d:"Запуск нейросетей локально без API."},
+  {n:"yt-dlp",r:"yt-dlp/yt-dlp",c:"localai",d:"Загрузчик видео и аудио с сотен сайтов."},
+  {n:"Mermaid",r:"mermaid-js/mermaid",c:"localai",d:"Диаграммы из текста."},
+  {n:"IT Tools",r:"CorentinTh/it-tools",c:"localai",d:"200+ утилит для разработчиков."},
+  {n:"Colibri",r:"JustVugg/colibri",c:"localai",d:"Движок на C для запуска больших моделей на ноутбуке."},
+
+  // Инфраструктура
+  {n:"Uptime Kuma",r:"louislam/uptime-kuma",c:"infra",d:"Дашборд мониторинга аптайма."},
+  {n:"Grafana",r:"grafana/grafana",c:"infra",d:"Дашборды мониторинга."},
+  {n:"Velero",r:"vmware-tanzu/velero",c:"infra",d:"Бэкап и восстановление Kubernetes."},
+  {n:"Bulk Crap Uninstaller",r:"Klocman/Bulk-Crap-Uninstaller",c:"infra",d:"Массовое удаление программ (Windows)."},
+  {n:"superfile",r:"yorukot/superfile",c:"infra",d:"Файловый менеджер для терминала."},
+  {n:"docker-mailserver",r:"docker-mailserver/docker-mailserver",c:"infra",d:"Почтовый сервер в Docker."},
+  {n:"asciinema",r:"asciinema/asciinema",c:"infra",d:"Запись сессий терминала."},
+  {n:"docker-android",r:"HQarroum/docker-android",c:"infra",d:"Android-эмулятор в Docker."},
+  {n:"Webmin",r:"webmin/webmin",c:"infra",d:"Веб-панель управления Linux-сервером."},
+  {n:"Xplorer",r:"kimlimjustin/xplorer",c:"infra",d:"Кастомизируемый файловый менеджер."},
+  {n:"WinDirStat",r:"windirstat/windirstat",c:"infra",d:"Визуализатор занятого места на диске."},
+
+  // Медиа и разное
+  {n:"Home Assistant",r:"home-assistant/core",c:"media",d:"Умный дом."},
+  {n:"Umbrel",r:"getumbrel/umbrel",c:"media",d:"Домашний сервер (Raspberry Pi)."},
+  {n:"AIRI",r:"moeru-ai/airi",c:"media",d:"Опенсорс AI-персонаж (Live2D/VRM)."},
+  {n:"Viseron",r:"roflcoopter/viseron",c:"media",d:"Видеонаблюдение с ИИ на своём сервере."},
+  {n:"Free Games Claimer",r:"vogler/free-games-claimer",c:"media",d:"Авто-получение бесплатных игр (Epic/Prime/GOG)."},
+  {n:"English Level Up Tips",r:"byoungd/English-level-up-tips",c:"media",d:"Гайд по изучению английского."},
+
+  // MCP-серверы
+  {n:"Awesome MCP Servers",r:"punkpeye/awesome-mcp-servers",c:"mcp",d:"Крупная подборка MCP-серверов."},
+  {n:"MCP Reference Servers",r:"modelcontextprotocol/servers",c:"mcp",d:"Официальные референс-серверы Model Context Protocol."}
+];
+
+const GH_ICON = '<svg viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></svg>';
+let activeCat="all";
+
+function build(){
+  const chips=document.getElementById("chips");
+  const counts={all:DATA.length};
+  DATA.forEach(x=>counts[x.c]=(counts[x.c]||0)+1);
+  chips.innerHTML=CATS.filter(([k])=>k==="all"||counts[k]).map(([k,l])=>
+    `<span class="chip${k==="all"?" active":""}" data-cat="${k}">${l}<span class="c">${counts[k]||0}</span></span>`).join("");
+  chips.querySelectorAll(".chip").forEach(ch=>ch.addEventListener("click",()=>{
+    activeCat=ch.dataset.cat;
+    chips.querySelectorAll(".chip").forEach(c=>c.classList.remove("active"));
+    ch.classList.add("active");render();
+  }));
+  document.getElementById("q").addEventListener("input",render);
+  document.getElementById("stat-count").textContent=DATA.length+"+";
+  render();
+}
+function render(){
+  const q=document.getElementById("q").value.trim().toLowerCase();
+  const grid=document.getElementById("grid");
+  const list=DATA.filter(x=>{
+    if(activeCat!=="all"&&x.c!==activeCat)return false;
+    if(!q)return true;
+    return (x.n+" "+x.r+" "+x.d+" "+CATLABEL[x.c]).toLowerCase().includes(q);
+  });
+  document.getElementById("countline").textContent=
+    `Показано ${list.length} из ${DATA.length} проектов`+(activeCat!=="all"?` · ${CATLABEL[activeCat]}`:"")+(q?` · «${q}»`:"");
+  grid.innerHTML=list.length?list.map(x=>`
+    <div class="card">
+      <span class="tag">${CATLABEL[x.c]}</span>
+      <h4>${x.n}</h4>
+      <div class="repo">${x.r}</div>
+      <p>${x.d}</p>
+      <a class="gh" href="https://github.com/${x.r}" target="_blank" rel="noopener">${GH_ICON} Открыть на GitHub</a>
+    </div>`).join(""):`<div class="empty">Ничего не нашлось. Попробуйте другой запрос.</div>`;
+}
+build();
+</script>
+</body>
+</html>
