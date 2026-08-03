@@ -222,11 +222,22 @@ const CSS = `
   .search input{border:0;outline:0;font-size:15px;width:100%;font-family:inherit;color:var(--ink);background:transparent;}
   .search svg{width:17px;height:17px;color:var(--muted);flex-shrink:0;}
   .chipswrap{position:relative;margin-top:12px;}
-  .chipswrap::after{content:"";position:absolute;top:0;right:0;width:34px;height:100%;
-    background:linear-gradient(90deg,rgba(255,255,255,0),#fff);pointer-events:none;}
-  .chips{display:flex;gap:7px;flex-wrap:nowrap;overflow-x:auto;padding:0 34px 3px 0;margin:0;list-style:none;
+  /* Тень справа появляется только когда ряд действительно прокручивается */
+  .chipswrap::after{content:"";position:absolute;top:0;right:0;width:34px;height:100%;opacity:0;
+    background:linear-gradient(90deg,rgba(255,255,255,0),#fff);pointer-events:none;transition:opacity .15s ease;}
+  /* В покое видны все категории сразу — переносом по строкам.
+     Когда панель залипает у верха, ряд схлопывается в одну прокручиваемую строку,
+     чтобы не съедать пол-экрана. */
+  .chips{display:flex;gap:7px;flex-wrap:wrap;padding:0;margin:0;list-style:none;
     -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;}
   .chips::-webkit-scrollbar{display:none;}
+  .controls.is-stuck .chips{flex-wrap:nowrap;overflow-x:auto;padding:0 34px 3px 0;}
+  .controls.is-stuck .chipswrap::after{opacity:1;}
+  @media(max-width:720px){
+    .chips{flex-wrap:nowrap;overflow-x:auto;padding:0 34px 3px 0;}
+    .chipswrap::after{opacity:1;}
+  }
+  #ctrl-sentinel{height:0;}
   .chip{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink-soft);
     padding:6px 12px;border-radius:999px;font-size:13px;font-weight:500;white-space:nowrap;flex-shrink:0;
     font-family:inherit;line-height:1.6;transition:all .12s ease;}
@@ -453,7 +464,7 @@ function buildIndex() {
       return `      <div class="catblock" data-cat="${esc(c.key)}" id="${esc(c.slug)}">
         <h3>${esc(c.label)} <span class="cnt">${c.count}&nbsp;${plural(c.count)}</span></h3>
         <p class="cdesc">${esc(c.intro)}</p>
-        <a class="catlink" href="${catUrl(c)}">Открыть категорию «${esc(c.label)}» отдельной страницей →</a>
+        <a class="catlink" href="${catUrl(c)}">Отдельная страница: ${esc(c.label)} →</a>
         <ul class="grid">
 ${list.map(card).join('\n')}
         </ul>
@@ -470,13 +481,6 @@ ${list.map(card).join('\n')}
         )}<span class="c">${c.count}</span></button></li>`
     )
   ].join('\n');
-
-  const catnav = categories
-    .map(
-      (c) =>
-        `        <li><a href="${catUrl(c)}">${esc(c.label)}<span class="c">${c.count}</span></a></li>`
-    )
-    .join('\n');
 
   const faqHtml = faq
     .map(
@@ -600,12 +604,7 @@ ${list.map(card).join('\n')}
       <p>Каждая карточка — что это и чем оно ценно для быстрой разработки. Найди нужное поиском или фильтром и переходи прямо на GitHub.</p>
     </div>
 
-    <nav aria-label="Категории каталога" style="margin-bottom:26px;">
-      <ul class="catnav">
-${catnav}
-      </ul>
-    </nav>
-
+    <div id="ctrl-sentinel" aria-hidden="true"></div>
     <div class="controls">
       <form class="search" role="search" onsubmit="return false;">
         <label class="sr-only" for="q">Поиск по каталогу опенсорс-проектов</label>
@@ -703,6 +702,33 @@ ${footer()}
     countline.textContent = "Показано " + shown + " из " + total + " " + plural(total) + suffix;
   }
 
+  // Панель фильтра залипает у верха — тогда ряд категорий схлопывается в одну строку,
+  // чтобы не занимать пол-экрана. Сторожок стоит в потоке перед панелью: как только
+  // он уходит под шапку, панель считается залипшей.
+  var controls = document.querySelector(".controls");
+  var sentinel = document.getElementById("ctrl-sentinel");
+  var pendingSync = false;
+  function syncStuck(){
+    pendingSync = false;
+    controls.classList.toggle("is-stuck", sentinel.getBoundingClientRect().top < 72);
+  }
+  if (controls && sentinel) {
+    window.addEventListener("scroll", function(){
+      if (pendingSync) return;
+      pendingSync = true;
+      requestAnimationFrame(syncStuck);
+    }, { passive: true });
+    window.addEventListener("resize", syncStuck, { passive: true });
+    syncStuck();
+  }
+
+  // После смены категории вернуть пользователя к списку, если он ушёл ниже него
+  function revealResults(){
+    var grid = document.getElementById("grid");
+    var top = grid.getBoundingClientRect().top + window.scrollY - 150;
+    if (window.scrollY > top) window.scrollTo({ top: top, behavior: "smooth" });
+  }
+
   chips.addEventListener("click", function(e){
     var btn = e.target.closest(".chip");
     if (!btn) return;
@@ -711,6 +737,7 @@ ${footer()}
       c.setAttribute("aria-pressed", String(c === btn));
     });
     render();
+    revealResults();
   });
 
   q.addEventListener("input", render);

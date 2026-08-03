@@ -198,11 +198,22 @@
   .search input{border:0;outline:0;font-size:15px;width:100%;font-family:inherit;color:var(--ink);background:transparent;}
   .search svg{width:17px;height:17px;color:var(--muted);flex-shrink:0;}
   .chipswrap{position:relative;margin-top:12px;}
-  .chipswrap::after{content:"";position:absolute;top:0;right:0;width:34px;height:100%;
-    background:linear-gradient(90deg,rgba(255,255,255,0),#fff);pointer-events:none;}
-  .chips{display:flex;gap:7px;flex-wrap:nowrap;overflow-x:auto;padding:0 34px 3px 0;margin:0;list-style:none;
+  /* Тень справа появляется только когда ряд действительно прокручивается */
+  .chipswrap::after{content:"";position:absolute;top:0;right:0;width:34px;height:100%;opacity:0;
+    background:linear-gradient(90deg,rgba(255,255,255,0),#fff);pointer-events:none;transition:opacity .15s ease;}
+  /* В покое видны все категории сразу — переносом по строкам.
+     Когда панель залипает у верха, ряд схлопывается в одну прокручиваемую строку,
+     чтобы не съедать пол-экрана. */
+  .chips{display:flex;gap:7px;flex-wrap:wrap;padding:0;margin:0;list-style:none;
     -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;}
   .chips::-webkit-scrollbar{display:none;}
+  .controls.is-stuck .chips{flex-wrap:nowrap;overflow-x:auto;padding:0 34px 3px 0;}
+  .controls.is-stuck .chipswrap::after{opacity:1;}
+  @media(max-width:720px){
+    .chips{flex-wrap:nowrap;overflow-x:auto;padding:0 34px 3px 0;}
+    .chipswrap::after{opacity:1;}
+  }
+  #ctrl-sentinel{height:0;}
   .chip{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink-soft);
     padding:6px 12px;border-radius:999px;font-size:13px;font-weight:500;white-space:nowrap;flex-shrink:0;
     font-family:inherit;line-height:1.6;transition:all .12s ease;}
@@ -362,30 +373,7 @@
       <p>Каждая карточка — что это и чем оно ценно для быстрой разработки. Найди нужное поиском или фильтром и переходи прямо на GitHub.</p>
     </div>
 
-    <nav aria-label="Категории каталога" style="margin-bottom:26px;">
-      <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
-        <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
-        <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
-        <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
-        <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
-        <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
-        <li><a href="/opensource/saas/">Бизнес / SaaS<span class="c">17</span></a></li>
-        <li><a href="/opensource/automation/">Автоматизация / API<span class="c">6</span></a></li>
-        <li><a href="/opensource/security/">Безопасность / OSINT<span class="c">8</span></a></li>
-        <li><a href="/opensource/privacy/">Приватность<span class="c">6</span></a></li>
-        <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
-        <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
-        <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
-        <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
-        <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
-        <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
-      </ul>
-    </nav>
-
+    <div id="ctrl-sentinel" aria-hidden="true"></div>
     <div class="controls">
       <form class="search" role="search" onsubmit="return false;">
         <label class="sr-only" for="q">Поиск по каталогу опенсорс-проектов</label>
@@ -424,7 +412,7 @@
       <div class="catblock" data-cat="agents" id="ai-agents">
         <h3>AI-агенты <span class="cnt">13&nbsp;проектов</span></h3>
         <p class="cdesc">Фреймворки и готовые агенты, которые выполняют задачи сами: пишут код, управляют браузером, разбирают почту, помнят контекст между сессиями. Берите их, когда нужен исполнитель, а не просто чат-бот.</p>
-        <a class="catlink" href="/opensource/ai-agents/">Открыть категорию «AI-агенты» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/ai-agents/">Отдельная страница: AI-агенты →</a>
         <ul class="grid">
         <li class="card" data-cat="agents" data-name="OpenHands" id="repo-all-hands-ai-openhands">
           <span class="tag">AI-агенты</span>
@@ -523,7 +511,7 @@
       <div class="catblock" data-cat="claude" id="claude-code">
         <h3>Claude Code / Codex <span class="cnt">17&nbsp;проектов</span></h3>
         <p class="cdesc">Всё, что превращает Claude Code и Codex из ассистента в рабочую команду: наборы навыков, хуки, слэш-команды, готовые конфигурации. Ставится за минуты и сразу меняет качество работы агента.</p>
-        <a class="catlink" href="/opensource/claude-code/">Открыть категорию «Claude Code / Codex» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/claude-code/">Отдельная страница: Claude Code / Codex →</a>
         <ul class="grid">
         <li class="card" data-cat="claude" data-name="Skills" id="repo-mattpocock-skills">
           <span class="tag">Claude Code / Codex</span>
@@ -650,7 +638,7 @@
       <div class="catblock" data-cat="code" id="dev-tools">
         <h3>Разработка кода <span class="cnt">12&nbsp;проектов</span></h3>
         <p class="cdesc">Инструменты, которые ускоряют саму разработку: разбор чужой кодовой базы, автоматическое ревью, память о проекте, готовые стартовые шаблоны и UI-библиотеки.</p>
-        <a class="catlink" href="/opensource/dev-tools/">Открыть категорию «Разработка кода» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/dev-tools/">Отдельная страница: Разработка кода →</a>
         <ul class="grid">
         <li class="card" data-cat="code" data-name="Understand Anything" id="repo-egonex-ai-understand-anything">
           <span class="tag">Разработка кода</span>
@@ -742,7 +730,7 @@
       <div class="catblock" data-cat="video" id="video">
         <h3>Видео <span class="cnt">9&nbsp;проектов</span></h3>
         <p class="cdesc">Генерация роликов из текста, ИИ-монтаж, редакторы и сжатие — всё, что закрывает видеопроизводство без платных подписок.</p>
-        <a class="catlink" href="/opensource/video/">Открыть категорию «Видео» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/video/">Отдельная страница: Видео →</a>
         <ul class="grid">
         <li class="card" data-cat="video" data-name="MoneyPrinterTurbo" id="repo-harry0703-moneyprinterturbo">
           <span class="tag">Видео</span>
@@ -813,7 +801,7 @@
       <div class="catblock" data-cat="image" id="design">
         <h3>Картинки и дизайн <span class="cnt">5&nbsp;проектов</span></h3>
         <p class="cdesc">Генерация изображений, редакторы и специализированные инструменты вроде виртуальной примерки. Свободные альтернативы платным графическим пакетам.</p>
-        <a class="catlink" href="/opensource/design/">Открыть категорию «Картинки и дизайн» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/design/">Отдельная страница: Картинки и дизайн →</a>
         <ul class="grid">
         <li class="card" data-cat="image" data-name="Fooocus" id="repo-lllyasviel-fooocus">
           <span class="tag">Картинки и дизайн</span>
@@ -856,7 +844,7 @@
       <div class="catblock" data-cat="voice" id="voice">
         <h3>Голос и речь <span class="cnt">7&nbsp;проектов</span></h3>
         <p class="cdesc">Распознавание речи, синтез и клонирование голоса — от Whisper для транскрибации до лёгких TTS-моделей, которые работают локально.</p>
-        <a class="catlink" href="/opensource/voice/">Открыть категорию «Голос и речь» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/voice/">Отдельная страница: Голос и речь →</a>
         <ul class="grid">
         <li class="card" data-cat="voice" data-name="Whisper" id="repo-openai-whisper">
           <span class="tag">Голос и речь</span>
@@ -913,7 +901,7 @@
       <div class="catblock" data-cat="ocr" id="ocr">
         <h3>OCR и документы <span class="cnt">3&nbsp;проекта</span></h3>
         <p class="cdesc">Распознавание текста со сканов и фото, конвертация и сборка PDF. Закрывает то, за что обычно платят подписку онлайн-сервисам.</p>
-        <a class="catlink" href="/opensource/ocr/">Открыть категорию «OCR и документы» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/ocr/">Отдельная страница: OCR и документы →</a>
         <ul class="grid">
         <li class="card" data-cat="ocr" data-name="Stirling PDF" id="repo-stirling-tools-stirling-pdf">
           <span class="tag">OCR и документы</span>
@@ -942,7 +930,7 @@
       <div class="catblock" data-cat="selfhost" id="self-hosted">
         <h3>Замены сервисов <span class="cnt">12&nbsp;проектов</span></h3>
         <p class="cdesc">Свободные аналоги сервисов, за которые вы платите каждый месяц: фотохранилище, база знаний, таблицы, медиасервер, дизайн-редактор. Данные остаются на вашем сервере.</p>
-        <a class="catlink" href="/opensource/self-hosted/">Открыть категорию «Замены сервисов» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/self-hosted/">Отдельная страница: Замены сервисов →</a>
         <ul class="grid">
         <li class="card" data-cat="selfhost" data-name="immich" id="repo-immich-app-immich">
           <span class="tag">Замены сервисов</span>
@@ -1034,7 +1022,7 @@
       <div class="catblock" data-cat="saas" id="saas">
         <h3>Бизнес / SaaS <span class="cnt">17&nbsp;проектов</span></h3>
         <p class="cdesc">База данных, авторизация, аналитика, платежи, поддержка, рассылки, CRM — блоки, из которых SaaS собирается за дни вместо месяцев.</p>
-        <a class="catlink" href="/opensource/saas/">Открыть категорию «Бизнес / SaaS» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/saas/">Отдельная страница: Бизнес / SaaS →</a>
         <ul class="grid">
         <li class="card" data-cat="saas" data-name="Supabase" id="repo-supabase-supabase">
           <span class="tag">Бизнес / SaaS</span>
@@ -1161,7 +1149,7 @@
       <div class="catblock" data-cat="automation" id="automation">
         <h3>Автоматизация / API <span class="cnt">6&nbsp;проектов</span></h3>
         <p class="cdesc">Связывание сервисов между собой без кода, интеграции, шлюзы к LLM и браузерная автоматизация. Заменяет ручную рутину и платные интеграционные платформы.</p>
-        <a class="catlink" href="/opensource/automation/">Открыть категорию «Автоматизация / API» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/automation/">Отдельная страница: Автоматизация / API →</a>
         <ul class="grid">
         <li class="card" data-cat="automation" data-name="n8n" id="repo-n8n-io-n8n">
           <span class="tag">Автоматизация / API</span>
@@ -1211,7 +1199,7 @@
       <div class="catblock" data-cat="security" id="security">
         <h3>Безопасность / OSINT <span class="cnt">8&nbsp;проектов</span></h3>
         <p class="cdesc">Разведка по открытым источникам, анализ приложений и проверка периметра. Инструменты для легальной оценки собственной инфраструктуры и исследовательских задач — применяйте только там, где у вас есть на это право.</p>
-        <a class="catlink" href="/opensource/security/">Открыть категорию «Безопасность / OSINT» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/security/">Отдельная страница: Безопасность / OSINT →</a>
         <ul class="grid">
         <li class="card" data-cat="security" data-name="Maigret" id="repo-soxoj-maigret">
           <span class="tag">Безопасность / OSINT</span>
@@ -1275,7 +1263,7 @@
       <div class="catblock" data-cat="privacy" id="privacy">
         <h3>Приватность <span class="cnt">6&nbsp;проектов</span></h3>
         <p class="cdesc">Блокировщики трекеров, менеджеры паролей и защита соединения. Базовая гигиена, которая не требует подписки и не отдаёт ваши данные третьим лицам.</p>
-        <a class="catlink" href="/opensource/privacy/">Открыть категорию «Приватность» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/privacy/">Отдельная страница: Приватность →</a>
         <ul class="grid">
         <li class="card" data-cat="privacy" data-name="uBlock Origin" id="repo-gorhill-ublock">
           <span class="tag">Приватность</span>
@@ -1325,7 +1313,7 @@
       <div class="catblock" data-cat="data" id="data">
         <h3>Данные и API <span class="cnt">3&nbsp;проекта</span></h3>
         <p class="cdesc">Каталоги публичных API и готовые сборщики данных. Точка старта, когда нужен источник данных для продукта или исследования.</p>
-        <a class="catlink" href="/opensource/data/">Открыть категорию «Данные и API» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/data/">Отдельная страница: Данные и API →</a>
         <ul class="grid">
         <li class="card" data-cat="data" data-name="API Mega List" id="repo-cporter202-api-mega-list">
           <span class="tag">Данные и API</span>
@@ -1354,7 +1342,7 @@
       <div class="catblock" data-cat="scraping" id="scraping">
         <h3>Веб-скрапинг <span class="cnt">10&nbsp;проектов</span></h3>
         <p class="cdesc">Сбор и очистка данных с сайтов — от готовых сервисов-краулеров до низкоуровневых парсеров. Часть проектов сразу отдаёт результат в формате, пригодном для скармливания языковой модели.</p>
-        <a class="catlink" href="/opensource/scraping/">Открыть категорию «Веб-скрапинг» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/scraping/">Отдельная страница: Веб-скрапинг →</a>
         <ul class="grid">
         <li class="card" data-cat="scraping" data-name="Firecrawl" id="repo-firecrawl-firecrawl">
           <span class="tag">Веб-скрапинг</span>
@@ -1432,7 +1420,7 @@
       <div class="catblock" data-cat="finance" id="finance">
         <h3>Финансы <span class="cnt">6&nbsp;проектов</span></h3>
         <p class="cdesc">Анализ рынков, модели прогнозирования временных рядов и личный финансовый учёт. Это инструменты для исследования, а не инвестиционные рекомендации.</p>
-        <a class="catlink" href="/opensource/finance/">Открыть категорию «Финансы» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/finance/">Отдельная страница: Финансы →</a>
         <ul class="grid">
         <li class="card" data-cat="finance" data-name="TradingAgents" id="repo-tauricresearch-tradingagents">
           <span class="tag">Финансы</span>
@@ -1482,7 +1470,7 @@
       <div class="catblock" data-cat="localai" id="local-ai">
         <h3>Локальный AI <span class="cnt">6&nbsp;проектов</span></h3>
         <p class="cdesc">Запуск моделей на своём железе и утилиты на каждый день. Работают без облака — значит, без лимитов, подписок и утечки данных.</p>
-        <a class="catlink" href="/opensource/local-ai/">Открыть категорию «Локальный AI» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/local-ai/">Отдельная страница: Локальный AI →</a>
         <ul class="grid">
         <li class="card" data-cat="localai" data-name="Ollama" id="repo-ollama-ollama">
           <span class="tag">Локальный AI</span>
@@ -1532,7 +1520,7 @@
       <div class="catblock" data-cat="infra" id="infrastructure">
         <h3>Инфраструктура <span class="cnt">15&nbsp;проектов</span></h3>
         <p class="cdesc">Мониторинг, бэкапы, нагрузочное тестирование, файловые менеджеры и системные утилиты. То, что держит продакшен в рабочем состоянии.</p>
-        <a class="catlink" href="/opensource/infrastructure/">Открыть категорию «Инфраструктура» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/infrastructure/">Отдельная страница: Инфраструктура →</a>
         <ul class="grid">
         <li class="card" data-cat="infra" data-name="Uptime Kuma" id="repo-louislam-uptime-kuma">
           <span class="tag">Инфраструктура</span>
@@ -1645,7 +1633,7 @@
       <div class="catblock" data-cat="media" id="media">
         <h3>Медиа и разное <span class="cnt">7&nbsp;проектов</span></h3>
         <p class="cdesc">Умный дом, домашний сервер, видеонаблюдение и находки, которые не влезли в другие категории, но заслуживают внимания.</p>
-        <a class="catlink" href="/opensource/media/">Открыть категорию «Медиа и разное» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/media/">Отдельная страница: Медиа и разное →</a>
         <ul class="grid">
         <li class="card" data-cat="media" data-name="Home Assistant" id="repo-home-assistant-core">
           <span class="tag">Медиа и разное</span>
@@ -1702,7 +1690,7 @@
       <div class="catblock" data-cat="mcp" id="mcp">
         <h3>MCP-серверы <span class="cnt">2&nbsp;проекта</span></h3>
         <p class="cdesc">Model Context Protocol — стандарт, по которому ИИ-агент подключается к внешним инструментам и данным. Эти подборки покрывают почти всё, что уже написало сообщество.</p>
-        <a class="catlink" href="/opensource/mcp/">Открыть категорию «MCP-серверы» отдельной страницей →</a>
+        <a class="catlink" href="/opensource/mcp/">Отдельная страница: MCP-серверы →</a>
         <ul class="grid">
         <li class="card" data-cat="mcp" data-name="Awesome MCP Servers" id="repo-punkpeye-awesome-mcp-servers">
           <span class="tag">MCP-серверы</span>
@@ -1858,6 +1846,33 @@
     countline.textContent = "Показано " + shown + " из " + total + " " + plural(total) + suffix;
   }
 
+  // Панель фильтра залипает у верха — тогда ряд категорий схлопывается в одну строку,
+  // чтобы не занимать пол-экрана. Сторожок стоит в потоке перед панелью: как только
+  // он уходит под шапку, панель считается залипшей.
+  var controls = document.querySelector(".controls");
+  var sentinel = document.getElementById("ctrl-sentinel");
+  var pendingSync = false;
+  function syncStuck(){
+    pendingSync = false;
+    controls.classList.toggle("is-stuck", sentinel.getBoundingClientRect().top < 72);
+  }
+  if (controls && sentinel) {
+    window.addEventListener("scroll", function(){
+      if (pendingSync) return;
+      pendingSync = true;
+      requestAnimationFrame(syncStuck);
+    }, { passive: true });
+    window.addEventListener("resize", syncStuck, { passive: true });
+    syncStuck();
+  }
+
+  // После смены категории вернуть пользователя к списку, если он ушёл ниже него
+  function revealResults(){
+    var grid = document.getElementById("grid");
+    var top = grid.getBoundingClientRect().top + window.scrollY - 150;
+    if (window.scrollY > top) window.scrollTo({ top: top, behavior: "smooth" });
+  }
+
   chips.addEventListener("click", function(e){
     var btn = e.target.closest(".chip");
     if (!btn) return;
@@ -1866,6 +1881,7 @@
       c.setAttribute("aria-pressed", String(c === btn));
     });
     render();
+    revealResults();
   });
 
   q.addEventListener("input", render);
