@@ -1,4 +1,30 @@
-User-Agent: *
+# robots.txt — alisherotabaev.com
+#
+# Одна группа правил на всех: обычные поисковые роботы и краулеры
+# ИИ-ассистентов работают по одинаковым условиям. Индексация разрешена
+# везде, кроме перечисленных ниже служебных и вороночных страниц.
+#
+# Карта содержимого для языковых моделей: https://alisherotabaev.com/llms.txt
+
+User-agent: *
+User-agent: Googlebot
+User-agent: Google-Extended
+User-agent: Bingbot
+User-agent: YandexBot
+User-agent: GPTBot
+User-agent: OAI-SearchBot
+User-agent: ChatGPT-User
+User-agent: ClaudeBot
+User-agent: Claude-User
+User-agent: Claude-SearchBot
+User-agent: anthropic-ai
+User-agent: PerplexityBot
+User-agent: Perplexity-User
+User-agent: Applebot
+User-agent: Applebot-Extended
+User-agent: CCBot
+User-agent: meta-externalagent
+User-agent: cohere-ai
 Disallow: /page2631680.html
 Disallow: /page2632210.html
 Disallow: /page15502166.html
@@ -164,9 +190,6 @@ Disallow: /tilda/event*
 Disallow: /*_escaped_fragment_*
 Disallow: /members/login*
 Disallow: /members/signup*
-Disallow:
-
 
 Sitemap: https://alisherotabaev.com/sitemap.xml
-Sitemap: https://alisherotabaev.com/sitemap-feeds.xml
 Host: https://alisherotabaev.com

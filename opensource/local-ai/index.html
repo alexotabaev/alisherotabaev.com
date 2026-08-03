@@ -1,0 +1,452 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Локальный AI и утилиты — 6 опенсорс-проектов с GitHub — Алишер Отабаев</title>
+<meta name="description" content="Запуск моделей на своём железе и повседневные утилиты: Ollama, yt-dlp, Mermaid, IT Tools, SingleFile." />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+<meta name="author" content="Алишер Отабаев" />
+<link rel="canonical" href="https://alisherotabaev.com/opensource/local-ai/" />
+<meta property="og:type" content="website" />
+<meta property="og:site_name" content="Алишер Отабаев" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="Локальный AI и утилиты — 6 опенсорс-проектов с GitHub — Алишер Отабаев" />
+<meta property="og:description" content="Запуск моделей на своём железе и повседневные утилиты: Ollama, yt-dlp, Mermaid, IT Tools, SingleFile." />
+<meta property="og:url" content="https://alisherotabaev.com/opensource/local-ai/" />
+<meta property="og:image" content="https://alisherotabaev.com/images/og-opensource.png" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="Каталог опенсорс-решений — Алишер Отабаев" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Локальный AI и утилиты — 6 опенсорс-проектов с GitHub — Алишер Отабаев" />
+<meta name="twitter:description" content="Запуск моделей на своём железе и повседневные утилиты: Ollama, yt-dlp, Mermaid, IT Tools, SingleFile." />
+<meta name="twitter:image" content="https://alisherotabaev.com/images/og-opensource.png" />
+<link rel="shortcut icon" href="/images/tild6665-3732-4262-a336-653034633261__favicon_2.ico" type="image/x-icon" />
+<link rel="preload" href="/files/fonts/roboto-condensed-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/files/fonts/roboto-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+/* Шрифты со своего домена: без обращений к fonts.googleapis.com и fonts.gstatic.com.
+     Файлы вариативные — одно начертание на сабсет покрывает весь диапазон 100–900.
+     unicode-range оставляет браузеру только нужные сабсеты (русская страница — cyrillic + latin). */
+  @font-face{
+    font-family:'Roboto';
+    font-style:normal;
+    font-weight:100 900;
+    font-stretch:100%;
+    font-display:swap;
+    src:url('/files/fonts/roboto-cyrillic.woff2') format('woff2');
+    unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  @font-face{
+    font-family:'Roboto';
+    font-style:normal;
+    font-weight:100 900;
+    font-stretch:100%;
+    font-display:swap;
+    src:url('/files/fonts/roboto-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'Roboto';
+    font-style:normal;
+    font-weight:100 900;
+    font-stretch:100%;
+    font-display:swap;
+    src:url('/files/fonts/roboto-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+  @font-face{
+    font-family:'Roboto Condensed';
+    font-style:normal;
+    font-weight:100 900;
+    font-display:swap;
+    src:url('/files/fonts/roboto-condensed-cyrillic.woff2') format('woff2');
+    unicode-range:U+0301, U+0400-045F, U+0490-0491, U+04B0-04B1, U+2116;
+  }
+  @font-face{
+    font-family:'Roboto Condensed';
+    font-style:normal;
+    font-weight:100 900;
+    font-display:swap;
+    src:url('/files/fonts/roboto-condensed-latin.woff2') format('woff2');
+    unicode-range:U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+  }
+  @font-face{
+    font-family:'Roboto Condensed';
+    font-style:normal;
+    font-weight:100 900;
+    font-display:swap;
+    src:url('/files/fonts/roboto-condensed-latin-ext.woff2') format('woff2');
+    unicode-range:U+0100-02BA, U+02BD-02C5, U+02C7-02CC, U+02CE-02D7, U+02DD-02FF, U+0304, U+0308, U+0329, U+1D00-1DBF, U+1E00-1E9F, U+1EF2-1EFF, U+2020, U+20A0-20AB, U+20AD-20C0, U+2113, U+2C60-2C7F, U+A720-A7FF;
+  }
+
+  :root{
+    --ink:#000d29;
+    --ink-soft:#26324a;
+    --gold:#b89168;
+    --gold-dk:#96723f;
+    --paper:#ffffff;
+    --cream:#faf8f4;
+    --cream2:#f3ede3;
+    --line:#e8e1d6;
+    --muted:#5c6472;
+    --shadow:0 10px 40px rgba(0,13,41,.08);
+    --shadow-sm:0 4px 18px rgba(0,13,41,.06);
+    --radius:16px;
+  }
+  *{box-sizing:border-box;}
+  html{scroll-behavior:smooth;}
+  body{
+    margin:0;background:var(--paper);color:var(--ink);
+    font-family:'Roboto',Arial,Helvetica,sans-serif;
+    font-size:17px;line-height:1.6;-webkit-font-smoothing:antialiased;
+  }
+  h1,h2,h3,h4,.cond{font-family:'Roboto Condensed','Roboto',Arial,sans-serif;}
+  a{color:inherit;text-decoration:none;}
+  [hidden]{display:none !important;}
+  ul.plain{list-style:none;margin:0;padding:0;}
+  .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
+  .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
+    clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+  .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink);color:#fff;
+    padding:12px 20px;border-radius:0 0 10px 0;font-weight:600;}
+  .skip:focus{left:0;}
+  :focus-visible{outline:3px solid var(--gold);outline-offset:2px;border-radius:4px;}
+
+  /* Header */
+  header.site{position:sticky;top:0;z-index:50;background:rgba(255,255,255,.92);
+    backdrop-filter:saturate(180%) blur(10px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;align-items:center;justify-content:space-between;height:72px;}
+  .nav .logo img{height:40px;width:auto;display:block;}
+  .nav .logo{display:flex;align-items:center;gap:12px;font-weight:700;letter-spacing:.02em;}
+  .nav .navlinks{display:flex;align-items:center;gap:26px;}
+  .nav .navlinks a{font-size:15px;color:var(--ink-soft);font-weight:500;}
+  .nav .navlinks a:hover{color:var(--gold-dk);}
+  .nav .navlinks a.cta-mini{background:var(--ink);color:#fff;padding:10px 18px;border-radius:999px;font-size:14px;font-weight:600;}
+  .nav .navlinks a.cta-mini:hover{background:var(--gold-dk);color:#fff;}
+  @media(max-width:860px){.nav .navlinks a.hideable{display:none;}}
+
+  /* Hero */
+  .hero{background:linear-gradient(180deg,var(--cream) 0%,#fff 100%);border-bottom:1px solid var(--line);
+    padding:76px 0 64px;position:relative;overflow:hidden;}
+  .hero:before{content:"";position:absolute;top:-160px;right:-140px;width:520px;height:520px;border-radius:50%;
+    background:radial-gradient(circle at center,rgba(184,145,104,.16),rgba(184,145,104,0) 70%);}
+  .hero > .wrap{position:relative;}
+  .hero.sm{padding:44px 0 40px;}
+  .eyebrow{margin:0;display:inline-flex;align-items:center;gap:9px;font-family:'Roboto Condensed';letter-spacing:.14em;
+    text-transform:uppercase;font-size:13px;font-weight:700;color:var(--gold-dk);
+    background:var(--cream2);border:1px solid var(--line);padding:8px 16px;border-radius:999px;}
+  .hero h1{font-size:52px;line-height:1.06;font-weight:700;margin:22px 0 14px;max-width:20ch;letter-spacing:-.01em;}
+  .hero.sm h1{font-size:42px;max-width:24ch;margin-top:14px;}
+  .hero h1 .hl{color:var(--gold-dk);}
+  .hero .slogan{font-family:'Roboto Condensed';font-size:19px;font-weight:700;color:var(--gold-dk);
+    margin:16px 0 12px;letter-spacing:.01em;}
+  .hero p.lead{font-size:20px;color:var(--ink-soft);max-width:62ch;margin:0 0 20px;}
+  .updated{font-size:14px;color:var(--muted);margin:0 0 22px;}
+  .updated b{color:var(--ink-soft);font-weight:600;}
+  .hero .stats{display:flex;gap:30px;flex-wrap:wrap;margin:22px 0 28px;}
+  .hero .stats .st{margin:0;display:flex;flex-direction:column;}
+  .hero .stats .st b{font-family:'Roboto Condensed';font-size:34px;font-weight:700;line-height:1;color:var(--ink);}
+  .hero .stats .st span{font-size:14px;color:var(--muted);margin-top:6px;}
+  .btnrow{display:flex;gap:14px;flex-wrap:wrap;}
+  .btn{display:inline-flex;align-items:center;gap:10px;padding:15px 26px;border-radius:999px;font-weight:600;font-size:16px;
+    transition:transform .15s ease,box-shadow .15s ease,background .15s ease;}
+  .btn:hover{transform:translateY(-2px);}
+  .btn-primary{background:var(--ink);color:#fff;box-shadow:var(--shadow-sm);}
+  .btn-primary:hover{background:var(--gold-dk);}
+  .btn-tg{background:#29a9eb;color:#fff;}
+  .btn-max{background:var(--gold);color:#fff;}
+  .btn-ghost{background:#fff;color:var(--ink);border:1.5px solid var(--line);}
+  .btn-ghost:hover{border-color:var(--gold);}
+  .btn svg{width:18px;height:18px;display:block;}
+  @media(max-width:720px){.hero{padding:52px 0 44px;}.hero h1{font-size:34px;}.hero.sm h1{font-size:30px;}.hero p.lead{font-size:18px;}}
+
+  /* Breadcrumbs */
+  .crumbs{padding:16px 0 0;font-size:14px;color:var(--muted);}
+  .crumbs{margin:0;}
+  .crumbs ol{list-style:none;display:flex;flex-wrap:wrap;gap:8px;margin:0;padding:0;}
+  .crumbs li:not(:last-child):after{content:"›";margin-left:8px;color:var(--line);}
+  .crumbs a:hover{color:var(--gold-dk);}
+
+  /* Section */
+  section{padding:70px 0;}
+  .sec-head{max-width:760px;margin-bottom:40px;}
+  .sec-head .kicker{margin:0;font-family:'Roboto Condensed';text-transform:uppercase;letter-spacing:.14em;
+    font-size:13px;font-weight:700;color:var(--gold-dk);}
+  .sec-head h2{font-size:40px;line-height:1.1;font-weight:700;margin:12px 0 12px;letter-spacing:-.01em;}
+  .sec-head p{font-size:18px;color:var(--ink-soft);margin:0;}
+  @media(max-width:720px){.sec-head h2{font-size:30px;}}
+
+  /* Philosophy */
+  .philo{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .cards3{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;list-style:none;margin:0;padding:0;}
+  .pcard{background:#fff;border:1px solid var(--line);border-radius:var(--radius);padding:30px 28px;box-shadow:var(--shadow-sm);}
+  .pcard .num{margin:0;font-family:'Roboto Condensed';font-size:15px;font-weight:700;color:var(--gold-dk);letter-spacing:.1em;}
+  .pcard h3{font-size:23px;margin:12px 0 12px;font-weight:700;}
+  .pcard p{margin:0;color:var(--ink-soft);font-size:16px;}
+  .pcard .big{display:block;margin-top:16px;font-family:'Roboto Condensed';font-weight:700;color:var(--ink);
+    font-size:17px;border-top:1px dashed var(--line);padding-top:14px;}
+  .pcard .big em{color:var(--gold-dk);font-style:normal;}
+  @media(max-width:900px){.cards3{grid-template-columns:1fr;}}
+
+  /* Catalog controls */
+  .controls{position:sticky;top:71px;z-index:20;background:rgba(255,255,255,.96);backdrop-filter:blur(8px);
+    padding:12px 0 10px;border-bottom:1px solid var(--line);margin-bottom:22px;}
+  .search{display:flex;align-items:center;gap:10px;background:#fff;border:1.5px solid var(--line);border-radius:999px;
+    padding:9px 16px;max-width:400px;box-shadow:var(--shadow-sm);}
+  .search input{border:0;outline:0;font-size:15px;width:100%;font-family:inherit;color:var(--ink);background:transparent;}
+  .search svg{width:17px;height:17px;color:var(--muted);flex-shrink:0;}
+  .chipswrap{position:relative;margin-top:12px;}
+  .chipswrap::after{content:"";position:absolute;top:0;right:0;width:34px;height:100%;
+    background:linear-gradient(90deg,rgba(255,255,255,0),#fff);pointer-events:none;}
+  .chips{display:flex;gap:7px;flex-wrap:nowrap;overflow-x:auto;padding:0 34px 3px 0;margin:0;list-style:none;
+    -webkit-overflow-scrolling:touch;scrollbar-width:none;-ms-overflow-style:none;}
+  .chips::-webkit-scrollbar{display:none;}
+  .chip{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--ink-soft);
+    padding:6px 12px;border-radius:999px;font-size:13px;font-weight:500;white-space:nowrap;flex-shrink:0;
+    font-family:inherit;line-height:1.6;transition:all .12s ease;}
+  .chip:hover{border-color:var(--gold);}
+  .chip[aria-pressed="true"]{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .chip .c{opacity:.55;font-size:11px;margin-left:3px;}
+  .countline{font-size:13.5px;color:var(--muted);margin:4px 0 20px;}
+
+  /* Category block */
+  .catblock{margin-bottom:46px;scroll-margin-top:150px;}
+  .catblock h3{font-size:27px;font-weight:700;margin:0 0 6px;display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;}
+  .catblock h3 .cnt{font-size:14px;font-weight:500;color:var(--muted);font-family:'Roboto';}
+  .catblock .cdesc{margin:0 0 8px;font-size:15.5px;color:var(--ink-soft);max-width:78ch;}
+  .catblock .catlink{display:inline-block;margin:0 0 18px;font-size:14px;font-weight:600;color:var(--gold-dk);
+    border-bottom:1px solid rgba(150,114,63,.35);padding-bottom:1px;}
+  .catblock .catlink:hover{border-bottom-color:var(--gold-dk);}
+
+  /* Grid */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;list-style:none;margin:0;padding:0;}
+  @media(max-width:980px){.grid{grid-template-columns:repeat(2,1fr);}}
+  @media(max-width:640px){.grid{grid-template-columns:1fr;}}
+  .card{display:flex;flex-direction:column;height:100%;background:#fff;border:1px solid var(--line);border-radius:14px;
+    padding:22px 22px 20px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease;position:relative;}
+  .card:hover{transform:translateY(-3px);box-shadow:var(--shadow);border-color:var(--gold);}
+  .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
+    color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
+  .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
+  .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
+  .card p.d b{color:var(--ink);font-weight:600;}
+  .card .gh{display:inline-flex;align-items:center;gap:8px;font-weight:600;font-size:14px;color:var(--ink);
+    border:1.5px solid var(--line);border-radius:999px;padding:9px 16px;align-self:flex-start;transition:all .12s ease;}
+  .card .gh:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .card .gh svg{width:16px;height:16px;}
+  .empty{text-align:center;color:var(--muted);padding:50px 0;font-size:17px;}
+  .note{margin-top:26px;font-size:13.5px;color:var(--muted);border-left:3px solid var(--gold);padding:8px 0 8px 16px;background:var(--cream);}
+
+  /* FAQ */
+  .faq{background:var(--cream);border-top:1px solid var(--line);border-bottom:1px solid var(--line);}
+  .faq .qa{max-width:860px;}
+  .faq .qa .item{padding:22px 0;border-bottom:1px solid var(--line);}
+  .faq .qa .item:last-child{border-bottom:0;}
+  .faq .qa h3{font-size:21px;font-weight:700;margin:0 0 8px;}
+  .faq .qa p{margin:0;color:var(--ink-soft);font-size:16px;}
+
+  /* Category index / other categories */
+  .catnav{display:flex;flex-wrap:wrap;gap:9px;list-style:none;margin:0;padding:0;}
+  .catnav a{display:inline-flex;align-items:baseline;gap:6px;border:1px solid var(--line);background:#fff;
+    border-radius:999px;padding:8px 15px;font-size:14px;font-weight:500;color:var(--ink-soft);transition:all .12s ease;}
+  .catnav a:hover{border-color:var(--gold);color:var(--gold-dk);}
+  .catnav a .c{font-size:11.5px;opacity:.6;}
+
+  /* CTA */
+  .cta{background:var(--ink);color:#fff;text-align:center;}
+  .cta h2{font-size:42px;font-weight:700;margin:0 0 14px;color:#fff;}
+  .cta p{font-size:19px;color:#c7cfdd;max-width:58ch;margin:0 auto 30px;}
+  .cta .btnrow{justify-content:center;}
+  @media(max-width:720px){.cta h2{font-size:30px;}}
+
+  /* Footer */
+  footer.site{background:#fff;border-top:1px solid var(--line);padding:40px 0 30px;}
+  .foot{display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:18px;}
+  .foot .fine{margin:0;font-size:13px;color:var(--muted);}
+  .foot .soc{display:flex;gap:14px;list-style:none;margin:0;padding:0;}
+  .foot .soc a{width:34px;height:34px;display:flex;align-items:center;justify-content:center;color:var(--ink);
+    border:1px solid var(--line);border-radius:50%;transition:all .12s ease;}
+  .foot .soc a:hover{background:var(--ink);color:#fff;border-color:var(--ink);}
+  .foot .soc svg{width:17px;height:17px;}
+  .legal{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:18px;list-style:none;}
+  .legal a{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
+  .legal a:hover{color:var(--gold-dk);}
+</style>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/local-ai/#page","url":"https://alisherotabaev.com/opensource/local-ai/","name":"Локальный AI и утилиты — 6 опенсорс-проектов с GitHub","headline":"Локальный AI и повседневные утилиты","description":"Запуск моделей на своём железе и повседневные утилиты: Ollama, yt-dlp, Mermaid, IT Tools, SingleFile.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/local-ai/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Локальный AI","item":"https://alisherotabaev.com/opensource/local-ai/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/local-ai/#list","name":"Локальный AI и повседневные утилиты","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Ollama","applicationCategory":"DeveloperApplication","description":"Запуск нейросетей локально одной командой. Чем ценно: приватный ИИ на своём железе, без API и оплаты за токены.","url":"https://github.com/ollama/ollama","codeRepository":"https://github.com/ollama/ollama","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"yt-dlp","applicationCategory":"DeveloperApplication","description":"Загрузчик видео и аудио с сотен сайтов. Чем ценно: сохраняешь любой контент для работы и архива.","url":"https://github.com/yt-dlp/yt-dlp","codeRepository":"https://github.com/yt-dlp/yt-dlp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Mermaid","applicationCategory":"DeveloperApplication","description":"Диаграммы прямо из текста. Чем ценно: схемы и блок-схемы версионируются как код — правишь текстом.","url":"https://github.com/mermaid-js/mermaid","codeRepository":"https://github.com/mermaid-js/mermaid","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"IT Tools","applicationCategory":"DeveloperApplication","description":"200+ утилит для разработчиков в одном месте. Чем ценно: конвертеры, генераторы и хелперы без десятка вкладок.","url":"https://github.com/CorentinTh/it-tools","codeRepository":"https://github.com/CorentinTh/it-tools","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Colibri","applicationCategory":"DeveloperApplication","description":"Движок на C для запуска больших моделей на ноутбуке. Чем ценно: тяжёлые LLM даже на слабом железе.","url":"https://github.com/JustVugg/colibri","codeRepository":"https://github.com/JustVugg/colibri","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"SingleFile","applicationCategory":"DeveloperApplication","description":"Браузерное расширение, сохраняющее всю веб-страницу в один HTML-файл — со стилями, картинками и шрифтами внутри. Чем ценно: работает в Chrome, Firefox и Edge, поддерживает автосохранение и командную строку.","url":"https://github.com/gildas-lormeau/SingleFile","codeRepository":"https://github.com/gildas-lormeau/SingleFile","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+</script>
+</head>
+<body>
+<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+  <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M9.8 16.6 9.6 13l6.9-6.2c.3-.27-.07-.4-.46-.17L7.5 12.1 3.8 11c-.8-.24-.8-.8.18-1.18l14.4-5.56c.66-.3 1.3.16 1.05 1.18l-2.45 11.55c-.17.8-.65 1-1.32.62l-3.63-2.68-1.75 1.7c-.2.2-.37.36-.72.36Z"/></symbol>
+  <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></symbol>
+  <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></g></symbol>
+  <symbol id="i-vk" viewBox="0 0 24 24"><path fill="currentColor" d="M13 18c-5.5 0-8.9-3.9-9-10h2.8c.1 4.5 2.2 6.4 3.7 6.8V8h2.7v3.9c1.5-.2 3-1.8 3.6-3.9h2.6c-.5 2.3-2 3.9-3 4.6 1 .5 2.8 2 3.5 4.4h-2.9c-.5-1.6-1.9-2.9-3.8-3.1V18H13Z"/></symbol>
+  <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5A2.5 2.5 0 0 0 2.4 7.3C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12Zm-12 3V9l5 3-5 3Z"/></symbol>
+  <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g></symbol>
+</svg>
+<a class="skip" href="#main">Перейти к содержимому</a>
+
+<header class="site">
+  <div class="wrap nav">
+    <a class="logo" href="/"><img src="/images/tild6566-6462-4532-b137-326533313461__3-2.png" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
+    <nav class="navlinks" aria-label="Основная навигация">
+      <a class="hideable" href="/">Главная</a>
+      <a class="hideable" href="/blog">Блог</a>
+      <a class="hideable" href="/opensource/">Опенсорс</a>
+      <a class="cta-mini" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">Telegram-канал</a>
+    </nav>
+  </div>
+</header>
+
+<main id="main">
+
+<article>
+
+<div class="hero sm">
+  <div class="wrap">
+    <nav class="crumbs" aria-label="Хлебные крошки">
+      <ol>
+        <li><a href="/">Главная</a></li>
+        <li><a href="/opensource/">Опенсорс</a></li>
+        <li aria-current="page">Локальный AI</li>
+      </ol>
+    </nav>
+    <h1>Локальный AI и повседневные утилиты</h1>
+    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="lead">Запуск моделей на своём железе и утилиты на каждый день. Работают без облака — значит, без лимитов, подписок и утечки данных.</p>
+    <div class="btnrow">
+      <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
+      <a class="btn btn-tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg> Telegram-канал</a>
+    </div>
+  </div>
+</div>
+
+<section aria-labelledby="list-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Локальный AI</p>
+      <h2 id="list-h">6&nbsp;проектов в категории</h2>
+    </div>
+    <ul class="grid">
+        <li class="card" data-cat="localai" data-name="Ollama" id="repo-ollama-ollama">
+          <span class="tag">Локальный AI</span>
+          <h4><a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">Ollama</a></h4>
+          <p class="repo"><code>ollama/ollama</code></p>
+          <p class="d">Запуск нейросетей локально одной командой. <b>Чем ценно:</b> приватный ИИ на своём железе, без API и оплаты за токены.</p>
+          <a class="gh" href="https://github.com/ollama/ollama" target="_blank" rel="noopener" aria-label="Открыть Ollama на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="localai" data-name="yt-dlp" id="repo-yt-dlp-yt-dlp">
+          <span class="tag">Локальный AI</span>
+          <h4><a href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener">yt-dlp</a></h4>
+          <p class="repo"><code>yt-dlp/yt-dlp</code></p>
+          <p class="d">Загрузчик видео и аудио с сотен сайтов. <b>Чем ценно:</b> сохраняешь любой контент для работы и архива.</p>
+          <a class="gh" href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener" aria-label="Открыть yt-dlp на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="localai" data-name="Mermaid" id="repo-mermaid-js-mermaid">
+          <span class="tag">Локальный AI</span>
+          <h4><a href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener">Mermaid</a></h4>
+          <p class="repo"><code>mermaid-js/mermaid</code></p>
+          <p class="d">Диаграммы прямо из текста. <b>Чем ценно:</b> схемы и блок-схемы версионируются как код — правишь текстом.</p>
+          <a class="gh" href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener" aria-label="Открыть Mermaid на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="localai" data-name="IT Tools" id="repo-corentinth-it-tools">
+          <span class="tag">Локальный AI</span>
+          <h4><a href="https://github.com/CorentinTh/it-tools" target="_blank" rel="noopener">IT Tools</a></h4>
+          <p class="repo"><code>CorentinTh/it-tools</code></p>
+          <p class="d">200+ утилит для разработчиков в одном месте. <b>Чем ценно:</b> конвертеры, генераторы и хелперы без десятка вкладок.</p>
+          <a class="gh" href="https://github.com/CorentinTh/it-tools" target="_blank" rel="noopener" aria-label="Открыть IT Tools на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="localai" data-name="Colibri" id="repo-justvugg-colibri">
+          <span class="tag">Локальный AI</span>
+          <h4><a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener">Colibri</a></h4>
+          <p class="repo"><code>JustVugg/colibri</code></p>
+          <p class="d">Движок на C для запуска больших моделей на ноутбуке. <b>Чем ценно:</b> тяжёлые LLM даже на слабом железе.</p>
+          <a class="gh" href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener" aria-label="Открыть Colibri на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="localai" data-name="SingleFile" id="repo-gildas-lormeau-singlefile">
+          <span class="tag">Локальный AI</span>
+          <h4><a href="https://github.com/gildas-lormeau/SingleFile" target="_blank" rel="noopener">SingleFile</a></h4>
+          <p class="repo"><code>gildas-lormeau/SingleFile</code></p>
+          <p class="d">Браузерное расширение, сохраняющее всю веб-страницу в один HTML-файл — со стилями, картинками и шрифтами внутри. <b>Чем ценно:</b> работает в Chrome, Firefox и Edge, поддерживает автосохранение и командную строку.</p>
+          <a class="gh" href="https://github.com/gildas-lormeau/SingleFile" target="_blank" rel="noopener" aria-label="Открыть SingleFile на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+    </ul>
+    <p class="note">Подборка отражает находки на момент обновления страницы. Опенсорс-проекты быстро развиваются и иногда переезжают — если ссылка изменилась, найдите репозиторий по названию на GitHub. Проверяйте лицензию и актуальность перед использованием в продакшене.</p>
+  </div>
+</section>
+
+<section class="philo" aria-labelledby="other-h">
+  <div class="wrap">
+    <div class="sec-head">
+      <p class="kicker">Другие категории</p>
+      <h2 id="other-h">Смотрите также</h2>
+      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+    </div>
+    <nav aria-label="Другие категории каталога">
+      <ul class="catnav">
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
+        <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
+        <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
+        <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
+        <li><a href="/opensource/saas/">Бизнес / SaaS<span class="c">17</span></a></li>
+        <li><a href="/opensource/automation/">Автоматизация / API<span class="c">6</span></a></li>
+        <li><a href="/opensource/security/">Безопасность / OSINT<span class="c">8</span></a></li>
+        <li><a href="/opensource/privacy/">Приватность<span class="c">6</span></a></li>
+        <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
+        <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
+        <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
+        <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
+        <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
+        <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+      </ul>
+    </nav>
+    <p style="margin-top:26px;font-size:15px;color:var(--muted);">
+      ← <a href="/opensource/finance/">Финансы</a> &nbsp;·&nbsp; <a href="/opensource/infrastructure/">Инфраструктура</a> →
+    </p>
+  </div>
+</section>
+
+</article>
+
+<section class="cta" aria-labelledby="cta-h">
+  <div class="wrap">
+    <h2 id="cta-h">Хочешь забирать такие находки первым?</h2>
+    <p>Я постоянно в полях — нахожу инструменты, которые ускоряют работу в разы, и сразу делюсь ими в каналах. Подписывайся: пока другие пишут с нуля, ты будешь собирать из готового.</p>
+    <div class="btnrow">
+      <a class="btn btn-tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg> Telegram-канал</a>
+      <a class="btn btn-max" href="https://max.ru/id772836794441_biz" target="_blank" rel="noopener">Канал в Max</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="site">
+  <div class="wrap">
+    <div class="foot">
+      <p class="fine">ИП Отабаев Алишер Камолович · ОГРН 324508100462661</p>
+      <ul class="soc" aria-label="Социальные сети">
+        <li><a href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener" aria-label="Telegram"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg></a></li>
+        <li><a href="https://www.instagram.com/alisherotabaev/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></a></li>
+        <li><a href="https://vk.com/alisherotabaev" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg aria-hidden="true" focusable="false"><use href="#i-vk"/></svg></a></li>
+        <li><a href="https://www.youtube.com/channel/UCnfrMWRFTpyeCM7XK6TMtRw/about" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></a></li>
+      </ul>
+    </div>
+    <ul class="legal">
+      <li><a href="/privacypolicy">Политика конфиденциальности</a></li>
+      <li><a href="/agreement">Согласие с рассылкой</a></li>
+      <li><a href="/otkazototvetstvennosti">Отказ от ответственности</a></li>
+      <li><a href="/oferta">Публичная оферта</a></li>
+    </ul>
+  </div>
+</footer>
+</body>
+</html>
