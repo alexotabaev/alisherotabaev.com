@@ -1,0 +1,70 @@
+# Проверяет, что страницы /opensource/ соответствуют своему источнику —
+# _tools/opensource/data.json. Ничего не публикует и не блокирует деплой:
+# GitHub Pages собирает сайт параллельно. Задача проверки — сообщить,
+# что закоммиченный HTML разошёлся с данными.
+#
+# О падении узнаёте по красному крестику у коммита и по письму от GitHub.
+#
+# Безопасность: workflow не подставляет в shell ничего из github.event.*
+# (заголовков issue, сообщений коммитов и т.п.) — инъекция невозможна.
+
+name: Каталог /opensource
+
+on:
+  push:
+    branches: [main]
+    paths:
+      - '_tools/opensource/**'
+      - 'opensource/**'
+      - 'sitemap.xml'
+      - 'llms.txt'
+      - 'files/fonts/**'
+      - '.github/workflows/opensource.yml'
+  pull_request:
+    paths:
+      - '_tools/opensource/**'
+      - 'opensource/**'
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  check:
+    name: Сборка совпадает с исходником
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+
+      - name: Пересобрать каталог из data.json
+        run: node _tools/opensource/build.mjs
+
+      - name: Сверить с тем, что закоммичено
+        run: |
+          if git diff --quiet; then
+            echo "Сгенерированные файлы совпадают с data.json."
+            exit 0
+          fi
+
+          echo "::error::Файлы разошлись с _tools/opensource/data.json."
+          echo
+          echo "Причина — одно из двух:"
+          echo "  1. Данные в data.json поменяли, а сборку не запустили."
+          echo "  2. HTML в opensource/ поправили руками в обход генератора —"
+          echo "     такая правка будет молча затёрта при следующей сборке."
+          echo
+          echo "Как починить: выполнить локально"
+          echo "    node _tools/opensource/build.mjs"
+          echo "и закоммитить результат. Правки вносить только в data.json."
+          echo
+          git diff --stat
+          echo
+          git diff
+          exit 1
+
+      - name: Разметка, ссылки, структура
+        run: python3 _tools/opensource/check.py

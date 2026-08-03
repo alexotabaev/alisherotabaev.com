@@ -1,0 +1,187 @@
+#!/usr/bin/env python3
+"""
+Проверки сгенерированных страниц /opensource/.
+
+    python3 _tools/opensource/check.py
+
+Запускается вручную и в CI (.github/workflows/opensource.yml) после пересборки.
+Ненулевой код возврата = что-то не так; список проблем печатается в stdout.
+"""
+
+import glob
+import html.parser
+import json
+import os
+import re
+import sys
+import xml.etree.ElementTree as ET
+
+ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
+os.chdir(ROOT)
+
+DATA = json.load(open('_tools/opensource/data.json', encoding='utf-8'))
+SITE = DATA['site']
+PAGES = ['opensource/index.html'] + sorted(glob.glob('opensource/*/index.html'))
+
+problems = []
+
+
+def fail(page, msg):
+    problems.append(f'{page}: {msg}')
+
+
+# --- 1. Все ожидаемые страницы на месте -------------------------------------
+
+expected = {'opensource/index.html'} | {
+    f"opensource/{c['slug']}/index.html" for c in DATA['categories']
+}
+missing = expected - set(PAGES)
+extra = set(PAGES) - expected
+for m in sorted(missing):
+    fail(m, 'страница не сгенерирована')
+for e in sorted(extra):
+    fail(e, 'лишняя страница — категории с таким slug нет в data.json')
+
+# --- 2. Каталог должен быть в HTML, а не собираться скриптом -----------------
+
+index = open('opensource/index.html', encoding='utf-8').read()
+cards = index.count('class="card"')
+if cards != len(DATA['repos']):
+    fail(
+        'opensource/index.html',
+        f'карточек в HTML {cards}, а в data.json проектов {len(DATA["repos"])} — '
+        'каталог должен рендериться на этапе сборки, а не в браузере',
+    )
+
+for page in PAGES:
+    s = open(page, encoding='utf-8').read()
+    if re.search(r'\.innerHTML\s*=', s):
+        fail(page, 'скрипт собирает разметку через innerHTML — краулеры без JS её не увидят')
+
+# --- 3. JSON-LD ---------------------------------------------------------------
+
+for page in PAGES:
+    s = open(page, encoding='utf-8').read()
+    blocks = re.findall(r'<script type="application/ld\+json">\n(.*?)\n</script>', s, re.S)
+    if not blocks:
+        fail(page, 'нет разметки JSON-LD')
+        continue
+    for raw in blocks:
+        try:
+            d = json.loads(raw)
+        except json.JSONDecodeError as e:
+            fail(page, f'JSON-LD не парсится: {e}')
+            continue
+        graph = d.get('@graph', [d])
+        types = {x.get('@type') for x in graph}
+        for required in ('CollectionPage', 'BreadcrumbList', 'ItemList'):
+            if required not in types:
+                fail(page, f'в JSON-LD нет {required}')
+        for item in graph:
+            if item.get('@type') != 'ItemList':
+                continue
+            n = len(item.get('itemListElement', []))
+            declared = item.get('numberOfItems')
+            if declared is not None and declared != n:
+                fail(page, f'ItemList: numberOfItems={declared}, а элементов {n}')
+
+# --- 4. Баланс тегов ----------------------------------------------------------
+
+VOID = {
+    'area', 'base', 'br', 'col', 'embed', 'hr', 'img', 'input', 'link', 'meta',
+    'param', 'source', 'track', 'wbr', 'path', 'circle', 'rect', 'use', 'symbol', 'stop',
+}
+
+
+class TagBalance(html.parser.HTMLParser):
+    def __init__(self):
+        super().__init__(convert_charrefs=True)
+        self.stack = []
+        self.errors = []
+
+    def handle_starttag(self, tag, attrs):
+        if tag not in VOID:
+            self.stack.append((tag, self.getpos()))
+
+    def handle_endtag(self, tag):
+        if tag in VOID:
+            return
+        if not self.stack:
+            self.errors.append(f'лишний </{tag}> в {self.getpos()}')
+            return
+        if self.stack[-1][0] != tag:
+            self.errors.append(
+                f'</{tag}> в {self.getpos()}, ожидался </{self.stack[-1][0]}> '
+                f'(открыт в {self.stack[-1][1]})'
+            )
+            for i in range(len(self.stack) - 1, -1, -1):
+                if self.stack[i][0] == tag:
+                    del self.stack[i:]
+                    return
+        else:
+            self.stack.pop()
+
+
+for page in PAGES:
+    p = TagBalance()
+    p.feed(open(page, encoding='utf-8').read())
+    for e in p.errors[:3]:
+        fail(page, f'структура HTML: {e}')
+    if p.stack:
+        fail(page, f'незакрытые теги: {[t for t, _ in p.stack][:5]}')
+
+# --- 5. Мета и внешние зависимости -------------------------------------------
+
+for page in PAGES:
+    s = open(page, encoding='utf-8').read()
+    url = '/' + os.path.dirname(page) + '/'
+    canonical = re.search(r'rel="canonical" href="([^"]+)"', s)
+    if not canonical:
+        fail(page, 'нет canonical')
+    elif canonical.group(1) != SITE['origin'] + url:
+        fail(page, f'canonical {canonical.group(1)}, ожидался {SITE["origin"] + url}')
+
+    for tag in ('og:image', 'og:title', 'og:description', 'twitter:card'):
+        if tag not in s:
+            fail(page, f'нет {tag}')
+
+    if re.search(r'<link[^>]+fonts\.(googleapis|gstatic)\.com', s):
+        fail(page, 'страница подключает Google Fonts — шрифты должны браться из /files/fonts/')
+
+# --- 6. Внутренние ссылки резолвятся -----------------------------------------
+
+for page in PAGES:
+    s = open(page, encoding='utf-8').read()
+    for href in sorted(set(re.findall(r'href="(/[^"#]*)"', s))):
+        rel = href.lstrip('/')
+        candidates = [rel, os.path.join(rel, 'index.html'), rel + '.html', rel.rstrip('/') + '.html']
+        if not any(c and os.path.exists(c) for c in candidates):
+            fail(page, f'битая внутренняя ссылка: {href}')
+
+# --- 7. Страницы попали в sitemap.xml ----------------------------------------
+
+ns = '{http://www.sitemaps.org/schemas/sitemap/0.9}'
+locs = {u.find(ns + 'loc').text for u in ET.parse('sitemap.xml').getroot().findall(ns + 'url')}
+for page in PAGES:
+    url = SITE['origin'] + '/' + os.path.dirname(page) + '/'
+    if url not in locs:
+        fail('sitemap.xml', f'нет {url}')
+
+# --- 8. Шрифты на месте -------------------------------------------------------
+
+for font in re.findall(r"url\('(/files/fonts/[^']+)'\)", index):
+    if not os.path.exists(font.lstrip('/')):
+        fail('opensource/index.html', f'файл шрифта отсутствует: {font}')
+
+# --- итог ---------------------------------------------------------------------
+
+if problems:
+    print(f'Проблем: {len(problems)}\n')
+    for p in problems:
+        print('  ✗', p)
+    sys.exit(1)
+
+print(
+    f'OK — {len(PAGES)} страниц, {len(DATA["repos"])} проектов, '
+    f'{len(DATA["categories"])} категорий, {len(DATA["faq"])} FAQ.'
+)
