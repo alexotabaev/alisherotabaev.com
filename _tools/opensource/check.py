@@ -369,6 +369,24 @@ for vf in glob.glob('google*.html') + glob.glob('yandex_*.html'):
     if 'verification' not in body:
         fail(vf, 'похоже на файл подтверждения, но внутри нет строки verification')
 
+# --- 17. Даты у статей блога -------------------------------------------------
+
+DATES = json.load(open('_tools/hygiene/blogdates.json', encoding='utf-8'))
+for f in sorted(glob.glob('blog/*/index.html')):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    if re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', s, re.I):
+        continue          # служебные страницы в папке блога датами не размечаем
+    if f not in DATES:
+        fail(f, 'нет записи в blogdates.json — дата не проставлена')
+        continue
+    for field in ('datePublished', 'dateModified'):
+        if f'"{field}"' not in s:
+            fail(f, f'в разметке Article нет {field}')
+    if s.count('"datePublished"') > 1:
+        fail(f, 'datePublished встречается несколько раз — дубли в разметке')
+    if 'class="post-dates"' not in s:
+        fail(f, 'нет видимой строки с датой')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
@@ -381,5 +399,6 @@ print(
     f'OK — {len(PAGES)} страниц: {len(DATA["repos"])} проектов в '
     f'{len(DATA["categories"])} категориях, {len(DATA["faq"])} FAQ, '
     f'{len(CASES["cases"])} кейсов (+{sum(len(c.get("duplicates", [])) for c in CASES["cases"])} дублей); '
-    f'{indexable} индексируемых страниц с базовой разметкой.'
+    f'{indexable} индексируемых страниц с базовой разметкой, '
+    f'{len(DATES)} статей блога с датами.'
 )
