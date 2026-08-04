@@ -268,36 +268,10 @@ ${footer()}
   );
 }
 
-/* ---------- sitemap ---------- */
-
-function updateSitemap() {
-  const file = path.join(ROOT, 'sitemap.xml');
-  let xml = fs.readFileSync(file, 'utf8');
-  const START = '\t<!-- cases:start (генерируется _tools/cases/build.mjs) -->';
-  const END = '\t<!-- cases:end -->';
-
-  const entries = [{ loc: abs(section.path), pr: '0.9' }]
-    .concat(cases.map((c) => ({ loc: abs(`/${c.slug}/`), pr: '0.6' })))
-    .map(
-      (e) =>
-        `\t<url>\n\t\t<loc>${e.loc}</loc>\n\t\t<lastmod>${section.updated}T00:00:00+00:00</lastmod>\n\t\t<changefreq>monthly</changefreq>\n\t\t<priority>${e.pr}</priority>\n\t</url>`
-    )
-    .join('\n');
-
-  const block = `${START}\n${entries}\n${END}`;
-  const esc2 = (s) => s.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
-  const re = new RegExp(esc2(START) + '[\\s\\S]*?' + esc2(END));
-
-  xml = re.test(xml) ? xml.replace(re, block) : xml.replace('</urlset>', block + '\n</urlset>');
-  fs.writeFileSync(file, xml);
-  return 1 + cases.length;
-}
-
 /* ---------- запуск ---------- */
 
 fs.mkdirSync(path.join(ROOT, 'cases'), { recursive: true });
 fs.writeFileSync(path.join(ROOT, 'cases', 'index.html'), build());
-const n = updateSitemap();
+
 
 console.log(`cases/index.html: ${cases.length} кейсов`);
-console.log(`sitemap.xml: +${n} URL (хаб и страницы кейсов)`);

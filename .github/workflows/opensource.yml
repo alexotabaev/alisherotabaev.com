@@ -19,6 +19,7 @@ on:
       - 'cases/**'
       - '*/index.html'
       - 'sitemap.xml'
+      - 'robots.txt'
       - 'llms.txt'
       - 'files/fonts/**'
       - '.github/workflows/opensource.yml'
@@ -48,6 +49,8 @@ jobs:
           node _tools/opensource/build.mjs
           node _tools/cases/build.mjs
           node _tools/cases/meta.mjs
+          node _tools/hygiene/apply.mjs
+          node _tools/hygiene/sitemap.mjs
 
       - name: Сверить с тем, что закоммичено
         run: |
@@ -64,7 +67,7 @@ jobs:
           echo "     такая правка будет молча затёрта при следующей сборке."
           echo
           echo "Как починить: выполнить локально"
-          echo "    node _tools/opensource/build.mjs && node _tools/cases/build.mjs && node _tools/cases/meta.mjs"
+          echo "    bash _tools/build-all.sh"
           echo "и закоммитить результат. Правки вносить только в data.json."
           echo
           git diff --stat

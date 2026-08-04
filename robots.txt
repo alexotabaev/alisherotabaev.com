@@ -190,6 +190,7 @@ Disallow: /tilda/event*
 Disallow: /*_escaped_fragment_*
 Disallow: /members/login*
 Disallow: /members/signup*
+Disallow: /files/*.html
 
 Sitemap: https://alisherotabaev.com/sitemap.xml
 Host: https://alisherotabaev.com

@@ -9,7 +9,6 @@
  * карточек, поэтому поисковые и AI-краулеры видят полный контент без
  * выполнения скриптов.
  *
- * Побочный эффект: обновляет sitemap.xml (блок между маркерами opensource).
  */
 
 import fs from 'node:fs';
@@ -484,32 +483,6 @@ function plural(n) {
   return 'проектов';
 }
 
-/* ---------- sitemap ---------- */
-
-function updateSitemap() {
-  const file = path.join(ROOT, 'sitemap.xml');
-  let xml = fs.readFileSync(file, 'utf8');
-  const START = '\t<!-- opensource:start (генерируется _tools/opensource/build.mjs) -->';
-  const END = '\t<!-- opensource:end -->';
-
-  const entries = [{ loc: abs(section.path), priority: '0.9' }]
-    .concat(categories.map((c) => ({ loc: abs(catUrl(c)), priority: '0.7' })))
-    .map(
-      (e) =>
-        `\t<url>\n\t\t<loc>${e.loc}</loc>\n\t\t<lastmod>${section.updated}T00:00:00+00:00</lastmod>\n\t\t<changefreq>weekly</changefreq>\n\t\t<priority>${e.priority}</priority>\n\t</url>`
-    )
-    .join('\n');
-
-  const block = `${START}\n${entries}\n${END}`;
-  const re = new RegExp(
-    START.replace(/[.*+?^${}()|[\]\\]/g, '\\$&') + '[\\s\\S]*?' + END.replace(/[.*+?^${}()|[\]\\]/g, '\\$&')
-  );
-
-  xml = re.test(xml) ? xml.replace(re, block) : xml.replace('</urlset>', block + '\n</urlset>');
-  fs.writeFileSync(file, xml);
-  return 1 + categories.length;
-}
-
 /* ---------- llms.txt ---------- */
 
 function buildLlmsTxt() {
@@ -606,11 +579,10 @@ categories.forEach((c, i) => {
   out.push(`opensource/${c.slug}/index.html (${c.count})`);
 });
 
-const n = updateSitemap();
+
 buildLlmsTxt();
 if (process.argv.includes('--og')) buildOgImage();
 
 console.log(out.join('\n'));
-console.log(`\nsitemap.xml: ${n} URL`);
 console.log('llms.txt: обновлён');
 console.log(`\nВсего: ${repos.length} проектов, ${categories.length} категорий, ${faq.length} FAQ`);
