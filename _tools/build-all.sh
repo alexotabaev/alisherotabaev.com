@@ -7,5 +7,6 @@ node _tools/opensource/build.mjs
 node _tools/cases/build.mjs
 node _tools/cases/meta.mjs
 node _tools/hygiene/apply.mjs
+node _tools/hygiene/pages.mjs
 node _tools/hygiene/sitemap.mjs
 python3 _tools/opensource/check.py

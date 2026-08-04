@@ -50,6 +50,7 @@ jobs:
           node _tools/cases/build.mjs
           node _tools/cases/meta.mjs
           node _tools/hygiene/apply.mjs
+          node _tools/hygiene/pages.mjs
           node _tools/hygiene/sitemap.mjs
 
       - name: Сверить с тем, что закоммичено

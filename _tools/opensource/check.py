@@ -241,6 +241,36 @@ for f in glob.glob('page*.html') + glob.glob('*/index.html'):
     if SITE['origin'] + '//' in s:
         fail(f, 'адрес с двойным слэшем (alisherotabaev.com//) — canonical ведёт не на эту страницу')
 
+# --- 11. Базовый минимум на всех индексируемых страницах ---------------------
+
+_dis = [l[9:].strip().rstrip('*') for l in open('robots.txt', encoding='utf-8').read().split('\n')
+        if l.startswith('Disallow:') and l[9:].strip()]
+
+
+def _blocked(u):
+    return any(u == d.rstrip('/') or u.startswith(d.rstrip('/') + '/') for d in _dis)
+
+
+indexable = 0
+for f in sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
+                + glob.glob('page*.html') + ['index.html']):
+    url = '/' + (os.path.dirname(f) if f.endswith('index.html') and f != 'index.html'
+                 else (f if f != 'index.html' else ''))
+    if _blocked(url or '/'):
+        continue
+    s = open(f, encoding='utf-8', errors='replace').read()
+    if re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', s, re.I):
+        continue
+    indexable += 1
+    if not re.search(r'<html[^>]*\blang=', s):
+        fail(f, 'у <html> нет lang')
+    if 'name="viewport"' not in s:
+        fail(f, 'нет viewport — страница не адаптивная')
+    if 'og:title' not in s:
+        fail(f, 'нет Open Graph')
+    if 'application/ld+json' not in s:
+        fail(f, 'нет разметки Schema.org')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
@@ -252,5 +282,6 @@ if problems:
 print(
     f'OK — {len(PAGES)} страниц: {len(DATA["repos"])} проектов в '
     f'{len(DATA["categories"])} категориях, {len(DATA["faq"])} FAQ, '
-    f'{len(CASES["cases"])} кейсов (+{sum(len(c.get("duplicates", [])) for c in CASES["cases"])} дублей).'
+    f'{len(CASES["cases"])} кейсов (+{sum(len(c.get("duplicates", [])) for c in CASES["cases"])} дублей); '
+    f'{indexable} индексируемых страниц с базовой разметкой.'
 )
