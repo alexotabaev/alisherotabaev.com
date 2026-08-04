@@ -364,9 +364,10 @@ for c in CASES['cases']:
 # Их нельзя удалять: Google и Яндекс перепроверяют владение периодически,
 # и пропажа файла снимает подтверждение вместе с доступом к статистике.
 for vf in glob.glob('google*.html') + glob.glob('yandex_*.html'):
-    body = open(vf, encoding='utf-8', errors='replace').read()
-    if 'verification' not in body and 'yandex' not in body.lower():
-        fail(vf, 'похоже на файл подтверждения, но содержимое не то')
+    body = open(vf, encoding='utf-8', errors='replace').read().lower()
+    # Google кладёт «google-site-verification: …», Яндекс — «Verification: …»
+    if 'verification' not in body:
+        fail(vf, 'похоже на файл подтверждения, но внутри нет строки verification')
 
 # --- итог ---------------------------------------------------------------------
 
