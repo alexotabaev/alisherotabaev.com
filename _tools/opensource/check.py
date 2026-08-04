@@ -336,6 +336,29 @@ for font in ('open-sans-cyrillic', 'open-sans-latin', 'roboto-cyrillic', 'roboto
     if not os.path.exists(f'files/fonts/{font}.woff2'):
         fail('files/fonts', f'нет файла {font}.woff2')
 
+# --- 15. Вес картинок на сгенерированных страницах ---------------------------
+
+LIMIT_MB = 4
+for page in ('cases/index.html', 'opensource/index.html', '404.html'):
+    s = open(page, encoding='utf-8').read()
+    total = 0
+    for u in set(re.findall(r'src="(/images/[^"]+)"', s)):
+        p = u.lstrip('/')
+        if os.path.exists(p):
+            total += os.path.getsize(p)
+    mb = total / 1048576
+    if mb > LIMIT_MB:
+        fail(page, f'картинок на {mb:.1f} МБ — больше порога {LIMIT_MB} МБ; '
+                   'нужны миниатюры под размер показа, а не оригиналы')
+
+# Карточки кейсов должны брать миниатюры, а не исходники на 2–3 МБ
+hub = open('cases/index.html', encoding='utf-8').read()
+for c in CASES['cases']:
+    if not c['photo']:
+        continue
+    if f'/images/cases/{c["slug"]}.png' not in hub and c['photo'] in hub:
+        fail('cases/index.html', f'{c["slug"]}: карточка показывает оригинал вместо миниатюры')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:

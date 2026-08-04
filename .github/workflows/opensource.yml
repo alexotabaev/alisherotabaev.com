@@ -47,6 +47,7 @@ jobs:
       - name: Пересобрать разделы из data.json
         run: |
           node _tools/opensource/build.mjs
+          node _tools/cases/thumbs.mjs
           node _tools/cases/build.mjs
           node _tools/cases/meta.mjs
           node _tools/hygiene/links.mjs

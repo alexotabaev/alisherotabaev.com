@@ -103,8 +103,13 @@ function card(c) {
     ? sentenceCase(c.headline)
     : firstSentence(c.to || (c.results && c.results[0]) || c.quote);
 
+  // Карточка показывает портрет в 380 пикселей. Берём миниатюру из
+  // images/cases (её готовит thumbs.mjs), а не исходник на 2–3 МБ:
+  // со всеми оригиналами страница весила 30 МБ.
+  const thumb = `/images/cases/${c.slug}.png`;
+  const photoSrc = fs.existsSync(ROOT + thumb) ? thumb : c.photo;
   const photo = c.photo
-    ? `<img src="${esc(c.photo)}" alt="${esc(c.name)} — кейс клиента Алишера Отабаева" loading="lazy" width="380" height="253" />`
+    ? `<img src="${esc(photoSrc)}" alt="${esc(c.name)} — кейс клиента Алишера Отабаева" loading="lazy" width="380" height="253" />`
     : `<span class="ini" aria-hidden="true">${esc(initials(c.name))}</span>`;
 
   return `        <li class="kase" data-name="${esc(c.name.toLowerCase())}">
