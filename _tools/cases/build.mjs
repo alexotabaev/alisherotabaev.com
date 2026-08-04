@@ -174,7 +174,7 @@ function build() {
 
   return (
     head({
-      title: `${title} — Алишер Отабаев`,
+      title: title.length + 17 <= 65 ? `${title} — Алишер Отабаев` : title,
       description,
       url: section.path,
       jsonld,

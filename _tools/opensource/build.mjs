@@ -56,11 +56,19 @@ const softwareLd = (r) => ({
   offers: { '@type': 'Offer', price: '0', priceCurrency: 'USD' }
 });
 
+/**
+ * Имя автора в конце заголовка добавляется, только если заголовок с ним
+ * укладывается в 65 символов. Иначе поисковик обрежет хвост в выдаче —
+ * и вместо бренда покажет многоточие, съев часть смысла.
+ */
+const withBrand = (title, brand = ' — Алишер Отабаев') =>
+  title.length + brand.length <= 65 ? title + brand : title;
+
 /* ---------- главная страница каталога ---------- */
 
 function buildIndex() {
   const total = repos.length;
-  const title = `${total} готовых опенсорс-решений для разработки и ИИ — подборка с GitHub`;
+  const title = `${total} готовых опенсорс-решений для разработки и ИИ с GitHub`;
   const description = `Каталог из ${total} проверенных опенсорс-проектов по ${categories.length} категориям: ИИ-агенты, Claude Code, скрапинг, self-hosted замены сервисов, инфраструктура. С описанием, чем каждый ценен, и прямыми ссылками на GitHub.`;
 
   const catBlocks = categories
@@ -404,7 +412,7 @@ function buildCategory(c, i) {
   const next = categories[i + 1];
 
   return (
-    head({ title: `${c.title} — Алишер Отабаев`, description: c.description, url, jsonld, ogImage: section.ogImage, ogImageAlt: 'Каталог опенсорс-решений — Алишер Отабаев' }) +
+    head({ title: withBrand(c.title), description: c.description, url, jsonld, ogImage: section.ogImage, ogImageAlt: 'Каталог опенсорс-решений — Алишер Отабаев' }) +
     `${header()}
 
 <main id="main">

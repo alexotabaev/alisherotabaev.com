@@ -1,0 +1,34 @@
+{
+  "_": [
+    "Битые внутренние ссылки и их замена.",
+    "",
+    "При переезде с Tilda юридические страницы получили префикс academy_,",
+    "а ссылки на них в разметке остались старыми. Соответствие проверено",
+    "по заголовку каждой страницы — это не догадка.",
+    "",
+    "Формат: битый адрес → существующий. Скрипт _tools/hygiene/links.mjs",
+    "проходит по всем страницам и заменяет.",
+    "",
+    "Сюда попадает только то, где цель однозначна. Ссылки на страницы,",
+    "которых больше нет и которые нечем заменить, перечислены в unresolved:",
+    "их надо либо восстановить, либо убрать блок со страницы — это решение",
+    "владельца сайта, а не скрипта."
+  ],
+  "redirects": {
+    "/politika": "/academy_politika",
+    "/publichnaya-oferta": "/academy_publichnaya-oferta",
+    "/soglasie-s-rassilkoi": "/academy_soglasie-s-rassilkoi",
+    "/otkaz-ot-otvetstvennocti": "/academy_otkaz-ot-otvetstvennocti",
+    "/polzovatelskoe-soglashenie": "/agreement-89375",
+    "/soglasie-na-obrabotku-personalnih-dannih": "/privacypolicy-78675",
+    "/contacts": "/support",
+    "/otzivi": "/testimonials"
+  },
+  "unresolved": {
+    "/packaging": "кнопка на /blackwhite/ — страницы нет; соседние ведут на /exponent и /mashtab",
+    "/mashtab": "кнопка на /blackwhite/ — страницы нет",
+    "/smetnoedelo": "кнопка на /page15503441.html — страницы нет",
+    "/massmedia": "ссылка «Сми обо мне» на page15503485.html — /mediakit это материалы ДЛЯ прессы, /appearances это выступления; что именно имелось в виду, из разметки не следует",
+    "/proinstagram-partner": "кнопка без текста на page15503312.html — страницы нет"
+  }
+}

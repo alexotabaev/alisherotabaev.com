@@ -271,6 +271,37 @@ for f in sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
     if 'application/ld+json' not in s:
         fail(f, 'нет разметки Schema.org')
 
+# --- 12. Битые внутренние ссылки ---------------------------------------------
+
+LINKS = json.load(open('_tools/hygiene/links.json', encoding='utf-8'))
+known_bad = set(LINKS['unresolved'])
+
+
+def _resolves(href):
+    p = href.split('#')[0].split('?')[0].lstrip('/')
+    if not p:
+        return True
+    return any(os.path.exists(c) for c in
+               (p, os.path.join(p, 'index.html'), p + '.html', p.rstrip('/') + '.html'))
+
+
+for f in sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
+                + glob.glob('page*.html') + ['index.html', '404.html']):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    for href in sorted(set(re.findall(r'href="(/[^"]*)"', s))):
+        if _resolves(href):
+            continue
+        if href.split('#')[0].split('?')[0] in known_bad:
+            continue          # известны, перечислены в links.json → unresolved
+        fail(f, f'битая внутренняя ссылка: {href}')
+
+# Замены из links.json не должны отменяться
+for src in LINKS['redirects']:
+    for f in sorted(glob.glob('*/index.html') + glob.glob('page*.html')):
+        s = open(f, encoding='utf-8', errors='replace').read()
+        if re.search(r'href="' + re.escape(src) + r'["#?]', s):
+            fail(f, f'вернулась битая ссылка {src} — должна быть заменена по links.json')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
