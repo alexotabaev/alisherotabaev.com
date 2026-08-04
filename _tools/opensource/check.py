@@ -227,9 +227,11 @@ for c in CASES['cases']:
 
 HYGIENE = json.load(open('_tools/hygiene/noindex.json', encoding='utf-8'))
 for item in HYGIENE['pages']:
-    f = f'{item["slug"]}/index.html'
-    if not os.path.exists(f):
-        fail('_tools/hygiene/noindex.json', f'страницы /{item["slug"]}/ нет — уберите её из списка')
+    # страница — это либо каталог с index.html, либо отдельный файл в корне
+    f = next((c for c in (f'{item["slug"]}/index.html', item['slug'])
+              if os.path.isfile(c)), None)
+    if f is None:
+        fail('_tools/hygiene/noindex.json', f'страницы /{item["slug"]} нет — уберите её из списка')
         continue
     s = open(f, encoding='utf-8', errors='replace').read()
     if not re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', s, re.I):

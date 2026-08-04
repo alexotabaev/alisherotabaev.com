@@ -43,12 +43,19 @@ const reBlock = new RegExp(
 
 /* ---------- 1. noindex на служебные страницы ---------- */
 
+// Страница может лежать как каталогом со своим index.html, так и отдельным
+// файлом в корне — выгрузка Tilda оставила и то, и другое.
+const fileOf = (slug) =>
+  [path.join(ROOT, slug, 'index.html'), path.join(ROOT, slug)]
+    .find((c) => fs.existsSync(c) && fs.statSync(c).isFile()) || null;
+
 let done = 0;
 for (const { slug, why } of pages) {
-  const file = path.join(ROOT, slug, 'index.html');
-  if (!fs.existsSync(file)) {
-    console.warn(`  ⚠ /${slug}/ — файла нет, пропускаю`);
-    continue;
+  const file = fileOf(slug);
+  // Раньше здесь стоял пропуск с предупреждением. Он однажды уже обманул:
+  // отчёт сказал «закрыто», а страница осталась в выдаче. Теперь падаем.
+  if (!file) {
+    throw new Error(`noindex.json: страницы /${slug} нет — уберите её из списка`);
   }
   let s = fs.readFileSync(file, 'utf8').replace(reBlock, '');
   // Ранее выставленные Tilda robots-теги убираем, чтобы не спорили с нашим
