@@ -223,6 +223,24 @@ for c in CASES['cases']:
         if not dc or dc.group(1) != want:
             fail(df, f'дубль должен указывать canonical на {want}')
 
+# --- 10. Гигиена индексации применена ----------------------------------------
+
+HYGIENE = json.load(open('_tools/hygiene/noindex.json', encoding='utf-8'))
+for item in HYGIENE['pages']:
+    f = f'{item["slug"]}/index.html'
+    if not os.path.exists(f):
+        fail('_tools/hygiene/noindex.json', f'страницы /{item["slug"]}/ нет — уберите её из списка')
+        continue
+    s = open(f, encoding='utf-8', errors='replace').read()
+    if not re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', s, re.I):
+        fail(f, 'числится в noindex.json, но мета-тега на странице нет')
+
+# Битые canonical с двойным слэшем не должны появиться снова
+for f in glob.glob('page*.html') + glob.glob('*/index.html'):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    if SITE['origin'] + '//' in s:
+        fail(f, 'адрес с двойным слэшем (alisherotabaev.com//) — canonical ведёт не на эту страницу')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:

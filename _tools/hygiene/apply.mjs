@@ -55,7 +55,21 @@ for (const { slug, why } of pages) {
   s = s.replace(/[ \t]*<meta name="robots"[^>]*>\n?/g, '');
 
   const block = [START, `<meta name="robots" content="noindex,follow" />`, `<!-- ${why} -->`, END].join('\n');
-  s = s.replace('</head>', block + '\n</head>');
+
+  // Не у всех страниц есть <head>: часть написана вручную и состоит из
+  // <!doctype>, <title> и сразу <body>. Ставим блок туда, куда получится,
+  // и падаем, если не получилось нигде — молчаливый пропуск здесь опаснее
+  // ошибки: страница осталась бы в индексе, а отчёт сказал бы «закрыта».
+  if (s.includes('</head>')) {
+    s = s.replace('</head>', block + '\n</head>');
+  } else if (/<body[\s>]/i.test(s)) {
+    s = s.replace(/<body[\s>]/i, (m) => block + '\n' + m);
+  } else if (s.includes('</title>')) {
+    s = s.replace('</title>', '</title>\n' + block);
+  } else {
+    throw new Error(`/${slug}/: некуда вставить мета-тег — нет ни </head>, ни <body>, ни </title>`);
+  }
+
   fs.writeFileSync(file, s);
   console.log(`  noindex  /${slug}/  — ${why}`);
   done++;
