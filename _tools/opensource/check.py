@@ -313,6 +313,20 @@ for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
         noalt += len(bad)
         fail(f, f'{len(bad)} картинок без alt — добавьте правило в _tools/hygiene/alt.json')
 
+# --- 14. Никаких обращений к Google Fonts ------------------------------------
+
+for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
+                 + glob.glob('page*.html')) + ['index.html', '404.html']):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    # Ищем именно подключения, а не упоминания домена в комментариях
+    if re.search(r'<link[^>]*fonts\.(googleapis|gstatic)\.com', s) or \
+       re.search(r'@import[^;]*fonts\.googleapis', s):
+        fail(f, 'подключает Google Fonts — шрифты должны браться из /files/fonts/')
+
+for font in ('open-sans-cyrillic', 'open-sans-latin', 'roboto-cyrillic', 'roboto-latin'):
+    if not os.path.exists(f'files/fonts/{font}.woff2'):
+        fail('files/fonts', f'нет файла {font}.woff2')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:

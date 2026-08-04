@@ -79,8 +79,9 @@ node _tools/opensource/build.mjs && git diff --exit-code && python3 _tools/opens
 (~125 КБ), `latin-ext` не загружается вовсе. Два кириллических сабсета идут через
 `<link rel="preload">`, остальное — по мере необходимости, с `font-display: swap`.
 
-Остальные 357 страниц сайта (экспорт Tilda) по-прежнему грузят Google Fonts —
-переводить их на локальные шрифты нужно отдельной задачей.
+К Open Sans это тоже относится: `open-sans-*.woff2` (94 КБ на три сабсета).
+Весь сайт переведён на свои шрифты — обращений к `fonts.googleapis.com`
+и `fonts.gstatic.com` не осталось нигде, за этим следит `check.py`.
 
 ### OG-картинка
 
