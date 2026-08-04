@@ -323,6 +323,13 @@ for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
        re.search(r'@import[^;]*fonts\.googleapis', s):
         fail(f, 'подключает Google Fonts — шрифты должны браться из /files/fonts/')
 
+    # Страница, чей CSS просит Open Sans или Roboto, обязана объявить @font-face
+    # со своими файлами. Иначе шрифт молча падает на системный: ссылки на Google
+    # убраны, а замены нет — именно так и сломалось при первом заходе.
+    if re.search(r'font-family\s*:[^;}]*(Open Sans|Roboto)', s, re.I) and '/files/fonts/' not in s:
+        fail(f, 'CSS просит Open Sans или Roboto, но @font-face со своими файлами нет — '
+                'шрифт откатится на системный')
+
 for font in ('open-sans-cyrillic', 'open-sans-latin', 'roboto-cyrillic', 'roboto-latin'):
     if not os.path.exists(f'files/fonts/{font}.woff2'):
         fail('files/fonts', f'нет файла {font}.woff2')

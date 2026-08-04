@@ -91,9 +91,19 @@ for (const file of collect()) {
   let s = fs.readFileSync(file, 'utf8').replace(reBlock, '');
   const before = s;
 
-  // <link> на шрифты Google и предварительные соединения к ним
+  // Условие вставки нельзя завязывать на присутствие ссылок Google: после
+  // первого прогона их уже нет, и блок со шрифтами перестал бы возвращаться —
+  // страница откатилась бы на системный шрифт. Ориентируемся на то, какие
+  // семейства реально использует CSS страницы.
   const links = s.match(/[ \t]*<link[^>]*fonts\.(?:googleapis|gstatic)\.com[^>]*>\n?/g) || [];
-  if (!links.length) {
+  const needsFonts = /font-family\s*:[^;}]*(Open Sans|Roboto)/i.test(s);
+  const hasOwnFaces = /@font-face[\s\S]{0,400}\/files\/fonts\//.test(s);
+
+  if ((!links.length && !needsFonts) || hasOwnFaces) {
+    if (links.length) {
+      removed += links.length;
+      s = s.replace(/[ \t]*<link[^>]*fonts\.(?:googleapis|gstatic)\.com[^>]*>\n?/g, '');
+    }
     if (s !== fs.readFileSync(file, 'utf8')) fs.writeFileSync(file, s);
     continue;
   }
