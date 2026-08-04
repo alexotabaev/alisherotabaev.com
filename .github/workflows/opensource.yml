@@ -8,22 +8,24 @@
 # Безопасность: workflow не подставляет в shell ничего из github.event.*
 # (заголовков issue, сообщений коммитов и т.п.) — инъекция невозможна.
 
-name: Каталог /opensource
+name: Генерируемые разделы
 
 on:
   push:
     branches: [main]
     paths:
-      - '_tools/opensource/**'
+      - '_tools/**'
       - 'opensource/**'
+      - 'cases/**'
       - 'sitemap.xml'
       - 'llms.txt'
       - 'files/fonts/**'
       - '.github/workflows/opensource.yml'
   pull_request:
     paths:
-      - '_tools/opensource/**'
+      - '_tools/**'
       - 'opensource/**'
+      - 'cases/**'
   workflow_dispatch:
 
 permissions:
@@ -40,8 +42,10 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Пересобрать каталог из data.json
-        run: node _tools/opensource/build.mjs
+      - name: Пересобрать разделы из data.json
+        run: |
+          node _tools/opensource/build.mjs
+          node _tools/cases/build.mjs
 
       - name: Сверить с тем, что закоммичено
         run: |
@@ -54,11 +58,11 @@ jobs:
           echo
           echo "Причина — одно из двух:"
           echo "  1. Данные в data.json поменяли, а сборку не запустили."
-          echo "  2. HTML в opensource/ поправили руками в обход генератора —"
+          echo "  2. HTML в opensource/ или cases/ поправили руками в обход генератора —"
           echo "     такая правка будет молча затёрта при следующей сборке."
           echo
           echo "Как починить: выполнить локально"
-          echo "    node _tools/opensource/build.mjs"
+          echo "    node _tools/opensource/build.mjs && node _tools/cases/build.mjs"
           echo "и закоммитить результат. Правки вносить только в data.json."
           echo
           git diff --stat

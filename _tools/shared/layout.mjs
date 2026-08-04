@@ -1,32 +1,45 @@
-<!DOCTYPE html>
-<html lang="ru">
-<head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>Опенсорс OCR и работа с PDF — 3 проекта с GitHub — Алишер Отабаев</title>
-<meta name="description" content="Распознавание текста и обработка документов: Stirling PDF, Chandra, Unlimited OCR. Свободные замены платным PDF-сервисам." />
-<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
-<meta name="author" content="Алишер Отабаев" />
-<link rel="canonical" href="https://alisherotabaev.com/opensource/ocr/" />
-<meta property="og:type" content="website" />
-<meta property="og:site_name" content="Алишер Отабаев" />
-<meta property="og:locale" content="ru_RU" />
-<meta property="og:title" content="Опенсорс OCR и работа с PDF — 3 проекта с GitHub — Алишер Отабаев" />
-<meta property="og:description" content="Распознавание текста и обработка документов: Stirling PDF, Chandra, Unlimited OCR. Свободные замены платным PDF-сервисам." />
-<meta property="og:url" content="https://alisherotabaev.com/opensource/ocr/" />
-<meta property="og:image" content="https://alisherotabaev.com/images/og-opensource.png" />
-<meta property="og:image:width" content="1200" />
-<meta property="og:image:height" content="630" />
-<meta property="og:image:alt" content="Каталог опенсорс-решений — Алишер Отабаев" />
-<meta name="twitter:card" content="summary_large_image" />
-<meta name="twitter:title" content="Опенсорс OCR и работа с PDF — 3 проекта с GitHub — Алишер Отабаев" />
-<meta name="twitter:description" content="Распознавание текста и обработка документов: Stirling PDF, Chandra, Unlimited OCR. Свободные замены платным PDF-сервисам." />
-<meta name="twitter:image" content="https://alisherotabaev.com/images/og-opensource.png" />
-<link rel="shortcut icon" href="/images/tild6665-3732-4262-a336-653034633261__favicon_2.ico" type="image/x-icon" />
-<link rel="preload" href="/files/fonts/roboto-condensed-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
-<link rel="preload" href="/files/fonts/roboto-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
-<style>
-/* Шрифты со своего домена: без обращений к fonts.googleapis.com и fonts.gstatic.com.
+/**
+ * Общий каркас страниц alisherotabaev.com: стили, шапка, подвал, <head>,
+ * иконки и помощники разметки.
+ *
+ * Отсюда берут вёрстку генераторы разделов (_tools/opensource, _tools/cases).
+ * Правка здесь меняет все сгенерированные страницы разом — после неё нужно
+ * пересобрать каждый раздел, иначе CI поймает расхождение.
+ */
+
+import fs from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+
+const HERE = path.dirname(fileURLToPath(import.meta.url));
+
+/** Общие для всего сайта данные: домен, автор, логотип, соцсети. */
+export const site = JSON.parse(fs.readFileSync(path.join(HERE, 'site.json'), 'utf8'));
+
+/** Абсолютный URL от корня сайта. */
+export const abs = (p) => site.origin + p;
+
+export const esc = (s) =>
+  String(s).replace(/&/g, '&amp;').replace(/</g, '&lt;').replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+
+/** Текст без разметки — для meta, alt и JSON-LD. */
+export const plain = (s) =>
+  String(s)
+    .replace(/<[^>]+>/g, '')
+    .replace(/\s+/g, ' ')
+    .trim();
+
+/** JSON-LD внутри <script> не должен содержать литеральный «<». */
+export const ld = (obj) => JSON.stringify(obj).replace(/</g, '\\u003C');
+
+export const ruDate = (iso) => {
+  const M = ['января','февраля','марта','апреля','мая','июня','июля','августа','сентября','октября','ноября','декабря'];
+  const [y, m, d] = iso.split('-').map(Number);
+  return `${d} ${M[m - 1]} ${y}`;
+};
+
+export const CSS = `
+  /* Шрифты со своего домена: без обращений к fonts.googleapis.com и fonts.gstatic.com.
      Файлы вариативные — одно начертание на сабсет покрывает весь диапазон 100–900.
      unicode-range оставляет браузеру только нужные сабсеты (русская страница — cyrillic + latin). */
   @font-face{
@@ -285,150 +298,54 @@
   .legal{margin-top:22px;padding-top:20px;border-top:1px solid var(--line);display:flex;flex-wrap:wrap;gap:18px;list-style:none;}
   .legal a{font-size:12px;color:var(--muted);text-transform:uppercase;letter-spacing:.04em;}
   .legal a:hover{color:var(--gold-dk);}
-</style>
-<script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/ocr/#page","url":"https://alisherotabaev.com/opensource/ocr/","name":"Опенсорс OCR и работа с PDF — 3 проекта с GitHub","headline":"OCR и работа с документами","description":"Распознавание текста и обработка документов: Stirling PDF, Chandra, Unlimited OCR. Свободные замены платным PDF-сервисам.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/ocr/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"OCR и документы","item":"https://alisherotabaev.com/opensource/ocr/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/ocr/#list","name":"OCR и работа с документами","numberOfItems":3,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Stirling PDF","applicationCategory":"DeveloperApplication","description":"Целый комбайн инструментов для PDF. Чем ценно: режешь, сшиваешь и конвертируешь документы на своём сервере — приватно.","url":"https://github.com/Stirling-Tools/Stirling-PDF","codeRepository":"https://github.com/Stirling-Tools/Stirling-PDF","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Chandra","applicationCategory":"DeveloperApplication","description":"OCR-модель с выводом в Markdown/HTML/JSON. Чем ценно: вытаскиваешь текст и структуру из сканов автоматически.","url":"https://github.com/datalab-to/chandra","codeRepository":"https://github.com/datalab-to/chandra","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Unlimited OCR","applicationCategory":"DeveloperApplication","description":"OCR-модель на базе DeepSeek-OCR. Чем ценно: распознаёт текст из фото и документов — конец ручному перенабору.","url":"https://github.com/baidu/Unlimited-OCR","codeRepository":"https://github.com/baidu/Unlimited-OCR","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
-</script>
-</head>
-<body>
-<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
+`.trim();
+
+export const SPRITE = `<svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
   <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M9.8 16.6 9.6 13l6.9-6.2c.3-.27-.07-.4-.46-.17L7.5 12.1 3.8 11c-.8-.24-.8-.8.18-1.18l14.4-5.56c.66-.3 1.3.16 1.05 1.18l-2.45 11.55c-.17.8-.65 1-1.32.62l-3.63-2.68-1.75 1.7c-.2.2-.37.36-.72.36Z"/></symbol>
   <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></symbol>
   <symbol id="i-ig" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r="1" fill="currentColor" stroke="none"/></g></symbol>
   <symbol id="i-vk" viewBox="0 0 24 24"><path fill="currentColor" d="M13 18c-5.5 0-8.9-3.9-9-10h2.8c.1 4.5 2.2 6.4 3.7 6.8V8h2.7v3.9c1.5-.2 3-1.8 3.6-3.9h2.6c-.5 2.3-2 3.9-3 4.6 1 .5 2.8 2 3.5 4.4h-2.9c-.5-1.6-1.9-2.9-3.8-3.1V18H13Z"/></symbol>
   <symbol id="i-yt" viewBox="0 0 24 24"><path fill="currentColor" d="M22 12s0-3.2-.4-4.7a2.5 2.5 0 0 0-1.8-1.8C18.3 5 12 5 12 5s-6.3 0-7.8.5A2.5 2.5 0 0 0 2.4 7.3C2 8.8 2 12 2 12s0 3.2.4 4.7a2.5 2.5 0 0 0 1.8 1.8C5.7 19 12 19 12 19s6.3 0 7.8-.5a2.5 2.5 0 0 0 1.8-1.8C22 15.2 22 12 22 12Zm-12 3V9l5 3-5 3Z"/></symbol>
   <symbol id="i-search" viewBox="0 0 24 24"><g fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="7"/><path d="m21 21-4.3-4.3"/></g></symbol>
-</svg>
-<a class="skip" href="#main">Перейти к содержимому</a>
+</svg>`;
+
+export const icon = (id) => `<svg aria-hidden="true" focusable="false"><use href="#i-${id}"/></svg>`;
+export const TG_ICON = icon('tg');
+export const GH_ICON = icon('gh');
+
+export const header = () => `<a class="skip" href="#main">Перейти к содержимому</a>
 
 <header class="site">
   <div class="wrap nav">
-    <a class="logo" href="/"><img src="/images/tild6566-6462-4532-b137-326533313461__3-2.png" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
+    <a class="logo" href="/"><img src="${site.logo}" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
     <nav class="navlinks" aria-label="Основная навигация">
-      <a class="hideable" href="/">Главная</a>
-      <a class="hideable" href="/blog">Блог</a>
-      <a class="hideable" href="/cases/">Кейсы</a>
-      <a class="hideable" href="/opensource/">Опенсорс</a>
-      <a class="cta-mini" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">Telegram-канал</a>
+${site.nav.slice(0, 2).map((n) => `      <a class="hideable" href="${n.u}">${n.t}</a>`).join('\n')}
+${site.nav.slice(2).map((n) => `      <a class="hideable" href="${n.u}">${n.t}</a>`).join('\n')}
+      <a class="cta-mini" href="${site.telegram}" target="_blank" rel="noopener">Telegram-канал</a>
     </nav>
   </div>
-</header>
+</header>`;
 
-<main id="main">
-
-<article>
-
-<div class="hero sm">
-  <div class="wrap">
-    <nav class="crumbs" aria-label="Хлебные крошки">
-      <ol>
-        <li><a href="/">Главная</a></li>
-        <li><a href="/opensource/">Опенсорс</a></li>
-        <li aria-current="page">OCR и документы</li>
-      </ol>
-    </nav>
-    <h1>OCR и работа с документами</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>3</b>&nbsp;проекта · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
-    <p class="lead">Распознавание текста со сканов и фото, конвертация и сборка PDF. Закрывает то, за что обычно платят подписку онлайн-сервисам.</p>
-    <div class="btnrow">
-      <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
-      <a class="btn btn-tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg> Telegram-канал</a>
-    </div>
-  </div>
-</div>
-
-<section aria-labelledby="list-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">OCR и документы</p>
-      <h2 id="list-h">3&nbsp;проекта в категории</h2>
-    </div>
-    <ul class="grid">
-        <li class="card" data-cat="ocr" data-name="Stirling PDF" id="repo-stirling-tools-stirling-pdf">
-          <span class="tag">OCR и документы</span>
-          <h4><a href="https://github.com/Stirling-Tools/Stirling-PDF" target="_blank" rel="noopener">Stirling PDF</a></h4>
-          <p class="repo"><code>Stirling-Tools/Stirling-PDF</code></p>
-          <p class="d">Целый комбайн инструментов для PDF. <b>Чем ценно:</b> режешь, сшиваешь и конвертируешь документы на своём сервере — приватно.</p>
-          <a class="gh" href="https://github.com/Stirling-Tools/Stirling-PDF" target="_blank" rel="noopener" aria-label="Открыть Stirling PDF на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="ocr" data-name="Chandra" id="repo-datalab-to-chandra">
-          <span class="tag">OCR и документы</span>
-          <h4><a href="https://github.com/datalab-to/chandra" target="_blank" rel="noopener">Chandra</a></h4>
-          <p class="repo"><code>datalab-to/chandra</code></p>
-          <p class="d">OCR-модель с выводом в Markdown/HTML/JSON. <b>Чем ценно:</b> вытаскиваешь текст и структуру из сканов автоматически.</p>
-          <a class="gh" href="https://github.com/datalab-to/chandra" target="_blank" rel="noopener" aria-label="Открыть Chandra на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="ocr" data-name="Unlimited OCR" id="repo-baidu-unlimited-ocr">
-          <span class="tag">OCR и документы</span>
-          <h4><a href="https://github.com/baidu/Unlimited-OCR" target="_blank" rel="noopener">Unlimited OCR</a></h4>
-          <p class="repo"><code>baidu/Unlimited-OCR</code></p>
-          <p class="d">OCR-модель на базе DeepSeek-OCR. <b>Чем ценно:</b> распознаёт текст из фото и документов — конец ручному перенабору.</p>
-          <a class="gh" href="https://github.com/baidu/Unlimited-OCR" target="_blank" rel="noopener" aria-label="Открыть Unlimited OCR на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-    </ul>
-    <p class="note">Подборка отражает находки на момент обновления страницы. Опенсорс-проекты быстро развиваются и иногда переезжают — если ссылка изменилась, найдите репозиторий по названию на GitHub. Проверяйте лицензию и актуальность перед использованием в продакшене.</p>
-  </div>
-</section>
-
-<section class="philo" aria-labelledby="other-h">
-  <div class="wrap">
-    <div class="sec-head">
-      <p class="kicker">Другие категории</p>
-      <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
-    </div>
-    <nav aria-label="Другие категории каталога">
-      <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
-        <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
-        <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
-        <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
-        <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
-        <li><a href="/opensource/saas/">Бизнес / SaaS<span class="c">17</span></a></li>
-        <li><a href="/opensource/automation/">Автоматизация / API<span class="c">6</span></a></li>
-        <li><a href="/opensource/security/">Безопасность / OSINT<span class="c">8</span></a></li>
-        <li><a href="/opensource/privacy/">Приватность<span class="c">6</span></a></li>
-        <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
-        <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
-        <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
-        <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
-        <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
-        <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
-      </ul>
-    </nav>
-    <p style="margin-top:26px;font-size:15px;color:var(--muted);">
-      ← <a href="/opensource/voice/">Голос и речь</a> &nbsp;·&nbsp; <a href="/opensource/self-hosted/">Замены сервисов</a> →
-    </p>
-  </div>
-</section>
-
-</article>
-
-<section class="cta" aria-labelledby="cta-h">
+export const cta = () => `<section class="cta" aria-labelledby="cta-h">
   <div class="wrap">
     <h2 id="cta-h">Хочешь забирать такие находки первым?</h2>
     <p>Я постоянно в полях — нахожу инструменты, которые ускоряют работу в разы, и сразу делюсь ими в каналах. Подписывайся: пока другие пишут с нуля, ты будешь собирать из готового.</p>
     <div class="btnrow">
-      <a class="btn btn-tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg> Telegram-канал</a>
-      <a class="btn btn-max" href="https://max.ru/id772836794441_biz" target="_blank" rel="noopener">Канал в Max</a>
+      <a class="btn btn-tg" href="${site.telegram}" target="_blank" rel="noopener">${TG_ICON} Telegram-канал</a>
+      <a class="btn btn-max" href="${site.max}" target="_blank" rel="noopener">Канал в Max</a>
     </div>
   </div>
-</section>
+</section>`;
 
-</main>
-
-<footer class="site">
+export const footer = () => `<footer class="site">
   <div class="wrap">
     <div class="foot">
       <p class="fine">ИП Отабаев Алишер Камолович · ОГРН 324508100462661</p>
       <ul class="soc" aria-label="Социальные сети">
-        <li><a href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener" aria-label="Telegram"><svg aria-hidden="true" focusable="false"><use href="#i-tg"/></svg></a></li>
-        <li><a href="https://www.instagram.com/alisherotabaev/" target="_blank" rel="noopener" aria-label="Instagram"><svg aria-hidden="true" focusable="false"><use href="#i-ig"/></svg></a></li>
-        <li><a href="https://vk.com/alisherotabaev" target="_blank" rel="noopener" aria-label="ВКонтакте"><svg aria-hidden="true" focusable="false"><use href="#i-vk"/></svg></a></li>
-        <li><a href="https://www.youtube.com/channel/UCnfrMWRFTpyeCM7XK6TMtRw/about" target="_blank" rel="noopener" aria-label="YouTube"><svg aria-hidden="true" focusable="false"><use href="#i-yt"/></svg></a></li>
+        <li><a href="${site.telegram}" target="_blank" rel="noopener" aria-label="Telegram">${TG_ICON}</a></li>
+        <li><a href="https://www.instagram.com/alisherotabaev/" target="_blank" rel="noopener" aria-label="Instagram">${icon('ig')}</a></li>
+        <li><a href="https://vk.com/alisherotabaev" target="_blank" rel="noopener" aria-label="ВКонтакте">${icon('vk')}</a></li>
+        <li><a href="https://www.youtube.com/channel/UCnfrMWRFTpyeCM7XK6TMtRw/about" target="_blank" rel="noopener" aria-label="YouTube">${icon('yt')}</a></li>
       </ul>
     </div>
     <ul class="legal">
@@ -438,6 +355,71 @@
       <li><a href="/oferta">Публичная оферта</a></li>
     </ul>
   </div>
-</footer>
-</body>
-</html>
+</footer>`;
+
+export const personLd = {
+  '@type': 'Person',
+  '@id': abs('/#author'),
+  name: site.author,
+  url: site.authorUrl,
+  sameAs: [site.telegram, 'https://www.instagram.com/alisherotabaev/', 'https://vk.com/alisherotabaev']
+};
+
+export const breadcrumbLd = (items) => ({
+  '@type': 'BreadcrumbList',
+  itemListElement: items.map((it, i) => ({
+    '@type': 'ListItem',
+    position: i + 1,
+    name: it.name,
+    item: abs(it.url)
+  }))
+});
+
+/** Общая «шапка» документа: мета, Open Graph, шрифты, стили, JSON-LD. */
+export const head = ({
+  title,
+  description,
+  url,
+  jsonld,
+  ogImage,
+  ogImageAlt = 'Алишер Отабаев',
+  ogType = 'website',
+  extraCss = '',
+}) => `<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>${esc(title)}</title>
+<meta name="description" content="${esc(description)}" />
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large,max-video-preview:-1" />
+<meta name="author" content="${esc(site.author)}" />
+<link rel="canonical" href="${esc(abs(url))}" />
+<meta property="og:type" content="${ogType}" />
+<meta property="og:site_name" content="${esc(site.author)}" />
+<meta property="og:locale" content="ru_RU" />
+<meta property="og:title" content="${esc(title)}" />
+<meta property="og:description" content="${esc(description)}" />
+<meta property="og:url" content="${esc(abs(url))}" />
+<meta property="og:image" content="${esc(abs(ogImage))}" />
+<meta property="og:image:width" content="1200" />
+<meta property="og:image:height" content="630" />
+<meta property="og:image:alt" content="${esc(ogImageAlt)}" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="${esc(title)}" />
+<meta name="twitter:description" content="${esc(description)}" />
+<meta name="twitter:image" content="${esc(abs(ogImage))}" />
+<link rel="shortcut icon" href="${site.favicon}" type="image/x-icon" />
+<link rel="preload" href="/files/fonts/roboto-condensed-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+<link rel="preload" href="/files/fonts/roboto-cyrillic.woff2" as="font" type="font/woff2" crossorigin />
+<style>
+${CSS}${extraCss ? '\n' + extraCss : ''}
+</style>
+<script type="application/ld+json">
+${ld(jsonld)}
+</script>
+</head>
+<body>
+${SPRITE}
+`;
+

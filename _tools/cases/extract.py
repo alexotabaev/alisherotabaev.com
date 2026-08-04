@@ -21,6 +21,7 @@
 поле "todo" — такие кейсы не попадут на страницу, пока их не дочистить.
 """
 
+import collections
 import glob
 import html
 import json
@@ -36,6 +37,10 @@ BOILERPLATE = 'Программа для экспертов'
 SKIP_IMG = ('__3-2.png', 'generic20satellite')
 # Заголовок выглядит как имя, но страница не кейс
 NOT_A_CASE = {'clients', 'tehnar-demo'}
+# Портрет не бывает легче 30 КБ. Всё, что мельче, — иконки и служебная графика:
+# на части страниц собственного фото героя просто нет, и это честнее показать
+# инициалами, чем подставить чужую картинку.
+MIN_PHOTO = 30_000
 
 
 def atoms(src):
@@ -49,20 +54,30 @@ def atoms(src):
     return out
 
 
-def photo(src):
-    """Самая тяжёлая картинка страницы — почти всегда портрет героя кейса."""
-    best, best_size = None, 0
-    for m in re.finditer(r'(?:data-original|src)="(/images/[^"]+\.(?:jpg|jpeg|png|webp))"', src, re.I):
-        u = m.group(1)
-        if any(s in u for s in SKIP_IMG):
+def images(src):
+    """Все картинки страницы: и в атрибутах, и в CSS-фоне Tilda."""
+    urls = re.findall(r'(?:data-original|src)="(/images/[^"]+\.(?:jpg|jpeg|png|webp))"', src, re.I)
+    urls += re.findall(r"background-image:\s*url\('(/images/[^']+\.(?:jpg|jpeg|png|webp))'\)", src, re.I)
+    out = []
+    for u in urls:
+        if any(x in u for x in SKIP_IMG):
             continue
         f = u.lstrip('/')
-        if not os.path.exists(f):
-            continue
-        size = os.path.getsize(f)
-        if size > best_size:
-            best, best_size = u, size
-    return best
+        if os.path.exists(f):
+            out.append((os.path.getsize(f), u))
+    return out
+
+
+def pick_photo(candidates, shared):
+    """Портрет героя — самая тяжёлая картинка, встречающаяся только здесь.
+
+    Просто «самая тяжёлая» не годится: на страницах лежит общий декоративный
+    фон в 2 МБ, и он перевешивает настоящее фото. Картинка, попавшаяся ещё
+    на чьём-то кейсе, — тоже оформление, а не портрет. Если своего фото нет,
+    возвращаем None: карточка отрисуется с инициалами.
+    """
+    own = [(size, u) for size, u in candidates if shared[u] == 1 and size >= MIN_PHOTO]
+    return max(own)[1] if own else None
 
 
 def money(text):
@@ -82,7 +97,7 @@ def money(text):
     return best
 
 
-def parse(slug):
+def parse(slug, shared):
     src = open(f'{slug}/index.html', encoding='utf-8', errors='replace').read()
     a = atoms(src)
     title = re.search(r'<title>(.*?)</title>', src, re.S)
@@ -99,9 +114,9 @@ def parse(slug):
 
     role = ''
     for x in rest[1:5]:
+        if x[0] in '"«“\'':                      # цитата, а не профессия
+            continue
         if x.upper() != x or '@' in x:          # не «ИМЯ КАПСОМ» — значит профессия
-            if x.strip('"«»').strip() != x.strip():
-                continue
             role = x
             break
     inst = re.search(r'@([\w.]+)', role)
@@ -118,7 +133,7 @@ def parse(slug):
     # Второй шаблон: заголовка с результатом нет, имя слитно первым блоком,
     # дальше профессия и список достижений после маркера «В результате».
     results = []
-    if not a_point and not b_point:
+    if not (a_point and b_point):
         flat = name.replace(' ', '')
         if rest and rest[0].replace(' ', '') == flat:
             headline = ''
@@ -134,7 +149,7 @@ def parse(slug):
     if not (a_point and b_point) and not results:
         todo.append('нет ни точки А/В, ни списка результатов')
 
-    img = photo(src)
+    img = pick_photo(images(src), shared)
     if not img:
         todo.append('не найдено фото')
 
@@ -169,18 +184,32 @@ for p in sorted(glob.glob('*/index.html')):
     words = len(re.sub(r'<[^>]+>', ' ', re.sub(r'<(script|style).*?</\1>', '', src, flags=re.S)).split())
     DUPES.setdefault(t, []).append((words, slug))
 
+# Сколько кейсовых страниц ссылается на каждую картинку: то, что встречается
+# у многих, — общий фон, а не портрет
+SHARED = collections.Counter()
+for t, variants in DUPES.items():
+    main = max(variants)[1]
+    src = open(f'{main}/index.html', encoding='utf-8', errors='replace').read()
+    for _, u in images(src):
+        SHARED[u] += 1
+
 for t, variants in DUPES.items():
     variants.sort(reverse=True)          # самая полная версия — основная
     main = variants[0][1]
-    c = parse(main)
+    c = parse(main, SHARED)
     c['duplicates'] = [s for _, s in variants[1:]]
     CASES.append(c)
 
 CASES.sort(key=lambda c: -c['scale'])
 
 os.makedirs('_tools/cases', exist_ok=True)
+# section с настройками раздела правится руками — сохраняем его при перезапуске
+prev = {}
+if os.path.exists('_tools/cases/data.json'):
+    prev = json.load(open('_tools/cases/data.json', encoding='utf-8'))
+
 json.dump(
-    {'cases': CASES},
+    {'section': prev.get('section', {}), 'cases': CASES},
     open('_tools/cases/data.json', 'w', encoding='utf-8'),
     ensure_ascii=False, indent=2,
 )

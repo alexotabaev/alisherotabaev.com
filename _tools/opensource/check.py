@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Проверки сгенерированных страниц /opensource/.
+Проверки сгенерированных разделов сайта: /opensource/ и /cases/.
 
     python3 _tools/opensource/check.py
 
@@ -20,8 +20,11 @@ ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), '..', '..'))
 os.chdir(ROOT)
 
 DATA = json.load(open('_tools/opensource/data.json', encoding='utf-8'))
-SITE = DATA['site']
-PAGES = ['opensource/index.html'] + sorted(glob.glob('opensource/*/index.html'))
+SECTION = DATA['section']
+SITE = json.load(open('_tools/shared/site.json', encoding='utf-8'))
+CASES = json.load(open('_tools/cases/data.json', encoding='utf-8'))
+PAGES = (['opensource/index.html'] + sorted(glob.glob('opensource/*/index.html'))
+         + ['cases/index.html'])
 
 problems = []
 
@@ -32,7 +35,7 @@ def fail(page, msg):
 
 # --- 1. Все ожидаемые страницы на месте -------------------------------------
 
-expected = {'opensource/index.html'} | {
+expected = {'opensource/index.html', 'cases/index.html'} | {
     f"opensource/{c['slug']}/index.html" for c in DATA['categories']
 }
 missing = expected - set(PAGES)
@@ -52,6 +55,16 @@ if cards != len(DATA['repos']):
         f'карточек в HTML {cards}, а в data.json проектов {len(DATA["repos"])} — '
         'каталог должен рендериться на этапе сборки, а не в браузере',
     )
+
+hub = open('cases/index.html', encoding='utf-8').read()
+if hub.count('class="kase"') != len(CASES['cases']):
+    fail('cases/index.html',
+         f'карточек {hub.count(chr(34) + "kase" + chr(34))}, а кейсов в data.json {len(CASES["cases"])}')
+for c in CASES['cases']:
+    if f'href="/{c["slug"]}/"' not in hub:
+        fail('cases/index.html', f'нет ссылки на кейс /{c["slug"]}/')
+    if not os.path.exists(f'{c["slug"]}/index.html'):
+        fail('cases/index.html', f'кейс ссылается на несуществующую страницу /{c["slug"]}/')
 
 for page in PAGES:
     s = open(page, encoding='utf-8').read()
@@ -182,6 +195,7 @@ if problems:
     sys.exit(1)
 
 print(
-    f'OK — {len(PAGES)} страниц, {len(DATA["repos"])} проектов, '
-    f'{len(DATA["categories"])} категорий, {len(DATA["faq"])} FAQ.'
+    f'OK — {len(PAGES)} страниц: {len(DATA["repos"])} проектов в '
+    f'{len(DATA["categories"])} категориях, {len(DATA["faq"])} FAQ, '
+    f'{len(CASES["cases"])} кейсов.'
 )
