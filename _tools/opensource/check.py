@@ -387,6 +387,17 @@ for f in sorted(glob.glob('blog/*/index.html')):
     if 'class="post-dates"' not in s:
         fail(f, 'нет видимой строки с датой')
 
+# --- 18. Цвета, не проходящие по контрасту, не должны вернуться --------------
+
+CONTRAST = json.load(open('_tools/hygiene/contrast.json', encoding='utf-8'))['replace']
+for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
+                 + glob.glob('page*.html') + glob.glob('css/*.css'))
+          + ['index.html', '404.html']):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    for bad, r in CONTRAST.items():
+        if re.search(r':\s*' + re.escape(bad) + r'\b', s, re.I):
+            fail(f, f'вернулся цвет {bad} (контраст {r["was"]}) — должен быть {r["to"]}')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:

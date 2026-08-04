@@ -113,7 +113,7 @@ for (const file of posts) {
 
   // Инлайновый стиль, а не класс: у статей нет общего файла стилей, куда его
   // положить, а тащить ради одной строки отдельный CSS ни к чему.
-  const style = 'margin:0 0 26px;font-size:14px;color:#8a8a8a;';
+  const style = 'margin:0 0 26px;font-size:14px;color:#767676;';
   const visible =
     `${START}\n<p class="post-dates" style="${style}">Опубликовано <time datetime="${published}">${ru(published)}</time>` +
     (modified !== published ? ` · обновлено <time datetime="${modified}">${ru(modified)}</time>` : '') +
