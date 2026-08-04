@@ -359,6 +359,15 @@ for c in CASES['cases']:
     if f'/images/cases/{c["slug"]}.png' not in hub and c['photo'] in hub:
         fail('cases/index.html', f'{c["slug"]}: карточка показывает оригинал вместо миниатюры')
 
+# --- 16. Файлы подтверждения прав на сайт ------------------------------------
+
+# Их нельзя удалять: Google и Яндекс перепроверяют владение периодически,
+# и пропажа файла снимает подтверждение вместе с доступом к статистике.
+for vf in glob.glob('google*.html') + glob.glob('yandex_*.html'):
+    body = open(vf, encoding='utf-8', errors='replace').read()
+    if 'verification' not in body and 'yandex' not in body.lower():
+        fail(vf, 'похоже на файл подтверждения, но содержимое не то')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
