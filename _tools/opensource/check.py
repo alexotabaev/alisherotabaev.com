@@ -270,6 +270,8 @@ for f in sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
         fail(f, 'нет Open Graph')
     if 'application/ld+json' not in s:
         fail(f, 'нет разметки Schema.org')
+    if not re.search(r'rel="canonical"', s, re.I):
+        fail(f, 'нет canonical — версии адреса со слэшем и без будут конкурировать')
 
 # --- 12. Битые внутренние ссылки ---------------------------------------------
 

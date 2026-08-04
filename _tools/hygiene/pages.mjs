@@ -6,6 +6,7 @@
  *
  * Добавляет только то, чего на странице нет:
  *   - lang у <html> — язык определяется по содержимому, а не ставится наугад;
+ *   - canonical на саму себя, если его нет;
  *   - Open Graph (og:title / og:type / og:url / og:site_name / og:locale);
  *   - разметку Schema.org WebPage со связью с автором и сайтом;
  *   - meta description, собранный из собственного текста страницы.
@@ -156,7 +157,7 @@ function describeCandidate(html, title) {
 
 /* ---------- обработка ---------- */
 
-const stat = { lang: 0, og: 0, schema: 0, descr: 0, skipped: 0, unknownLang: [], noDescr: [] };
+const stat = { lang: 0, og: 0, schema: 0, descr: 0, canonical: 0, skipped: 0, unknownLang: [], noDescr: [] };
 
 // Первый проход: собираем кандидатов в описания и считаем, сколько раз
 // встречается каждый текст. Всё, что повторяется, отбрасываем целиком.
@@ -214,6 +215,13 @@ for (const file of collect()) {
 
   const add = [];
 
+  // canonical на саму себя. Tilda выдала его почти везде, но не всем —
+  // без него две версии адреса (со слэшем и без) конкурируют друг с другом.
+  if (!/rel="canonical"/i.test(s)) {
+    add.push(`<link rel="canonical" href="${esc(abs(url))}" />`);
+    stat.canonical++;
+  }
+
   if (!descr && candidates.has(file)) {
     add.push(`<meta name="description" content="${esc(candidates.get(file))}" />`);
     stat.descr++;
@@ -261,6 +269,7 @@ console.log(`lang проставлен:      ${stat.lang}`);
 console.log(`Open Graph добавлен:  ${stat.og}`);
 console.log(`Schema.org добавлена: ${stat.schema}`);
 console.log(`описание добавлено:   ${stat.descr}`);
+console.log(`canonical добавлен:   ${stat.canonical}`);
 console.log(`пропущено (закрыты):  ${stat.skipped}`);
 if (stat.noDescr.length) {
   console.log(`\nбез описания осталось ${stat.noDescr.length} — свой текст не прошёл фильтры,`);
