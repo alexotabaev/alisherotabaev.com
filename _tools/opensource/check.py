@@ -406,6 +406,21 @@ for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
     if 'I am ready for a long road flight' in s:
         fail(f, 'вернулся английский текст из демо-шаблона Tilda')
 
+# --- 20. Заголовки идут без пропуска уровней ---------------------------------
+
+for f in (sorted(glob.glob('*/index.html') + glob.glob('blog/*/index.html'))
+          + ['index.html', '404.html']):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    if re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', s, re.I):
+        continue
+    levels = [int(m) for m in re.findall(r'<h([1-6])[\s>]', s)]
+    prev = 0
+    for lv in levels:
+        if prev and lv > prev + 1:
+            fail(f, f'порядок заголовков: после h{prev} идёт h{lv} — пропущен уровень')
+            break
+        prev = lv
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
