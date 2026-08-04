@@ -186,6 +186,43 @@ for font in re.findall(r"url\('(/files/fonts/[^']+)'\)", index):
     if not os.path.exists(font.lstrip('/')):
         fail('opensource/index.html', f'файл шрифта отсутствует: {font}')
 
+# --- 9. Страницы кейсов доупакованы ------------------------------------------
+
+for c in CASES['cases']:
+    f = f'{c["slug"]}/index.html'
+    s = open(f, encoding='utf-8', errors='replace').read()
+
+    t = re.search(r'<title>(.*?)</title>', s, re.S)
+    if not t or t.group(1).strip() == c['name']:
+        fail(f, '<title> не доупакован — остался только именем')
+    if len(t.group(1)) > 70 if t else False:
+        fail(f, f'<title> длиннее 70 символов ({len(t.group(1))})')
+
+    d = re.search(r'<meta name="description" content="([^"]*)"', s)
+    if not d or len(d.group(1)) < 50:
+        fail(f, 'нет осмысленного meta description')
+
+    can = re.search(r'rel="canonical" href="([^"]+)"', s)
+    want = SITE['origin'] + '/' + c['slug'] + '/'
+    if not can:
+        fail(f, 'нет canonical')
+    elif can.group(1) != want:
+        fail(f, f'canonical {can.group(1)}, ожидался {want}')
+    if s.count('rel="canonical"') > 1:
+        fail(f, 'несколько canonical')
+
+    if c['headline'] and '<h1 ' not in s:
+        fail(f, 'заголовок с результатом не размечен как h1')
+
+    for dup in c.get('duplicates', []):
+        df = f'{dup}/index.html'
+        if not os.path.exists(df):
+            continue
+        ds = open(df, encoding='utf-8', errors='replace').read()
+        dc = re.search(r'rel="canonical" href="([^"]+)"', ds)
+        if not dc or dc.group(1) != want:
+            fail(df, f'дубль должен указывать canonical на {want}')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
@@ -197,5 +234,5 @@ if problems:
 print(
     f'OK — {len(PAGES)} страниц: {len(DATA["repos"])} проектов в '
     f'{len(DATA["categories"])} категориях, {len(DATA["faq"])} FAQ, '
-    f'{len(CASES["cases"])} кейсов.'
+    f'{len(CASES["cases"])} кейсов (+{sum(len(c.get("duplicates", [])) for c in CASES["cases"])} дублей).'
 )
