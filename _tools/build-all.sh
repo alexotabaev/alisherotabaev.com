@@ -13,6 +13,7 @@ node _tools/hygiene/fonts.mjs
 node _tools/hygiene/alt.mjs
 node _tools/hygiene/imgsize.mjs
 node _tools/hygiene/blogdates.mjs
+node _tools/hygiene/boilerplate.mjs
 node _tools/hygiene/apply.mjs
 node _tools/hygiene/pages.mjs
 node _tools/hygiene/sitemap.mjs

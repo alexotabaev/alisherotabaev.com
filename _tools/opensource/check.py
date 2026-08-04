@@ -398,6 +398,14 @@ for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
         if re.search(r':\s*' + re.escape(bad) + r'\b', s, re.I):
             fail(f, f'вернулся цвет {bad} (контраст {r["was"]}) — должен быть {r["to"]}')
 
+# --- 19. Текст из демо-шаблона Tilda не должен вернуться ---------------------
+
+for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
+                 + glob.glob('page*.html')) + ['index.html']):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    if 'I am ready for a long road flight' in s:
+        fail(f, 'вернулся английский текст из демо-шаблона Tilda')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
