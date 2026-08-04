@@ -302,6 +302,17 @@ for src in LINKS['redirects']:
         if re.search(r'href="' + re.escape(src) + r'["#?]', s):
             fail(f, f'вернулась битая ссылка {src} — должна быть заменена по links.json')
 
+# --- 13. У каждой картинки есть alt ------------------------------------------
+
+noalt = 0
+for f in (sorted(glob.glob('*/index.html') + glob.glob('*/*/index.html')
+                 + glob.glob('page*.html')) + ['index.html', '404.html']):
+    s = open(f, encoding='utf-8', errors='replace').read()
+    bad = [t for t in re.findall(r'<img\b[^>]*>', s) if not re.search(r'\balt\s*=', t)]
+    if bad:
+        noalt += len(bad)
+        fail(f, f'{len(bad)} картинок без alt — добавьте правило в _tools/hygiene/alt.json')
+
 # --- итог ---------------------------------------------------------------------
 
 if problems:
