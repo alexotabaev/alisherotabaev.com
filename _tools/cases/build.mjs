@@ -81,7 +81,9 @@ const EXTRA_CSS = `
   .kase .ph{position:relative;aspect-ratio:3/2;background:var(--cream2);overflow:hidden;
     display:flex;align-items:center;justify-content:center;}
   .kase .ph img{width:100%;height:100%;object-fit:cover;display:block;}
-  .kase .ph .ini{font-family:'Roboto Condensed';font-size:52px;font-weight:700;color:var(--gold-dk);opacity:.55;}
+  .kase .ph .ini{font-family:'Roboto Condensed';font-size:52px;font-weight:700;color:var(--gold-dk);}
+  /* Без opacity: прозрачность разбавляла золотой до #b8a385, а это контраст
+     2.09 на кремовом фоне карточки — инициалы было почти не видно. */
   .kase .money{position:absolute;left:12px;bottom:12px;background:var(--ink);color:#fff;
     font-family:'Roboto Condensed';font-weight:700;font-size:15px;padding:6px 12px;border-radius:999px;}
   .kase .body{padding:18px 20px 20px;display:flex;flex-direction:column;flex-grow:1;}

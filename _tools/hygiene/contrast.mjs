@@ -55,7 +55,11 @@ for (const file of collect()) {
   for (const [from, r] of Object.entries(replace)) {
     // Цвет как значение CSS-свойства или переменной: перед ним «:» либо пробел
     // после «:», а дальше — конец значения. Так мы не заденем текст и имена файлов.
-    const re = new RegExp(`(:\\s*)${from}\\b`, 'gi');
+    // Тот же цвет в CSS пишут и полностью (#777777), и сокращённо (#777).
+    // Lighthouse всегда показывает полную форму, поэтому ищем обе.
+    const short = /^#(.)\1(.)\2(.)\3$/.exec(from);
+    const alt = short ? `|#${short[1]}${short[2]}${short[3]}` : '';
+    const re = new RegExp(`(:\\s*)(?:${from}${alt})(?![0-9a-f])`, 'gi');
     out = out.replace(re, (_m, pre) => {
       stat[from] = (stat[from] || 0) + 1;
       return pre + r.to;
