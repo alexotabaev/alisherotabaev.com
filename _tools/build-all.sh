@@ -21,6 +21,7 @@ node _tools/hygiene/boilerplate.mjs
 node _tools/hygiene/headings.mjs
 node _tools/hygiene/apply.mjs
 node _tools/hygiene/pages.mjs
+node _tools/hygiene/forms.mjs
 node _tools/hygiene/nav.mjs
 node _tools/hygiene/gone.mjs
 node _tools/hygiene/sitemap.mjs
