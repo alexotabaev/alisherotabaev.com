@@ -81,6 +81,25 @@
 <link rel="apple-touch-icon" href="/images/pwa/icon-192.png" />
 <script>if("serviceWorker"in navigator)addEventListener("load",function(){navigator.serviceWorker.register("/sw.js").catch(function(){})});</script>
 <!-- meta:end -->
+<!-- analytics:start (генерируется _tools/hygiene/analytics.mjs) -->
+<style>
+.ao-cc{display:none;position:fixed;left:16px;right:16px;bottom:16px;z-index:9500;
+ max-width:44rem;margin:0 auto;padding:18px 20px;border-radius:14px;
+ background:#faf8f4;border:1px solid #e8e1d6;box-shadow:0 10px 40px rgba(0,13,41,.14);
+ font:15px/1.5 'Roboto',Arial,Helvetica,sans-serif;color:#000d29}
+.ao-cc[data-show]{display:flex;gap:16px;align-items:center;flex-wrap:wrap}
+.ao-cc__text{flex:1 1 20rem;margin:0}
+.ao-cc__text a{color:#876638;text-decoration:underline}
+.ao-cc__row{display:flex;gap:10px;flex-wrap:wrap}
+.ao-cc__btn{border:0;cursor:pointer;padding:11px 20px;border-radius:999px;
+ font:600 15px 'Roboto',Arial,sans-serif}
+.ao-cc__yes{background:#000d29;color:#fff}
+.ao-cc__yes:hover{background:#876638}
+.ao-cc__no{background:transparent;color:#000d29;border:1.5px solid #e8e1d6}
+.ao-cc__no:hover{border-color:#8f7151}
+@media (max-width:640px){.ao-cc{left:10px;right:10px;bottom:10px;padding:16px}}
+</style>
+<!-- analytics:end -->
 </head>
 <body>
 <!-- nav:start (генерируется _tools/hygiene/nav.mjs) -->
@@ -186,5 +205,36 @@ body{padding-left:248px}
   </div>
 </footer>
 
+<!-- analytics:start (генерируется _tools/hygiene/analytics.mjs) -->
+<div class="ao-cc" id="ao-cc" role="dialog" aria-live="polite"
+ aria-label="Согласие на использование куки">
+<p class="ao-cc__text">Сайт использует куки для статистики посещений. Без согласия счётчик не запускается.
+ Подробнее — в <a href="/cookie">политике использования куки</a>.</p>
+<div class="ao-cc__row">
+<button type="button" class="ao-cc__btn ao-cc__yes" id="ao-cc-yes">Принять</button>
+<button type="button" class="ao-cc__btn ao-cc__no" id="ao-cc-no">Отклонить</button>
+</div>
+</div>
+<script>(function(){
+var KEY="ao-consent-v1";
+function start(){(function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+m[i].l=1*new Date();for(var j=0;j<e.length;j++){if(e[j].src===r){return}}
+k=t.createElement("script"),a=t.getElementsByTagName("script")[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+(window,document.scripts,"script","https://mc.yandex.ru/metrika/tag.js","ym");
+ym(111332742,"init",{clickmap:true,trackLinks:true,accurateTrackBounce:true,webvisor:true});}
+var saved=null;try{saved=localStorage.getItem(KEY)}catch(e){}
+if(saved==="yes"){start();return}
+if(saved==="no"){return}
+function ready(fn){if(document.readyState!=="loading"){fn()}else{document.addEventListener("DOMContentLoaded",fn)}}
+ready(function(){
+ var box=document.getElementById("ao-cc");if(!box)return;
+ box.setAttribute("data-show","1");
+ function answer(v){try{localStorage.setItem(KEY,v)}catch(e){}
+  box.removeAttribute("data-show");if(v==="yes"){start()}}
+ document.getElementById("ao-cc-yes").addEventListener("click",function(){answer("yes")});
+ document.getElementById("ao-cc-no").addEventListener("click",function(){answer("no")});
+});
+})();</script>
+<!-- analytics:end -->
 </body>
 </html>
