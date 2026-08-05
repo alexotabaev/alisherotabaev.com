@@ -1,0 +1,103 @@
+{
+  "_": [
+    "Источники новостей для раздела /news/.",
+    "",
+    "Что здесь важно понимать: сборщик не пишет выпуск. Он приносит",
+    "кандидатов — заголовок, ссылку, дату, короткую выжимку. Ценность",
+    "раздела не в новости (её публикуют сотни площадок в тот же час), а в",
+    "разборе «что это значит для бизнеса». Разбор пишет владелец, поле для",
+    "него в черновике остаётся пустым, и генератор выпуска не соберёт",
+    "страницу, пока оно не заполнено.",
+    "",
+    "Отбор по теме: новость должна задевать и ИИ, и деньги — бизнес,",
+    "маркетинг, продажи, инструменты. Чистая наука и чистые релизы без",
+    "делового смысла отсеиваются.",
+    "",
+    "Ленты, которые перестали отвечать, сборщик называет вслух и продолжает",
+    "работу: одна упавшая лента не должна ронять сбор целиком."
+  ],
+  "feeds": [
+    {
+      "name": "vc.ru",
+      "url": "https://vc.ru/rss/all",
+      "lang": "ru"
+    },
+    {
+      "name": "Хабр — ИИ",
+      "url": "https://habr.com/ru/rss/hub/artificial_intelligence/?fl=ru",
+      "lang": "ru"
+    },
+    {
+      "name": "Хабр — продажи",
+      "url": "https://habr.com/ru/rss/hub/sales/?fl=ru",
+      "lang": "ru"
+    },
+    {
+      "name": "OpenAI",
+      "url": "https://openai.com/blog/rss.xml",
+      "lang": "en"
+    },
+    {
+      "name": "Google AI",
+      "url": "https://blog.google/technology/ai/rss/",
+      "lang": "en"
+    },
+    {
+      "name": "TechCrunch — AI",
+      "url": "https://techcrunch.com/category/artificial-intelligence/feed/",
+      "lang": "en"
+    },
+    {
+      "name": "The Verge — AI",
+      "url": "https://www.theverge.com/rss/ai-artificial-intelligence/index.xml",
+      "lang": "en"
+    }
+  ],
+  "topic": {
+    "ai": [
+      "искусственн",
+      "нейросет",
+      "нейронк",
+      "машинн",
+      "ии-",
+      " ии ",
+      "ai ",
+      "gpt",
+      "chatgpt",
+      "claude",
+      "gemini",
+      "llm",
+      "copilot",
+      "midjourney",
+      "artificial intelligence",
+      "machine learning",
+      "neural",
+      "model"
+    ],
+    "money": [
+      "бизнес",
+      "маркетинг",
+      "продаж",
+      "выручк",
+      "клиент",
+      "реклам",
+      "воронк",
+      "стартап",
+      "инвестиц",
+      "монетизац",
+      "подписк",
+      "тариф",
+      "цен",
+      "business",
+      "marketing",
+      "sales",
+      "revenue",
+      "customer",
+      "startup",
+      "pricing",
+      "enterprise",
+      "productivity",
+      "workflow"
+    ]
+  }
+}
