@@ -29,4 +29,7 @@ node _tools/hygiene/nav.mjs
 node _tools/hygiene/bloglist.mjs
 node _tools/hygiene/gone.mjs
 node _tools/hygiene/sitemap.mjs
-python3 _tools/opensource/check.py
+# CI сверяет расхождение до проверок, поэтому умеет их пропустить
+if [ "${1:-}" != "--no-check" ]; then
+  python3 _tools/opensource/check.py
+fi

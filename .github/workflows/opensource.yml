@@ -44,23 +44,13 @@ jobs:
         with:
           node-version: '22'
 
-      - name: Пересобрать разделы из data.json
-        run: |
-          node _tools/opensource/build.mjs
-          node _tools/cases/thumbs.mjs
-          node _tools/cases/build.mjs
-          node _tools/cases/meta.mjs
-          node _tools/hygiene/links.mjs
-          node _tools/hygiene/notfound.mjs
-          node _tools/hygiene/fonts.mjs
-          node _tools/hygiene/alt.mjs
-          node _tools/hygiene/imgsize.mjs
-          node _tools/hygiene/blogdates.mjs
-          node _tools/hygiene/boilerplate.mjs
-          node _tools/hygiene/headings.mjs
-          node _tools/hygiene/apply.mjs
-          node _tools/hygiene/pages.mjs
-          node _tools/hygiene/sitemap.mjs
+      - name: Пересобрать разделы
+        # Именно build-all.sh, а не копия его шагов: список инструментов
+        # растёт, и продублированный здесь неизбежно отстанет. Так уже
+        # было — CI три коммита подряд падал на инструментах, которых
+        # не знал.
+        run: bash _tools/build-all.sh --no-check
+
 
       - name: Сверить с тем, что закоммичено
         run: |
