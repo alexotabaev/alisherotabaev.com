@@ -115,6 +115,15 @@
   .value__tags span{background:var(--soft);color:var(--accent-dark);font-size:12px;padding:3px 10px;border-radius:999px;font-weight:600}
   @media (max-width:700px){.values__grid{grid-template-columns:1fr}}
 
+  .longread-wrap{max-width:1100px;margin:0 auto;padding:0 24px}
+  .longread{border:1px solid var(--accent);border-radius:14px;padding:32px 36px;margin:0 0 64px;
+    display:flex;gap:28px;align-items:center;flex-wrap:wrap}
+  .longread__body{flex:1 1 22rem}
+  .longread__eyebrow{font-size:13px;font-weight:700;letter-spacing:2px;text-transform:uppercase;
+    color:var(--accent);margin:0 0 10px}
+  .longread h2{font-size:26px;font-weight:800;margin:0 0 10px}
+  .longread p{margin:0;color:rgba(0,0,0,.66)}
+  @media (max-width:640px){.longread{padding:26px 22px}.longread h2{font-size:22px}}
   .cta-block{background:var(--text);color:#fff;text-align:center;padding:72px 24px}
   .cta-block h2{font-size:32px;font-weight:700;color:#fff;margin:0 0 16px}
   .cta-block p{color:rgba(255,255,255,.7);font-size:17px;margin:0 auto 28px;max-width:540px}
@@ -365,6 +374,17 @@
     </div>
   </div>
 </section>
+
+<div class="longread-wrap">
+  <aside class="longread">
+    <div class="longread__body">
+      <p class="longread__eyebrow">Полная версия</p>
+      <h2>Подробная история — от первых заработков до агентства</h2>
+      <p>Здесь коротко о главном. Если хотите целиком: как всё начиналось, что не получалось и чем закончилось — есть развёрнутый рассказ по главам.</p>
+    </div>
+    <a class="btn" href="/about_">Читать подробную историю</a>
+  </aside>
+</div>
 
 <section class="cta-block">
   <h2>А вы хотите стать счастливым и востребованным специалистом?</h2>
