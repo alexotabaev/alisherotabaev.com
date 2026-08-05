@@ -10,6 +10,7 @@ node _tools/templates/build.mjs
 node _tools/cases/thumbs.mjs
 node _tools/cases/build.mjs
 node _tools/cases/meta.mjs
+node _tools/hygiene/caseforms.mjs
 node _tools/hygiene/links.mjs
 node _tools/hygiene/deadlinks.mjs
 node _tools/hygiene/notfound.mjs
