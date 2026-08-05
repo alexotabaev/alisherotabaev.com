@@ -6,7 +6,10 @@
  *
  * Что делает: читает ленты из sources.json, оставляет то, что задевает и
  * ИИ, и деловую сторону, выкидывает повторы и складывает кандидатов в
- * черновик выпуска _tools/news/drafts/ГГГГ-ММ-ДД.json.
+ * _tools/news/drafts/ — два файла с одинаковым именем:
+ *
+ *   ГГГГ-ММ-ДД.md   — читаемый список, его открывают и просматривают;
+ *   ГГГГ-ММ-ДД.json — черновик выпуска, из него собирается страница.
  *
  * Чего НЕ делает: не пишет разбор. У каждой новости остаётся пустое поле
  * take — «что это значит». Заполняет его владелец, и генератор выпуска не
@@ -181,7 +184,33 @@ const draft = {
 
 fs.writeFileSync(outFile, JSON.stringify(draft, null, 2) + '\n');
 
+// Рядом — читаемый файл. Разбирать новости, глядя в JSON, неудобно: этот
+// можно просто открыть и прочитать, а решения потом перенести в черновик.
+const mdFile = outFile.replace(/\.json$/, '.md');
+const md = [
+  `# Новости за ${DAYS} ${DAYS === 1 ? 'день' : DAYS < 5 ? 'дня' : 'дней'} — ${stamp}`,
+  '',
+  `Кандидатов: ${draft.items.length}. Отобрать 5–7, к каждому написать,`,
+  'что это значит для бизнеса. Остальные выбросить.',
+  '',
+  '---',
+  '',
+  ...draft.items.flatMap((it, i) => [
+    `## ${i + 1}. ${it.title}`,
+    '',
+    `${it.source}${it.date ? ` · ${it.date}` : ''} · ${it.link}`,
+    ...(it.also.length ? ['', `Также писали: ${it.also.map((a) => a.source).join(', ')}`] : []),
+    ...(it.summary ? ['', it.summary] : []),
+    '',
+    '**Что это значит:**',
+    '',
+    '',
+  ]),
+].join('\n');
+fs.writeFileSync(mdFile, md);
+
 console.log(`\nсобрано по теме: ${all.length}, после склейки повторов: ${picked.length}`);
-console.log(`черновик: ${path.relative(ROOT, outFile)}`);
+console.log(`\nчитать:      ${path.relative(ROOT, mdFile)}`);
+console.log(`черновик:    ${path.relative(ROOT, outFile)}`);
 console.log(`\nдальше: заполнить take у нужных новостей, лишние удалить`);
 if (failed.length) console.log(`не ответили: ${failed.join('; ')}`);
