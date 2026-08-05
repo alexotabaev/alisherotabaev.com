@@ -159,15 +159,55 @@
 <!-- meta:end -->
 </head>
 <body>
+<!-- nav:start (генерируется _tools/hygiene/nav.mjs) -->
+<style>
+.ao-side{display:none}
+@media (min-width:1200px){
+.ao-side{display:flex;flex-direction:column;gap:6px;position:fixed;left:0;top:0;bottom:0;
+ width:248px;z-index:9000;padding:26px 18px;box-sizing:border-box;overflow-y:auto;
+ background:#faf8f4;border-right:1px solid #e8e1d6;
+ font:16px/1.5 'Roboto',Arial,Helvetica,sans-serif}
+.ao-side__logo{display:block;margin:0 6px 22px}
+.ao-side__logo img{display:block;height:40px;width:auto}
+.ao-side__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.ao-side__list a{display:block;padding:10px 12px;border-radius:8px;color:#000d29;
+ text-decoration:none;font-weight:500}
+.ao-side__list a:hover,.ao-side__list a:focus{background:#f3ede3;color:#876638}
+.ao-side__tg{margin-top:auto;display:block;text-align:center;background:#000d29;color:#fff;
+ text-decoration:none;padding:12px 14px;border-radius:9px;font-weight:600}
+.ao-side__tg:hover,.ao-side__tg:focus{background:#876638;color:#fff}
+/* собственные шапки страниц: на широком экране их заменяет боковое меню */
+header.site,header.site-header,header.t-records{display:none !important}
+body{padding-left:248px}
+}
+</style>
+<nav class="ao-side" aria-label="Разделы сайта">
+<a class="ao-side__logo" href="/"><img src="/images/logo-80.png" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
+<ul class="ao-side__list">
+<li><a href="/">Главная</a></li>
+<li><a href="/about">Обо мне</a></li>
+<li><a href="/blog">Блог</a></li>
+<li><a href="/guides/">Гайды</a></li>
+<li><a href="/cases/">Кейсы</a></li>
+<li><a href="/opensource/">Опенсорс</a></li>
+<li><a href="/templates/">Шаблоны</a></li>
+</ul>
+<a class="ao-side__tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">Telegram-канал</a>
+</nav>
+<!-- nav:end -->
 
 <header class="site-header">
   <div class="site-header__inner">
     <a class="site-header__logo" href="/">Алишер Отабаев</a>
     <nav class="site-header__nav">
+      <a href="/">Главная</a>
       <a href="/about">Обо мне</a>
       <a href="/blog">Блог</a>
-      <a href="/1by1money">Гайд 100к</a>
-      <a href="https://t.me/alisher_otabaev" target="_blank" rel="noopener">Telegram</a>
+      <a href="/guides/">Гайды</a>
+      <a href="/cases/">Кейсы</a>
+      <a href="/opensource/">Опенсорс</a>
+      <a href="/templates/">Шаблоны</a>
+      <a href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">Telegram</a>
     </nav>
   </div>
 </header>

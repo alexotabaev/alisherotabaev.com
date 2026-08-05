@@ -112,36 +112,6 @@
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0;}
 
-  /* --- Боковое меню --------------------------------------------------
-     Появляется от 1200px. До этой ширины его нет вовсе, работает шапка:
-     держать оба сразу значит либо накладывать их друг на друга, либо
-     писать скрипт-переключатель. Медиавыражение делает это бесплатно. */
-  .side{display:none}
-  @media (min-width:1200px){
-    .side{
-      display:flex;flex-direction:column;gap:6px;
-      position:fixed;left:0;top:0;bottom:0;width:248px;z-index:60;
-      padding:26px 18px;box-sizing:border-box;overflow-y:auto;
-      background:var(--cream);border-right:1px solid var(--line);
-    }
-    .side__logo{display:block;margin:0 6px 22px}
-    .side__logo img{display:block;height:40px;width:auto}
-    .side__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
-    .side__list a{
-      display:block;padding:10px 12px;border-radius:8px;
-      color:var(--ink);text-decoration:none;font-weight:500;
-    }
-    .side__list a:hover,.side__list a:focus{background:var(--cream2);color:var(--gold-dk)}
-    .side__tg{
-      margin-top:auto;display:block;text-align:center;
-      background:var(--ink);color:#fff;text-decoration:none;
-      padding:12px 14px;border-radius:9px;font-weight:600;
-    }
-    .side__tg:hover,.side__tg:focus{background:var(--gold-dk)}
-    header.site{display:none}
-    body{padding-left:248px}
-  }
-
   .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink);color:#fff;
     padding:12px 20px;border-radius:0 0 10px 0;font-weight:600;}
   .skip:focus{left:0;}
@@ -330,6 +300,42 @@
 <!-- meta:end -->
 </head>
 <body>
+<!-- nav:start (генерируется _tools/hygiene/nav.mjs) -->
+<style>
+.ao-side{display:none}
+@media (min-width:1200px){
+.ao-side{display:flex;flex-direction:column;gap:6px;position:fixed;left:0;top:0;bottom:0;
+ width:248px;z-index:9000;padding:26px 18px;box-sizing:border-box;overflow-y:auto;
+ background:#faf8f4;border-right:1px solid #e8e1d6;
+ font:16px/1.5 'Roboto',Arial,Helvetica,sans-serif}
+.ao-side__logo{display:block;margin:0 6px 22px}
+.ao-side__logo img{display:block;height:40px;width:auto}
+.ao-side__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+.ao-side__list a{display:block;padding:10px 12px;border-radius:8px;color:#000d29;
+ text-decoration:none;font-weight:500}
+.ao-side__list a:hover,.ao-side__list a:focus{background:#f3ede3;color:#876638}
+.ao-side__tg{margin-top:auto;display:block;text-align:center;background:#000d29;color:#fff;
+ text-decoration:none;padding:12px 14px;border-radius:9px;font-weight:600}
+.ao-side__tg:hover,.ao-side__tg:focus{background:#876638;color:#fff}
+/* собственные шапки страниц: на широком экране их заменяет боковое меню */
+header.site,header.site-header,header.t-records{display:none !important}
+body{padding-left:248px}
+}
+</style>
+<nav class="ao-side" aria-label="Разделы сайта">
+<a class="ao-side__logo" href="/"><img src="/images/logo-80.png" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
+<ul class="ao-side__list">
+<li><a href="/">Главная</a></li>
+<li><a href="/about">Обо мне</a></li>
+<li><a href="/blog">Блог</a></li>
+<li><a href="/guides/">Гайды</a></li>
+<li><a href="/cases/">Кейсы</a></li>
+<li><a href="/opensource/">Опенсорс</a></li>
+<li><a href="/templates/">Шаблоны</a></li>
+</ul>
+<a class="ao-side__tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">Telegram-канал</a>
+</nav>
+<!-- nav:end -->
 <svg class="sprite" width="0" height="0" aria-hidden="true" focusable="false" style="position:absolute">
   <symbol id="i-tg" viewBox="0 0 24 24"><path fill="currentColor" d="M9.8 16.6 9.6 13l6.9-6.2c.3-.27-.07-.4-.46-.17L7.5 12.1 3.8 11c-.8-.24-.8-.8.18-1.18l14.4-5.56c.66-.3 1.3.16 1.05 1.18l-2.45 11.55c-.17.8-.65 1-1.32.62l-3.63-2.68-1.75 1.7c-.2.2-.37.36-.72.36Z"/></symbol>
   <symbol id="i-gh" viewBox="0 0 24 24"><path fill="currentColor" d="M12 2C6.48 2 2 6.58 2 12.25c0 4.53 2.87 8.37 6.84 9.73.5.1.68-.22.68-.49 0-.24-.01-.87-.01-1.71-2.78.62-3.37-1.37-3.37-1.37-.45-1.18-1.11-1.5-1.11-1.5-.91-.64.07-.62.07-.62 1 .07 1.53 1.06 1.53 1.06.89 1.56 2.34 1.11 2.91.85.09-.66.35-1.11.63-1.36-2.22-.26-4.56-1.14-4.56-5.06 0-1.12.39-2.03 1.03-2.75-.1-.26-.45-1.3.1-2.71 0 0 .84-.28 2.75 1.05a9.36 9.36 0 0 1 5 0c1.91-1.33 2.75-1.05 2.75-1.05.55 1.41.2 2.45.1 2.71.64.72 1.03 1.63 1.03 2.75 0 3.93-2.34 4.79-4.57 5.05.36.32.68.94.68 1.9 0 1.37-.01 2.48-.01 2.82 0 .27.18.6.69.49A10.02 10.02 0 0 0 22 12.25C22 6.58 17.52 2 12 2Z"/></symbol>
@@ -340,24 +346,12 @@
 </svg>
 <a class="skip" href="#main">Перейти к содержимому</a>
 
-<nav class="side" aria-label="Разделы сайта">
-  <a class="side__logo" href="/"><img src="/images/logo-80.png" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
-  <ul class="side__list">
-    <li><a href="/">Главная</a></li>
-    <li><a href="/blog">Блог</a></li>
-    <li><a href="/guides/">Гайды</a></li>
-    <li><a href="/cases/">Кейсы</a></li>
-    <li><a href="/opensource/">Опенсорс</a></li>
-    <li><a href="/templates/">Шаблоны</a></li>
-  </ul>
-  <a class="side__tg" href="https://t.me/AlisherOtabaev_ai" target="_blank" rel="noopener">Telegram-канал</a>
-</nav>
-
 <header class="site">
   <div class="wrap nav">
     <a class="logo" href="/"><img src="/images/logo-80.png" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
     <nav class="navlinks" aria-label="Основная навигация">
       <a class="hideable" href="/">Главная</a>
+      <a class="hideable" href="/about">Обо мне</a>
       <a class="hideable" href="/blog">Блог</a>
       <a class="hideable" href="/guides/">Гайды</a>
       <a class="hideable" href="/cases/">Кейсы</a>
