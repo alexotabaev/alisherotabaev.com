@@ -46,6 +46,10 @@ const fileOf = (slug) => {
   return null;
 };
 
+/** Цель может быть и внутренним путём, и адресом на другом домене. */
+const isAbs = (u) => /^https?:\/\//i.test(u);
+const full = (to) => (isAbs(to) ? to : site.origin + to);
+
 const stub = (to, title) => `<!doctype html>
 <html lang="ru">
 <head>
@@ -53,23 +57,23 @@ const stub = (to, title) => `<!doctype html>
 <meta name="viewport" content="width=device-width,initial-scale=1">
 ${MARK}
 <title>${esc(title)} — страница переехала</title>
-<link rel="canonical" href="${site.origin}${to}">
+<link rel="canonical" href="${full(to)}">
 <meta http-equiv="refresh" content="0; url=${to}">
 <meta property="og:title" content="${esc(title)}">
 <meta property="og:type" content="website">
-<meta property="og:url" content="${site.origin}${to}">
-<meta name="description" content="Страница переехала на ${site.origin}${to}">
+<meta property="og:url" content="${full(to)}">
+<meta name="description" content="Страница переехала на ${full(to)}">
 <script type="application/ld+json">${ld({
   '@context': 'https://schema.org',
   '@type': 'WebPage',
   name: title,
-  url: site.origin + to,
+  url: full(to),
 })}</script>
 <style>body{font:16px/1.6 system-ui,sans-serif;margin:4rem auto;max-width:34rem;padding:0 1rem}</style>
 </head>
 <body>
 <h1>Страница переехала</h1>
-<p>Она теперь здесь: <a href="${to}">${site.origin}${to}</a></p>
+<p>Она теперь здесь: <a href="${to}">${full(to)}</a></p>
 </body>
 </html>
 `;
@@ -78,7 +82,8 @@ let done = 0;
 let already = 0;
 
 for (const [from, { to, why }] of Object.entries(redirects)) {
-  if (!fileOf(to)) {
+  // внешний адрес проверить наличием файла нельзя — доверяем ему как есть
+  if (!isAbs(to) && !fileOf(to)) {
     throw new Error(`gone.json: цель ${to} (для /${from}) не существует`);
   }
   const file = fileOf(from);
