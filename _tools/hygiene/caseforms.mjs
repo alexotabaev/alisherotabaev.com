@@ -18,10 +18,10 @@
  * Порядок важен. Удалить форму, не тронув кнопку, — оставить кнопку,
  * которая открывает пустое окно. Это хуже, чем было.
  *
- * Всплывающее окно как блок остаётся: оно скрыто (display:none) и больше
- * ничем не открывается. Вырезать его целиком значило бы искать закрывающий
- * тег среди вложенных div вручную — риск сложить вёрстку ради невидимого
- * куска разметки того не стоит.
+ * Всплывающее окно тоже убирается — целиком, вместе с блоком Tilda, в
+ * котором лежит. Закрывающий тег ищется подсчётом вложенности div, а не
+ * регулярным выражением: у блока их несколько десятков. Удаляется только
+ * то окно, на которое на странице не осталось ни одной ссылки.
  *
  * Идемпотентный: после первого прогона ни кнопок, ни форм не остаётся.
  *
@@ -48,6 +48,7 @@ const TRIGGER = /href="#popup:myform"/gi;
 let pages = 0;
 let buttons = 0;
 let forms = 0;
+let popups = 0;
 
 for (const c of cases) {
   const file = path.join(ROOT, c.slug, 'index.html');
@@ -58,7 +59,11 @@ for (const c of cases) {
   TRIGGER.lastIndex = 0;
   const hasForm = /<form\b/i.test(src);
 
-  if (!hasTrigger && !hasForm) continue;
+  const hasPopup = src.includes('data-tooltip-hook="#popup:myform"');
+  if (!hasTrigger && !hasForm && !hasPopup) continue;
+  // кнопка и форма живут парой: если осталось одно без другого, вёрстка
+  // не та, что ожидалась. Осиротевший попап без обоих — нормальный случай,
+  // он остаётся от прошлого прогона.
   if (hasTrigger !== hasForm) {
     throw new Error(
       `/${c.slug}/: кнопка ${hasTrigger ? 'есть' : 'отсутствует'}, ` +
@@ -87,6 +92,33 @@ for (const c of cases) {
     return '';
   });
 
+  // 3. осиротевшее всплывающее окно. Убираем только если на странице не
+  //    осталось ссылок, которые его открывают.
+  if (!/href="#popup:myform"/i.test(s)) {
+    const hook = s.indexOf('data-tooltip-hook="#popup:myform"');
+    if (hook >= 0) {
+      const from = s.lastIndexOf('<div id="rec', hook);
+      if (from >= 0) {
+        // конец блока — там, где вложенность div возвращается к нулю
+        const re = /<(\/?)div\b/gi;
+        re.lastIndex = from;
+        let depth = 0;
+        let to = -1;
+        for (let m = re.exec(s); m; m = re.exec(s)) {
+          depth += m[1] ? -1 : 1;
+          if (depth === 0) {
+            to = s.indexOf('>', m.index) + 1;
+            break;
+          }
+        }
+        if (to > from) {
+          s = s.slice(0, from) + s.slice(to);
+          popups++;
+        }
+      }
+    }
+  }
+
   if (s !== src) {
     if (!DRY) fs.writeFileSync(file, s);
     pages++;
@@ -96,5 +128,6 @@ for (const c of cases) {
 }
 
 console.log(
-  `${DRY ? '[проверка] ' : ''}кейсы: убрано форм ${forms}, кнопок переведено на Telegram ${buttons}, страниц ${pages}`
+  `${DRY ? '[проверка] ' : ''}кейсы: форм ${forms}, всплывающих окон ${popups}, ` +
+    `кнопок на Telegram ${buttons}, страниц ${pages}`
 );
