@@ -378,6 +378,8 @@ for f in sorted(glob.glob('blog/*/index.html')):
     s = open(f, encoding='utf-8', errors='replace').read()
     if re.search(r'<meta[^>]+name="robots"[^>]+content="[^"]*noindex', s, re.I):
         continue          # служебные страницы в папке блога датами не размечаем
+    if 'gone:redirect' in s:
+        continue          # статья уехала, здесь заглушка переадресации — дат у неё нет
     if f not in DATES:
         fail(f, 'нет записи в blogdates.json — дата не проставлена')
         continue

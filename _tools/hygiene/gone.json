@@ -14,8 +14,13 @@
     "",
     "Заглушка не попадает в sitemap: карта пропускает страницы, чей canonical",
     "ведёт не на них самих.",
+    "Формат: адрес → замена. Скрипт _tools/hygiene/gone.mjs.",
     "",
-    "Формат: адрес → замена. Скрипт _tools/hygiene/gone.mjs."
+    "48 статей блога уехали на app.newlevelsecrets.ru. Цели указаны со слэшем",
+    "на конце: там canonical именно такой, и без слэша вышел бы лишний переход.",
+    "Пять остающихся статей — psixologicheskie-triggery, kak-prodavat-mnogo,",
+    "pochemu-lyudi-pokupayut, skolko-nuzhno-vkladyvat-v-svoe-razvitie,",
+    "biznes-po-muzhski-i-po-zhenski — здесь отсутствуют намеренно."
   ],
   "redirects": {
     "page15503470.html": {
@@ -45,6 +50,198 @@
     "dogovor-publichnoj-oferty": {
       "to": "/oferta",
       "why": "та же публичная оферта, что и /oferta (совпадение 98%), но с почтой info@clienthunter.pro. Действующая — /oferta: она стоит в подвале и указывает support@alisherotabaev.com"
+    },
+    "blog/kto-v-seme-zarabatyvaet": {
+      "to": "https://app.newlevelsecrets.ru/blog/kto-v-seme-zarabatyvaet/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/myshlenie-i-konechnyj-finansovyj-rezultat": {
+      "to": "https://app.newlevelsecrets.ru/blog/myshlenie-i-konechnyj-finansovyj-rezultat/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/otkuda-berutsya-negativnye-denezhnye-mysli": {
+      "to": "https://app.newlevelsecrets.ru/blog/otkuda-berutsya-negativnye-denezhnye-mysli/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/raznye-pravila-zarabatyvaniya-deneg-u-muzhchin-i-zhenshhin": {
+      "to": "https://app.newlevelsecrets.ru/blog/raznye-pravila-zarabatyvaniya-deneg-u-muzhchin-i-zhenshhin/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-pravilno-sostavit-kollazh-mechty": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-pravilno-sostavit-kollazh-mechty/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-zarabatyvat-dengi-na-lyubimom-dele": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-zarabatyvat-dengi-na-lyubimom-dele/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kto-v-seme-kontroliruet-byudzhet": {
+      "to": "https://app.newlevelsecrets.ru/blog/kto-v-seme-kontroliruet-byudzhet/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-pravilno-investirovat": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-pravilno-investirovat/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/prichiny-poyavleniya-ogranichivayushhix-ubezhdenij": {
+      "to": "https://app.newlevelsecrets.ru/blog/prichiny-poyavleniya-ogranichivayushhix-ubezhdenij/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/pochemu-bogatye-bogateyut-bednye-bedneyut": {
+      "to": "https://app.newlevelsecrets.ru/blog/pochemu-bogatye-bogateyut-bednye-bedneyut/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/pochemu-dengi-utekayut-bystro": {
+      "to": "https://app.newlevelsecrets.ru/blog/pochemu-dengi-utekayut-bystro/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-probit-denezhnyj-barer-navsegda": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-probit-denezhnyj-barer-navsegda/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/pochemu-ne-rabotayut-vizualizacii": {
+      "to": "https://app.newlevelsecrets.ru/blog/pochemu-ne-rabotayut-vizualizacii/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/effektivnye-sposoby-otkladyvat-dengi": {
+      "to": "https://app.newlevelsecrets.ru/blog/effektivnye-sposoby-otkladyvat-dengi/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-ne-panikovat-kogda-dengi-tayut": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-ne-panikovat-kogda-dengi-tayut/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-poluchat-stolko-deneg-skolko-xochetsya": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-poluchat-stolko-deneg-skolko-xochetsya/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/privlechenie-i-uderzhanie-denezhnyx-potokov": {
+      "to": "https://app.newlevelsecrets.ru/blog/privlechenie-i-uderzhanie-denezhnyx-potokov/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-dogovarivatsya-o-krupnyx-semejnyx-tratax": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-dogovarivatsya-o-krupnyx-semejnyx-tratax/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-pravilno-zarabatyvat-dengi": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-pravilno-zarabatyvat-dengi/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/koefficient-finansovogo-rosta": {
+      "to": "https://app.newlevelsecrets.ru/blog/koefficient-finansovogo-rosta/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/stabilnyj-zarabotok": {
+      "to": "https://app.newlevelsecrets.ru/blog/stabilnyj-zarabotok/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/ochishhenie-ot-denezhnyx-blokov": {
+      "to": "https://app.newlevelsecrets.ru/blog/ochishhenie-ot-denezhnyx-blokov/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/pochemu-poyavlyaetsya-denezhnyj-potolok": {
+      "to": "https://app.newlevelsecrets.ru/blog/pochemu-poyavlyaetsya-denezhnyj-potolok/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/raznye-sposoby-zarabatyvaniya-deneg": {
+      "to": "https://app.newlevelsecrets.ru/blog/raznye-sposoby-zarabatyvaniya-deneg/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/dengi-dobro-ili-zlo": {
+      "to": "https://app.newlevelsecrets.ru/blog/dengi-dobro-ili-zlo/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-pravilno-formulirovat-finansovye-celi": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-pravilno-formulirovat-finansovye-celi/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/pochemu-zhenshhina-ne-mozhet-zarabatyvat-dengi-kak-muzhchina": {
+      "to": "https://app.newlevelsecrets.ru/blog/pochemu-zhenshhina-ne-mozhet-zarabatyvat-dengi-kak-muzhchina/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-ubrat-musor-iz-golovy-i-nachat-zarabatyvat": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-ubrat-musor-iz-golovy-i-nachat-zarabatyvat/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/vyxod-na-novyj-uroven-doxodov": {
+      "to": "https://app.newlevelsecrets.ru/blog/vyxod-na-novyj-uroven-doxodov/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-umnozhit-dengi": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-umnozhit-dengi/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/principy-denezhnogo-myshleniya-millionerov": {
+      "to": "https://app.newlevelsecrets.ru/blog/principy-denezhnogo-myshleniya-millionerov/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/volshebnye-slova-dlya-privlecheniya-deneg": {
+      "to": "https://app.newlevelsecrets.ru/blog/volshebnye-slova-dlya-privlecheniya-deneg/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/finansovye-celi-dlya-muzhchin-i-zhenshhin": {
+      "to": "https://app.newlevelsecrets.ru/blog/finansovye-celi-dlya-muzhchin-i-zhenshhin/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-iskorenit-negativnye-denezhnye-ustanovki": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-iskorenit-negativnye-denezhnye-ustanovki/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-zarabatyvat-dengi-stabilno": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-zarabatyvat-dengi-stabilno/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-dumat-chtoby-bogatet": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-dumat-chtoby-bogatet/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/osobennosti-uspeshnyx-evreev": {
+      "to": "https://app.newlevelsecrets.ru/blog/osobennosti-uspeshnyx-evreev/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/vliyanie-okruzheniya-na-denezhnoe-myshlenie": {
+      "to": "https://app.newlevelsecrets.ru/blog/vliyanie-okruzheniya-na-denezhnoe-myshlenie/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/oshibki-vizualizacii": {
+      "to": "https://app.newlevelsecrets.ru/blog/oshibki-vizualizacii/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-podruzhitsya-s-dengami": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-podruzhitsya-s-dengami/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-razvit-nestandartnoe-myshlenie": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-razvit-nestandartnoe-myshlenie/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/teoriya-etazhej": {
+      "to": "https://app.newlevelsecrets.ru/blog/teoriya-etazhej/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/psixologiya-izmeneniya-nauka-samorazvitiya": {
+      "to": "https://app.newlevelsecrets.ru/blog/psixologiya-izmeneniya-nauka-samorazvitiya/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/sekretnyj-rastvoritel-problem": {
+      "to": "https://app.newlevelsecrets.ru/blog/sekretnyj-rastvoritel-problem/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-razvit-intuiciyu-na-dengi": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-razvit-intuiciyu-na-dengi/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-vytyanut-sebya-iz-bolota": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-vytyanut-sebya-iz-bolota/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/chto-skryvaetsya-za-dengami": {
+      "to": "https://app.newlevelsecrets.ru/blog/chto-skryvaetsya-za-dengami/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
+    },
+    "blog/kak-rabotat-menshe-i-poluchat-bolshe": {
+      "to": "https://app.newlevelsecrets.ru/blog/kak-rabotat-menshe-i-poluchat-bolshe/",
+      "why": "статья про деньги и мышление переехала на «Место силы»; цель со слэшем — там canonical, так перехода без нужды не будет"
     }
   }
 }

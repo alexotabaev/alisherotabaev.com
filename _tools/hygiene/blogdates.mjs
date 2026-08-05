@@ -90,6 +90,9 @@ for (const file of posts) {
     fs.writeFileSync(file, s);
     continue;
   }
+  // Статья уехала, здесь заглушка переадресации: дату ей ставить некуда
+  // и незачем — она существует только чтобы увести на новый адрес.
+  if (s.includes('gone:redirect')) continue;
   let entry = saved[file];
   if (!entry) {
     const published = firstCommit(file);
