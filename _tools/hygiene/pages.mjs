@@ -9,7 +9,8 @@
  *   - canonical на саму себя, если его нет;
  *   - Open Graph (og:title / og:type / og:url / og:site_name / og:locale);
  *   - разметку Schema.org WebPage со связью с автором и сайтом;
- *   - meta description, собранный из собственного текста страницы.
+ *   - meta description, собранный из собственного текста страницы;
+ *   - ссылку на манифест приложения и цвет темы.
  *
  * Описание пишется не всегда. Наивный «первый абзац» даёт мусор: на пяти
  * страницах вакансий это один и тот же текст про обучающие программы, у
@@ -157,7 +158,7 @@ function describeCandidate(html, title) {
 
 /* ---------- обработка ---------- */
 
-const stat = { lang: 0, og: 0, schema: 0, descr: 0, canonical: 0, skipped: 0, unknownLang: [], noDescr: [] };
+const stat = { lang: 0, og: 0, schema: 0, descr: 0, canonical: 0, manifest: 0, skipped: 0, unknownLang: [], noDescr: [] };
 
 // Первый проход: собираем кандидатов в описания и считаем, сколько раз
 // встречается каждый текст. Всё, что повторяется, отбрасываем целиком.
@@ -240,6 +241,23 @@ for (const file of collect()) {
     add.push(`<meta property="og:locale" content="ru_RU" />`);
   }
 
+  // Манифест приложения. Нужен на каждой странице, а не только на главной:
+  // предложение «установить» показывается на той странице, где человек
+  // сейчас, и без ссылки на манифест оно просто не появится.
+  if (!/rel="manifest"/i.test(s)) {
+    add.push(`<link rel="manifest" href="/manifest.webmanifest" />`);
+    add.push(`<meta name="theme-color" content="#000d29" />`);
+    add.push(`<link rel="apple-touch-icon" href="/images/pwa/icon-192.png" />`);
+    // Регистрация после полной загрузки: воркер — надстройка, он не должен
+    // конкурировать за канал с самой страницей. Без скрипта сайт работает
+    // ровно так же, просто без офлайна и без предложения установить.
+    add.push(
+      `<script>if("serviceWorker"in navigator)addEventListener("load",` +
+        `function(){navigator.serviceWorker.register("/sw.js").catch(function(){})});</script>`
+    );
+    stat.manifest++;
+  }
+
   if (!/application\/ld\+json/.test(s) && title) {
     const jsonld = {
       '@context': 'https://schema.org',
@@ -270,6 +288,7 @@ console.log(`Open Graph добавлен:  ${stat.og}`);
 console.log(`Schema.org добавлена: ${stat.schema}`);
 console.log(`описание добавлено:   ${stat.descr}`);
 console.log(`canonical добавлен:   ${stat.canonical}`);
+console.log(`манифест подключён:   ${stat.manifest}`);
 console.log(`пропущено (закрыты):  ${stat.skipped}`);
 if (stat.noDescr.length) {
   console.log(`\nбез описания осталось ${stat.noDescr.length} — свой текст не прошёл фильтры,`);

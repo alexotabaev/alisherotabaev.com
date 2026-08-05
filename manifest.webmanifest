@@ -1,0 +1,39 @@
+{
+  "name": "Алишер Отабаев — маркетинг и ИИ",
+  "short_name": "Отабаев",
+  "description": "Каталог инструментов, гайды, разборы кейсов и шаблоны страниц: как соединять маркетинг и искусственный интеллект.",
+  "lang": "ru",
+  "dir": "ltr",
+  "start_url": "/?source=pwa",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "any",
+  "background_color": "#ffffff",
+  "theme_color": "#000d29",
+  "icons": [
+    {
+      "src": "/images/pwa/icon-192.png",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    },
+    {
+      "src": "/images/pwa/icon-512-maskable.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "maskable"
+    }
+  ],
+  "shortcuts": [
+    { "name": "Опенсорс-каталог", "url": "/opensource/" },
+    { "name": "Гайды", "url": "/guides/" },
+    { "name": "Кейсы", "url": "/cases/" },
+    { "name": "Шаблоны", "url": "/templates/" }
+  ]
+}
