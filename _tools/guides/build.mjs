@@ -67,7 +67,8 @@ const EXTRA_CSS = `
   .groups a{display:inline-block;padding:.4rem .85rem;border:1px solid var(--line);
     border-radius:999px;background:var(--cream);color:var(--ink);text-decoration:none;font-size:.94rem}
   .groups a:hover,.groups a:focus{background:var(--cream2);border-color:var(--gold)}
-  .tgroup{margin:0 0 3rem}
+  /* глобальное section{padding:70px 0} добавляло бы по 140px на группу */
+  .tgroup{margin:0 0 3rem;padding:0}
   .tgroup > h2{margin:0 0 .35rem}
   .tgroup > .why{margin:0 0 1.25rem;color:var(--muted);max-width:52rem}
   .gds{display:grid;gap:1rem;padding:0;margin:0;list-style:none;
@@ -158,7 +159,7 @@ function build() {
 ${header()}
 
 <main id="main">
-<article>
+<article class="wrap">
 
   <header class="lede">
     <h1>${esc(section.title)}</h1>

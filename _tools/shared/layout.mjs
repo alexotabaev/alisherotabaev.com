@@ -124,6 +124,37 @@ export const CSS = `
   .wrap{max-width:1180px;margin:0 auto;padding:0 24px;}
   .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;
     clip:rect(0,0,0,0);white-space:nowrap;border:0;}
+
+  /* --- Боковое меню --------------------------------------------------
+     Появляется от 1200px. До этой ширины его нет вовсе, работает шапка:
+     держать оба сразу значит либо накладывать их друг на друга, либо
+     писать скрипт-переключатель. Медиавыражение делает это бесплатно. */
+  .side{display:none}
+  @media (min-width:1200px){
+    .side{
+      display:flex;flex-direction:column;gap:6px;
+      position:fixed;left:0;top:0;bottom:0;width:248px;z-index:60;
+      padding:26px 18px;box-sizing:border-box;overflow-y:auto;
+      background:var(--cream);border-right:1px solid var(--line);
+    }
+    .side__logo{display:block;margin:0 6px 22px}
+    .side__logo img{display:block;height:40px;width:auto}
+    .side__list{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:2px}
+    .side__list a{
+      display:block;padding:10px 12px;border-radius:8px;
+      color:var(--ink);text-decoration:none;font-weight:500;
+    }
+    .side__list a:hover,.side__list a:focus{background:var(--cream2);color:var(--gold-dk)}
+    .side__tg{
+      margin-top:auto;display:block;text-align:center;
+      background:var(--ink);color:#fff;text-decoration:none;
+      padding:12px 14px;border-radius:9px;font-weight:600;
+    }
+    .side__tg:hover,.side__tg:focus{background:var(--gold-dk)}
+    header.site{display:none}
+    body{padding-left:248px}
+  }
+
   .skip{position:absolute;left:-9999px;top:0;z-index:100;background:var(--ink);color:#fff;
     padding:12px 20px;border-radius:0 0 10px 0;font-weight:600;}
   .skip:focus{left:0;}
@@ -315,7 +346,25 @@ export const icon = (id) => `<svg aria-hidden="true" focusable="false"><use href
 export const TG_ICON = icon('tg');
 export const GH_ICON = icon('gh');
 
+/**
+ * Боковое меню. Показывается только на широких экранах, на узких вместо него
+ * работает прежняя шапка — так ничего не наезжает друг на друга и не нужен
+ * ни один скрипт: переключение делает медиавыражение.
+ *
+ * Пункты те же, что в шапке, и берутся из того же site.nav — второй список
+ * рано или поздно разошёлся бы с первым.
+ */
+export const sidebar = () => `<nav class="side" aria-label="Разделы сайта">
+  <a class="side__logo" href="/"><img src="${site.logo}" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
+  <ul class="side__list">
+${site.nav.map((n) => `    <li><a href="${n.u}">${n.t}</a></li>`).join('\n')}
+  </ul>
+  <a class="side__tg" href="${site.telegram}" target="_blank" rel="noopener">Telegram-канал</a>
+</nav>`;
+
 export const header = () => `<a class="skip" href="#main">Перейти к содержимому</a>
+
+${sidebar()}
 
 <header class="site">
   <div class="wrap nav">
