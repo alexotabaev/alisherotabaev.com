@@ -4,6 +4,7 @@
 set -euo pipefail
 cd "$(dirname "$0")/.."
 node _tools/opensource/build.mjs
+node _tools/guides/build.mjs
 node _tools/templates/build.mjs
 node _tools/cases/thumbs.mjs
 node _tools/cases/build.mjs
