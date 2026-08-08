@@ -10,7 +10,7 @@ node _tools/templates/build.mjs
 node _tools/cases/thumbs.mjs
 node _tools/cases/build.mjs
 node _tools/cases/meta.mjs
-node _tools/hygiene/caseforms.mjs
+node _tools/hygiene/tgforms.mjs
 node _tools/hygiene/deadjs.mjs
 node _tools/hygiene/links.mjs
 node _tools/hygiene/deadlinks.mjs
@@ -23,7 +23,6 @@ node _tools/hygiene/boilerplate.mjs
 node _tools/hygiene/headings.mjs
 node _tools/hygiene/apply.mjs
 node _tools/hygiene/pages.mjs
-node _tools/hygiene/forms.mjs
 node _tools/hygiene/analytics.mjs
 node _tools/hygiene/nav.mjs
 node _tools/hygiene/bloglist.mjs
