@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/local-ai/#page","url":"https://alisherotabaev.com/opensource/local-ai/","name":"Локальный AI и утилиты — 6 опенсорс-проектов с GitHub","headline":"Локальный AI и повседневные утилиты","description":"Запуск моделей на своём железе и повседневные утилиты: Ollama, yt-dlp, Mermaid, IT Tools, SingleFile.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/local-ai/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Локальный AI","item":"https://alisherotabaev.com/opensource/local-ai/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/local-ai/#list","name":"Локальный AI и повседневные утилиты","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Ollama","applicationCategory":"DeveloperApplication","description":"Запуск нейросетей локально одной командой. Чем ценно: приватный ИИ на своём железе, без API и оплаты за токены.","url":"https://github.com/ollama/ollama","codeRepository":"https://github.com/ollama/ollama","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"yt-dlp","applicationCategory":"DeveloperApplication","description":"Загрузчик видео и аудио с сотен сайтов. Чем ценно: сохраняешь любой контент для работы и архива.","url":"https://github.com/yt-dlp/yt-dlp","codeRepository":"https://github.com/yt-dlp/yt-dlp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Mermaid","applicationCategory":"DeveloperApplication","description":"Диаграммы прямо из текста. Чем ценно: схемы и блок-схемы версионируются как код — правишь текстом.","url":"https://github.com/mermaid-js/mermaid","codeRepository":"https://github.com/mermaid-js/mermaid","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"IT Tools","applicationCategory":"DeveloperApplication","description":"200+ утилит для разработчиков в одном месте. Чем ценно: конвертеры, генераторы и хелперы без десятка вкладок.","url":"https://github.com/CorentinTh/it-tools","codeRepository":"https://github.com/CorentinTh/it-tools","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Colibri","applicationCategory":"DeveloperApplication","description":"Движок на C для запуска больших моделей на ноутбуке. Чем ценно: тяжёлые LLM даже на слабом железе.","url":"https://github.com/JustVugg/colibri","codeRepository":"https://github.com/JustVugg/colibri","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"SingleFile","applicationCategory":"DeveloperApplication","description":"Браузерное расширение, сохраняющее всю веб-страницу в один HTML-файл — со стилями, картинками и шрифтами внутри. Чем ценно: работает в Chrome, Firefox и Edge, поддерживает автосохранение и командную строку.","url":"https://github.com/gildas-lormeau/SingleFile","codeRepository":"https://github.com/gildas-lormeau/SingleFile","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/local-ai/#page","url":"https://alisherotabaev.com/opensource/local-ai/","name":"Локальный AI и утилиты — 6 опенсорс-проектов с GitHub","headline":"Локальный AI и повседневные утилиты","description":"Запуск моделей на своём железе и повседневные утилиты: Ollama, yt-dlp, Mermaid, IT Tools, SingleFile.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/local-ai/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Локальный AI","item":"https://alisherotabaev.com/opensource/local-ai/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/local-ai/#list","name":"Локальный AI и повседневные утилиты","numberOfItems":7,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"yt-dlp","applicationCategory":"DeveloperApplication","description":"Загрузчик видео и аудио с сотен сайтов. Чем ценно: сохраняешь любой контент для работы и архива.","url":"https://github.com/yt-dlp/yt-dlp","codeRepository":"https://github.com/yt-dlp/yt-dlp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Ollama","applicationCategory":"DeveloperApplication","description":"Запуск нейросетей локально одной командой. Чем ценно: приватный ИИ на своём железе, без API и оплаты за токены.","url":"https://github.com/ollama/ollama","codeRepository":"https://github.com/ollama/ollama","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Open WebUI","applicationCategory":"DeveloperApplication","description":"Веб-интерфейс для локальных моделей — чат как в ChatGPT, но на своём компьютере. Чем ценно: превращает Ollama в привычный инструмент, которым пользуется вся команда.","url":"https://github.com/open-webui/open-webui","codeRepository":"https://github.com/open-webui/open-webui","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Mermaid","applicationCategory":"DeveloperApplication","description":"Диаграммы прямо из текста. Чем ценно: схемы и блок-схемы версионируются как код — правишь текстом.","url":"https://github.com/mermaid-js/mermaid","codeRepository":"https://github.com/mermaid-js/mermaid","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"IT Tools","applicationCategory":"DeveloperApplication","description":"200+ утилит для разработчиков в одном месте. Чем ценно: конвертеры, генераторы и хелперы без десятка вкладок.","url":"https://github.com/CorentinTh/it-tools","codeRepository":"https://github.com/CorentinTh/it-tools","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Colibri","applicationCategory":"DeveloperApplication","description":"Движок на C для запуска больших моделей на ноутбуке. Чем ценно: тяжёлые LLM даже на слабом железе.","url":"https://github.com/JustVugg/colibri","codeRepository":"https://github.com/JustVugg/colibri","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"SingleFile","applicationCategory":"DeveloperApplication","description":"Браузерное расширение, сохраняющее всю веб-страницу в один HTML-файл — со стилями, картинками и шрифтами внутри. Чем ценно: работает в Chrome, Firefox и Edge, поддерживает автосохранение и командную строку.","url":"https://github.com/gildas-lormeau/SingleFile","codeRepository":"https://github.com/gildas-lormeau/SingleFile","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>Локальный AI и повседневные утилиты</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>7</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Запуск моделей на своём железе и утилиты на каждый день. Работают без облака — значит, без лимитов, подписок и утечки данных.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -408,46 +414,53 @@ body{padding-left:248px}
   <div class="wrap">
     <div class="sec-head">
       <p class="kicker">Локальный AI</p>
-      <h2 id="list-h">6&nbsp;проектов в категории</h2>
+      <h2 id="list-h">7&nbsp;проектов в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="localai" data-name="Ollama" id="repo-ollama-ollama">
-          <span class="tag">Локальный AI</span>
-          <h4><a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">Ollama</a></h4>
-          <p class="repo"><code>ollama/ollama</code></p>
-          <p class="d">Запуск нейросетей локально одной командой. <b>Чем ценно:</b> приватный ИИ на своём железе, без API и оплаты за токены.</p>
-          <a class="gh" href="https://github.com/ollama/ollama" target="_blank" rel="noopener" aria-label="Открыть Ollama на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="localai" data-name="yt-dlp" id="repo-yt-dlp-yt-dlp">
-          <span class="tag">Локальный AI</span>
+        <li class="card" data-cat="localai" data-name="yt-dlp" data-stars="183477" id="repo-yt-dlp-yt-dlp">
+          <span class="cardtop"><span class="tag">Локальный AI</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 183 тыс</span></span>
           <h4><a href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener">yt-dlp</a></h4>
           <p class="repo"><code>yt-dlp/yt-dlp</code></p>
           <p class="d">Загрузчик видео и аудио с сотен сайтов. <b>Чем ценно:</b> сохраняешь любой контент для работы и архива.</p>
           <a class="gh" href="https://github.com/yt-dlp/yt-dlp" target="_blank" rel="noopener" aria-label="Открыть yt-dlp на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="localai" data-name="Mermaid" id="repo-mermaid-js-mermaid">
-          <span class="tag">Локальный AI</span>
+        <li class="card" data-cat="localai" data-name="Ollama" data-stars="178134" id="repo-ollama-ollama">
+          <span class="cardtop"><span class="tag">Локальный AI</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 178 тыс</span></span>
+          <h4><a href="https://github.com/ollama/ollama" target="_blank" rel="noopener">Ollama</a></h4>
+          <p class="repo"><code>ollama/ollama</code></p>
+          <p class="d">Запуск нейросетей локально одной командой. <b>Чем ценно:</b> приватный ИИ на своём железе, без API и оплаты за токены.</p>
+          <a class="gh" href="https://github.com/ollama/ollama" target="_blank" rel="noopener" aria-label="Открыть Ollama на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="localai" data-name="Open WebUI" data-stars="148319" id="repo-open-webui-open-webui">
+          <span class="cardtop"><span class="tag">Локальный AI</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 148 тыс</span></span>
+          <h4><a href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener">Open WebUI</a></h4>
+          <p class="repo"><code>open-webui/open-webui</code></p>
+          <p class="d">Веб-интерфейс для локальных моделей — чат как в ChatGPT, но на своём компьютере. <b>Чем ценно:</b> превращает Ollama в привычный инструмент, которым пользуется вся команда.</p>
+          <a class="gh" href="https://github.com/open-webui/open-webui" target="_blank" rel="noopener" aria-label="Открыть Open WebUI на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="localai" data-name="Mermaid" data-stars="89653" id="repo-mermaid-js-mermaid">
+          <span class="cardtop"><span class="tag">Локальный AI</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 90 тыс</span></span>
           <h4><a href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener">Mermaid</a></h4>
           <p class="repo"><code>mermaid-js/mermaid</code></p>
           <p class="d">Диаграммы прямо из текста. <b>Чем ценно:</b> схемы и блок-схемы версионируются как код — правишь текстом.</p>
           <a class="gh" href="https://github.com/mermaid-js/mermaid" target="_blank" rel="noopener" aria-label="Открыть Mermaid на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="localai" data-name="IT Tools" id="repo-corentinth-it-tools">
-          <span class="tag">Локальный AI</span>
+        <li class="card" data-cat="localai" data-name="IT Tools" data-stars="40146" id="repo-corentinth-it-tools">
+          <span class="cardtop"><span class="tag">Локальный AI</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 40 тыс</span></span>
           <h4><a href="https://github.com/CorentinTh/it-tools" target="_blank" rel="noopener">IT Tools</a></h4>
           <p class="repo"><code>CorentinTh/it-tools</code></p>
           <p class="d">200+ утилит для разработчиков в одном месте. <b>Чем ценно:</b> конвертеры, генераторы и хелперы без десятка вкладок.</p>
           <a class="gh" href="https://github.com/CorentinTh/it-tools" target="_blank" rel="noopener" aria-label="Открыть IT Tools на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="localai" data-name="Colibri" id="repo-justvugg-colibri">
-          <span class="tag">Локальный AI</span>
+        <li class="card" data-cat="localai" data-name="Colibri" data-stars="23465" id="repo-justvugg-colibri">
+          <span class="cardtop"><span class="tag">Локальный AI</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 23 тыс</span></span>
           <h4><a href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener">Colibri</a></h4>
           <p class="repo"><code>JustVugg/colibri</code></p>
           <p class="d">Движок на C для запуска больших моделей на ноутбуке. <b>Чем ценно:</b> тяжёлые LLM даже на слабом железе.</p>
           <a class="gh" href="https://github.com/JustVugg/colibri" target="_blank" rel="noopener" aria-label="Открыть Colibri на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="localai" data-name="SingleFile" id="repo-gildas-lormeau-singlefile">
-          <span class="tag">Локальный AI</span>
+        <li class="card" data-cat="localai" data-name="SingleFile" data-stars="22119" id="repo-gildas-lormeau-singlefile">
+          <span class="cardtop"><span class="tag">Локальный AI</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 22 тыс</span></span>
           <h4><a href="https://github.com/gildas-lormeau/SingleFile" target="_blank" rel="noopener">SingleFile</a></h4>
           <p class="repo"><code>gildas-lormeau/SingleFile</code></p>
           <p class="d">Браузерное расширение, сохраняющее всю веб-страницу в один HTML-файл — со стилями, картинками и шрифтами внутри. <b>Чем ценно:</b> работает в Chrome, Firefox и Edge, поддерживает автосохранение и командную строку.</p>
@@ -463,15 +476,15 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
         <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">7</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
@@ -485,6 +498,7 @@ body{padding-left:248px}
         <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">

@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/ocr/#page","url":"https://alisherotabaev.com/opensource/ocr/","name":"Опенсорс OCR и работа с PDF — 3 проекта с GitHub","headline":"OCR и работа с документами","description":"Распознавание текста и обработка документов: Stirling PDF, Chandra, Unlimited OCR. Свободные замены платным PDF-сервисам.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/ocr/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"OCR и документы","item":"https://alisherotabaev.com/opensource/ocr/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/ocr/#list","name":"OCR и работа с документами","numberOfItems":3,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Stirling PDF","applicationCategory":"DeveloperApplication","description":"Целый комбайн инструментов для PDF. Чем ценно: режешь, сшиваешь и конвертируешь документы на своём сервере — приватно.","url":"https://github.com/Stirling-Tools/Stirling-PDF","codeRepository":"https://github.com/Stirling-Tools/Stirling-PDF","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Chandra","applicationCategory":"DeveloperApplication","description":"OCR-модель с выводом в Markdown/HTML/JSON. Чем ценно: вытаскиваешь текст и структуру из сканов автоматически.","url":"https://github.com/datalab-to/chandra","codeRepository":"https://github.com/datalab-to/chandra","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Unlimited OCR","applicationCategory":"DeveloperApplication","description":"OCR-модель на базе DeepSeek-OCR. Чем ценно: распознаёт текст из фото и документов — конец ручному перенабору.","url":"https://github.com/baidu/Unlimited-OCR","codeRepository":"https://github.com/baidu/Unlimited-OCR","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/ocr/#page","url":"https://alisherotabaev.com/opensource/ocr/","name":"Опенсорс OCR и работа с PDF — 3 проекта с GitHub","headline":"OCR и работа с документами","description":"Распознавание текста и обработка документов: Stirling PDF, Chandra, Unlimited OCR. Свободные замены платным PDF-сервисам.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/ocr/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"OCR и документы","item":"https://alisherotabaev.com/opensource/ocr/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/ocr/#list","name":"OCR и работа с документами","numberOfItems":3,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Stirling PDF","applicationCategory":"DeveloperApplication","description":"Целый комбайн инструментов для PDF. Чем ценно: режешь, сшиваешь и конвертируешь документы на своём сервере — приватно.","url":"https://github.com/Stirling-Tools/Stirling-PDF","codeRepository":"https://github.com/Stirling-Tools/Stirling-PDF","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Unlimited OCR","applicationCategory":"DeveloperApplication","description":"OCR-модель на базе DeepSeek-OCR. Чем ценно: распознаёт текст из фото и документов — конец ручному перенабору.","url":"https://github.com/baidu/Unlimited-OCR","codeRepository":"https://github.com/baidu/Unlimited-OCR","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Chandra","applicationCategory":"DeveloperApplication","description":"OCR-модель с выводом в Markdown/HTML/JSON. Чем ценно: вытаскиваешь текст и структуру из сканов автоматически.","url":"https://github.com/datalab-to/chandra","codeRepository":"https://github.com/datalab-to/chandra","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>OCR и работа с документами</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>3</b>&nbsp;проекта · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>3</b>&nbsp;проекта · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Распознавание текста со сканов и фото, конвертация и сборка PDF. Закрывает то, за что обычно платят подписку онлайн-сервисам.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -411,26 +417,26 @@ body{padding-left:248px}
       <h2 id="list-h">3&nbsp;проекта в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="ocr" data-name="Stirling PDF" id="repo-stirling-tools-stirling-pdf">
-          <span class="tag">OCR и документы</span>
+        <li class="card" data-cat="ocr" data-name="Stirling PDF" data-stars="89196" id="repo-stirling-tools-stirling-pdf">
+          <span class="cardtop"><span class="tag">OCR и документы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 89 тыс</span></span>
           <h4><a href="https://github.com/Stirling-Tools/Stirling-PDF" target="_blank" rel="noopener">Stirling PDF</a></h4>
           <p class="repo"><code>Stirling-Tools/Stirling-PDF</code></p>
           <p class="d">Целый комбайн инструментов для PDF. <b>Чем ценно:</b> режешь, сшиваешь и конвертируешь документы на своём сервере — приватно.</p>
           <a class="gh" href="https://github.com/Stirling-Tools/Stirling-PDF" target="_blank" rel="noopener" aria-label="Открыть Stirling PDF на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="ocr" data-name="Chandra" id="repo-datalab-to-chandra">
-          <span class="tag">OCR и документы</span>
-          <h4><a href="https://github.com/datalab-to/chandra" target="_blank" rel="noopener">Chandra</a></h4>
-          <p class="repo"><code>datalab-to/chandra</code></p>
-          <p class="d">OCR-модель с выводом в Markdown/HTML/JSON. <b>Чем ценно:</b> вытаскиваешь текст и структуру из сканов автоматически.</p>
-          <a class="gh" href="https://github.com/datalab-to/chandra" target="_blank" rel="noopener" aria-label="Открыть Chandra на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="ocr" data-name="Unlimited OCR" id="repo-baidu-unlimited-ocr">
-          <span class="tag">OCR и документы</span>
+        <li class="card" data-cat="ocr" data-name="Unlimited OCR" data-stars="22953" id="repo-baidu-unlimited-ocr">
+          <span class="cardtop"><span class="tag">OCR и документы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 23 тыс</span></span>
           <h4><a href="https://github.com/baidu/Unlimited-OCR" target="_blank" rel="noopener">Unlimited OCR</a></h4>
           <p class="repo"><code>baidu/Unlimited-OCR</code></p>
           <p class="d">OCR-модель на базе DeepSeek-OCR. <b>Чем ценно:</b> распознаёт текст из фото и документов — конец ручному перенабору.</p>
           <a class="gh" href="https://github.com/baidu/Unlimited-OCR" target="_blank" rel="noopener" aria-label="Открыть Unlimited OCR на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="ocr" data-name="Chandra" data-stars="12012" id="repo-datalab-to-chandra">
+          <span class="cardtop"><span class="tag">OCR и документы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 12 тыс</span></span>
+          <h4><a href="https://github.com/datalab-to/chandra" target="_blank" rel="noopener">Chandra</a></h4>
+          <p class="repo"><code>datalab-to/chandra</code></p>
+          <p class="d">OCR-модель с выводом в Markdown/HTML/JSON. <b>Чем ценно:</b> вытаскиваешь текст и структуру из сканов автоматически.</p>
+          <a class="gh" href="https://github.com/datalab-to/chandra" target="_blank" rel="noopener" aria-label="Открыть Chandra на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
     </ul>
     <p class="note">Подборка отражает находки на момент обновления страницы. Опенсорс-проекты быстро развиваются и иногда переезжают — если ссылка изменилась, найдите репозиторий по названию на GitHub. Проверяйте лицензию и актуальность перед использованием в продакшене.</p>
@@ -442,15 +448,15 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
         <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">7</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
         <li><a href="/opensource/saas/">Бизнес / SaaS<span class="c">17</span></a></li>
@@ -460,10 +466,11 @@ body{padding-left:248px}
         <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
         <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
         <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
+        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">7</span></a></li>
         <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">

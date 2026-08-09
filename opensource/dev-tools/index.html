@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/dev-tools/#page","url":"https://alisherotabaev.com/opensource/dev-tools/","name":"Опенсорс-инструменты для разработки — 12 проектов с GitHub","headline":"Инструменты разработки: опенсорс, который ускоряет работу с кодом","description":"Разбор чужой кодовой базы, автоматическое ревью, графы кода, память о проекте, готовые шаблоны стека и UI-библиотеки.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/dev-tools/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Разработка кода","item":"https://alisherotabaev.com/opensource/dev-tools/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/dev-tools/#list","name":"Инструменты разработки: опенсорс, который ускоряет работу с кодом","numberOfItems":12,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Understand Anything","applicationCategory":"DeveloperApplication","description":"Превращает код и документацию в интерактивную карту знаний. Чем ценно: за минуты разбираешься в чужом проекте, на который ушли бы дни.","url":"https://github.com/Egonex-AI/Understand-Anything","codeRepository":"https://github.com/Egonex-AI/Understand-Anything","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Codebase Memory MCP","applicationCategory":"DeveloperApplication","description":"MCP-сервер: граф знаний по всей кодовой базе (155 языков). Чем ценно: ИИ видит связи в проекте целиком и не теряет контекст.","url":"https://github.com/DeusData/codebase-memory-mcp","codeRepository":"https://github.com/DeusData/codebase-memory-mcp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"CodeGraph","applicationCategory":"DeveloperApplication","description":"MCP, строящий граф связей кода. Чем ценно: агент понимает архитектуру и правит без побочных поломок.","url":"https://github.com/colbymchenry/codegraph","codeRepository":"https://github.com/colbymchenry/codegraph","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Open Code Review","applicationCategory":"DeveloperApplication","description":"Автоматическое код-ревью с ИИ по Git-диффам. Чем ценно: ловит баги и слабые места до того, как они уедут в прод.","url":"https://github.com/alibaba/open-code-review","codeRepository":"https://github.com/alibaba/open-code-review","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"OpenWiki","applicationCategory":"DeveloperApplication","description":"CLI для авто-документации кода. Чем ценно: свежая документация без ручной писанины — экономит часы.","url":"https://github.com/langchain-ai/openwiki","codeRepository":"https://github.com/langchain-ai/openwiki","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"TurboVec","applicationCategory":"DeveloperApplication","description":"Векторная база на Rust со сжатием эмбеддингов. Чем ценно: быстрый и дешёвый поиск по смыслу для RAG и ассистентов.","url":"https://github.com/RyanCodrai/turbovec","codeRepository":"https://github.com/RyanCodrai/turbovec","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"AI Website Cloner","applicationCategory":"DeveloperApplication","description":"Клонирует сайты в готовый код на Next.js. Чем ценно: получаешь стартовую вёрстку за минуты, а не собираешь по кусочкам.","url":"https://github.com/JCodesMore/ai-website-cloner-template","codeRepository":"https://github.com/JCodesMore/ai-website-cloner-template","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"anime.js","applicationCategory":"DeveloperApplication","description":"Лёгкая библиотека веб-анимаций. Чем ценно: делаешь интерфейс «дорогим» без тяжёлых зависимостей.","url":"https://github.com/juliangarnier/anime","codeRepository":"https://github.com/juliangarnier/anime","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"xyflow","applicationCategory":"DeveloperApplication","description":"Библиотека нод-редакторов для React и Svelte. Чем ценно: собираешь схемы, воронки и flow-редакторы без велосипедов.","url":"https://github.com/xyflow/xyflow","codeRepository":"https://github.com/xyflow/xyflow","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"H2O Wave","applicationCategory":"DeveloperApplication","description":"Веб-приложения и дашборды на Python/R. Чем ценно: показываешь данные красиво, не трогая фронтенд.","url":"https://github.com/h2oai/wave","codeRepository":"https://github.com/h2oai/wave","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":11,"item":{"@type":"SoftwareApplication","name":"n8n-mcp","applicationCategory":"DeveloperApplication","description":"MCP-сервер для n8n с валидацией JSON. Чем ценно: агент собирает и проверяет автоматизации без ручных ошибок.","url":"https://github.com/czlonkowski/n8n-mcp","codeRepository":"https://github.com/czlonkowski/n8n-mcp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":12,"item":{"@type":"SoftwareApplication","name":"Full-Stack FastAPI Template","applicationCategory":"DeveloperApplication","description":"Готовый шаблон fullstack-приложения на FastAPI и React от автора FastAPI. Чем ценно: старт с авторизацией, Docker, CI/CD, PostgreSQL и автогенерацией TypeScript-клиента из OpenAPI.","url":"https://github.com/fastapi/full-stack-fastapi-template","codeRepository":"https://github.com/fastapi/full-stack-fastapi-template","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/dev-tools/#page","url":"https://alisherotabaev.com/opensource/dev-tools/","name":"Опенсорс-инструменты для разработки — 12 проектов с GitHub","headline":"Инструменты разработки: опенсорс, который ускоряет работу с кодом","description":"Разбор чужой кодовой базы, автоматическое ревью, графы кода, память о проекте, готовые шаблоны стека и UI-библиотеки.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/dev-tools/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Разработка кода","item":"https://alisherotabaev.com/opensource/dev-tools/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/dev-tools/#list","name":"Инструменты разработки: опенсорс, который ускоряет работу с кодом","numberOfItems":12,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Understand Anything","applicationCategory":"DeveloperApplication","description":"Превращает код и документацию в интерактивную карту знаний. Чем ценно: за минуты разбираешься в чужом проекте, на который ушли бы дни.","url":"https://github.com/Egonex-AI/Understand-Anything","codeRepository":"https://github.com/Egonex-AI/Understand-Anything","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"anime.js","applicationCategory":"DeveloperApplication","description":"Лёгкая библиотека веб-анимаций. Чем ценно: делаешь интерфейс «дорогим» без тяжёлых зависимостей.","url":"https://github.com/juliangarnier/anime","codeRepository":"https://github.com/juliangarnier/anime","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"CodeGraph","applicationCategory":"DeveloperApplication","description":"MCP, строящий граф связей кода. Чем ценно: агент понимает архитектуру и правит без побочных поломок.","url":"https://github.com/colbymchenry/codegraph","codeRepository":"https://github.com/colbymchenry/codegraph","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Full-Stack FastAPI Template","applicationCategory":"DeveloperApplication","description":"Готовый шаблон fullstack-приложения на FastAPI и React от автора FastAPI. Чем ценно: старт с авторизацией, Docker, CI/CD, PostgreSQL и автогенерацией TypeScript-клиента из OpenAPI.","url":"https://github.com/fastapi/full-stack-fastapi-template","codeRepository":"https://github.com/fastapi/full-stack-fastapi-template","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Codebase Memory MCP","applicationCategory":"DeveloperApplication","description":"MCP-сервер: граф знаний по всей кодовой базе (155 языков). Чем ценно: ИИ видит связи в проекте целиком и не теряет контекст.","url":"https://github.com/DeusData/codebase-memory-mcp","codeRepository":"https://github.com/DeusData/codebase-memory-mcp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"xyflow","applicationCategory":"DeveloperApplication","description":"Библиотека нод-редакторов для React и Svelte. Чем ценно: собираешь схемы, воронки и flow-редакторы без велосипедов.","url":"https://github.com/xyflow/xyflow","codeRepository":"https://github.com/xyflow/xyflow","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"AI Website Cloner","applicationCategory":"DeveloperApplication","description":"Клонирует сайты в готовый код на Next.js. Чем ценно: получаешь стартовую вёрстку за минуты, а не собираешь по кусочкам.","url":"https://github.com/JCodesMore/ai-website-cloner-template","codeRepository":"https://github.com/JCodesMore/ai-website-cloner-template","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"n8n-mcp","applicationCategory":"DeveloperApplication","description":"MCP-сервер для n8n с валидацией JSON. Чем ценно: агент собирает и проверяет автоматизации без ручных ошибок.","url":"https://github.com/czlonkowski/n8n-mcp","codeRepository":"https://github.com/czlonkowski/n8n-mcp","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"Open Code Review","applicationCategory":"DeveloperApplication","description":"Автоматическое код-ревью с ИИ по Git-диффам. Чем ценно: ловит баги и слабые места до того, как они уедут в прод.","url":"https://github.com/alibaba/open-code-review","codeRepository":"https://github.com/alibaba/open-code-review","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"OpenWiki","applicationCategory":"DeveloperApplication","description":"CLI для авто-документации кода. Чем ценно: свежая документация без ручной писанины — экономит часы.","url":"https://github.com/langchain-ai/openwiki","codeRepository":"https://github.com/langchain-ai/openwiki","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":11,"item":{"@type":"SoftwareApplication","name":"TurboVec","applicationCategory":"DeveloperApplication","description":"Векторная база на Rust со сжатием эмбеддингов. Чем ценно: быстрый и дешёвый поиск по смыслу для RAG и ассистентов.","url":"https://github.com/RyanCodrai/turbovec","codeRepository":"https://github.com/RyanCodrai/turbovec","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":12,"item":{"@type":"SoftwareApplication","name":"H2O Wave","applicationCategory":"DeveloperApplication","description":"Веб-приложения и дашборды на Python/R. Чем ценно: показываешь данные красиво, не трогая фронтенд.","url":"https://github.com/h2oai/wave","codeRepository":"https://github.com/h2oai/wave","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>Инструменты разработки: опенсорс, который ускоряет работу с кодом</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>12</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>12</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Инструменты, которые ускоряют саму разработку: разбор чужой кодовой базы, автоматическое ревью, память о проекте, готовые стартовые шаблоны и UI-библиотеки.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -411,89 +417,89 @@ body{padding-left:248px}
       <h2 id="list-h">12&nbsp;проектов в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="code" data-name="Understand Anything" id="repo-egonex-ai-understand-anything">
-          <span class="tag">Разработка кода</span>
+        <li class="card" data-cat="code" data-name="Understand Anything" data-stars="78491" id="repo-egonex-ai-understand-anything">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 78 тыс</span></span>
           <h4><a href="https://github.com/Egonex-AI/Understand-Anything" target="_blank" rel="noopener">Understand Anything</a></h4>
           <p class="repo"><code>Egonex-AI/Understand-Anything</code></p>
           <p class="d">Превращает код и документацию в интерактивную карту знаний. <b>Чем ценно:</b> за минуты разбираешься в чужом проекте, на который ушли бы дни.</p>
           <a class="gh" href="https://github.com/Egonex-AI/Understand-Anything" target="_blank" rel="noopener" aria-label="Открыть Understand Anything на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="code" data-name="Codebase Memory MCP" id="repo-deusdata-codebase-memory-mcp">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/DeusData/codebase-memory-mcp" target="_blank" rel="noopener">Codebase Memory MCP</a></h4>
-          <p class="repo"><code>DeusData/codebase-memory-mcp</code></p>
-          <p class="d">MCP-сервер: граф знаний по всей кодовой базе (155 языков). <b>Чем ценно:</b> ИИ видит связи в проекте целиком и не теряет контекст.</p>
-          <a class="gh" href="https://github.com/DeusData/codebase-memory-mcp" target="_blank" rel="noopener" aria-label="Открыть Codebase Memory MCP на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="code" data-name="CodeGraph" id="repo-colbymchenry-codegraph">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">CodeGraph</a></h4>
-          <p class="repo"><code>colbymchenry/codegraph</code></p>
-          <p class="d">MCP, строящий граф связей кода. <b>Чем ценно:</b> агент понимает архитектуру и правит без побочных поломок.</p>
-          <a class="gh" href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener" aria-label="Открыть CodeGraph на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="code" data-name="Open Code Review" id="repo-alibaba-open-code-review">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">Open Code Review</a></h4>
-          <p class="repo"><code>alibaba/open-code-review</code></p>
-          <p class="d">Автоматическое код-ревью с ИИ по Git-диффам. <b>Чем ценно:</b> ловит баги и слабые места до того, как они уедут в прод.</p>
-          <a class="gh" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener" aria-label="Открыть Open Code Review на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="code" data-name="OpenWiki" id="repo-langchain-ai-openwiki">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener">OpenWiki</a></h4>
-          <p class="repo"><code>langchain-ai/openwiki</code></p>
-          <p class="d">CLI для авто-документации кода. <b>Чем ценно:</b> свежая документация без ручной писанины — экономит часы.</p>
-          <a class="gh" href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener" aria-label="Открыть OpenWiki на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="code" data-name="TurboVec" id="repo-ryancodrai-turbovec">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/RyanCodrai/turbovec" target="_blank" rel="noopener">TurboVec</a></h4>
-          <p class="repo"><code>RyanCodrai/turbovec</code></p>
-          <p class="d">Векторная база на Rust со сжатием эмбеддингов. <b>Чем ценно:</b> быстрый и дешёвый поиск по смыслу для RAG и ассистентов.</p>
-          <a class="gh" href="https://github.com/RyanCodrai/turbovec" target="_blank" rel="noopener" aria-label="Открыть TurboVec на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="code" data-name="AI Website Cloner" id="repo-jcodesmore-ai-website-cloner-template">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/JCodesMore/ai-website-cloner-template" target="_blank" rel="noopener">AI Website Cloner</a></h4>
-          <p class="repo"><code>JCodesMore/ai-website-cloner-template</code></p>
-          <p class="d">Клонирует сайты в готовый код на Next.js. <b>Чем ценно:</b> получаешь стартовую вёрстку за минуты, а не собираешь по кусочкам.</p>
-          <a class="gh" href="https://github.com/JCodesMore/ai-website-cloner-template" target="_blank" rel="noopener" aria-label="Открыть AI Website Cloner на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="code" data-name="anime.js" id="repo-juliangarnier-anime">
-          <span class="tag">Разработка кода</span>
+        <li class="card" data-cat="code" data-name="anime.js" data-stars="71994" id="repo-juliangarnier-anime">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 72 тыс</span></span>
           <h4><a href="https://github.com/juliangarnier/anime" target="_blank" rel="noopener">anime.js</a></h4>
           <p class="repo"><code>juliangarnier/anime</code></p>
           <p class="d">Лёгкая библиотека веб-анимаций. <b>Чем ценно:</b> делаешь интерфейс «дорогим» без тяжёлых зависимостей.</p>
           <a class="gh" href="https://github.com/juliangarnier/anime" target="_blank" rel="noopener" aria-label="Открыть anime.js на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="code" data-name="xyflow" id="repo-xyflow-xyflow">
-          <span class="tag">Разработка кода</span>
+        <li class="card" data-cat="code" data-name="CodeGraph" data-stars="65570" id="repo-colbymchenry-codegraph">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 66 тыс</span></span>
+          <h4><a href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener">CodeGraph</a></h4>
+          <p class="repo"><code>colbymchenry/codegraph</code></p>
+          <p class="d">MCP, строящий граф связей кода. <b>Чем ценно:</b> агент понимает архитектуру и правит без побочных поломок.</p>
+          <a class="gh" href="https://github.com/colbymchenry/codegraph" target="_blank" rel="noopener" aria-label="Открыть CodeGraph на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="code" data-name="Full-Stack FastAPI Template" data-stars="44691" id="repo-fastapi-full-stack-fastapi-template">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 45 тыс</span></span>
+          <h4><a href="https://github.com/fastapi/full-stack-fastapi-template" target="_blank" rel="noopener">Full-Stack FastAPI Template</a></h4>
+          <p class="repo"><code>fastapi/full-stack-fastapi-template</code></p>
+          <p class="d">Готовый шаблон fullstack-приложения на FastAPI и React от автора FastAPI. <b>Чем ценно:</b> старт с авторизацией, Docker, CI/CD, PostgreSQL и автогенерацией TypeScript-клиента из OpenAPI.</p>
+          <a class="gh" href="https://github.com/fastapi/full-stack-fastapi-template" target="_blank" rel="noopener" aria-label="Открыть Full-Stack FastAPI Template на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="code" data-name="Codebase Memory MCP" data-stars="38277" id="repo-deusdata-codebase-memory-mcp">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 38 тыс</span></span>
+          <h4><a href="https://github.com/DeusData/codebase-memory-mcp" target="_blank" rel="noopener">Codebase Memory MCP</a></h4>
+          <p class="repo"><code>DeusData/codebase-memory-mcp</code></p>
+          <p class="d">MCP-сервер: граф знаний по всей кодовой базе (155 языков). <b>Чем ценно:</b> ИИ видит связи в проекте целиком и не теряет контекст.</p>
+          <a class="gh" href="https://github.com/DeusData/codebase-memory-mcp" target="_blank" rel="noopener" aria-label="Открыть Codebase Memory MCP на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="code" data-name="xyflow" data-stars="37960" id="repo-xyflow-xyflow">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 38 тыс</span></span>
           <h4><a href="https://github.com/xyflow/xyflow" target="_blank" rel="noopener">xyflow</a></h4>
           <p class="repo"><code>xyflow/xyflow</code></p>
           <p class="d">Библиотека нод-редакторов для React и Svelte. <b>Чем ценно:</b> собираешь схемы, воронки и flow-редакторы без велосипедов.</p>
           <a class="gh" href="https://github.com/xyflow/xyflow" target="_blank" rel="noopener" aria-label="Открыть xyflow на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="code" data-name="H2O Wave" id="repo-h2oai-wave">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/h2oai/wave" target="_blank" rel="noopener">H2O Wave</a></h4>
-          <p class="repo"><code>h2oai/wave</code></p>
-          <p class="d">Веб-приложения и дашборды на Python/R. <b>Чем ценно:</b> показываешь данные красиво, не трогая фронтенд.</p>
-          <a class="gh" href="https://github.com/h2oai/wave" target="_blank" rel="noopener" aria-label="Открыть H2O Wave на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        <li class="card" data-cat="code" data-name="AI Website Cloner" data-stars="31435" id="repo-jcodesmore-ai-website-cloner-template">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 31 тыс</span></span>
+          <h4><a href="https://github.com/JCodesMore/ai-website-cloner-template" target="_blank" rel="noopener">AI Website Cloner</a></h4>
+          <p class="repo"><code>JCodesMore/ai-website-cloner-template</code></p>
+          <p class="d">Клонирует сайты в готовый код на Next.js. <b>Чем ценно:</b> получаешь стартовую вёрстку за минуты, а не собираешь по кусочкам.</p>
+          <a class="gh" href="https://github.com/JCodesMore/ai-website-cloner-template" target="_blank" rel="noopener" aria-label="Открыть AI Website Cloner на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="code" data-name="n8n-mcp" id="repo-czlonkowski-n8n-mcp">
-          <span class="tag">Разработка кода</span>
+        <li class="card" data-cat="code" data-name="n8n-mcp" data-stars="22644" id="repo-czlonkowski-n8n-mcp">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 23 тыс</span></span>
           <h4><a href="https://github.com/czlonkowski/n8n-mcp" target="_blank" rel="noopener">n8n-mcp</a></h4>
           <p class="repo"><code>czlonkowski/n8n-mcp</code></p>
           <p class="d">MCP-сервер для n8n с валидацией JSON. <b>Чем ценно:</b> агент собирает и проверяет автоматизации без ручных ошибок.</p>
           <a class="gh" href="https://github.com/czlonkowski/n8n-mcp" target="_blank" rel="noopener" aria-label="Открыть n8n-mcp на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="code" data-name="Full-Stack FastAPI Template" id="repo-fastapi-full-stack-fastapi-template">
-          <span class="tag">Разработка кода</span>
-          <h4><a href="https://github.com/fastapi/full-stack-fastapi-template" target="_blank" rel="noopener">Full-Stack FastAPI Template</a></h4>
-          <p class="repo"><code>fastapi/full-stack-fastapi-template</code></p>
-          <p class="d">Готовый шаблон fullstack-приложения на FastAPI и React от автора FastAPI. <b>Чем ценно:</b> старт с авторизацией, Docker, CI/CD, PostgreSQL и автогенерацией TypeScript-клиента из OpenAPI.</p>
-          <a class="gh" href="https://github.com/fastapi/full-stack-fastapi-template" target="_blank" rel="noopener" aria-label="Открыть Full-Stack FastAPI Template на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        <li class="card" data-cat="code" data-name="Open Code Review" data-stars="19794" id="repo-alibaba-open-code-review">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 20 тыс</span></span>
+          <h4><a href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener">Open Code Review</a></h4>
+          <p class="repo"><code>alibaba/open-code-review</code></p>
+          <p class="d">Автоматическое код-ревью с ИИ по Git-диффам. <b>Чем ценно:</b> ловит баги и слабые места до того, как они уедут в прод.</p>
+          <a class="gh" href="https://github.com/alibaba/open-code-review" target="_blank" rel="noopener" aria-label="Открыть Open Code Review на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="code" data-name="OpenWiki" data-stars="14779" id="repo-langchain-ai-openwiki">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 15 тыс</span></span>
+          <h4><a href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener">OpenWiki</a></h4>
+          <p class="repo"><code>langchain-ai/openwiki</code></p>
+          <p class="d">CLI для авто-документации кода. <b>Чем ценно:</b> свежая документация без ручной писанины — экономит часы.</p>
+          <a class="gh" href="https://github.com/langchain-ai/openwiki" target="_blank" rel="noopener" aria-label="Открыть OpenWiki на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="code" data-name="TurboVec" data-stars="14697" id="repo-ryancodrai-turbovec">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 15 тыс</span></span>
+          <h4><a href="https://github.com/RyanCodrai/turbovec" target="_blank" rel="noopener">TurboVec</a></h4>
+          <p class="repo"><code>RyanCodrai/turbovec</code></p>
+          <p class="d">Векторная база на Rust со сжатием эмбеддингов. <b>Чем ценно:</b> быстрый и дешёвый поиск по смыслу для RAG и ассистентов.</p>
+          <a class="gh" href="https://github.com/RyanCodrai/turbovec" target="_blank" rel="noopener" aria-label="Открыть TurboVec на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="code" data-name="H2O Wave" data-stars="4248" id="repo-h2oai-wave">
+          <span class="cardtop"><span class="tag">Разработка кода</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 4 тыс</span></span>
+          <h4><a href="https://github.com/h2oai/wave" target="_blank" rel="noopener">H2O Wave</a></h4>
+          <p class="repo"><code>h2oai/wave</code></p>
+          <p class="d">Веб-приложения и дашборды на Python/R. <b>Чем ценно:</b> показываешь данные красиво, не трогая фронтенд.</p>
+          <a class="gh" href="https://github.com/h2oai/wave" target="_blank" rel="noopener" aria-label="Открыть H2O Wave на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
     </ul>
     <p class="note">Подборка отражает находки на момент обновления страницы. Опенсорс-проекты быстро развиваются и иногда переезжают — если ссылка изменилась, найдите репозиторий по названию на GitHub. Проверяйте лицензию и актуальность перед использованием в продакшене.</p>
@@ -505,14 +511,14 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">7</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
@@ -523,10 +529,11 @@ body{padding-left:248px}
         <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
         <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
         <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
+        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">7</span></a></li>
         <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">

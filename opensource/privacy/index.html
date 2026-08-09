@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/privacy/#page","url":"https://alisherotabaev.com/opensource/privacy/","name":"Опенсорс для приватности — 6 инструментов защиты данных","headline":"Приватность: базовая гигиена без подписок","description":"Блокировка трекеров, менеджеры паролей и защита трафика: uBlock Origin, Bitwarden, Password Safe, SpoofDPI.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/privacy/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Приватность","item":"https://alisherotabaev.com/opensource/privacy/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/privacy/#list","name":"Приватность: базовая гигиена без подписок","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"uBlock Origin","applicationCategory":"DeveloperApplication","description":"Лучший блокировщик рекламы. Чем ценно: чистый и быстрый интернет без слежки и баннеров.","url":"https://github.com/gorhill/uBlock","codeRepository":"https://github.com/gorhill/uBlock","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"CloakBrowser","applicationCategory":"DeveloperApplication","description":"Chromium с обходом антибота (замена Playwright). Чем ценно: стабильный парсинг там, где обычные боты палятся.","url":"https://github.com/CloakHQ/CloakBrowser","codeRepository":"https://github.com/CloakHQ/CloakBrowser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Bitwarden","applicationCategory":"DeveloperApplication","description":"Менеджер паролей со сквозным шифрованием. Чем ценно: все пароли в безопасности, на своём сервере.","url":"https://github.com/bitwarden/server","codeRepository":"https://github.com/bitwarden/server","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"SpoofDPI","applicationCategory":"DeveloperApplication","description":"Прокси для обхода DPI-блокировок. Чем ценно: доступ к нужным ресурсам без тяжёлого VPN.","url":"https://github.com/xvzc/spoofdpi","codeRepository":"https://github.com/xvzc/spoofdpi","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Password Safe","applicationCategory":"DeveloperApplication","description":"Локальный менеджер паролей. Чем ценно: хранишь секреты офлайн, без облака.","url":"https://github.com/pwsafe/pwsafe","codeRepository":"https://github.com/pwsafe/pwsafe","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"PasteGuard","applicationCategory":"DeveloperApplication","description":"Локальный прокси, который маскирует личные данные и секреты перед отправкой запросов в ChatGPT, Claude или Codex. Чем ценно: имена, email, API-ключи и пароли заменяются на плейсхолдеры — модель получает контекст, но не твои данные.","url":"https://github.com/sgasser/pasteguard","codeRepository":"https://github.com/sgasser/pasteguard","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/privacy/#page","url":"https://alisherotabaev.com/opensource/privacy/","name":"Опенсорс для приватности — 6 инструментов защиты данных","headline":"Приватность: базовая гигиена без подписок","description":"Блокировка трекеров, менеджеры паролей и защита трафика: uBlock Origin, Bitwarden, Password Safe, SpoofDPI.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/privacy/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Приватность","item":"https://alisherotabaev.com/opensource/privacy/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/privacy/#list","name":"Приватность: базовая гигиена без подписок","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"uBlock Origin","applicationCategory":"DeveloperApplication","description":"Лучший блокировщик рекламы. Чем ценно: чистый и быстрый интернет без слежки и баннеров.","url":"https://github.com/gorhill/uBlock","codeRepository":"https://github.com/gorhill/uBlock","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"CloakBrowser","applicationCategory":"DeveloperApplication","description":"Chromium с обходом антибота (замена Playwright). Чем ценно: стабильный парсинг там, где обычные боты палятся.","url":"https://github.com/CloakHQ/CloakBrowser","codeRepository":"https://github.com/CloakHQ/CloakBrowser","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Bitwarden","applicationCategory":"DeveloperApplication","description":"Менеджер паролей со сквозным шифрованием. Чем ценно: все пароли в безопасности, на своём сервере.","url":"https://github.com/bitwarden/server","codeRepository":"https://github.com/bitwarden/server","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"SpoofDPI","applicationCategory":"DeveloperApplication","description":"Прокси для обхода DPI-блокировок. Чем ценно: доступ к нужным ресурсам без тяжёлого VPN.","url":"https://github.com/xvzc/spoofdpi","codeRepository":"https://github.com/xvzc/spoofdpi","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Password Safe","applicationCategory":"DeveloperApplication","description":"Локальный менеджер паролей. Чем ценно: хранишь секреты офлайн, без облака.","url":"https://github.com/pwsafe/pwsafe","codeRepository":"https://github.com/pwsafe/pwsafe","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"PasteGuard","applicationCategory":"DeveloperApplication","description":"Локальный прокси, который маскирует личные данные и секреты перед отправкой запросов в ChatGPT, Claude или Codex. Чем ценно: имена, email, API-ключи и пароли заменяются на плейсхолдеры — модель получает контекст, но не твои данные.","url":"https://github.com/sgasser/pasteguard","codeRepository":"https://github.com/sgasser/pasteguard","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>Приватность: базовая гигиена без подписок</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Блокировщики трекеров, менеджеры паролей и защита соединения. Базовая гигиена, которая не требует подписки и не отдаёт ваши данные третьим лицам.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -411,43 +417,43 @@ body{padding-left:248px}
       <h2 id="list-h">6&nbsp;проектов в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="privacy" data-name="uBlock Origin" id="repo-gorhill-ublock">
-          <span class="tag">Приватность</span>
+        <li class="card" data-cat="privacy" data-name="uBlock Origin" data-stars="66833" id="repo-gorhill-ublock">
+          <span class="cardtop"><span class="tag">Приватность</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 67 тыс</span></span>
           <h4><a href="https://github.com/gorhill/uBlock" target="_blank" rel="noopener">uBlock Origin</a></h4>
           <p class="repo"><code>gorhill/uBlock</code></p>
           <p class="d">Лучший блокировщик рекламы. <b>Чем ценно:</b> чистый и быстрый интернет без слежки и баннеров.</p>
           <a class="gh" href="https://github.com/gorhill/uBlock" target="_blank" rel="noopener" aria-label="Открыть uBlock Origin на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="privacy" data-name="CloakBrowser" id="repo-cloakhq-cloakbrowser">
-          <span class="tag">Приватность</span>
+        <li class="card" data-cat="privacy" data-name="CloakBrowser" data-stars="29790" id="repo-cloakhq-cloakbrowser">
+          <span class="cardtop"><span class="tag">Приватность</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 30 тыс</span></span>
           <h4><a href="https://github.com/CloakHQ/CloakBrowser" target="_blank" rel="noopener">CloakBrowser</a></h4>
           <p class="repo"><code>CloakHQ/CloakBrowser</code></p>
           <p class="d">Chromium с обходом антибота (замена Playwright). <b>Чем ценно:</b> стабильный парсинг там, где обычные боты палятся.</p>
           <a class="gh" href="https://github.com/CloakHQ/CloakBrowser" target="_blank" rel="noopener" aria-label="Открыть CloakBrowser на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="privacy" data-name="Bitwarden" id="repo-bitwarden-server">
-          <span class="tag">Приватность</span>
+        <li class="card" data-cat="privacy" data-name="Bitwarden" data-stars="19797" id="repo-bitwarden-server">
+          <span class="cardtop"><span class="tag">Приватность</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 20 тыс</span></span>
           <h4><a href="https://github.com/bitwarden/server" target="_blank" rel="noopener">Bitwarden</a></h4>
           <p class="repo"><code>bitwarden/server</code></p>
           <p class="d">Менеджер паролей со сквозным шифрованием. <b>Чем ценно:</b> все пароли в безопасности, на своём сервере.</p>
           <a class="gh" href="https://github.com/bitwarden/server" target="_blank" rel="noopener" aria-label="Открыть Bitwarden на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="privacy" data-name="SpoofDPI" id="repo-xvzc-spoofdpi">
-          <span class="tag">Приватность</span>
+        <li class="card" data-cat="privacy" data-name="SpoofDPI" data-stars="4981" id="repo-xvzc-spoofdpi">
+          <span class="cardtop"><span class="tag">Приватность</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 5 тыс</span></span>
           <h4><a href="https://github.com/xvzc/spoofdpi" target="_blank" rel="noopener">SpoofDPI</a></h4>
           <p class="repo"><code>xvzc/spoofdpi</code></p>
           <p class="d">Прокси для обхода DPI-блокировок. <b>Чем ценно:</b> доступ к нужным ресурсам без тяжёлого VPN.</p>
           <a class="gh" href="https://github.com/xvzc/spoofdpi" target="_blank" rel="noopener" aria-label="Открыть SpoofDPI на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="privacy" data-name="Password Safe" id="repo-pwsafe-pwsafe">
-          <span class="tag">Приватность</span>
+        <li class="card" data-cat="privacy" data-name="Password Safe" data-stars="864" id="repo-pwsafe-pwsafe">
+          <span class="cardtop"><span class="tag">Приватность</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 864</span></span>
           <h4><a href="https://github.com/pwsafe/pwsafe" target="_blank" rel="noopener">Password Safe</a></h4>
           <p class="repo"><code>pwsafe/pwsafe</code></p>
           <p class="d">Локальный менеджер паролей. <b>Чем ценно:</b> хранишь секреты офлайн, без облака.</p>
           <a class="gh" href="https://github.com/pwsafe/pwsafe" target="_blank" rel="noopener" aria-label="Открыть Password Safe на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="privacy" data-name="PasteGuard" id="repo-sgasser-pasteguard">
-          <span class="tag">Приватность</span>
+        <li class="card" data-cat="privacy" data-name="PasteGuard" data-stars="728" id="repo-sgasser-pasteguard">
+          <span class="cardtop"><span class="tag">Приватность</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 728</span></span>
           <h4><a href="https://github.com/sgasser/pasteguard" target="_blank" rel="noopener">PasteGuard</a></h4>
           <p class="repo"><code>sgasser/pasteguard</code></p>
           <p class="d">Локальный прокси, который маскирует личные данные и секреты перед отправкой запросов в ChatGPT, Claude или Codex. <b>Чем ценно:</b> имена, email, API-ключи и пароли заменяются на плейсхолдеры — модель получает контекст, но не твои данные.</p>
@@ -463,15 +469,15 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
         <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">7</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
@@ -481,10 +487,11 @@ body{padding-left:248px}
         <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
         <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
         <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
+        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">7</span></a></li>
         <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">

@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/automation/#page","url":"https://alisherotabaev.com/opensource/automation/","name":"Опенсорс для автоматизации и API — 6 проектов с GitHub","headline":"Автоматизация и работа с API","description":"Автоматизация процессов и работа с API: n8n, Nango, Portkey Gateway, OmniRoute, Automa, Evolution API.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/automation/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Автоматизация / API","item":"https://alisherotabaev.com/opensource/automation/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/automation/#list","name":"Автоматизация и работа с API","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"n8n","applicationCategory":"DeveloperApplication","description":"Автоматизация процессов (замена Zapier), 400+ интеграций. Чем ценно: связываешь сервисы и убираешь ручную рутину без кода.","url":"https://github.com/n8n-io/n8n","codeRepository":"https://github.com/n8n-io/n8n","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Nango","applicationCategory":"DeveloperApplication","description":"Подключение к 700+ API с готовой авторизацией. Чем ценно: интеграции за часы вместо недель возни с OAuth.","url":"https://github.com/nangohq/nango","codeRepository":"https://github.com/nangohq/nango","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Portkey Gateway","applicationCategory":"DeveloperApplication","description":"Единый API-шлюз к 1600+ моделям. Чем ценно: переключаешь LLM без переписывания кода и контролируешь расходы.","url":"https://github.com/Portkey-AI/gateway","codeRepository":"https://github.com/Portkey-AI/gateway","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"OmniRoute","applicationCategory":"DeveloperApplication","description":"AI-шлюз к сотням провайдеров. Чем ценно: один ключ ко множеству моделей — гибкость и экономия.","url":"https://github.com/diegosouzapw/OmniRoute","codeRepository":"https://github.com/diegosouzapw/OmniRoute","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Automa","applicationCategory":"DeveloperApplication","description":"Расширение для Chrome и Firefox, автоматизирующее действия в браузере через визуальный конструктор блоков. Чем ценно: заполняет формы, скрапит данные, делает скриншоты и запускает задачи по расписанию — без кода.","url":"https://github.com/AutomaApp/automa","codeRepository":"https://github.com/AutomaApp/automa","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Evolution API","applicationCategory":"DeveloperApplication","description":"Опенсорс-API для WhatsApp: отправка сообщений, чат-боты, интеграция с CRM и ИИ-агентами. Чем ценно: готовая основа для автоматизации продаж и поддержки без платных сервисов.","url":"https://github.com/evolution-foundation/evolution-api","codeRepository":"https://github.com/evolution-foundation/evolution-api","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/automation/#page","url":"https://alisherotabaev.com/opensource/automation/","name":"Опенсорс для автоматизации и API — 6 проектов с GitHub","headline":"Автоматизация и работа с API","description":"Автоматизация процессов и работа с API: n8n, Nango, Portkey Gateway, OmniRoute, Automa, Evolution API.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/automation/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Автоматизация / API","item":"https://alisherotabaev.com/opensource/automation/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/automation/#list","name":"Автоматизация и работа с API","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"n8n","applicationCategory":"DeveloperApplication","description":"Автоматизация процессов (замена Zapier), 400+ интеграций. Чем ценно: связываешь сервисы и убираешь ручную рутину без кода.","url":"https://github.com/n8n-io/n8n","codeRepository":"https://github.com/n8n-io/n8n","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"OmniRoute","applicationCategory":"DeveloperApplication","description":"AI-шлюз к сотням провайдеров. Чем ценно: один ключ ко множеству моделей — гибкость и экономия.","url":"https://github.com/diegosouzapw/OmniRoute","codeRepository":"https://github.com/diegosouzapw/OmniRoute","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Automa","applicationCategory":"DeveloperApplication","description":"Расширение для Chrome и Firefox, автоматизирующее действия в браузере через визуальный конструктор блоков. Чем ценно: заполняет формы, скрапит данные, делает скриншоты и запускает задачи по расписанию — без кода.","url":"https://github.com/AutomaApp/automa","codeRepository":"https://github.com/AutomaApp/automa","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Portkey Gateway","applicationCategory":"DeveloperApplication","description":"Единый API-шлюз к 1600+ моделям. Чем ценно: переключаешь LLM без переписывания кода и контролируешь расходы.","url":"https://github.com/Portkey-AI/gateway","codeRepository":"https://github.com/Portkey-AI/gateway","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Nango","applicationCategory":"DeveloperApplication","description":"Подключение к 700+ API с готовой авторизацией. Чем ценно: интеграции за часы вместо недель возни с OAuth.","url":"https://github.com/nangohq/nango","codeRepository":"https://github.com/nangohq/nango","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Evolution API","applicationCategory":"DeveloperApplication","description":"Опенсорс-API для WhatsApp: отправка сообщений, чат-боты, интеграция с CRM и ИИ-агентами. Чем ценно: готовая основа для автоматизации продаж и поддержки без платных сервисов.","url":"https://github.com/evolution-foundation/evolution-api","codeRepository":"https://github.com/evolution-foundation/evolution-api","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>Автоматизация и работа с API</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Связывание сервисов между собой без кода, интеграции, шлюзы к LLM и браузерная автоматизация. Заменяет ручную рутину и платные интеграционные платформы.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -411,43 +417,43 @@ body{padding-left:248px}
       <h2 id="list-h">6&nbsp;проектов в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="automation" data-name="n8n" id="repo-n8n-io-n8n">
-          <span class="tag">Автоматизация / API</span>
+        <li class="card" data-cat="automation" data-name="n8n" data-stars="199953" id="repo-n8n-io-n8n">
+          <span class="cardtop"><span class="tag">Автоматизация / API</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 200 тыс</span></span>
           <h4><a href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener">n8n</a></h4>
           <p class="repo"><code>n8n-io/n8n</code></p>
           <p class="d">Автоматизация процессов (замена Zapier), 400+ интеграций. <b>Чем ценно:</b> связываешь сервисы и убираешь ручную рутину без кода.</p>
           <a class="gh" href="https://github.com/n8n-io/n8n" target="_blank" rel="noopener" aria-label="Открыть n8n на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="automation" data-name="Nango" id="repo-nangohq-nango">
-          <span class="tag">Автоматизация / API</span>
-          <h4><a href="https://github.com/nangohq/nango" target="_blank" rel="noopener">Nango</a></h4>
-          <p class="repo"><code>nangohq/nango</code></p>
-          <p class="d">Подключение к 700+ API с готовой авторизацией. <b>Чем ценно:</b> интеграции за часы вместо недель возни с OAuth.</p>
-          <a class="gh" href="https://github.com/nangohq/nango" target="_blank" rel="noopener" aria-label="Открыть Nango на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="automation" data-name="Portkey Gateway" id="repo-portkey-ai-gateway">
-          <span class="tag">Автоматизация / API</span>
-          <h4><a href="https://github.com/Portkey-AI/gateway" target="_blank" rel="noopener">Portkey Gateway</a></h4>
-          <p class="repo"><code>Portkey-AI/gateway</code></p>
-          <p class="d">Единый API-шлюз к 1600+ моделям. <b>Чем ценно:</b> переключаешь LLM без переписывания кода и контролируешь расходы.</p>
-          <a class="gh" href="https://github.com/Portkey-AI/gateway" target="_blank" rel="noopener" aria-label="Открыть Portkey Gateway на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="automation" data-name="OmniRoute" id="repo-diegosouzapw-omniroute">
-          <span class="tag">Автоматизация / API</span>
+        <li class="card" data-cat="automation" data-name="OmniRoute" data-stars="44096" id="repo-diegosouzapw-omniroute">
+          <span class="cardtop"><span class="tag">Автоматизация / API</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 44 тыс</span></span>
           <h4><a href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener">OmniRoute</a></h4>
           <p class="repo"><code>diegosouzapw/OmniRoute</code></p>
           <p class="d">AI-шлюз к сотням провайдеров. <b>Чем ценно:</b> один ключ ко множеству моделей — гибкость и экономия.</p>
           <a class="gh" href="https://github.com/diegosouzapw/OmniRoute" target="_blank" rel="noopener" aria-label="Открыть OmniRoute на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="automation" data-name="Automa" id="repo-automaapp-automa">
-          <span class="tag">Автоматизация / API</span>
+        <li class="card" data-cat="automation" data-name="Automa" data-stars="21547" id="repo-automaapp-automa">
+          <span class="cardtop"><span class="tag">Автоматизация / API</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 22 тыс</span></span>
           <h4><a href="https://github.com/AutomaApp/automa" target="_blank" rel="noopener">Automa</a></h4>
           <p class="repo"><code>AutomaApp/automa</code></p>
           <p class="d">Расширение для Chrome и Firefox, автоматизирующее действия в браузере через визуальный конструктор блоков. <b>Чем ценно:</b> заполняет формы, скрапит данные, делает скриншоты и запускает задачи по расписанию — без кода.</p>
           <a class="gh" href="https://github.com/AutomaApp/automa" target="_blank" rel="noopener" aria-label="Открыть Automa на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="automation" data-name="Evolution API" id="repo-evolution-foundation-evolution-api">
-          <span class="tag">Автоматизация / API</span>
+        <li class="card" data-cat="automation" data-name="Portkey Gateway" data-stars="12676" id="repo-portkey-ai-gateway">
+          <span class="cardtop"><span class="tag">Автоматизация / API</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 13 тыс</span></span>
+          <h4><a href="https://github.com/Portkey-AI/gateway" target="_blank" rel="noopener">Portkey Gateway</a></h4>
+          <p class="repo"><code>Portkey-AI/gateway</code></p>
+          <p class="d">Единый API-шлюз к 1600+ моделям. <b>Чем ценно:</b> переключаешь LLM без переписывания кода и контролируешь расходы.</p>
+          <a class="gh" href="https://github.com/Portkey-AI/gateway" target="_blank" rel="noopener" aria-label="Открыть Portkey Gateway на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="automation" data-name="Nango" data-stars="11391" id="repo-nangohq-nango">
+          <span class="cardtop"><span class="tag">Автоматизация / API</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 11 тыс</span></span>
+          <h4><a href="https://github.com/nangohq/nango" target="_blank" rel="noopener">Nango</a></h4>
+          <p class="repo"><code>nangohq/nango</code></p>
+          <p class="d">Подключение к 700+ API с готовой авторизацией. <b>Чем ценно:</b> интеграции за часы вместо недель возни с OAuth.</p>
+          <a class="gh" href="https://github.com/nangohq/nango" target="_blank" rel="noopener" aria-label="Открыть Nango на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="automation" data-name="Evolution API" data-stars="9247" id="repo-evolution-foundation-evolution-api">
+          <span class="cardtop"><span class="tag">Автоматизация / API</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 9 тыс</span></span>
           <h4><a href="https://github.com/evolution-foundation/evolution-api" target="_blank" rel="noopener">Evolution API</a></h4>
           <p class="repo"><code>evolution-foundation/evolution-api</code></p>
           <p class="d">Опенсорс-API для WhatsApp: отправка сообщений, чат-боты, интеграция с CRM и ИИ-агентами. <b>Чем ценно:</b> готовая основа для автоматизации продаж и поддержки без платных сервисов.</p>
@@ -463,15 +469,15 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
         <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">7</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
@@ -481,10 +487,11 @@ body{padding-left:248px}
         <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
         <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
         <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
+        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">7</span></a></li>
         <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">

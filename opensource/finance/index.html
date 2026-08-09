@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/finance/#page","url":"https://alisherotabaev.com/opensource/finance/","name":"Опенсорс для финансов — 6 проектов: анализ, прогнозы, учёт","headline":"Финансы: анализ, прогнозы и личный учёт","description":"Финансовые опенсорс-инструменты: TradingAgents, Kronos, TimesFM, Fincept Terminal, Actual. Анализ, прогнозы и личный учёт.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/finance/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Финансы","item":"https://alisherotabaev.com/opensource/finance/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/finance/#list","name":"Финансы: анализ, прогнозы и личный учёт","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"TradingAgents","applicationCategory":"DeveloperApplication","description":"Мультиагентный фреймворк для трейдинга. Чем ценно: моделируешь стратегии командой ИИ-аналитиков.","url":"https://github.com/TauricResearch/TradingAgents","codeRepository":"https://github.com/TauricResearch/TradingAgents","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Kronos","applicationCategory":"DeveloperApplication","description":"Foundation-модель для финансовых свечей. Чем ценно: прогнозы и анализ рынков на современной модели.","url":"https://github.com/shiyu-coder/Kronos","codeRepository":"https://github.com/shiyu-coder/Kronos","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Anthropic Financial Services","applicationCategory":"DeveloperApplication","description":"Официальные ИИ-агенты Anthropic для финансов. Чем ценно: проверенные решения для финотрасли из первых рук.","url":"https://github.com/anthropics/financial-services","codeRepository":"https://github.com/anthropics/financial-services","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Fincept Terminal","applicationCategory":"DeveloperApplication","description":"Финтерминал уровня Bloomberg. Чем ценно: рыночные данные и аналитика без дорогой подписки.","url":"https://github.com/Fincept-Corporation/FinceptTerminal","codeRepository":"https://github.com/Fincept-Corporation/FinceptTerminal","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"TimesFM","applicationCategory":"DeveloperApplication","description":"Готовая ИИ-модель от Google для прогнозирования временных рядов — продаж, спроса, метрик. Чем ценно: не нужно обучать с нуля: подаёшь исторические данные и получаешь прогноз.","url":"https://github.com/google-research/timesfm","codeRepository":"https://github.com/google-research/timesfm","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Actual","applicationCategory":"DeveloperApplication","description":"Local-first приложение для личных финансов и бюджета с открытым кодом. Чем ценно: данные хранятся локально, есть синхронизация между устройствами — без подписки и слежки.","url":"https://github.com/actualbudget/actual","codeRepository":"https://github.com/actualbudget/actual","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/finance/#page","url":"https://alisherotabaev.com/opensource/finance/","name":"Опенсорс для финансов — 6 проектов: анализ, прогнозы, учёт","headline":"Финансы: анализ, прогнозы и личный учёт","description":"Финансовые опенсорс-инструменты: TradingAgents, Kronos, TimesFM, Fincept Terminal, Actual. Анализ, прогнозы и личный учёт.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/finance/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Финансы","item":"https://alisherotabaev.com/opensource/finance/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/finance/#list","name":"Финансы: анализ, прогнозы и личный учёт","numberOfItems":6,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"TradingAgents","applicationCategory":"DeveloperApplication","description":"Мультиагентный фреймворк для трейдинга. Чем ценно: моделируешь стратегии командой ИИ-аналитиков.","url":"https://github.com/TauricResearch/TradingAgents","codeRepository":"https://github.com/TauricResearch/TradingAgents","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Kronos","applicationCategory":"DeveloperApplication","description":"Foundation-модель для финансовых свечей. Чем ценно: прогнозы и анализ рынков на современной модели.","url":"https://github.com/shiyu-coder/Kronos","codeRepository":"https://github.com/shiyu-coder/Kronos","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Anthropic Financial Services","applicationCategory":"DeveloperApplication","description":"Официальные ИИ-агенты Anthropic для финансов. Чем ценно: проверенные решения для финотрасли из первых рук.","url":"https://github.com/anthropics/financial-services","codeRepository":"https://github.com/anthropics/financial-services","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Fincept Terminal","applicationCategory":"DeveloperApplication","description":"Финтерминал уровня Bloomberg. Чем ценно: рыночные данные и аналитика без дорогой подписки.","url":"https://github.com/Fincept-Corporation/FinceptTerminal","codeRepository":"https://github.com/Fincept-Corporation/FinceptTerminal","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Actual","applicationCategory":"DeveloperApplication","description":"Local-first приложение для личных финансов и бюджета с открытым кодом. Чем ценно: данные хранятся локально, есть синхронизация между устройствами — без подписки и слежки.","url":"https://github.com/actualbudget/actual","codeRepository":"https://github.com/actualbudget/actual","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"TimesFM","applicationCategory":"DeveloperApplication","description":"Готовая ИИ-модель от Google для прогнозирования временных рядов — продаж, спроса, метрик. Чем ценно: не нужно обучать с нуля: подаёшь исторические данные и получаешь прогноз.","url":"https://github.com/google-research/timesfm","codeRepository":"https://github.com/google-research/timesfm","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>Финансы: анализ, прогнозы и личный учёт</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>6</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Анализ рынков, модели прогнозирования временных рядов и личный финансовый учёт. Это инструменты для исследования, а не инвестиционные рекомендации.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -411,47 +417,47 @@ body{padding-left:248px}
       <h2 id="list-h">6&nbsp;проектов в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="finance" data-name="TradingAgents" id="repo-tauricresearch-tradingagents">
-          <span class="tag">Финансы</span>
+        <li class="card" data-cat="finance" data-name="TradingAgents" data-stars="96841" id="repo-tauricresearch-tradingagents">
+          <span class="cardtop"><span class="tag">Финансы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 97 тыс</span></span>
           <h4><a href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noopener">TradingAgents</a></h4>
           <p class="repo"><code>TauricResearch/TradingAgents</code></p>
           <p class="d">Мультиагентный фреймворк для трейдинга. <b>Чем ценно:</b> моделируешь стратегии командой ИИ-аналитиков.</p>
           <a class="gh" href="https://github.com/TauricResearch/TradingAgents" target="_blank" rel="noopener" aria-label="Открыть TradingAgents на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="finance" data-name="Kronos" id="repo-shiyu-coder-kronos">
-          <span class="tag">Финансы</span>
+        <li class="card" data-cat="finance" data-name="Kronos" data-stars="36265" id="repo-shiyu-coder-kronos">
+          <span class="cardtop"><span class="tag">Финансы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 36 тыс</span></span>
           <h4><a href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener">Kronos</a></h4>
           <p class="repo"><code>shiyu-coder/Kronos</code></p>
           <p class="d">Foundation-модель для финансовых свечей. <b>Чем ценно:</b> прогнозы и анализ рынков на современной модели.</p>
           <a class="gh" href="https://github.com/shiyu-coder/Kronos" target="_blank" rel="noopener" aria-label="Открыть Kronos на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="finance" data-name="Anthropic Financial Services" id="repo-anthropics-financial-services">
-          <span class="tag">Финансы</span>
+        <li class="card" data-cat="finance" data-name="Anthropic Financial Services" data-stars="34147" id="repo-anthropics-financial-services">
+          <span class="cardtop"><span class="tag">Финансы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 34 тыс</span></span>
           <h4><a href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener">Anthropic Financial Services</a></h4>
           <p class="repo"><code>anthropics/financial-services</code></p>
           <p class="d">Официальные ИИ-агенты Anthropic для финансов. <b>Чем ценно:</b> проверенные решения для финотрасли из первых рук.</p>
           <a class="gh" href="https://github.com/anthropics/financial-services" target="_blank" rel="noopener" aria-label="Открыть Anthropic Financial Services на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="finance" data-name="Fincept Terminal" id="repo-fincept-corporation-finceptterminal">
-          <span class="tag">Финансы</span>
+        <li class="card" data-cat="finance" data-name="Fincept Terminal" data-stars="30049" id="repo-fincept-corporation-finceptterminal">
+          <span class="cardtop"><span class="tag">Финансы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 30 тыс</span></span>
           <h4><a href="https://github.com/Fincept-Corporation/FinceptTerminal" target="_blank" rel="noopener">Fincept Terminal</a></h4>
           <p class="repo"><code>Fincept-Corporation/FinceptTerminal</code></p>
           <p class="d">Финтерминал уровня Bloomberg. <b>Чем ценно:</b> рыночные данные и аналитика без дорогой подписки.</p>
           <a class="gh" href="https://github.com/Fincept-Corporation/FinceptTerminal" target="_blank" rel="noopener" aria-label="Открыть Fincept Terminal на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="finance" data-name="TimesFM" id="repo-google-research-timesfm">
-          <span class="tag">Финансы</span>
-          <h4><a href="https://github.com/google-research/timesfm" target="_blank" rel="noopener">TimesFM</a></h4>
-          <p class="repo"><code>google-research/timesfm</code></p>
-          <p class="d">Готовая ИИ-модель от Google для прогнозирования временных рядов — продаж, спроса, метрик. <b>Чем ценно:</b> не нужно обучать с нуля: подаёшь исторические данные и получаешь прогноз.</p>
-          <a class="gh" href="https://github.com/google-research/timesfm" target="_blank" rel="noopener" aria-label="Открыть TimesFM на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="finance" data-name="Actual" id="repo-actualbudget-actual">
-          <span class="tag">Финансы</span>
+        <li class="card" data-cat="finance" data-name="Actual" data-stars="28043" id="repo-actualbudget-actual">
+          <span class="cardtop"><span class="tag">Финансы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 28 тыс</span></span>
           <h4><a href="https://github.com/actualbudget/actual" target="_blank" rel="noopener">Actual</a></h4>
           <p class="repo"><code>actualbudget/actual</code></p>
           <p class="d">Local-first приложение для личных финансов и бюджета с открытым кодом. <b>Чем ценно:</b> данные хранятся локально, есть синхронизация между устройствами — без подписки и слежки.</p>
           <a class="gh" href="https://github.com/actualbudget/actual" target="_blank" rel="noopener" aria-label="Открыть Actual на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="finance" data-name="TimesFM" data-stars="27271" id="repo-google-research-timesfm">
+          <span class="cardtop"><span class="tag">Финансы</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 27 тыс</span></span>
+          <h4><a href="https://github.com/google-research/timesfm" target="_blank" rel="noopener">TimesFM</a></h4>
+          <p class="repo"><code>google-research/timesfm</code></p>
+          <p class="d">Готовая ИИ-модель от Google для прогнозирования временных рядов — продаж, спроса, метрик. <b>Чем ценно:</b> не нужно обучать с нуля: подаёшь исторические данные и получаешь прогноз.</p>
+          <a class="gh" href="https://github.com/google-research/timesfm" target="_blank" rel="noopener" aria-label="Открыть TimesFM на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
     </ul>
     <p class="note">Подборка отражает находки на момент обновления страницы. Опенсорс-проекты быстро развиваются и иногда переезжают — если ссылка изменилась, найдите репозиторий по названию на GitHub. Проверяйте лицензию и актуальность перед использованием в продакшене.</p>
@@ -463,15 +469,15 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
         <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">7</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
@@ -481,10 +487,11 @@ body{padding-left:248px}
         <li><a href="/opensource/privacy/">Приватность<span class="c">6</span></a></li>
         <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
         <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
+        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">7</span></a></li>
         <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">

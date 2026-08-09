@@ -31,12 +31,26 @@ const { section, categories, repos, faq } = data;
 const CAT = Object.fromEntries(categories.map((c) => [c.key, c]));
 const catUrl = (c) => `${section.path}${c.slug}/`;
 
+/** Порядок внутри категории: сначала то, что взяли в работу больше людей. */
+const byStars = (list) => [...list].sort((a, b) => (b.stars || 0) - (a.stars || 0));
+
+/** «269653» → «269 тыс» — на карточке важен порядок, а не точное число. */
+const shortStars = (n) => {
+  if (!n) return '';
+  if (n >= 1000) return `${Math.round(n / 1000)} тыс`;
+  return String(n);
+};
+
 /** Карточка проекта. Заголовок — ссылка, чтобы у внешнего URL был осмысленный анкор. */
 const card = (r) => {
   const c = CAT[r.cat];
   const url = `https://github.com/${r.repo}`;
-  return `        <li class="card" data-cat="${esc(r.cat)}" data-name="${esc(r.name)}" id="repo-${esc(slugifyRepo(r.repo))}">
-          <span class="tag">${esc(c.label)}</span>
+  return `        <li class="card" data-cat="${esc(r.cat)}" data-name="${esc(r.name)}" data-stars="${r.stars || 0}" id="repo-${esc(slugifyRepo(r.repo))}">
+          <span class="cardtop"><span class="tag">${esc(c.label)}</span>${
+            r.stars
+              ? `<span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ ${esc(shortStars(r.stars))}</span>`
+              : ''
+          }</span>
           <h4><a href="${esc(url)}" target="_blank" rel="noopener">${esc(r.name)}</a></h4>
           <p class="repo"><code>${esc(r.repo)}</code></p>
           <p class="d">${r.desc}</p>
@@ -73,7 +87,9 @@ function buildIndex() {
 
   const catBlocks = categories
     .map((c) => {
-      const list = repos.filter((r) => r.cat === c.key);
+      // Внутри категории — по числу звёзд: самое проверенное сверху,
+      // чтобы не читать все карточки подряд в поисках нужного.
+      const list = byStars(repos.filter((r) => r.cat === c.key));
       return `      <div class="catblock" data-cat="${esc(c.key)}" id="${esc(c.slug)}">
         <h3>${esc(c.label)} <span class="cnt">${c.count}&nbsp;${plural(c.count)}</span></h3>
         <p class="cdesc">${esc(c.intro)}</p>
@@ -365,7 +381,7 @@ ${footer()}
 /* ---------- страница категории ---------- */
 
 function buildCategory(c, i) {
-  const list = repos.filter((r) => r.cat === c.key);
+  const list = byStars(repos.filter((r) => r.cat === c.key));
   const url = catUrl(c);
   const others = categories.filter((x) => x.key !== c.key);
 

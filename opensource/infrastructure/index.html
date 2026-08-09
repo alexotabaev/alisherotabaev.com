@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/infrastructure/#page","url":"https://alisherotabaev.com/opensource/infrastructure/","name":"Опенсорс для инфраструктуры и DevOps — 15 проектов","headline":"Инфраструктура и DevOps","description":"Мониторинг, бэкапы, нагрузочное тестирование и системные утилиты: Uptime Kuma, Grafana, Velero, k6, netboot.xyz.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/infrastructure/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Инфраструктура","item":"https://alisherotabaev.com/opensource/infrastructure/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/infrastructure/#list","name":"Инфраструктура и DevOps","numberOfItems":15,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Uptime Kuma","applicationCategory":"DeveloperApplication","description":"Красивый дашборд мониторинга аптайма. Чем ценно: узнаёшь о падении сайта первым, а не от клиентов.","url":"https://github.com/louislam/uptime-kuma","codeRepository":"https://github.com/louislam/uptime-kuma","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Grafana","applicationCategory":"DeveloperApplication","description":"Дашборды для любых метрик. Чем ценно: видишь здоровье проекта в реальном времени на одном экране.","url":"https://github.com/grafana/grafana","codeRepository":"https://github.com/grafana/grafana","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Velero","applicationCategory":"DeveloperApplication","description":"Бэкап и восстановление Kubernetes. Чем ценно: спокойствие — кластер можно поднять после сбоя.","url":"https://github.com/vmware-tanzu/velero","codeRepository":"https://github.com/vmware-tanzu/velero","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Bulk Crap Uninstaller","applicationCategory":"DeveloperApplication","description":"Массовое удаление программ в Windows. Чем ценно: чистишь систему от хлама за пару минут.","url":"https://github.com/Klocman/Bulk-Crap-Uninstaller","codeRepository":"https://github.com/Klocman/Bulk-Crap-Uninstaller","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"superfile","applicationCategory":"DeveloperApplication","description":"Красивый файловый менеджер для терминала. Чем ценно: быстрая работа с файлами без мыши.","url":"https://github.com/yorukot/superfile","codeRepository":"https://github.com/yorukot/superfile","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"docker-mailserver","applicationCategory":"DeveloperApplication","description":"Почтовый сервер в Docker. Чем ценно: своя корпоративная почта на своём домене.","url":"https://github.com/docker-mailserver/docker-mailserver","codeRepository":"https://github.com/docker-mailserver/docker-mailserver","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"asciinema","applicationCategory":"DeveloperApplication","description":"Запись сессий терминала. Чем ценно: показываешь команды и демо без тяжёлого видео.","url":"https://github.com/asciinema/asciinema","codeRepository":"https://github.com/asciinema/asciinema","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"docker-android","applicationCategory":"DeveloperApplication","description":"Android-эмулятор как сервис в Docker. Чем ценно: тестируешь мобильные сценарии без локальной возни.","url":"https://github.com/HQarroum/docker-android","codeRepository":"https://github.com/HQarroum/docker-android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"Webmin","applicationCategory":"DeveloperApplication","description":"Веб-панель управления Linux-сервером. Чем ценно: администрируешь сервер мышкой, без глубокого DevOps.","url":"https://github.com/webmin/webmin","codeRepository":"https://github.com/webmin/webmin","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"Xplorer","applicationCategory":"DeveloperApplication","description":"Кастомизируемый файловый менеджер. Чем ценно: удобная замена стандартному проводнику.","url":"https://github.com/kimlimjustin/xplorer","codeRepository":"https://github.com/kimlimjustin/xplorer","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":11,"item":{"@type":"SoftwareApplication","name":"WinDirStat","applicationCategory":"DeveloperApplication","description":"Визуализатор занятого места на диске. Чем ценно: за минуту находишь, что съело всё место.","url":"https://github.com/windirstat/windirstat","codeRepository":"https://github.com/windirstat/windirstat","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":12,"item":{"@type":"SoftwareApplication","name":"k6","applicationCategory":"DeveloperApplication","description":"Современный инструмент нагрузочного тестирования от Grafana: пишешь реалистичные тесты на JS. Чем ценно: ставишь пороги pass/fail и гоняешь локально или в CI — как юнит-тесты для производительности.","url":"https://github.com/grafana/k6","codeRepository":"https://github.com/grafana/k6","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":13,"item":{"@type":"SoftwareApplication","name":"Vegeta","applicationCategory":"DeveloperApplication","description":"Универсальный инструмент и библиотека для HTTP-нагрузки. Чем ценно: держит постоянный rate запросов и выдаёт детальные отчёты по латентности и графики.","url":"https://github.com/tsenart/vegeta","codeRepository":"https://github.com/tsenart/vegeta","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":14,"item":{"@type":"SoftwareApplication","name":"oha","applicationCategory":"DeveloperApplication","description":"Быстрый генератор HTTP-нагрузки с real-time TUI. Чем ценно: гистограммы латентности и throughput прямо во время теста — красивая замена ab/wrk.","url":"https://github.com/hatoo/oha","codeRepository":"https://github.com/hatoo/oha","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":15,"item":{"@type":"SoftwareApplication","name":"netboot.xyz","applicationCategory":"DeveloperApplication","description":"Загрузочное меню через сеть с доступом к 100+ ОС и утилитам без скачивания ISO. Чем ценно: подключаешься по PXE и ставишь Linux, Windows, Kali или Proxmox прямо из меню.","url":"https://github.com/netbootxyz/netboot.xyz","codeRepository":"https://github.com/netbootxyz/netboot.xyz","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/infrastructure/#page","url":"https://alisherotabaev.com/opensource/infrastructure/","name":"Опенсорс для инфраструктуры и DevOps — 15 проектов","headline":"Инфраструктура и DevOps","description":"Мониторинг, бэкапы, нагрузочное тестирование и системные утилиты: Uptime Kuma, Grafana, Velero, k6, netboot.xyz.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/infrastructure/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Инфраструктура","item":"https://alisherotabaev.com/opensource/infrastructure/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/infrastructure/#list","name":"Инфраструктура и DevOps","numberOfItems":15,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Uptime Kuma","applicationCategory":"DeveloperApplication","description":"Красивый дашборд мониторинга аптайма. Чем ценно: узнаёшь о падении сайта первым, а не от клиентов.","url":"https://github.com/louislam/uptime-kuma","codeRepository":"https://github.com/louislam/uptime-kuma","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Grafana","applicationCategory":"DeveloperApplication","description":"Дашборды для любых метрик. Чем ценно: видишь здоровье проекта в реальном времени на одном экране.","url":"https://github.com/grafana/grafana","codeRepository":"https://github.com/grafana/grafana","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"k6","applicationCategory":"DeveloperApplication","description":"Современный инструмент нагрузочного тестирования от Grafana: пишешь реалистичные тесты на JS. Чем ценно: ставишь пороги pass/fail и гоняешь локально или в CI — как юнит-тесты для производительности.","url":"https://github.com/grafana/k6","codeRepository":"https://github.com/grafana/k6","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Vegeta","applicationCategory":"DeveloperApplication","description":"Универсальный инструмент и библиотека для HTTP-нагрузки. Чем ценно: держит постоянный rate запросов и выдаёт детальные отчёты по латентности и графики.","url":"https://github.com/tsenart/vegeta","codeRepository":"https://github.com/tsenart/vegeta","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"superfile","applicationCategory":"DeveloperApplication","description":"Красивый файловый менеджер для терминала. Чем ценно: быстрая работа с файлами без мыши.","url":"https://github.com/yorukot/superfile","codeRepository":"https://github.com/yorukot/superfile","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Bulk Crap Uninstaller","applicationCategory":"DeveloperApplication","description":"Массовое удаление программ в Windows. Чем ценно: чистишь систему от хлама за пару минут.","url":"https://github.com/Klocman/Bulk-Crap-Uninstaller","codeRepository":"https://github.com/Klocman/Bulk-Crap-Uninstaller","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"docker-mailserver","applicationCategory":"DeveloperApplication","description":"Почтовый сервер в Docker. Чем ценно: своя корпоративная почта на своём домене.","url":"https://github.com/docker-mailserver/docker-mailserver","codeRepository":"https://github.com/docker-mailserver/docker-mailserver","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":8,"item":{"@type":"SoftwareApplication","name":"asciinema","applicationCategory":"DeveloperApplication","description":"Запись сессий терминала. Чем ценно: показываешь команды и демо без тяжёлого видео.","url":"https://github.com/asciinema/asciinema","codeRepository":"https://github.com/asciinema/asciinema","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":9,"item":{"@type":"SoftwareApplication","name":"netboot.xyz","applicationCategory":"DeveloperApplication","description":"Загрузочное меню через сеть с доступом к 100+ ОС и утилитам без скачивания ISO. Чем ценно: подключаешься по PXE и ставишь Linux, Windows, Kali или Proxmox прямо из меню.","url":"https://github.com/netbootxyz/netboot.xyz","codeRepository":"https://github.com/netbootxyz/netboot.xyz","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":10,"item":{"@type":"SoftwareApplication","name":"oha","applicationCategory":"DeveloperApplication","description":"Быстрый генератор HTTP-нагрузки с real-time TUI. Чем ценно: гистограммы латентности и throughput прямо во время теста — красивая замена ab/wrk.","url":"https://github.com/hatoo/oha","codeRepository":"https://github.com/hatoo/oha","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":11,"item":{"@type":"SoftwareApplication","name":"Velero","applicationCategory":"DeveloperApplication","description":"Бэкап и восстановление Kubernetes. Чем ценно: спокойствие — кластер можно поднять после сбоя.","url":"https://github.com/vmware-tanzu/velero","codeRepository":"https://github.com/vmware-tanzu/velero","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":12,"item":{"@type":"SoftwareApplication","name":"docker-android","applicationCategory":"DeveloperApplication","description":"Android-эмулятор как сервис в Docker. Чем ценно: тестируешь мобильные сценарии без локальной возни.","url":"https://github.com/HQarroum/docker-android","codeRepository":"https://github.com/HQarroum/docker-android","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":13,"item":{"@type":"SoftwareApplication","name":"Webmin","applicationCategory":"DeveloperApplication","description":"Веб-панель управления Linux-сервером. Чем ценно: администрируешь сервер мышкой, без глубокого DevOps.","url":"https://github.com/webmin/webmin","codeRepository":"https://github.com/webmin/webmin","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":14,"item":{"@type":"SoftwareApplication","name":"Xplorer","applicationCategory":"DeveloperApplication","description":"Кастомизируемый файловый менеджер. Чем ценно: удобная замена стандартному проводнику.","url":"https://github.com/kimlimjustin/xplorer","codeRepository":"https://github.com/kimlimjustin/xplorer","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":15,"item":{"@type":"SoftwareApplication","name":"WinDirStat","applicationCategory":"DeveloperApplication","description":"Визуализатор занятого места на диске. Чем ценно: за минуту находишь, что съело всё место.","url":"https://github.com/windirstat/windirstat","codeRepository":"https://github.com/windirstat/windirstat","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>Инфраструктура и DevOps</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>15</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>15</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Мониторинг, бэкапы, нагрузочное тестирование, файловые менеджеры и системные утилиты. То, что держит продакшен в рабочем состоянии.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -411,110 +417,110 @@ body{padding-left:248px}
       <h2 id="list-h">15&nbsp;проектов в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="infra" data-name="Uptime Kuma" id="repo-louislam-uptime-kuma">
-          <span class="tag">Инфраструктура</span>
+        <li class="card" data-cat="infra" data-name="Uptime Kuma" data-stars="90018" id="repo-louislam-uptime-kuma">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 90 тыс</span></span>
           <h4><a href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener">Uptime Kuma</a></h4>
           <p class="repo"><code>louislam/uptime-kuma</code></p>
           <p class="d">Красивый дашборд мониторинга аптайма. <b>Чем ценно:</b> узнаёшь о падении сайта первым, а не от клиентов.</p>
           <a class="gh" href="https://github.com/louislam/uptime-kuma" target="_blank" rel="noopener" aria-label="Открыть Uptime Kuma на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="infra" data-name="Grafana" id="repo-grafana-grafana">
-          <span class="tag">Инфраструктура</span>
+        <li class="card" data-cat="infra" data-name="Grafana" data-stars="76180" id="repo-grafana-grafana">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 76 тыс</span></span>
           <h4><a href="https://github.com/grafana/grafana" target="_blank" rel="noopener">Grafana</a></h4>
           <p class="repo"><code>grafana/grafana</code></p>
           <p class="d">Дашборды для любых метрик. <b>Чем ценно:</b> видишь здоровье проекта в реальном времени на одном экране.</p>
           <a class="gh" href="https://github.com/grafana/grafana" target="_blank" rel="noopener" aria-label="Открыть Grafana на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="infra" data-name="Velero" id="repo-vmware-tanzu-velero">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/vmware-tanzu/velero" target="_blank" rel="noopener">Velero</a></h4>
-          <p class="repo"><code>vmware-tanzu/velero</code></p>
-          <p class="d">Бэкап и восстановление Kubernetes. <b>Чем ценно:</b> спокойствие — кластер можно поднять после сбоя.</p>
-          <a class="gh" href="https://github.com/vmware-tanzu/velero" target="_blank" rel="noopener" aria-label="Открыть Velero на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="Bulk Crap Uninstaller" id="repo-klocman-bulk-crap-uninstaller">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank" rel="noopener">Bulk Crap Uninstaller</a></h4>
-          <p class="repo"><code>Klocman/Bulk-Crap-Uninstaller</code></p>
-          <p class="d">Массовое удаление программ в Windows. <b>Чем ценно:</b> чистишь систему от хлама за пару минут.</p>
-          <a class="gh" href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank" rel="noopener" aria-label="Открыть Bulk Crap Uninstaller на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="superfile" id="repo-yorukot-superfile">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/yorukot/superfile" target="_blank" rel="noopener">superfile</a></h4>
-          <p class="repo"><code>yorukot/superfile</code></p>
-          <p class="d">Красивый файловый менеджер для терминала. <b>Чем ценно:</b> быстрая работа с файлами без мыши.</p>
-          <a class="gh" href="https://github.com/yorukot/superfile" target="_blank" rel="noopener" aria-label="Открыть superfile на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="docker-mailserver" id="repo-docker-mailserver-docker-mailserver">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/docker-mailserver/docker-mailserver" target="_blank" rel="noopener">docker-mailserver</a></h4>
-          <p class="repo"><code>docker-mailserver/docker-mailserver</code></p>
-          <p class="d">Почтовый сервер в Docker. <b>Чем ценно:</b> своя корпоративная почта на своём домене.</p>
-          <a class="gh" href="https://github.com/docker-mailserver/docker-mailserver" target="_blank" rel="noopener" aria-label="Открыть docker-mailserver на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="asciinema" id="repo-asciinema-asciinema">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/asciinema/asciinema" target="_blank" rel="noopener">asciinema</a></h4>
-          <p class="repo"><code>asciinema/asciinema</code></p>
-          <p class="d">Запись сессий терминала. <b>Чем ценно:</b> показываешь команды и демо без тяжёлого видео.</p>
-          <a class="gh" href="https://github.com/asciinema/asciinema" target="_blank" rel="noopener" aria-label="Открыть asciinema на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="docker-android" id="repo-hqarroum-docker-android">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/HQarroum/docker-android" target="_blank" rel="noopener">docker-android</a></h4>
-          <p class="repo"><code>HQarroum/docker-android</code></p>
-          <p class="d">Android-эмулятор как сервис в Docker. <b>Чем ценно:</b> тестируешь мобильные сценарии без локальной возни.</p>
-          <a class="gh" href="https://github.com/HQarroum/docker-android" target="_blank" rel="noopener" aria-label="Открыть docker-android на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="Webmin" id="repo-webmin-webmin">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/webmin/webmin" target="_blank" rel="noopener">Webmin</a></h4>
-          <p class="repo"><code>webmin/webmin</code></p>
-          <p class="d">Веб-панель управления Linux-сервером. <b>Чем ценно:</b> администрируешь сервер мышкой, без глубокого DevOps.</p>
-          <a class="gh" href="https://github.com/webmin/webmin" target="_blank" rel="noopener" aria-label="Открыть Webmin на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="Xplorer" id="repo-kimlimjustin-xplorer">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/kimlimjustin/xplorer" target="_blank" rel="noopener">Xplorer</a></h4>
-          <p class="repo"><code>kimlimjustin/xplorer</code></p>
-          <p class="d">Кастомизируемый файловый менеджер. <b>Чем ценно:</b> удобная замена стандартному проводнику.</p>
-          <a class="gh" href="https://github.com/kimlimjustin/xplorer" target="_blank" rel="noopener" aria-label="Открыть Xplorer на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="WinDirStat" id="repo-windirstat-windirstat">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/windirstat/windirstat" target="_blank" rel="noopener">WinDirStat</a></h4>
-          <p class="repo"><code>windirstat/windirstat</code></p>
-          <p class="d">Визуализатор занятого места на диске. <b>Чем ценно:</b> за минуту находишь, что съело всё место.</p>
-          <a class="gh" href="https://github.com/windirstat/windirstat" target="_blank" rel="noopener" aria-label="Открыть WinDirStat на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
-        </li>
-        <li class="card" data-cat="infra" data-name="k6" id="repo-grafana-k6">
-          <span class="tag">Инфраструктура</span>
+        <li class="card" data-cat="infra" data-name="k6" data-stars="31224" id="repo-grafana-k6">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 31 тыс</span></span>
           <h4><a href="https://github.com/grafana/k6" target="_blank" rel="noopener">k6</a></h4>
           <p class="repo"><code>grafana/k6</code></p>
           <p class="d">Современный инструмент нагрузочного тестирования от Grafana: пишешь реалистичные тесты на JS. <b>Чем ценно:</b> ставишь пороги pass/fail и гоняешь локально или в CI — как юнит-тесты для производительности.</p>
           <a class="gh" href="https://github.com/grafana/k6" target="_blank" rel="noopener" aria-label="Открыть k6 на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="infra" data-name="Vegeta" id="repo-tsenart-vegeta">
-          <span class="tag">Инфраструктура</span>
+        <li class="card" data-cat="infra" data-name="Vegeta" data-stars="25142" id="repo-tsenart-vegeta">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 25 тыс</span></span>
           <h4><a href="https://github.com/tsenart/vegeta" target="_blank" rel="noopener">Vegeta</a></h4>
           <p class="repo"><code>tsenart/vegeta</code></p>
           <p class="d">Универсальный инструмент и библиотека для HTTP-нагрузки. <b>Чем ценно:</b> держит постоянный rate запросов и выдаёт детальные отчёты по латентности и графики.</p>
           <a class="gh" href="https://github.com/tsenart/vegeta" target="_blank" rel="noopener" aria-label="Открыть Vegeta на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="infra" data-name="oha" id="repo-hatoo-oha">
-          <span class="tag">Инфраструктура</span>
+        <li class="card" data-cat="infra" data-name="superfile" data-stars="22404" id="repo-yorukot-superfile">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 22 тыс</span></span>
+          <h4><a href="https://github.com/yorukot/superfile" target="_blank" rel="noopener">superfile</a></h4>
+          <p class="repo"><code>yorukot/superfile</code></p>
+          <p class="d">Красивый файловый менеджер для терминала. <b>Чем ценно:</b> быстрая работа с файлами без мыши.</p>
+          <a class="gh" href="https://github.com/yorukot/superfile" target="_blank" rel="noopener" aria-label="Открыть superfile на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="Bulk Crap Uninstaller" data-stars="20602" id="repo-klocman-bulk-crap-uninstaller">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 21 тыс</span></span>
+          <h4><a href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank" rel="noopener">Bulk Crap Uninstaller</a></h4>
+          <p class="repo"><code>Klocman/Bulk-Crap-Uninstaller</code></p>
+          <p class="d">Массовое удаление программ в Windows. <b>Чем ценно:</b> чистишь систему от хлама за пару минут.</p>
+          <a class="gh" href="https://github.com/Klocman/Bulk-Crap-Uninstaller" target="_blank" rel="noopener" aria-label="Открыть Bulk Crap Uninstaller на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="docker-mailserver" data-stars="18684" id="repo-docker-mailserver-docker-mailserver">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 19 тыс</span></span>
+          <h4><a href="https://github.com/docker-mailserver/docker-mailserver" target="_blank" rel="noopener">docker-mailserver</a></h4>
+          <p class="repo"><code>docker-mailserver/docker-mailserver</code></p>
+          <p class="d">Почтовый сервер в Docker. <b>Чем ценно:</b> своя корпоративная почта на своём домене.</p>
+          <a class="gh" href="https://github.com/docker-mailserver/docker-mailserver" target="_blank" rel="noopener" aria-label="Открыть docker-mailserver на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="asciinema" data-stars="17648" id="repo-asciinema-asciinema">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 18 тыс</span></span>
+          <h4><a href="https://github.com/asciinema/asciinema" target="_blank" rel="noopener">asciinema</a></h4>
+          <p class="repo"><code>asciinema/asciinema</code></p>
+          <p class="d">Запись сессий терминала. <b>Чем ценно:</b> показываешь команды и демо без тяжёлого видео.</p>
+          <a class="gh" href="https://github.com/asciinema/asciinema" target="_blank" rel="noopener" aria-label="Открыть asciinema на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="netboot.xyz" data-stars="12119" id="repo-netbootxyz-netboot-xyz">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 12 тыс</span></span>
+          <h4><a href="https://github.com/netbootxyz/netboot.xyz" target="_blank" rel="noopener">netboot.xyz</a></h4>
+          <p class="repo"><code>netbootxyz/netboot.xyz</code></p>
+          <p class="d">Загрузочное меню через сеть с доступом к 100+ ОС и утилитам без скачивания ISO. <b>Чем ценно:</b> подключаешься по PXE и ставишь Linux, Windows, Kali или Proxmox прямо из меню.</p>
+          <a class="gh" href="https://github.com/netbootxyz/netboot.xyz" target="_blank" rel="noopener" aria-label="Открыть netboot.xyz на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="oha" data-stars="10469" id="repo-hatoo-oha">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 10 тыс</span></span>
           <h4><a href="https://github.com/hatoo/oha" target="_blank" rel="noopener">oha</a></h4>
           <p class="repo"><code>hatoo/oha</code></p>
           <p class="d">Быстрый генератор HTTP-нагрузки с real-time TUI. <b>Чем ценно:</b> гистограммы латентности и throughput прямо во время теста — красивая замена ab/wrk.</p>
           <a class="gh" href="https://github.com/hatoo/oha" target="_blank" rel="noopener" aria-label="Открыть oha на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="infra" data-name="netboot.xyz" id="repo-netbootxyz-netboot-xyz">
-          <span class="tag">Инфраструктура</span>
-          <h4><a href="https://github.com/netbootxyz/netboot.xyz" target="_blank" rel="noopener">netboot.xyz</a></h4>
-          <p class="repo"><code>netbootxyz/netboot.xyz</code></p>
-          <p class="d">Загрузочное меню через сеть с доступом к 100+ ОС и утилитам без скачивания ISO. <b>Чем ценно:</b> подключаешься по PXE и ставишь Linux, Windows, Kali или Proxmox прямо из меню.</p>
-          <a class="gh" href="https://github.com/netbootxyz/netboot.xyz" target="_blank" rel="noopener" aria-label="Открыть netboot.xyz на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        <li class="card" data-cat="infra" data-name="Velero" data-stars="10190" id="repo-vmware-tanzu-velero">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 10 тыс</span></span>
+          <h4><a href="https://github.com/vmware-tanzu/velero" target="_blank" rel="noopener">Velero</a></h4>
+          <p class="repo"><code>vmware-tanzu/velero</code></p>
+          <p class="d">Бэкап и восстановление Kubernetes. <b>Чем ценно:</b> спокойствие — кластер можно поднять после сбоя.</p>
+          <a class="gh" href="https://github.com/vmware-tanzu/velero" target="_blank" rel="noopener" aria-label="Открыть Velero на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="docker-android" data-stars="7217" id="repo-hqarroum-docker-android">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 7 тыс</span></span>
+          <h4><a href="https://github.com/HQarroum/docker-android" target="_blank" rel="noopener">docker-android</a></h4>
+          <p class="repo"><code>HQarroum/docker-android</code></p>
+          <p class="d">Android-эмулятор как сервис в Docker. <b>Чем ценно:</b> тестируешь мобильные сценарии без локальной возни.</p>
+          <a class="gh" href="https://github.com/HQarroum/docker-android" target="_blank" rel="noopener" aria-label="Открыть docker-android на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="Webmin" data-stars="5999" id="repo-webmin-webmin">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 6 тыс</span></span>
+          <h4><a href="https://github.com/webmin/webmin" target="_blank" rel="noopener">Webmin</a></h4>
+          <p class="repo"><code>webmin/webmin</code></p>
+          <p class="d">Веб-панель управления Linux-сервером. <b>Чем ценно:</b> администрируешь сервер мышкой, без глубокого DevOps.</p>
+          <a class="gh" href="https://github.com/webmin/webmin" target="_blank" rel="noopener" aria-label="Открыть Webmin на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="Xplorer" data-stars="5643" id="repo-kimlimjustin-xplorer">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 6 тыс</span></span>
+          <h4><a href="https://github.com/kimlimjustin/xplorer" target="_blank" rel="noopener">Xplorer</a></h4>
+          <p class="repo"><code>kimlimjustin/xplorer</code></p>
+          <p class="d">Кастомизируемый файловый менеджер. <b>Чем ценно:</b> удобная замена стандартному проводнику.</p>
+          <a class="gh" href="https://github.com/kimlimjustin/xplorer" target="_blank" rel="noopener" aria-label="Открыть Xplorer на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="infra" data-name="WinDirStat" data-stars="3813" id="repo-windirstat-windirstat">
+          <span class="cardtop"><span class="tag">Инфраструктура</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 4 тыс</span></span>
+          <h4><a href="https://github.com/windirstat/windirstat" target="_blank" rel="noopener">WinDirStat</a></h4>
+          <p class="repo"><code>windirstat/windirstat</code></p>
+          <p class="d">Визуализатор занятого места на диске. <b>Чем ценно:</b> за минуту находишь, что съело всё место.</p>
+          <a class="gh" href="https://github.com/windirstat/windirstat" target="_blank" rel="noopener" aria-label="Открыть WinDirStat на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
     </ul>
     <p class="note">Подборка отражает находки на момент обновления страницы. Опенсорс-проекты быстро развиваются и иногда переезжают — если ссылка изменилась, найдите репозиторий по названию на GitHub. Проверяйте лицензию и актуальность перед использованием в продакшене.</p>
@@ -526,15 +532,15 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
         <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
-        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">5</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
+        <li><a href="/opensource/design/">Картинки и дизайн<span class="c">7</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
@@ -545,9 +551,10 @@ body{padding-left:248px}
         <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
         <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
         <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
+        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">7</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">

@@ -244,6 +244,12 @@
   .card .tag{align-self:flex-start;font-size:11.5px;font-weight:600;letter-spacing:.03em;text-transform:uppercase;
     color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:5px 11px;margin-bottom:14px;}
   .card h4{font-size:22px;font-weight:700;margin:0 0 4px;letter-spacing:.01em;}
+  .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
+    margin-bottom:12px;}
+  .card .cardtop .tag{margin:0;}
+  .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
+    background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .repo{font-family:'Roboto Condensed';font-size:13.5px;color:var(--muted);margin:0 0 12px;word-break:break-all;}
   .card p.d{margin:0 0 18px;font-size:15px;color:var(--ink-soft);flex-grow:1;line-height:1.55;}
   .card p.d b{color:var(--ink);font-weight:600;}
@@ -290,7 +296,7 @@
   .legal a:hover{color:var(--gold-dk);}
 </style>
 <script type="application/ld+json">
-{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/design/#page","url":"https://alisherotabaev.com/opensource/design/","name":"Опенсорс для картинок и дизайна — 5 проектов с GitHub","headline":"Картинки и дизайн: опенсорс вместо платных редакторов","description":"Генерация и редактирование изображений, пиксель-арт, виртуальная примерка одежды, свободные аналоги Photoshop.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-03","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/design/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Картинки и дизайн","item":"https://alisherotabaev.com/opensource/design/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/design/#list","name":"Картинки и дизайн: опенсорс вместо платных редакторов","numberOfItems":5,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"Fooocus","applicationCategory":"DeveloperApplication","description":"Офлайн-генерация картинок на своей видеокарте. Чем ценно: качество уровня Midjourney бесплатно и приватно.","url":"https://github.com/lllyasviel/Fooocus","codeRepository":"https://github.com/lllyasviel/Fooocus","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"PhotoGIMP","applicationCategory":"DeveloperApplication","description":"Патч, превращающий GIMP в подобие Photoshop. Чем ценно: привычный редактор бесплатно и без подписки.","url":"https://github.com/Diolinux/PhotoGIMP","codeRepository":"https://github.com/Diolinux/PhotoGIMP","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Piskel","applicationCategory":"DeveloperApplication","description":"Редактор пиксель-арта и спрайтов. Чем ценно: быстро рисуешь ассеты для игр и иконок.","url":"https://github.com/piskelapp/piskel","codeRepository":"https://github.com/piskelapp/piskel","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"Edit-Banana","applicationCategory":"DeveloperApplication","description":"Редактирование текста прямо внутри картинок. Чем ценно: правишь надписи на изображениях без ручного перерисовывания.","url":"https://github.com/BIT-DataLab/Edit-Banana","codeRepository":"https://github.com/BIT-DataLab/Edit-Banana","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"CatVTON","applicationCategory":"DeveloperApplication","description":"ИИ-примерка одежды на фото. Чем ценно: показываешь товар на модели без съёмок.","url":"https://github.com/Zheng-Chong/CatVTON","codeRepository":"https://github.com/Zheng-Chong/CatVTON","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
+{"@context":"https://schema.org","@graph":[{"@type":"Person","@id":"https://alisherotabaev.com/#author","name":"Алишер Отабаев","url":"https://alisherotabaev.com/about","sameAs":["https://t.me/AlisherOtabaev_ai","https://www.instagram.com/alisherotabaev/","https://vk.com/alisherotabaev"]},{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/design/#page","url":"https://alisherotabaev.com/opensource/design/","name":"Опенсорс для картинок и дизайна — 5 проектов с GitHub","headline":"Картинки и дизайн: опенсорс вместо платных редакторов","description":"Генерация и редактирование изображений, пиксель-арт, виртуальная примерка одежды, свободные аналоги Photoshop.","inLanguage":"ru-RU","datePublished":"2026-07-20","dateModified":"2026-08-06","author":{"@id":"https://alisherotabaev.com/#author"},"publisher":{"@id":"https://alisherotabaev.com/#author"},"isPartOf":{"@type":"CollectionPage","@id":"https://alisherotabaev.com/opensource/#page","url":"https://alisherotabaev.com/opensource/"},"mainEntity":{"@id":"https://alisherotabaev.com/opensource/design/#list"}},{"@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Главная","item":"https://alisherotabaev.com/"},{"@type":"ListItem","position":2,"name":"Опенсорс","item":"https://alisherotabaev.com/opensource/"},{"@type":"ListItem","position":3,"name":"Картинки и дизайн","item":"https://alisherotabaev.com/opensource/design/"}]},{"@type":"ItemList","@id":"https://alisherotabaev.com/opensource/design/#list","name":"Картинки и дизайн: опенсорс вместо платных редакторов","numberOfItems":7,"itemListOrder":"https://schema.org/ItemListUnordered","itemListElement":[{"@type":"ListItem","position":1,"item":{"@type":"SoftwareApplication","name":"ComfyUI","applicationCategory":"DeveloperApplication","description":"Узловой редактор для генерации изображений: конвейер собирается из блоков. Чем ценно: повторяемый результат — один раз собранная схема выдаёт стабильное качество, а не случайную картинку.","url":"https://github.com/comfyanonymous/ComfyUI","codeRepository":"https://github.com/comfyanonymous/ComfyUI","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":2,"item":{"@type":"SoftwareApplication","name":"Stable Diffusion","applicationCategory":"DeveloperApplication","description":"Модель генерации изображений по текстовому описанию. Чем ценно: работает локально и бесплатно — картинки для контента без подписки и без ограничений на использование.","url":"https://github.com/CompVis/stable-diffusion","codeRepository":"https://github.com/CompVis/stable-diffusion","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":3,"item":{"@type":"SoftwareApplication","name":"Fooocus","applicationCategory":"DeveloperApplication","description":"Офлайн-генерация картинок на своей видеокарте. Чем ценно: качество уровня Midjourney бесплатно и приватно.","url":"https://github.com/lllyasviel/Fooocus","codeRepository":"https://github.com/lllyasviel/Fooocus","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":4,"item":{"@type":"SoftwareApplication","name":"PhotoGIMP","applicationCategory":"DeveloperApplication","description":"Патч, превращающий GIMP в подобие Photoshop. Чем ценно: привычный редактор бесплатно и без подписки.","url":"https://github.com/Diolinux/PhotoGIMP","codeRepository":"https://github.com/Diolinux/PhotoGIMP","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":5,"item":{"@type":"SoftwareApplication","name":"Piskel","applicationCategory":"DeveloperApplication","description":"Редактор пиксель-арта и спрайтов. Чем ценно: быстро рисуешь ассеты для игр и иконок.","url":"https://github.com/piskelapp/piskel","codeRepository":"https://github.com/piskelapp/piskel","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":6,"item":{"@type":"SoftwareApplication","name":"Edit-Banana","applicationCategory":"DeveloperApplication","description":"Редактирование текста прямо внутри картинок. Чем ценно: правишь надписи на изображениях без ручного перерисовывания.","url":"https://github.com/BIT-DataLab/Edit-Banana","codeRepository":"https://github.com/BIT-DataLab/Edit-Banana","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}},{"@type":"ListItem","position":7,"item":{"@type":"SoftwareApplication","name":"CatVTON","applicationCategory":"DeveloperApplication","description":"ИИ-примерка одежды на фото. Чем ценно: показываешь товар на модели без съёмок.","url":"https://github.com/Zheng-Chong/CatVTON","codeRepository":"https://github.com/Zheng-Chong/CatVTON","offers":{"@type":"Offer","price":"0","priceCurrency":"USD"}}}]}]}
 </script>
 <!-- meta:start (генерируется _tools/hygiene/pages.mjs) -->
 <link rel="manifest" href="/manifest.webmanifest" />
@@ -395,7 +401,7 @@ body{padding-left:248px}
       </ol>
     </nav>
     <h1>Картинки и дизайн: опенсорс вместо платных редакторов</h1>
-    <p class="updated">Обновлено <time datetime="2026-08-03">3 августа 2026</time> · <b>5</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 164 опенсорс-решений</a></p>
+    <p class="updated">Обновлено <time datetime="2026-08-06">6 августа 2026</time> · <b>7</b>&nbsp;проектов · часть каталога <a href="/opensource/">из 174 опенсорс-решений</a></p>
     <p class="lead">Генерация изображений, редакторы и специализированные инструменты вроде виртуальной примерки. Свободные альтернативы платным графическим пакетам.</p>
     <div class="btnrow">
       <a class="btn btn-ghost" href="/opensource/">← Весь каталог</a>
@@ -408,39 +414,53 @@ body{padding-left:248px}
   <div class="wrap">
     <div class="sec-head">
       <p class="kicker">Картинки и дизайн</p>
-      <h2 id="list-h">5&nbsp;проектов в категории</h2>
+      <h2 id="list-h">7&nbsp;проектов в категории</h2>
     </div>
     <ul class="grid">
-        <li class="card" data-cat="image" data-name="Fooocus" id="repo-lllyasviel-fooocus">
-          <span class="tag">Картинки и дизайн</span>
+        <li class="card" data-cat="image" data-name="ComfyUI" data-stars="125334" id="repo-comfyanonymous-comfyui">
+          <span class="cardtop"><span class="tag">Картинки и дизайн</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 125 тыс</span></span>
+          <h4><a href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener">ComfyUI</a></h4>
+          <p class="repo"><code>comfyanonymous/ComfyUI</code></p>
+          <p class="d">Узловой редактор для генерации изображений: конвейер собирается из блоков. <b>Чем ценно:</b> повторяемый результат — один раз собранная схема выдаёт стабильное качество, а не случайную картинку.</p>
+          <a class="gh" href="https://github.com/comfyanonymous/ComfyUI" target="_blank" rel="noopener" aria-label="Открыть ComfyUI на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="image" data-name="Stable Diffusion" data-stars="73302" id="repo-compvis-stable-diffusion">
+          <span class="cardtop"><span class="tag">Картинки и дизайн</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 73 тыс</span></span>
+          <h4><a href="https://github.com/CompVis/stable-diffusion" target="_blank" rel="noopener">Stable Diffusion</a></h4>
+          <p class="repo"><code>CompVis/stable-diffusion</code></p>
+          <p class="d">Модель генерации изображений по текстовому описанию. <b>Чем ценно:</b> работает локально и бесплатно — картинки для контента без подписки и без ограничений на использование.</p>
+          <a class="gh" href="https://github.com/CompVis/stable-diffusion" target="_blank" rel="noopener" aria-label="Открыть Stable Diffusion на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
+        </li>
+        <li class="card" data-cat="image" data-name="Fooocus" data-stars="52130" id="repo-lllyasviel-fooocus">
+          <span class="cardtop"><span class="tag">Картинки и дизайн</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 52 тыс</span></span>
           <h4><a href="https://github.com/lllyasviel/Fooocus" target="_blank" rel="noopener">Fooocus</a></h4>
           <p class="repo"><code>lllyasviel/Fooocus</code></p>
           <p class="d">Офлайн-генерация картинок на своей видеокарте. <b>Чем ценно:</b> качество уровня Midjourney бесплатно и приватно.</p>
           <a class="gh" href="https://github.com/lllyasviel/Fooocus" target="_blank" rel="noopener" aria-label="Открыть Fooocus на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="image" data-name="PhotoGIMP" id="repo-diolinux-photogimp">
-          <span class="tag">Картинки и дизайн</span>
+        <li class="card" data-cat="image" data-name="PhotoGIMP" data-stars="17347" id="repo-diolinux-photogimp">
+          <span class="cardtop"><span class="tag">Картинки и дизайн</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 17 тыс</span></span>
           <h4><a href="https://github.com/Diolinux/PhotoGIMP" target="_blank" rel="noopener">PhotoGIMP</a></h4>
           <p class="repo"><code>Diolinux/PhotoGIMP</code></p>
           <p class="d">Патч, превращающий GIMP в подобие Photoshop. <b>Чем ценно:</b> привычный редактор бесплатно и без подписки.</p>
           <a class="gh" href="https://github.com/Diolinux/PhotoGIMP" target="_blank" rel="noopener" aria-label="Открыть PhotoGIMP на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="image" data-name="Piskel" id="repo-piskelapp-piskel">
-          <span class="tag">Картинки и дизайн</span>
+        <li class="card" data-cat="image" data-name="Piskel" data-stars="12689" id="repo-piskelapp-piskel">
+          <span class="cardtop"><span class="tag">Картинки и дизайн</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 13 тыс</span></span>
           <h4><a href="https://github.com/piskelapp/piskel" target="_blank" rel="noopener">Piskel</a></h4>
           <p class="repo"><code>piskelapp/piskel</code></p>
           <p class="d">Редактор пиксель-арта и спрайтов. <b>Чем ценно:</b> быстро рисуешь ассеты для игр и иконок.</p>
           <a class="gh" href="https://github.com/piskelapp/piskel" target="_blank" rel="noopener" aria-label="Открыть Piskel на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="image" data-name="Edit-Banana" id="repo-bit-datalab-edit-banana">
-          <span class="tag">Картинки и дизайн</span>
+        <li class="card" data-cat="image" data-name="Edit-Banana" data-stars="5453" id="repo-bit-datalab-edit-banana">
+          <span class="cardtop"><span class="tag">Картинки и дизайн</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 5 тыс</span></span>
           <h4><a href="https://github.com/BIT-DataLab/Edit-Banana" target="_blank" rel="noopener">Edit-Banana</a></h4>
           <p class="repo"><code>BIT-DataLab/Edit-Banana</code></p>
           <p class="d">Редактирование текста прямо внутри картинок. <b>Чем ценно:</b> правишь надписи на изображениях без ручного перерисовывания.</p>
           <a class="gh" href="https://github.com/BIT-DataLab/Edit-Banana" target="_blank" rel="noopener" aria-label="Открыть Edit-Banana на GitHub"><svg aria-hidden="true" focusable="false"><use href="#i-gh"/></svg> Открыть на GitHub</a>
         </li>
-        <li class="card" data-cat="image" data-name="CatVTON" id="repo-zheng-chong-catvton">
-          <span class="tag">Картинки и дизайн</span>
+        <li class="card" data-cat="image" data-name="CatVTON" data-stars="1817" id="repo-zheng-chong-catvton">
+          <span class="cardtop"><span class="tag">Картинки и дизайн</span><span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ 2 тыс</span></span>
           <h4><a href="https://github.com/Zheng-Chong/CatVTON" target="_blank" rel="noopener">CatVTON</a></h4>
           <p class="repo"><code>Zheng-Chong/CatVTON</code></p>
           <p class="d">ИИ-примерка одежды на фото. <b>Чем ценно:</b> показываешь товар на модели без съёмок.</p>
@@ -456,14 +476,14 @@ body{padding-left:248px}
     <div class="sec-head">
       <p class="kicker">Другие категории</p>
       <h2 id="other-h">Смотрите также</h2>
-      <p>Весь каталог — <a href="/opensource/">164 опенсорс-решений в 19 категориях</a>.</p>
+      <p>Весь каталог — <a href="/opensource/">174 опенсорс-решений в 20 категориях</a>.</p>
     </div>
     <nav aria-label="Другие категории каталога">
       <ul class="catnav">
-        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">13</span></a></li>
+        <li><a href="/opensource/ai-agents/">AI-агенты<span class="c">15</span></a></li>
         <li><a href="/opensource/claude-code/">Claude Code / Codex<span class="c">17</span></a></li>
         <li><a href="/opensource/dev-tools/">Разработка кода<span class="c">12</span></a></li>
-        <li><a href="/opensource/video/">Видео<span class="c">9</span></a></li>
+        <li><a href="/opensource/video/">Видео<span class="c">8</span></a></li>
         <li><a href="/opensource/voice/">Голос и речь<span class="c">7</span></a></li>
         <li><a href="/opensource/ocr/">OCR и документы<span class="c">3</span></a></li>
         <li><a href="/opensource/self-hosted/">Замены сервисов<span class="c">12</span></a></li>
@@ -474,10 +494,11 @@ body{padding-left:248px}
         <li><a href="/opensource/data/">Данные и API<span class="c">3</span></a></li>
         <li><a href="/opensource/scraping/">Веб-скрапинг<span class="c">10</span></a></li>
         <li><a href="/opensource/finance/">Финансы<span class="c">6</span></a></li>
-        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">6</span></a></li>
+        <li><a href="/opensource/local-ai/">Локальный AI<span class="c">7</span></a></li>
         <li><a href="/opensource/infrastructure/">Инфраструктура<span class="c">15</span></a></li>
         <li><a href="/opensource/media/">Медиа и разное<span class="c">7</span></a></li>
         <li><a href="/opensource/mcp/">MCP-серверы<span class="c">2</span></a></li>
+        <li><a href="/opensource/machine-learning/">Основы машинного обучения<span class="c">6</span></a></li>
       </ul>
     </nav>
     <p style="margin-top:26px;font-size:15px;color:var(--muted);">
