@@ -178,7 +178,7 @@
       "title": "Опенсорс для веб-скрапинга — 10 библиотек: Firecrawl, Scrapy",
       "description": "Библиотеки и фреймворки для сбора данных с сайтов: Firecrawl, Crawl4AI, Crawlee, Scrapy, Pydoll, Trafilatura.",
       "intro": "Сбор и очистка данных с сайтов — от готовых сервисов-краулеров до низкоуровневых парсеров. Часть проектов сразу отдаёт результат в формате, пригодном для скармливания языковой модели.",
-      "count": 10
+      "count": 14
     },
     {
       "key": "finance",
@@ -247,42 +247,42 @@
       "repo": "All-Hands-AI/OpenHands",
       "cat": "agents",
       "desc": "Автономный ИИ-агент, который сам пишет, запускает и правит код. <b>Чем ценно:</b> закрывает целые задачи, пока ты занят стратегией — как junior-разработчик на автопилоте.",
-      "stars": 83539
+      "stars": 83547
     },
     {
       "name": "Dify",
       "repo": "langgenius/dify",
       "cat": "agents",
       "desc": "Платформа для сборки ИИ-агентов и LLM-приложений почти без кода. <b>Чем ценно:</b> собираешь рабочего бота или ассистента за часы, а не за недели.",
-      "stars": 151862
+      "stars": 151867
     },
     {
       "name": "Browser Use",
       "repo": "browser-use/browser-use",
       "cat": "agents",
       "desc": "ИИ-агент, который управляет браузером как человек: кликает, заполняет, парсит. <b>Чем ценно:</b> автоматизируешь любые действия на сайтах даже там, где нет API.",
-      "stars": 108464
+      "stars": 108472
     },
     {
       "name": "CrewAI",
       "repo": "crewAIInc/crewAI",
       "cat": "agents",
       "desc": "Фреймворк для команды ИИ-агентов, где у каждого своя роль. <b>Чем ценно:</b> сложный процесс делишь между агентами и получаешь результат на автомате.",
-      "stars": 56858
+      "stars": 56862
     },
     {
       "name": "LangGraph",
       "repo": "langchain-ai/langgraph",
       "cat": "agents",
       "desc": "Оркестратор агентов с памятью и состоянием. <b>Чем ценно:</b> строишь надёжные многошаговые сценарии, которые не разваливаются на полпути.",
-      "stars": 39299
+      "stars": 39305
     },
     {
       "name": "mem0",
       "repo": "mem0ai/mem0",
       "cat": "agents",
       "desc": "Долговременная память для ИИ. <b>Чем ценно:</b> ассистент помнит контекст между сессиями — перестаёшь объяснять одно и то же по кругу.",
-      "stars": 62869
+      "stars": 62875
     },
     {
       "name": "Claude Task Master",
@@ -296,147 +296,147 @@
       "repo": "elie222/inbox-zero",
       "cat": "agents",
       "desc": "ИИ-ассистент для почты: сортирует, отвечает, чистит. <b>Чем ценно:</b> разгребаешь входящие в разы быстрее и держишь ноль в инбоксе.",
-      "stars": 11921
+      "stars": 11922
     },
     {
       "name": "Agent Skills",
       "repo": "addyosmani/agent-skills",
       "cat": "agents",
       "desc": "Готовые навыки для ИИ-агентов разработки. <b>Чем ценно:</b> подключаешь проверенные умения вместо того, чтобы собирать их с нуля.",
-      "stars": 84996
+      "stars": 85052
     },
     {
       "name": "Agency Agents",
       "repo": "msitarzewski/agency-agents",
       "cat": "agents",
       "desc": "Библиотека готовых ИИ-агентов под Claude Code, Cursor и Codex. <b>Чем ценно:</b> берёшь нужного агента и сразу в бой — экономишь дни настройки.",
-      "stars": 140470
+      "stars": 140554
     },
     {
       "name": "Agent Reach",
       "repo": "Panniantong/agent-reach",
       "cat": "agents",
       "desc": "Даёт агенту доступ в интернет — соцсети, GitHub, YouTube. <b>Чем ценно:</b> агент работает со свежими реальными данными, а не только со своей памятью.",
-      "stars": 69612
+      "stars": 69647
     },
     {
       "name": "Agent Memory",
       "repo": "rohitg00/agentmemory",
       "cat": "agents",
       "desc": "Долговременная память для агентов. <b>Чем ценно:</b> накапливает знания о проекте и пользователе, делая ответы точнее со временем.",
-      "stars": 26782
+      "stars": 26786
     },
     {
       "name": "OpenJarvis",
       "repo": "open-jarvis/OpenJarvis",
       "cat": "agents",
       "desc": "Опенсорс-фреймворк от Stanford для персональных ИИ-агентов, работающих полностью на устройстве. <b>Чем ценно:</b> личный ИИ без облака — данные остаются у тебя, есть локальное обучение и готовые примитивы (Apache 2.0).",
-      "stars": 8472
+      "stars": 8476
     },
     {
       "name": "Skills",
       "repo": "mattpocock/skills",
       "cat": "claude",
       "desc": "Набор AI-навыков для инженеров от известного автора. <b>Чем ценно:</b> превращает ИИ из болталки в реального помощника по коду.",
-      "stars": 210908
+      "stars": 210997
     },
     {
       "name": "Awesome Claude Code",
       "repo": "hesreallyhim/awesome-claude-code",
       "cat": "claude",
       "desc": "Крупнейшая подборка навыков, хуков и команд для Claude Code. <b>Чем ценно:</b> одна точка входа во всё, что усиливает твой рабочий процесс.",
-      "stars": 51982
+      "stars": 51991
     },
     {
       "name": "Superpowers",
       "repo": "obra/superpowers",
       "cat": "claude",
       "desc": "Набор навыков: TDD, код-ревью, планирование, автономные агенты. <b>Чем ценно:</b> прокачивает Claude Code до уровня целой команды.",
-      "stars": 269653
+      "stars": 269684
     },
     {
       "name": "CC Switch",
       "repo": "farion1231/cc-switch",
       "cat": "claude",
       "desc": "Менеджер Claude Code и Gemini CLI: ключи, MCP, промпты, сессии. <b>Чем ценно:</b> переключаешь конфигурации в один клик и не путаешься в настройках.",
-      "stars": 125924
+      "stars": 125929
     },
     {
       "name": "gstack",
       "repo": "garrytan/gstack",
       "cat": "claude",
       "desc": "AI-навыки под роли: разработчик, дизайнер, менеджер, QA. <b>Чем ценно:</b> один агент закрывает функции целой продуктовой команды.",
-      "stars": 127145
+      "stars": 127164
     },
     {
       "name": "SuperClaude Framework",
       "repo": "SuperClaude-Org/SuperClaude_Framework",
       "cat": "claude",
       "desc": "30 команд, агенты и интеграция с MCP. <b>Чем ценно:</b> готовый каркас, чтобы выжать из Claude Code максимум с первого дня.",
-      "stars": 23812
+      "stars": 23813
     },
     {
       "name": "Free Claude Code",
       "repo": "Alishahryar1/free-claude-code",
       "cat": "claude",
       "desc": "Прокси для бесплатного доступа к Claude Code через разных провайдеров. <b>Чем ценно:</b> тестируешь и работаешь, экономя на подписке.",
-      "stars": 45033
+      "stars": 45041
     },
     {
       "name": "System Prompts Leaks",
       "repo": "asgeirtj/system_prompts_leaks",
       "cat": "claude",
       "desc": "Коллекция системных промптов топовых ИИ. <b>Чем ценно:</b> подсматриваешь, как устроены лучшие, и усиливаешь свои промпты.",
-      "stars": 62621
+      "stars": 62624
     },
     {
       "name": "CL4R1T4S",
       "repo": "elder-plinius/CL4R1T4S",
       "cat": "claude",
       "desc": "Системные промпты моделей и агентов в одном месте. <b>Чем ценно:</b> понимаешь, как модели «думают», и пишешь запросы точнее.",
-      "stars": 46814
+      "stars": 46817
     },
     {
       "name": "Awesome Design MD",
       "repo": "VoltAgent/awesome-design-md",
       "cat": "claude",
       "desc": "Готовые DESIGN.md по дизайн-системам брендов. <b>Чем ценно:</b> даёшь агенту вкус — и он верстает не «дженерик», а красиво.",
-      "stars": 107430
+      "stars": 107440
     },
     {
       "name": "OfficeCLI",
       "repo": "iOfficeAI/OfficeCLI",
       "cat": "claude",
       "desc": "CLI для агентов: Word, Excel, PowerPoint без установленного Office. <b>Чем ценно:</b> автоматизируешь отчёты и презентации прямо из терминала.",
-      "stars": 27037
+      "stars": 27054
     },
     {
       "name": "Impeccable",
       "repo": "pbakaus/impeccable",
       "cat": "claude",
       "desc": "Дизайн-навык, который правит фронтенд прямо в браузере. <b>Чем ценно:</b> агент чинит вёрстку и «слоп» вживую, без бесконечных итераций.",
-      "stars": 57333
+      "stars": 57365
     },
     {
       "name": "AI Job Search",
       "repo": "MadsLorentzen/ai-job-search",
       "cat": "claude",
       "desc": "Фреймворк на Claude Code для поиска работы. <b>Чем ценно:</b> автоматизирует отклики и подготовку — экономит десятки часов.",
-      "stars": 30943
+      "stars": 30950
     },
     {
       "name": "Stop Slop",
       "repo": "hardikpandya/stop-slop",
       "cat": "claude",
       "desc": "Навык, который убирает «AI-шный» стиль из текста. <b>Чем ценно:</b> тексты звучат по-человечески, а не как шаблонная нейронка.",
-      "stars": 15388
+      "stars": 15392
     },
     {
       "name": "Cybersecurity Skills",
       "repo": "mukul975/Anthropic-Cybersecurity-Skills",
       "cat": "claude",
       "desc": "Большой набор навыков по кибербезопасности. <b>Чем ценно:</b> подключаешь экспертизу по защите, не будучи спецом.",
-      "stars": 27503
+      "stars": 27507
     },
     {
       "name": "Awesome Claude Plugins",
@@ -450,70 +450,70 @@
       "repo": "Cocoon-AI/architecture-diagram-generator",
       "cat": "claude",
       "desc": "Скилл для Claude, который генерирует схемы архитектуры систем в виде HTML/SVG. <b>Чем ценно:</b> описываешь систему словами — получаешь готовую тёмную диаграмму с экспортом в PNG и PDF.",
-      "stars": 6852
+      "stars": 6853
     },
     {
       "name": "Understand Anything",
       "repo": "Egonex-AI/Understand-Anything",
       "cat": "code",
       "desc": "Превращает код и документацию в интерактивную карту знаний. <b>Чем ценно:</b> за минуты разбираешься в чужом проекте, на который ушли бы дни.",
-      "stars": 78491
+      "stars": 78520
     },
     {
       "name": "Codebase Memory MCP",
       "repo": "DeusData/codebase-memory-mcp",
       "cat": "code",
       "desc": "MCP-сервер: граф знаний по всей кодовой базе (155 языков). <b>Чем ценно:</b> ИИ видит связи в проекте целиком и не теряет контекст.",
-      "stars": 38277
+      "stars": 38282
     },
     {
       "name": "CodeGraph",
       "repo": "colbymchenry/codegraph",
       "cat": "code",
       "desc": "MCP, строящий граф связей кода. <b>Чем ценно:</b> агент понимает архитектуру и правит без побочных поломок.",
-      "stars": 65570
+      "stars": 65573
     },
     {
       "name": "Open Code Review",
       "repo": "alibaba/open-code-review",
       "cat": "code",
       "desc": "Автоматическое код-ревью с ИИ по Git-диффам. <b>Чем ценно:</b> ловит баги и слабые места до того, как они уедут в прод.",
-      "stars": 19794
+      "stars": 19800
     },
     {
       "name": "OpenWiki",
       "repo": "langchain-ai/openwiki",
       "cat": "code",
       "desc": "CLI для авто-документации кода. <b>Чем ценно:</b> свежая документация без ручной писанины — экономит часы.",
-      "stars": 14779
+      "stars": 14782
     },
     {
       "name": "TurboVec",
       "repo": "RyanCodrai/turbovec",
       "cat": "code",
       "desc": "Векторная база на Rust со сжатием эмбеддингов. <b>Чем ценно:</b> быстрый и дешёвый поиск по смыслу для RAG и ассистентов.",
-      "stars": 14697
+      "stars": 14698
     },
     {
       "name": "AI Website Cloner",
       "repo": "JCodesMore/ai-website-cloner-template",
       "cat": "code",
       "desc": "Клонирует сайты в готовый код на Next.js. <b>Чем ценно:</b> получаешь стартовую вёрстку за минуты, а не собираешь по кусочкам.",
-      "stars": 31435
+      "stars": 31455
     },
     {
       "name": "anime.js",
       "repo": "juliangarnier/anime",
       "cat": "code",
       "desc": "Лёгкая библиотека веб-анимаций. <b>Чем ценно:</b> делаешь интерфейс «дорогим» без тяжёлых зависимостей.",
-      "stars": 71994
+      "stars": 71995
     },
     {
       "name": "xyflow",
       "repo": "xyflow/xyflow",
       "cat": "code",
       "desc": "Библиотека нод-редакторов для React и Svelte. <b>Чем ценно:</b> собираешь схемы, воронки и flow-редакторы без велосипедов.",
-      "stars": 37960
+      "stars": 37961
     },
     {
       "name": "H2O Wave",
@@ -534,35 +534,35 @@
       "repo": "fastapi/full-stack-fastapi-template",
       "cat": "code",
       "desc": "Готовый шаблон fullstack-приложения на FastAPI и React от автора FastAPI. <b>Чем ценно:</b> старт с авторизацией, Docker, CI/CD, PostgreSQL и автогенерацией TypeScript-клиента из OpenAPI.",
-      "stars": 44691
+      "stars": 44694
     },
     {
       "name": "MoneyPrinterTurbo",
       "repo": "harry0703/MoneyPrinterTurbo",
       "cat": "video",
       "desc": "Авто-генерация коротких видео для TikTok и YouTube. <b>Чем ценно:</b> из темы получаешь готовый ролик — контент-конвейер на автопилоте.",
-      "stars": 102320
+      "stars": 102323
     },
     {
       "name": "OpenMontage",
       "repo": "calesthio/OpenMontage",
       "cat": "video",
       "desc": "Агентная система производства видео. <b>Чем ценно:</b> монтаж и сборка под управлением ИИ — экономишь часы на рутине.",
-      "stars": 46259
+      "stars": 46281
     },
     {
       "name": "Hyperframes",
       "repo": "heygen-com/hyperframes",
       "cat": "video",
       "desc": "Генерация видео прямо из HTML-кода. <b>Чем ценно:</b> собираешь ролики как веб-страницы и версионируешь их как код.",
-      "stars": 40210
+      "stars": 40226
     },
     {
       "name": "Pixelle Video",
       "repo": "AIDC-AI/Pixelle-Video",
       "cat": "video",
       "desc": "AI-движок коротких видео на базе ComfyUI. <b>Чем ценно:</b> пайплайн для быстрой генерации контента пачками.",
-      "stars": 26598
+      "stars": 26599
     },
     {
       "name": "OpenShot",
@@ -583,7 +583,7 @@
       "repo": "meituan-longcat/LongCat-Video",
       "cat": "video",
       "desc": "Опенсорс-генератор говорящих аватаров от Meituan (бесплатная альтернатива HeyGen): фото + аудио → реалистичный аватар с лип-синком. <b>Чем ценно:</b> запускается локально через ComfyUI и держит стабильность персонажа даже с несколькими людьми в кадре.",
-      "stars": 6686
+      "stars": 6688
     },
     {
       "name": "Palmier Pro",
@@ -597,14 +597,14 @@
       "repo": "lllyasviel/Fooocus",
       "cat": "image",
       "desc": "Офлайн-генерация картинок на своей видеокарте. <b>Чем ценно:</b> качество уровня Midjourney бесплатно и приватно.",
-      "stars": 52130
+      "stars": 52135
     },
     {
       "name": "PhotoGIMP",
       "repo": "Diolinux/PhotoGIMP",
       "cat": "image",
       "desc": "Патч, превращающий GIMP в подобие Photoshop. <b>Чем ценно:</b> привычный редактор бесплатно и без подписки.",
-      "stars": 17347
+      "stars": 17348
     },
     {
       "name": "Piskel",
@@ -632,7 +632,7 @@
       "repo": "openai/whisper",
       "cat": "voice",
       "desc": "Распознавание речи на 99 языках. <b>Чем ценно:</b> превращаешь любое аудио и видео в текст — субтитры, расшифровки, поиск.",
-      "stars": 106968
+      "stars": 106969
     },
     {
       "name": "Faster Whisper",
@@ -646,28 +646,28 @@
       "repo": "myshell-ai/OpenVoice",
       "cat": "voice",
       "desc": "Клонирование голоса. <b>Чем ценно:</b> озвучиваешь контент своим голосом на любом языке.",
-      "stars": 37111
+      "stars": 37114
     },
     {
       "name": "VoxCPM",
       "repo": "OpenBMB/VoxCPM",
       "cat": "voice",
       "desc": "Синтез речи, 30 языков, с клонированием. <b>Чем ценно:</b> локальная озвучка для видео, ботов и приложений.",
-      "stars": 35133
+      "stars": 35135
     },
     {
       "name": "Pocket TTS",
       "repo": "kyutai-labs/pocket-tts",
       "cat": "voice",
       "desc": "Лёгкая TTS-модель для CPU. <b>Чем ценно:</b> голос в приложении без мощного железа и подписок.",
-      "stars": 8207
+      "stars": 8214
     },
     {
       "name": "Kokoro",
       "repo": "hexgrad/kokoro",
       "cat": "voice",
       "desc": "Локальный синтез речи. <b>Чем ценно:</b> качественная озвучка бесплатно и приватно.",
-      "stars": 8345
+      "stars": 8346
     },
     {
       "name": "Amphion",
@@ -681,63 +681,63 @@
       "repo": "Stirling-Tools/Stirling-PDF",
       "cat": "ocr",
       "desc": "Целый комбайн инструментов для PDF. <b>Чем ценно:</b> режешь, сшиваешь и конвертируешь документы на своём сервере — приватно.",
-      "stars": 89196
+      "stars": 89201
     },
     {
       "name": "Chandra",
       "repo": "datalab-to/chandra",
       "cat": "ocr",
       "desc": "OCR-модель с выводом в Markdown/HTML/JSON. <b>Чем ценно:</b> вытаскиваешь текст и структуру из сканов автоматически.",
-      "stars": 12012
+      "stars": 12015
     },
     {
       "name": "Unlimited OCR",
       "repo": "baidu/Unlimited-OCR",
       "cat": "ocr",
       "desc": "OCR-модель на базе DeepSeek-OCR. <b>Чем ценно:</b> распознаёт текст из фото и документов — конец ручному перенабору.",
-      "stars": 22953
+      "stars": 22981
     },
     {
       "name": "immich",
       "repo": "immich-app/immich",
       "cat": "selfhost",
       "desc": "Своё облако для фото и видео (замена Google Photos). <b>Чем ценно:</b> бэкап и галерея под твоим контролем, без платы за место.",
-      "stars": 110065
+      "stars": 110073
     },
     {
       "name": "AppFlowy",
       "repo": "AppFlowy-IO/AppFlowy",
       "cat": "selfhost",
       "desc": "Открытая замена Notion. <b>Чем ценно:</b> заметки и базы знаний без подписки и с полным владением данными.",
-      "stars": 75128
+      "stars": 75130
     },
     {
       "name": "NocoDB",
       "repo": "nocodb/nocodb",
       "cat": "selfhost",
       "desc": "Превращает базу данных в таблицы как Airtable. <b>Чем ценно:</b> no-code база для команды бесплатно.",
-      "stars": 64475
+      "stars": 64477
     },
     {
       "name": "Memos",
       "repo": "usememos/memos",
       "cat": "selfhost",
       "desc": "Лёгкие заметки на своём сервере. <b>Чем ценно:</b> быстрый дневник идей, который принадлежит только тебе.",
-      "stars": 62126
+      "stars": 62129
     },
     {
       "name": "Jellyfin",
       "repo": "jellyfin/jellyfin",
       "cat": "selfhost",
       "desc": "Свой медиасервер (замена Plex). <b>Чем ценно:</b> домашний Netflix из своей коллекции, без абонплаты.",
-      "stars": 55576
+      "stars": 55578
     },
     {
       "name": "Penpot",
       "repo": "penpot/penpot",
       "cat": "selfhost",
       "desc": "Открытая замена Figma. <b>Чем ценно:</b> дизайн и прототипы бесплатно, без лимитов на проекты.",
-      "stars": 58320
+      "stars": 58323
     },
     {
       "name": "ToolJet",
@@ -751,14 +751,14 @@
       "repo": "nextcloud/server",
       "cat": "selfhost",
       "desc": "Своё облако для файлов (замена Google Drive). <b>Чем ценно:</b> хранилище и совместная работа под твоим контролем.",
-      "stars": 36369
+      "stars": 36370
     },
     {
       "name": "Open Notebook",
       "repo": "lfnovo/open-notebook",
       "cat": "selfhost",
       "desc": "Открытая замена Google NotebookLM. <b>Чем ценно:</b> ИИ-ассистент по твоим документам, приватно.",
-      "stars": 36552
+      "stars": 36559
     },
     {
       "name": "Docmost",
@@ -772,7 +772,7 @@
       "repo": "haiwen/seafile",
       "cat": "selfhost",
       "desc": "Файловое хранилище с синхронизацией (замена Dropbox). <b>Чем ценно:</b> быстрый и надёжный обмен файлами на своём сервере.",
-      "stars": 15085
+      "stars": 15087
     },
     {
       "name": "Baserow",
@@ -786,21 +786,21 @@
       "repo": "supabase/supabase",
       "cat": "saas",
       "desc": "Готовый бэкенд с базой, авторизацией и API (замена Firebase). <b>Чем ценно:</b> запускаешь продукт, не написав бэкенд с нуля.",
-      "stars": 107735
+      "stars": 107746
     },
     {
       "name": "PocketBase",
       "repo": "pocketbase/pocketbase",
       "cat": "saas",
       "desc": "Бэкенд в одном файле. <b>Чем ценно:</b> база, авторизация и API за минуты — идеально для MVP.",
-      "stars": 60572
+      "stars": 60574
     },
     {
       "name": "Coolify",
       "repo": "coollabsio/coolify",
       "cat": "saas",
       "desc": "Свой деплой и хостинг (замена Vercel/Heroku). <b>Чем ценно:</b> катаешь приложения на своём сервере и не платишь за трафик.",
-      "stars": 60293
+      "stars": 60299
     },
     {
       "name": "Ghost",
@@ -814,56 +814,56 @@
       "repo": "makeplane/plane",
       "cat": "saas",
       "desc": "Трекер задач (замена Jira/Linear). <b>Чем ценно:</b> ведёшь проекты и спринты бесплатно и без перегруза.",
-      "stars": 55742
+      "stars": 55749
     },
     {
       "name": "Twenty",
       "repo": "twentyhq/twenty",
       "cat": "saas",
       "desc": "Открытая CRM (замена Salesforce). <b>Чем ценно:</b> клиентская база и сделки без дорогих лицензий.",
-      "stars": 54572
+      "stars": 54577
     },
     {
       "name": "Cal.com",
       "repo": "calcom/cal.com",
       "cat": "saas",
       "desc": "Запись и расписания (замена Calendly). <b>Чем ценно:</b> бронирование встреч на своём домене, без комиссий.",
-      "stars": 47378
+      "stars": 47379
     },
     {
       "name": "PostHog",
       "repo": "PostHog/posthog",
       "cat": "saas",
       "desc": "Продуктовая аналитика (замена Mixpanel). <b>Чем ценно:</b> видишь поведение пользователей и точки роста в одном месте.",
-      "stars": 37578
+      "stars": 37579
     },
     {
       "name": "Medusa",
       "repo": "medusajs/medusa",
       "cat": "saas",
       "desc": "Движок интернет-магазина (замена Shopify). <b>Чем ценно:</b> гибкий e-commerce без ежемесячной ренты платформе.",
-      "stars": 35686
+      "stars": 35688
     },
     {
       "name": "Chatwoot",
       "repo": "chatwoot/chatwoot",
       "cat": "saas",
       "desc": "Чат с клиентами и поддержка (замена Intercom). <b>Чем ценно:</b> вся коммуникация с клиентами в одном окне, дёшево.",
-      "stars": 35655
+      "stars": 35660
     },
     {
       "name": "Plausible",
       "repo": "plausible/analytics",
       "cat": "saas",
       "desc": "Веб-аналитика без кук (замена Google Analytics). <b>Чем ценно:</b> понятная статистика и приватность посетителей из коробки.",
-      "stars": 28445
+      "stars": 28444
     },
     {
       "name": "Listmonk",
       "repo": "knadh/listmonk",
       "cat": "saas",
       "desc": "Движок email-рассылок (замена Mailchimp). <b>Чем ценно:</b> шлёшь письма тысячам подписчиков за копейки.",
-      "stars": 22681
+      "stars": 22682
     },
     {
       "name": "Formbricks",
@@ -877,14 +877,14 @@
       "repo": "keycloak/keycloak",
       "cat": "saas",
       "desc": "Авторизация и SSO из коробки. <b>Чем ценно:</b> безопасный вход и управление доступом без своей велосипедной системы.",
-      "stars": 36086
+      "stars": 36089
     },
     {
       "name": "Sentry",
       "repo": "getsentry/sentry",
       "cat": "saas",
       "desc": "Отслеживание ошибок в проде. <b>Чем ценно:</b> узнаёшь о сбоях раньше пользователей и чинишь быстрее.",
-      "stars": 44498
+      "stars": 44499
     },
     {
       "name": "GrowthBook",
@@ -898,21 +898,21 @@
       "repo": "umami-software/umami",
       "cat": "saas",
       "desc": "Веб-аналитика без кук на своём сервере (лёгкая альтернатива Google Analytics). <b>Чем ценно:</b> понятная статистика и приватность посетителей за копейки на своём VPS.",
-      "stars": 38123
+      "stars": 38124
     },
     {
       "name": "n8n",
       "repo": "n8n-io/n8n",
       "cat": "automation",
       "desc": "Автоматизация процессов (замена Zapier), 400+ интеграций. <b>Чем ценно:</b> связываешь сервисы и убираешь ручную рутину без кода.",
-      "stars": 199953
+      "stars": 199972
     },
     {
       "name": "Nango",
       "repo": "nangohq/nango",
       "cat": "automation",
       "desc": "Подключение к 700+ API с готовой авторизацией. <b>Чем ценно:</b> интеграции за часы вместо недель возни с OAuth.",
-      "stars": 11391
+      "stars": 11393
     },
     {
       "name": "Portkey Gateway",
@@ -926,7 +926,7 @@
       "repo": "diegosouzapw/OmniRoute",
       "cat": "automation",
       "desc": "AI-шлюз к сотням провайдеров. <b>Чем ценно:</b> один ключ ко множеству моделей — гибкость и экономия.",
-      "stars": 44096
+      "stars": 44166
     },
     {
       "name": "Automa",
@@ -940,35 +940,35 @@
       "repo": "evolution-foundation/evolution-api",
       "cat": "automation",
       "desc": "Опенсорс-API для WhatsApp: отправка сообщений, чат-боты, интеграция с CRM и ИИ-агентами. <b>Чем ценно:</b> готовая основа для автоматизации продаж и поддержки без платных сервисов.",
-      "stars": 9247
+      "stars": 9248
     },
     {
       "name": "Maigret",
       "repo": "soxoj/maigret",
       "cat": "security",
       "desc": "OSINT-поиск аккаунтов по нику на 3000+ сайтах. <b>Чем ценно:</b> быстрый ресёрч и проверка цифрового следа.",
-      "stars": 36271
+      "stars": 36273
     },
     {
       "name": "Apktool",
       "repo": "iBotPeaches/Apktool",
       "cat": "security",
       "desc": "Реверс-инжиниринг Android-приложений. <b>Чем ценно:</b> разбираешь APK, чтобы понять или проверить их изнутри.",
-      "stars": 25236
+      "stars": 25237
     },
     {
       "name": "Heretic",
       "repo": "p-e-w/heretic",
       "cat": "security",
       "desc": "Снятие ограничений с локальных LLM. <b>Чем ценно:</b> гибкая настройка моделей под свои задачи.",
-      "stars": 27238
+      "stars": 27240
     },
     {
       "name": "CyberStrikeAI",
       "repo": "Ed1s0nZ/CyberStrikeAI",
       "cat": "security",
       "desc": "AI-платформа для пентеста. <b>Чем ценно:</b> автоматизирует поиск уязвимостей — усиление для безопасников.",
-      "stars": 5639
+      "stars": 5640
     },
     {
       "name": "Flowsint",
@@ -982,14 +982,14 @@
       "repo": "elder-plinius/T3MP3ST",
       "cat": "security",
       "desc": "Мультиагентный offensive-security фреймворк. <b>Чем ценно:</b> команда ИИ-агентов для проверки защиты.",
-      "stars": 5491
+      "stars": 5495
     },
     {
       "name": "Deep Eye",
       "repo": "zakirkun/deep-eye",
       "cat": "security",
       "desc": "AI-сканер уязвимостей (SQLi, XSS и др.). <b>Чем ценно:</b> находит дыры в приложении до злоумышленников.",
-      "stars": 1912
+      "stars": 1914
     },
     {
       "name": "gowitness",
@@ -1003,28 +1003,28 @@
       "repo": "gorhill/uBlock",
       "cat": "privacy",
       "desc": "Лучший блокировщик рекламы. <b>Чем ценно:</b> чистый и быстрый интернет без слежки и баннеров.",
-      "stars": 66833
+      "stars": 66836
     },
     {
       "name": "CloakBrowser",
       "repo": "CloakHQ/CloakBrowser",
       "cat": "privacy",
       "desc": "Chromium с обходом антибота (замена Playwright). <b>Чем ценно:</b> стабильный парсинг там, где обычные боты палятся.",
-      "stars": 29790
+      "stars": 29791
     },
     {
       "name": "Bitwarden",
       "repo": "bitwarden/server",
       "cat": "privacy",
       "desc": "Менеджер паролей со сквозным шифрованием. <b>Чем ценно:</b> все пароли в безопасности, на своём сервере.",
-      "stars": 19797
+      "stars": 19798
     },
     {
       "name": "SpoofDPI",
       "repo": "xvzc/spoofdpi",
       "cat": "privacy",
       "desc": "Прокси для обхода DPI-блокировок. <b>Чем ценно:</b> доступ к нужным ресурсам без тяжёлого VPN.",
-      "stars": 4981
+      "stars": 4982
     },
     {
       "name": "Password Safe",
@@ -1045,14 +1045,14 @@
       "repo": "cporter202/API-mega-list",
       "cat": "data",
       "desc": "Тысячи готовых API по категориям. <b>Чем ценно:</b> находишь нужный источник данных за минуты.",
-      "stars": 7450
+      "stars": 7451
     },
     {
       "name": "Social Media Scraping APIs",
       "repo": "cporter202/social-media-scraping-apis",
       "cat": "data",
       "desc": "Сбор данных из соцсетей. <b>Чем ценно:</b> аналитика и лиды из открытых источников на автомате.",
-      "stars": 2110
+      "stars": 2111
     },
     {
       "name": "Google Maps Scrapper",
@@ -1066,35 +1066,35 @@
       "repo": "firecrawl/firecrawl",
       "cat": "scraping",
       "desc": "API, который превращает любой сайт в чистый Markdown для ИИ-пайплайнов — скрапинг, краулинг и извлечение данных в один запрос. <b>Чем ценно:</b> обходит антибот-защиты и работает с JS-сайтами, где обычные парсеры пасуют.",
-      "stars": 164068
+      "stars": 164116
     },
     {
       "name": "Crawl4AI",
       "repo": "unclecode/crawl4ai",
       "cat": "scraping",
       "desc": "Асинхронный краулер, заточенный под ИИ: выдаёт чистый Markdown из любого сайта. <b>Чем ценно:</b> извлечение данных через LLM и глубокий краулинг — готовый вход для RAG и агентов.",
-      "stars": 77537
+      "stars": 77549
     },
     {
       "name": "Crawlee",
       "repo": "apify/crawlee",
       "cat": "scraping",
       "desc": "Полноценный фреймворк для скрапинга на Node.js с ротацией прокси и user-агентов. <b>Чем ценно:</b> поддерживает Playwright и Puppeteer для JS-сайтов и готов к продакшену.",
-      "stars": 25304
+      "stars": 25307
     },
     {
       "name": "Scrapegraph-ai",
       "repo": "ScrapeGraphAI/Scrapegraph-ai",
       "cat": "scraping",
       "desc": "Скрапинг через LLM: описываешь словами, что извлечь, — ИИ сам строит пайплайн и парсит страницу. <b>Чем ценно:</b> не нужно вручную писать CSS-селекторы под каждый сайт.",
-      "stars": 29274
+      "stars": 29279
     },
     {
       "name": "Scrapy",
       "repo": "scrapy/scrapy",
       "cat": "scraping",
       "desc": "Самый популярный Python-фреймворк для скрапинга — асинхронный, с пайплайнами и мидлварами. <b>Чем ценно:</b> проверенный годами стандарт для больших и сложных парсеров.",
-      "stars": 63756
+      "stars": 63758
     },
     {
       "name": "Pydoll",
@@ -1108,14 +1108,14 @@
       "repo": "daijro/camoufox",
       "cat": "scraping",
       "desc": "Stealth-браузер на базе Firefox, который проходит антибот-тесты — Cloudflare, рекапчу, фингерпринтинг. <b>Чем ценно:</b> дроп-ин замена Playwright для сайтов, где обычные боты палятся.",
-      "stars": 10960
+      "stars": 10963
     },
     {
       "name": "Trafilatura",
       "repo": "adbar/trafilatura",
       "cat": "scraping",
       "desc": "Python-библиотека для извлечения текста и метаданных с веб-страниц — убирает навигацию, рекламу и мусор. <b>Чем ценно:</b> оставляет только основной контент и отдаёт его в Markdown, JSON или CSV.",
-      "stars": 6584
+      "stars": 6585
     },
     {
       "name": "Katana",
@@ -1136,42 +1136,42 @@
       "repo": "TauricResearch/TradingAgents",
       "cat": "finance",
       "desc": "Мультиагентный фреймворк для трейдинга. <b>Чем ценно:</b> моделируешь стратегии командой ИИ-аналитиков.",
-      "stars": 96841
+      "stars": 96852
     },
     {
       "name": "Kronos",
       "repo": "shiyu-coder/Kronos",
       "cat": "finance",
       "desc": "Foundation-модель для финансовых свечей. <b>Чем ценно:</b> прогнозы и анализ рынков на современной модели.",
-      "stars": 36265
+      "stars": 36274
     },
     {
       "name": "Anthropic Financial Services",
       "repo": "anthropics/financial-services",
       "cat": "finance",
       "desc": "Официальные ИИ-агенты Anthropic для финансов. <b>Чем ценно:</b> проверенные решения для финотрасли из первых рук.",
-      "stars": 34147
+      "stars": 34146
     },
     {
       "name": "Fincept Terminal",
       "repo": "Fincept-Corporation/FinceptTerminal",
       "cat": "finance",
       "desc": "Финтерминал уровня Bloomberg. <b>Чем ценно:</b> рыночные данные и аналитика без дорогой подписки.",
-      "stars": 30049
+      "stars": 30050
     },
     {
       "name": "TimesFM",
       "repo": "google-research/timesfm",
       "cat": "finance",
       "desc": "Готовая ИИ-модель от Google для прогнозирования временных рядов — продаж, спроса, метрик. <b>Чем ценно:</b> не нужно обучать с нуля: подаёшь исторические данные и получаешь прогноз.",
-      "stars": 27271
+      "stars": 27272
     },
     {
       "name": "Actual",
       "repo": "actualbudget/actual",
       "cat": "finance",
       "desc": "Local-first приложение для личных финансов и бюджета с открытым кодом. <b>Чем ценно:</b> данные хранятся локально, есть синхронизация между устройствами — без подписки и слежки.",
-      "stars": 28043
+      "stars": 28045
     },
     {
       "name": "Ollama",
@@ -1185,34 +1185,34 @@
       "repo": "yt-dlp/yt-dlp",
       "cat": "localai",
       "desc": "Загрузчик видео и аудио с сотен сайтов. <b>Чем ценно:</b> сохраняешь любой контент для работы и архива.",
-      "stars": 183477
+      "stars": 183497
     },
     {
       "name": "Mermaid",
       "repo": "mermaid-js/mermaid",
       "cat": "localai",
       "desc": "Диаграммы прямо из текста. <b>Чем ценно:</b> схемы и блок-схемы версионируются как код — правишь текстом.",
-      "stars": 89653
+      "stars": 89654
     },
     {
       "name": "IT Tools",
       "repo": "CorentinTh/it-tools",
       "cat": "localai",
       "desc": "200+ утилит для разработчиков в одном месте. <b>Чем ценно:</b> конвертеры, генераторы и хелперы без десятка вкладок.",
-      "stars": 40146
+      "stars": 40148
     },
     {
       "name": "Colibri",
       "repo": "JustVugg/colibri",
       "cat": "localai",
       "desc": "Движок на C для запуска больших моделей на ноутбуке. <b>Чем ценно:</b> тяжёлые LLM даже на слабом железе.",
-      "stars": 23465
+      "stars": 23477
     },
     {
       "name": "SingleFile",
       "repo": "gildas-lormeau/SingleFile",
       "cat": "localai",
-      "desc": "Браузерное расширение, сохраняющее всю веб-страницу в один HTML-файл — со стилями, картинками и шрифтами внутри. <b>Чем ценно:</b> работает в Chrome, Firefox и Edge, поддерживает автосохранение и командную строку.",
+      "desc": "Расширение браузера, сохраняющее веб-страницу в один HTML-файл — со стилями, картинками и шрифтами внутри. <b>Чем ценно:</b> нажали кнопку — получили точную копию страницы, которая откроется без интернета. Для пакетной работы есть отдельный SingleFile CLI.",
       "stars": 22119
     },
     {
@@ -1220,7 +1220,7 @@
       "repo": "louislam/uptime-kuma",
       "cat": "infra",
       "desc": "Красивый дашборд мониторинга аптайма. <b>Чем ценно:</b> узнаёшь о падении сайта первым, а не от клиентов.",
-      "stars": 90018,
+      "stars": 90022,
       "pick": true
     },
     {
@@ -1228,14 +1228,14 @@
       "repo": "grafana/grafana",
       "cat": "infra",
       "desc": "Дашборды для любых метрик. <b>Чем ценно:</b> видишь здоровье проекта в реальном времени на одном экране.",
-      "stars": 76180
+      "stars": 76177
     },
     {
       "name": "Velero",
       "repo": "vmware-tanzu/velero",
       "cat": "infra",
       "desc": "Бэкап и восстановление Kubernetes. <b>Чем ценно:</b> спокойствие — кластер можно поднять после сбоя.",
-      "stars": 10190
+      "stars": 10191
     },
     {
       "name": "Bulk Crap Uninstaller",
@@ -1249,7 +1249,7 @@
       "repo": "yorukot/superfile",
       "cat": "infra",
       "desc": "Красивый файловый менеджер для терминала. <b>Чем ценно:</b> быстрая работа с файлами без мыши.",
-      "stars": 22404
+      "stars": 22405
     },
     {
       "name": "docker-mailserver",
@@ -1326,7 +1326,7 @@
       "repo": "home-assistant/core",
       "cat": "media",
       "desc": "Мозг умного дома. <b>Чем ценно:</b> собираешь всю автоматизацию дома в одном месте, приватно.",
-      "stars": 89819
+      "stars": 89817
     },
     {
       "name": "Umbrel",
@@ -1340,7 +1340,7 @@
       "repo": "moeru-ai/airi",
       "cat": "media",
       "desc": "Открытый AI-персонаж (Live2D/VRM). <b>Чем ценно:</b> готовая база для виртуального ассистента или стримера.",
-      "stars": 47426
+      "stars": 47429
     },
     {
       "name": "Viseron",
@@ -1361,49 +1361,49 @@
       "repo": "byoungd/English-level-up-tips",
       "cat": "media",
       "desc": "Гайд по прокачке английского. <b>Чем ценно:</b> понятная система, чтобы наконец подтянуть язык.",
-      "stars": 58195
+      "stars": 58202
     },
     {
       "name": "TREK",
       "repo": "liketrek/TREK",
       "cat": "media",
       "desc": "Self-hosted планировщик путешествий с интерактивными картами, бюджетом, чеклистами и совместным редактированием. <b>Чем ценно:</b> PWA, SSO, MCP-интеграция с ИИ и запуск через Docker одной командой.",
-      "stars": 11976
+      "stars": 11978
     },
     {
       "name": "Awesome MCP Servers",
       "repo": "punkpeye/awesome-mcp-servers",
       "cat": "mcp",
       "desc": "Большая подборка MCP-серверов. <b>Чем ценно:</b> быстро находишь, чем расширить своего ИИ-ассистента.",
-      "stars": 92009
+      "stars": 92012
     },
     {
       "name": "MCP Reference Servers",
       "repo": "modelcontextprotocol/servers",
       "cat": "mcp",
       "desc": "Официальные референс-серверы MCP. <b>Чем ценно:</b> рабочие примеры, чтобы подключить ИИ к своим инструментам.",
-      "stars": 89374
+      "stars": 89377
     },
     {
       "name": "Hugging Face Transformers",
       "repo": "huggingface/transformers",
       "cat": "ml",
       "desc": "Библиотека и хаб готовых моделей для текста, картинок и звука. <b>Чем ценно:</b> берёте обученную модель вместо того, чтобы обучать свою — экономия месяцев и вычислений.",
-      "stars": 163500
+      "stars": 163504
     },
     {
       "name": "PyTorch",
       "repo": "pytorch/pytorch",
       "cat": "ml",
       "desc": "Фреймворк глубокого обучения, на котором сегодня пишут исследования и продакшн. <b>Чем ценно:</b> стандарт индустрии — под него больше всего примеров, курсов и готового кода.",
-      "stars": 102298
+      "stars": 102302
     },
     {
       "name": "TensorFlow",
       "repo": "tensorflow/tensorflow",
       "cat": "ml",
       "desc": "Фреймворк машинного обучения от Google с упором на развёртывание. <b>Чем ценно:</b> сильная сторона — вывод модели в продакшн, в том числе на мобильные и в браузер.",
-      "stars": 196947
+      "stars": 196945
     },
     {
       "name": "Keras",
@@ -1417,7 +1417,7 @@
       "repo": "scikit-learn/scikit-learn",
       "cat": "ml",
       "desc": "Классическое машинное обучение без нейросетей: регрессии, деревья, кластеризация. <b>Чем ценно:</b> на табличных данных обгоняет нейросети и обучается за секунды.",
-      "stars": 66959
+      "stars": 66958
     },
     {
       "name": "Jupyter Notebook",
@@ -1431,35 +1431,64 @@
       "repo": "langchain-ai/langchain",
       "cat": "agents",
       "desc": "Каркас для приложений на языковых моделях: цепочки вызовов, память, инструменты. <b>Чем ценно:</b> связывает модель с вашими данными и сервисами, не переписывая всё под каждого поставщика.",
-      "stars": 143806
+      "stars": 143810
     },
     {
       "name": "LlamaIndex",
       "repo": "run-llama/llama_index",
       "cat": "agents",
       "desc": "Подключение модели к вашим документам: индексация, поиск по смыслу, ответы со ссылками на источник. <b>Чем ценно:</b> основа для ассистента, который отвечает по вашей базе знаний, а не по интернету.",
-      "stars": 51501
+      "stars": 51505
     },
     {
       "name": "Open WebUI",
       "repo": "open-webui/open-webui",
       "cat": "localai",
       "desc": "Веб-интерфейс для локальных моделей — чат как в ChatGPT, но на своём компьютере. <b>Чем ценно:</b> превращает Ollama в привычный инструмент, которым пользуется вся команда.",
-      "stars": 148319
+      "stars": 148324
     },
     {
       "name": "Stable Diffusion",
       "repo": "CompVis/stable-diffusion",
       "cat": "image",
       "desc": "Модель генерации изображений по текстовому описанию. <b>Чем ценно:</b> работает локально и бесплатно — картинки для контента без подписки и без ограничений на использование.",
-      "stars": 73302
+      "stars": 73301
     },
     {
       "name": "ComfyUI",
       "repo": "comfyanonymous/ComfyUI",
       "cat": "image",
       "desc": "Узловой редактор для генерации изображений: конвейер собирается из блоков. <b>Чем ценно:</b> повторяемый результат — один раз собранная схема выдаёт стабильное качество, а не случайную картинку.",
-      "stars": 125334
+      "stars": 125400
+    },
+    {
+      "name": "SingleFile CLI",
+      "repo": "gildas-lormeau/single-file-cli",
+      "cat": "scraping",
+      "desc": "Командная строка того же SingleFile: сохраняет страницу целиком одним файлом со стилями, шрифтами и картинками внутри. <b>Чем ценно:</b> открывает страницу в настоящем браузере, поэтому забирает и то, что подгружается лениво — проверено на выгрузке Tilda, копия совпала с оригиналом пиксель в пиксель.",
+      "pick": true,
+      "stars": 1536
+    },
+    {
+      "name": "monolith",
+      "repo": "Y2Z/monolith",
+      "cat": "scraping",
+      "desc": "То же самое на Rust: страница со всеми ресурсами упаковывается в один HTML. <b>Чем ценно:</b> быстрее и без зависимостей, но берёт разметку как есть — для сайтов, где картинки подгружаются скриптом, нужен вариант с браузером.",
+      "stars": 15391
+    },
+    {
+      "name": "HTTrack",
+      "repo": "xroche/httrack",
+      "cat": "scraping",
+      "desc": "Классический копировщик сайтов: обходит ссылки и складывает зеркало на диск. <b>Чем ценно:</b> забирает сайт целиком, а не по одной странице; ссылки внутри переписываются на локальные.",
+      "stars": 4673
+    },
+    {
+      "name": "node-website-scraper",
+      "repo": "website-scraper/node-website-scraper",
+      "cat": "scraping",
+      "desc": "Скачивает сайт в папку вместе со стилями, скриптами и картинками. <b>Чем ценно:</b> настраивается из кода — удобно, когда нужно правило «эти адреса берём, эти пропускаем».",
+      "stars": 1745
     }
   ]
 }
