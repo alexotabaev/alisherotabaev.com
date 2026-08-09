@@ -260,6 +260,9 @@ export const CSS = `
   .card .cardtop{display:flex;align-items:center;justify-content:space-between;gap:10px;
     margin-bottom:12px;}
   .card .cardtop .tag{margin:0;}
+  .card .pickmark{font-size:11px;font-weight:700;letter-spacing:.04em;text-transform:uppercase;
+    color:var(--gold-dk);background:var(--cream2);border-radius:999px;padding:3px 9px;
+    white-space:nowrap;flex:none;}
   .card .stars{font-size:12px;font-weight:600;color:var(--gold-dk);
     background:var(--cream);border:1px solid var(--line);border-radius:999px;padding:3px 9px;
     white-space:nowrap;flex:none;}

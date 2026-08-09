@@ -47,6 +47,8 @@ const card = (r) => {
   const url = `https://github.com/${r.repo}`;
   return `        <li class="card" data-cat="${esc(r.cat)}" data-name="${esc(r.name)}" data-stars="${r.stars || 0}" id="repo-${esc(slugifyRepo(r.repo))}">
           <span class="cardtop"><span class="tag">${esc(c.label)}</span>${
+            r.pick ? '<span class="pickmark" title="Этим пользуется или рекомендует Алишер">выбор автора</span>' : ''
+          }${
             r.stars
               ? `<span class="stars" title="Звёзд на GitHub — сколько людей отметили проект">★ ${esc(shortStars(r.stars))}</span>`
               : ''
