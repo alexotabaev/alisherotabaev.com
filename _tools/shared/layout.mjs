@@ -329,7 +329,7 @@ export const header = () => `<a class="skip" href="#main">Перейти к со
 
 <header class="site">
   <div class="wrap nav">
-    <a class="logo" href="/"><img src="${site.logo}" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
+    <a class="logo" href="/"><img src="${site.logo}" width="42" height="40" alt="Алишер Отабаев — главная страница" /></a>
     <nav class="navlinks" aria-label="Основная навигация">
 ${site.nav.slice(0, 2).map((n) => `      <a class="hideable" href="${n.u}">${n.t}</a>`).join('\n')}
 ${site.nav.slice(2).map((n) => `      <a class="hideable" href="${n.u}">${n.t}</a>`).join('\n')}

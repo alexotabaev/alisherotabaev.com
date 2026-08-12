@@ -102,7 +102,7 @@ body{padding-left:248px}
 </style>`;
 
 const SIDE_HTML = `<nav class="ao-side" aria-label="Разделы сайта">
-<a class="ao-side__logo" href="/"><img src="${site.logo}" width="120" height="40" alt="Алишер Отабаев — главная страница" /></a>
+<a class="ao-side__logo" href="/"><img src="${site.logo}" width="42" height="40" alt="Алишер Отабаев — главная страница" /></a>
 <ul class="ao-side__list">
 ${site.nav.map((n) => `<li><a href="${n.u}">${esc(n.t)}</a></li>`).join('\n')}
 </ul>
