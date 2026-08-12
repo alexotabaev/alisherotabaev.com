@@ -1,0 +1,328 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Где мои Деньги «Карл»? — экспресс-диагностика</title>
+<style>
+:root{
+  --accent:#ffd66b; --accent2:#7cf7c4; --ink:#f4f1ea; --muted:#a7a394;
+  --glass:rgba(18,18,22,.62); --glass-2:rgba(28,28,34,.72); --line:rgba(255,255,255,.10);
+  --radius:22px; --mono:ui-monospace,'SF Mono','JetBrains Mono',Menlo,monospace;
+  --sans:'Helvetica Neue',-apple-system,system-ui,'Segoe UI',Roboto,Arial,sans-serif;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html,body{height:100%}
+body{font-family:var(--sans);color:var(--ink);background:#07070a;overflow-x:hidden;-webkit-font-smoothing:antialiased;line-height:1.5;position:relative;min-height:100dvh}
+#bg{position:fixed;inset:0;z-index:-2;overflow:hidden}
+#bgcanvas{position:fixed;inset:0;z-index:-1;pointer-events:none}
+.veil{position:fixed;inset:0;z-index:0;pointer-events:none;background:radial-gradient(120% 90% at 50% -10%,transparent 40%,rgba(0,0,0,.55) 100%),linear-gradient(180deg,rgba(0,0,0,.25),rgba(0,0,0,.55))}
+body[data-wp="space"] #bg{background:radial-gradient(140% 120% at 20% 10%,#241b4a 0%,#0b0a1f 45%,#050409 100%)}
+body[data-wp="space"]{--accent:#c9b8ff;--accent2:#7cf7c4}
+body[data-wp="neon"] #bg{background:linear-gradient(135deg,#0a0f1e,#12071e 60%,#04121a)}
+body[data-wp="neon"] #bg::after{content:"";position:absolute;inset:-40%;background:conic-gradient(from 0deg,#ff2fb3,#7a5cff,#22d3ee,#ff2fb3);filter:blur(90px) saturate(1.3);opacity:.42;animation:spin 22s linear infinite}
+body[data-wp="neon"]{--accent:#ff7ae0;--accent2:#39e0ff}
+body[data-wp="aurora"] #bg{background:linear-gradient(180deg,#02120f,#031a16 60%,#020d14)}
+body[data-wp="aurora"] #bg::before,body[data-wp="aurora"] #bg::after{content:"";position:absolute;inset:-30%;background:radial-gradient(50% 40% at 30% 30%,rgba(64,255,180,.5),transparent 60%),radial-gradient(45% 45% at 70% 60%,rgba(60,180,255,.42),transparent 60%);filter:blur(70px);animation:drift 18s ease-in-out infinite alternate}
+body[data-wp="aurora"] #bg::after{animation-duration:26s;animation-direction:alternate-reverse;opacity:.7}
+body[data-wp="aurora"]{--accent:#8affc4;--accent2:#5fd0ff}
+body[data-wp="sunset"] #bg{background:linear-gradient(200deg,#2a0a2e,#5a1330 45%,#b5482a 82%,#f0a24a 100%)}
+body[data-wp="sunset"] #bg::after{content:"";position:absolute;inset:-30%;background:radial-gradient(40% 40% at 60% 75%,rgba(255,170,80,.55),transparent 60%);filter:blur(60px);animation:drift 20s ease-in-out infinite alternate}
+body[data-wp="sunset"]{--accent:#ffcf8a;--accent2:#ff9ec4}
+body[data-wp="ocean"] #bg{background:linear-gradient(180deg,#021a2e,#032b45 55%,#01151f)}
+body[data-wp="ocean"] #bg::before,body[data-wp="ocean"] #bg::after{content:"";position:absolute;left:-20%;right:-20%;height:60%;bottom:-10%;background:radial-gradient(60% 100% at 50% 100%,rgba(60,200,255,.30),transparent 70%);filter:blur(30px);animation:wave 9s ease-in-out infinite}
+body[data-wp="ocean"] #bg::after{bottom:-25%;opacity:.6;animation-duration:13s}
+body[data-wp="ocean"]{--accent:#7fe3ff;--accent2:#67f0c8}
+body[data-wp="gold"] #bg{background:radial-gradient(120% 100% at 50% 0%,#2a2410,#141208 55%,#0a0906 100%)}
+body[data-wp="gold"]{--accent:#ffd66b;--accent2:#ffe9a8}
+body[data-wp="matrix"] #bg{background:#020a05}
+body[data-wp="matrix"]{--accent:#5cff9b;--accent2:#9bffbf}
+body[data-wp="mesh"] #bg{background:#0a0a12}
+body[data-wp="mesh"] #bg::before,body[data-wp="mesh"] #bg::after{content:"";position:absolute;inset:-25%;border-radius:50%;background:radial-gradient(circle at 30% 30%,rgba(124,247,196,.5),transparent 55%);filter:blur(80px);animation:drift 16s ease-in-out infinite alternate}
+body[data-wp="mesh"] #bg::after{background:radial-gradient(circle at 70% 60%,rgba(255,140,220,.45),transparent 55%);animation-duration:22s;animation-direction:alternate-reverse}
+body[data-wp="mesh"]{--accent:#a6ffd8;--accent2:#ff9ede}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes drift{from{transform:translate(-4%,-2%) scale(1)}to{transform:translate(5%,4%) scale(1.12)}}
+@keyframes wave{0%,100%{transform:translateY(0) scaleX(1)}50%{transform:translateY(-14px) scaleX(1.06)}}
+@media(prefers-reduced-motion:reduce){*{animation:none!important}}
+.wrap{position:relative;z-index:1;min-height:100dvh;display:flex;flex-direction:column;align-items:center;justify-content:flex-start;padding:clamp(16px,4vw,48px)}
+.card{width:100%;max-width:660px;background:var(--glass);backdrop-filter:blur(22px) saturate(1.2);-webkit-backdrop-filter:blur(22px) saturate(1.2);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 30px 80px -30px rgba(0,0,0,.8),inset 0 1px 0 rgba(255,255,255,.06);padding:clamp(22px,4vw,40px);position:relative;overflow:hidden}
+.card::before{content:"";position:absolute;inset:0;border-radius:var(--radius);padding:1px;pointer-events:none;background:linear-gradient(140deg,rgba(255,255,255,.22),transparent 40%);-webkit-mask:linear-gradient(#000 0 0) content-box,linear-gradient(#000 0 0);-webkit-mask-composite:xor;mask-composite:exclude}
+.dim{color:var(--muted)}
+#hero .badge{display:inline-flex;gap:8px;align-items:center;padding:7px 13px;border:1px solid var(--line);border-radius:100px;font-size:12.5px;color:var(--ink);background:rgba(255,255,255,.04);margin-bottom:22px}
+#hero .badge b{color:var(--accent)}
+#hero h1{font-size:clamp(34px,7vw,60px);font-weight:900;letter-spacing:-.03em;line-height:1.02;margin:0 0 16px}
+#hero h1 .g{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;background-clip:text;color:transparent}
+#hero h1 .k{font-style:italic}
+#hero .sub{font-size:clamp(15px,2.4vw,18.5px);color:#d9d6cd;max-width:56ch;margin-bottom:26px}
+#hero .sub b{color:var(--ink)}
+.video{position:relative;aspect-ratio:16/9;border-radius:16px;overflow:hidden;border:1px solid var(--line);background:linear-gradient(135deg,#14141a,#0c0c10);display:grid;place-items:center;margin-bottom:16px;cursor:pointer}
+.video .ph{text-align:center;color:var(--muted);font-size:13px}
+.play{width:66px;height:66px;border-radius:50%;background:var(--accent);display:grid;place-items:center;margin:0 auto 12px;box-shadow:0 0 0 0 rgba(255,214,107,.6);animation:pulse 2.6s infinite;color:#111}
+.play svg{margin-left:4px}
+@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(255,214,107,.55)}70%{box-shadow:0 0 0 24px rgba(255,214,107,0)}100%{box-shadow:0 0 0 0 rgba(255,214,107,0)}}
+.imgph{aspect-ratio:16/6;border-radius:14px;border:1px dashed var(--line);display:grid;place-items:center;color:var(--muted);font-size:12.5px;background:rgba(255,255,255,.02);margin-bottom:22px;text-align:center;padding:10px}
+.gets{display:grid;gap:9px;margin-bottom:26px}
+.gets .g{display:flex;gap:10px;align-items:flex-start;font-size:14.5px;color:#e6e3da}
+.gets .g i{color:var(--accent2);font-style:normal;font-weight:800;margin-top:1px}
+.btn{appearance:none;border:0;cursor:pointer;font-family:var(--sans);font-weight:800;font-size:16px;padding:16px 26px;border-radius:14px;background:linear-gradient(100deg,var(--accent),var(--accent2));color:#0c0c0c;width:100%;transition:transform .15s ease,box-shadow .2s ease;box-shadow:0 12px 30px -10px rgba(255,214,107,.5)}
+.btn:hover{transform:translateY(-2px);box-shadow:0 18px 40px -12px rgba(255,214,107,.6)}
+.btn:active{transform:translateY(0)}
+.btn.ghost{background:transparent;color:var(--ink);border:1px solid var(--line);box-shadow:none;font-weight:700}
+.btn.ghost:hover{background:rgba(255,255,255,.05);transform:none}
+.row{display:flex;gap:12px;margin-top:8px}
+#quiz{display:none}
+.progwrap{margin-bottom:22px}
+.progtop{display:flex;justify-content:space-between;align-items:center;margin-bottom:10px;font-size:12.5px}
+.progtop .st{color:var(--muted)}
+.progtop .pct{font-family:var(--mono);color:var(--accent);font-weight:700}
+.progbar{height:8px;border-radius:100px;background:rgba(255,255,255,.08);overflow:hidden}
+.progbar>i{display:block;height:100%;width:0;border-radius:100px;background:linear-gradient(90deg,var(--accent2),var(--accent));transition:width .5s cubic-bezier(.2,.8,.2,1);box-shadow:0 0 16px var(--accent)}
+.qnum{font-family:var(--mono);font-size:12px;color:var(--accent);letter-spacing:.05em}
+.qtitle{font-size:clamp(20px,3.6vw,26px);font-weight:800;letter-spacing:-.02em;margin:6px 0 6px}
+.qhint{font-size:13.5px;color:var(--muted);margin-bottom:20px}
+.step{animation:slide .45s cubic-bezier(.2,.8,.2,1)}
+@keyframes slide{from{opacity:0;transform:translateX(26px)}to{opacity:1;transform:translateX(0)}}
+.field{margin-bottom:15px}
+.field>label{display:block;font-size:13px;color:#d7d4cb;margin-bottom:7px;font-weight:600}
+input[type=text],input[type=tel],input[type=number],input[type=date],input[type=month],textarea,select{width:100%;font-family:var(--sans);font-size:15.5px;color:var(--ink);background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:12px;padding:13px 14px;transition:border .18s,background .18s;outline:none}
+input:focus,textarea:focus,select:focus{border-color:var(--accent);background:rgba(255,255,255,.07)}
+input::placeholder,textarea::placeholder{color:#6f6c63}
+textarea{min-height:120px;resize:vertical}
+input.money{font-family:var(--mono);font-size:20px;font-weight:700;letter-spacing:.02em}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+@media(max-width:520px){.two{grid-template-columns:1fr}}
+.chips{display:flex;flex-wrap:wrap;gap:9px}
+.chip{cursor:pointer;user-select:none;padding:10px 15px;border-radius:100px;border:1px solid var(--line);background:rgba(255,255,255,.03);font-size:14px;color:#e2dfd6;transition:.15s;line-height:1}
+.chip:hover{border-color:var(--accent);color:#fff}
+.chip.on{background:linear-gradient(100deg,var(--accent),var(--accent2));color:#111;border-color:transparent;font-weight:700}
+.chip .ck{display:none}
+.chip.on .ck{display:inline}
+.soc{display:grid;gap:10px}
+.socrow{border:1px solid var(--line);border-radius:12px;overflow:hidden;background:rgba(255,255,255,.02)}
+.socrow .top{display:flex;align-items:center;gap:11px;padding:12px 14px;cursor:pointer}
+.socrow .top .dot{width:18px;height:18px;border-radius:6px;border:1.5px solid var(--muted);display:grid;place-items:center;flex:0 0 auto;transition:.15s;color:transparent}
+.socrow.on .top .dot{background:var(--accent);border-color:var(--accent);color:#111}
+.socrow .top .nm{font-size:14.5px;font-weight:600}
+.socrow .top .ic{font-size:16px}
+.socrow .inp{max-height:0;overflow:hidden;transition:max-height .28s ease}
+.socrow.on .inp{max-height:80px}
+.socrow .inp input{border:0;border-top:1px solid var(--line);border-radius:0;background:transparent}
+.radios{display:grid;gap:10px}
+.radio{display:flex;gap:11px;align-items:flex-start;padding:14px;border:1px solid var(--line);border-radius:12px;cursor:pointer;background:rgba(255,255,255,.02);transition:.15s;font-size:14.5px}
+.radio:hover{border-color:var(--accent)}
+.radio.on{border-color:var(--accent);background:rgba(255,214,107,.08)}
+.radio .rd{width:20px;height:20px;border-radius:50%;border:2px solid var(--muted);flex:0 0 auto;margin-top:1px;transition:.15s;position:relative}
+.radio.on .rd{border-color:var(--accent)}
+.radio.on .rd::after{content:"";position:absolute;inset:4px;border-radius:50%;background:var(--accent)}
+.err{color:#ff8a8a;font-size:12.5px;margin-top:8px;display:none}
+.err.show{display:block}
+.saved{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;z-index:40;background:var(--glass-2);border:1px solid var(--line);border-radius:100px;padding:8px 16px;font-size:12.5px;color:var(--accent2);backdrop-filter:blur(12px);opacity:0;transition:opacity .3s;pointer-events:none}
+.saved.show{opacity:1}
+.wpbar{position:fixed;left:16px;bottom:16px;z-index:30;display:flex;gap:8px;align-items:center;background:var(--glass-2);border:1px solid var(--line);border-radius:100px;padding:8px 12px;backdrop-filter:blur(14px);flex-wrap:wrap;max-width:calc(100vw - 32px)}
+.wpbar .lab{font-size:11px;color:var(--muted);letter-spacing:.12em;text-transform:uppercase;margin-right:2px}
+.sw{width:26px;height:26px;border-radius:50%;cursor:pointer;border:2px solid transparent;transition:.15s;position:relative}
+.sw:hover{transform:scale(1.14)}
+.sw.on{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.25)}
+.sw[data-t=space]{background:radial-gradient(circle at 30% 30%,#6c5cff,#140f36)}
+.sw[data-t=neon]{background:conic-gradient(from 0deg,#ff2fb3,#7a5cff,#22d3ee,#ff2fb3)}
+.sw[data-t=aurora]{background:linear-gradient(140deg,#40ffb4,#3cb4ff)}
+.sw[data-t=sunset]{background:linear-gradient(140deg,#ffaa50,#ff5e8a,#7a1f5a)}
+.sw[data-t=ocean]{background:linear-gradient(140deg,#7fe3ff,#02334f)}
+.sw[data-t=gold]{background:linear-gradient(140deg,#ffe9a8,#b9902f)}
+.sw[data-t=matrix]{background:linear-gradient(140deg,#5cff9b,#022a10)}
+.sw[data-t=mesh]{background:linear-gradient(140deg,#a6ffd8,#ff9ede)}
+@media(max-width:560px){.wpbar .lab{display:none}}
+.dtitle{font-size:clamp(22px,4vw,30px);font-weight:900;letter-spacing:-.02em;margin-bottom:6px}
+.dtitle .g{background:linear-gradient(100deg,var(--accent),var(--accent2));-webkit-background-clip:text;color:transparent}
+.scen{border:1px solid var(--line);border-radius:16px;padding:18px;margin-bottom:14px;background:rgba(255,255,255,.02);position:relative;overflow:hidden}
+.scen.best{border-color:var(--accent);background:rgba(255,214,107,.06)}
+.scen .tag{font:700 11px/1 var(--sans);letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.scen.best .tag{color:var(--accent)}
+.scen h4{font-size:17px;font-weight:800;margin:6px 0 12px}
+.scen .grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px;margin-bottom:10px}
+@media(max-width:520px){.scen .grid{grid-template-columns:1fr 1fr}}
+.metric{background:rgba(0,0,0,.25);border:1px solid var(--line);border-radius:11px;padding:11px}
+.metric .v{font-family:var(--mono);font-size:19px;font-weight:700;color:var(--ink)}
+.scen.best .metric .v{color:var(--accent)}
+.metric .l{font-size:11px;color:var(--muted);margin-top:3px}
+.scen .note{font-size:13px;color:#cfccc3}
+.disc{font-size:12px;color:var(--muted);margin:14px 0 20px;line-height:1.5}
+.summary{border-top:1px solid var(--line);margin-top:18px;padding-top:16px}
+.summary h5{font-size:12px;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);margin-bottom:10px}
+.sline{display:flex;justify-content:space-between;gap:14px;font-size:13.5px;padding:5px 0;border-bottom:1px dashed rgba(255,255,255,.07)}
+.sline .k{color:var(--muted)}.sline .v{text-align:right;color:#e8e5dc}
+.foot{text-align:center;font-size:11.5px;color:var(--muted);margin-top:20px}
+.foot b{color:var(--accent)}
+</style>
+
+<!--nls-analytics-->
+<script>(function(){function F(){try{var s=location.search;if(!s||s.indexOf('utm_')<0)return;var cur=new URLSearchParams(s),P='business.newlevelsecrets.ru';function fix(el,attr){var h=el.getAttribute(attr);if(!h||h.charAt(0)==='#'||/^(mailto:|tel:|javascript:)/i.test(h))return;var u;try{u=new URL(h,location.href)}catch(e){return}if(u.host!==location.host&&u.host!==P)return;var ch=false;cur.forEach(function(v,k){if(k.indexOf('utm_')===0&&!u.searchParams.has(k)){u.searchParams.set(k,v);ch=true}});if(ch)el.setAttribute(attr,u.toString())}[].forEach.call(document.querySelectorAll('a[href]'),function(a){fix(a,'href')});[].forEach.call(document.querySelectorAll('iframe[src]'),function(f){fix(f,'src')})}catch(e){}}if(document.readyState==='loading')document.addEventListener('DOMContentLoaded',F);else F()})();</script>
+<!-- NLS chat widget -->
+<script defer src="https://business.newlevelsecrets.ru/public/inbox/637d56f1e3044fccb1355697/widget.js"></script>
+<script defer data-website-id="9552b326-eb30-45c2-a1ad-9e4575895e1b" src="https://analytics.business.newlevelsecrets.ru/script.js"></script>
+<!--nls-analytics-->
+</head>
+<body data-wp="gold">
+<div id="bg"></div>
+<canvas id="bgcanvas"></canvas>
+<div class="veil"></div>
+<div class="wrap"><div class="card">
+  <section id="hero">
+    <span class="badge">⚡ <span>Экспресс-диагностика</span> · <b>5 минут</b></span>
+    <h1>Где мои <span class="g">Деньги</span> <span class="k">«Карл»?</span></h1>
+    <p class="sub">Экспресс-диагностика за 5 минут: <b>где лежат твои деньги</b>, как быстро их можно заработать и есть ли у тебя потенциал на рост <b>×2–×10</b> в ближайшие 3–6 месяцев.</p>
+    <div class="video" id="videoBox"><div class="ph"><div class="play"><svg width="22" height="24" viewBox="0 0 22 24" fill="currentColor"><path d="M21 12L0 24V0z"/></svg></div>Видео-приветствие · появится позже</div></div>
+    <div class="imgph">Здесь будет изображение — пришлёшь позже, вставлю сюда</div>
+    <div class="gets">
+      <div class="g"><i>→</i>Поймёшь, в каком активе уже «спят» твои деньги</div>
+      <div class="g"><i>→</i>Увидишь 3 сценария роста с конкретными цифрами и сроком</div>
+      <div class="g"><i>→</i>Получишь декомпозицию: сколько клиентов и заявок нужно под твою цель</div>
+    </div>
+    <button class="btn" id="startBtn">Пройти диагностику →</button>
+    <p class="foot" style="margin-top:14px">Займёт ~5 минут · всё сохраняется автоматически, можно продолжить позже</p>
+  </section>
+  <section id="quiz">
+    <div class="progwrap"><div class="progtop"><span class="st" id="stepLabel">Шаг 1</span><span class="pct" id="pct">0%</span></div><div class="progbar"><i id="progFill"></i></div></div>
+    <div id="stepHost"></div>
+    <div class="err" id="err">Заполни, пожалуйста, обязательные поля 🙏</div>
+    <div class="row"><button class="btn ghost" id="backBtn" style="flex:0 0 34%">← Назад</button><button class="btn" id="nextBtn">Далее →</button></div>
+    <p class="foot"><b id="dLabel">Черновик</b> сохраняется автоматически · закрой и вернись — данные останутся</p>
+  </section>
+</div></div>
+<div class="wpbar"><span class="lab">Обои</span>
+  <div class="sw" data-t="gold" title="Золото"></div><div class="sw" data-t="space" title="Космос"></div>
+  <div class="sw" data-t="neon" title="Неон"></div><div class="sw" data-t="aurora" title="Аврора"></div>
+  <div class="sw" data-t="sunset" title="Закат"></div><div class="sw" data-t="ocean" title="Океан"></div>
+  <div class="sw" data-t="matrix" title="Матрица"></div><div class="sw" data-t="mesh" title="Градиент"></div>
+</div>
+<div class="saved" id="savedToast">✓ Черновик сохранён</div>
+<script>
+"use strict";
+const $=(s,r=document)=>r.querySelector(s), $$=(s,r=document)=>[...r.querySelectorAll(s)];
+const LS="gmd_anketa_v1";
+const fmt=n=>Number(n||0).toLocaleString('ru-RU');
+const esc=s=>String(s==null?'':s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+let S=load();
+function load(){try{return JSON.parse(localStorage.getItem(LS))||{}}catch(e){return {}}}
+let saveT;
+function save(){localStorage.setItem(LS,JSON.stringify(S));clearTimeout(saveT);const t=$("#savedToast");t.classList.add('show');saveT=setTimeout(()=>t.classList.remove('show'),1100);}
+function set(k,v){S[k]=v;save();}
+function setWP(t){document.body.dataset.wp=t;set('_wp',t);$$('.sw').forEach(s=>s.classList.toggle('on',s.dataset.t===t));startCanvas(t);}
+$$('.sw').forEach(s=>s.addEventListener('click',()=>setWP(s.dataset.t)));
+let raf=null;
+function startCanvas(t){
+  const c=$("#bgcanvas"),x=c.getContext('2d');cancelAnimationFrame(raf);
+  const DPR=Math.min(devicePixelRatio||1,2);
+  function fit(){c.width=innerWidth*DPR;c.height=innerHeight*DPR;}
+  fit();window.onresize=fit;
+  if(t==='space'){
+    const stars=Array.from({length:220},()=>({x:Math.random(),y:Math.random(),z:Math.random()*.8+.2,s:Math.random()*1.6+.2}));
+    (function loop(){x.clearRect(0,0,c.width,c.height);for(const st of stars){st.y+=st.z*.0006;if(st.y>1)st.y=0;const px=st.x*c.width,py=st.y*c.height;x.fillStyle="rgba(200,190,255,"+st.z+")";x.beginPath();x.arc(px,py,st.s*DPR*st.z,0,7);x.fill();}raf=requestAnimationFrame(loop);})();
+  }else if(t==='matrix'){
+    const fs=16*DPR,cols=Math.floor(c.width/fs),yp=Array(cols).fill(0),g="01ДЕНЬГИ$₽#>10x";
+    (function loop(){x.fillStyle="rgba(2,10,5,.09)";x.fillRect(0,0,c.width,c.height);x.fillStyle="#5cff9b";x.font=fs+"px monospace";for(let i=0;i<cols;i++){x.fillText(g[Math.floor(Math.random()*g.length)],i*fs,yp[i]*fs);if(yp[i]*fs>c.height&&Math.random()>.975)yp[i]=0;yp[i]++;}raf=requestAnimationFrame(loop);})();
+  }else if(t==='gold'){
+    const p=Array.from({length:90},()=>({x:Math.random(),y:Math.random(),s:Math.random()*2+.4,v:Math.random()*.0004+.0001}));
+    (function loop(){x.clearRect(0,0,c.width,c.height);for(const d of p){d.y-=d.v;if(d.y<0){d.y=1;d.x=Math.random();}x.fillStyle="rgba(255,214,107,"+(.5*d.s/2.4)+")";x.beginPath();x.arc(d.x*c.width,d.y*c.height,d.s*DPR,0,7);x.fill();}raf=requestAnimationFrame(loop);})();
+  }else{x.clearRect(0,0,c.width,c.height);}
+}
+$("#startBtn").addEventListener('click',()=>{$("#hero").style.display='none';$("#quiz").style.display='block';render();window.scrollTo({top:0,behavior:'smooth'});});
+const OCC=["Продюсер","Эксперт","Помогающий практик","Специалист","Консультант","Руководитель проекта","Маркетолог","В найме","Предприниматель","Инвестор"];
+const INC=["до 100к","100–150к","150–300к","300–500к","500–750к","750к–1млн","1–1,5 млн","1,5–3 млн","3–5 млн","5–10 млн","10 млн+"];
+const SRC=["Соц. сети","Реклама","Рекомендация","ИИ","Поисковая выдача","Книга","Выступление","Конференция"];
+const TASK=["Больше трафика","Продажи","Воронка продаж","Сбор группы","Упаковка продукта","Упаковка метода"];
+const ASSET=["База (email)","Телеграм-канал","Чат / сообщество","Сайт / лендинг","Реклама / трафик","Команда","Кейсы / отзывы","Наставник / окружение"];
+function socRow(k,ic,nm,ph){return '<div class="socrow" data-soc="'+k+'"><div class="top"><span class="dot"><svg width="11" height="11" viewBox="0 0 12 12" fill="none"><path d="M2.5 6l2.2 2.2L9.5 3.4" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg></span><span class="ic">'+ic+'</span><span class="nm">'+nm+'</span></div><div class="inp"><input type="text" data-k="soc_'+k+'" placeholder="'+ph+'"></div></div>';}
+function chip(group,val){return '<span class="chip" data-g="'+group+'" data-v="'+esc(val)+'"><span class="ck">✓ </span>'+esc(val)+'</span>';}
+function radio(group,val){return '<label class="radio" data-g="'+group+'" data-v="'+esc(val)+'"><span class="rd"></span><span>'+esc(val)+'</span></label>';}
+const STEPS=[
+ {n:"01",t:"Знакомство и контакты",h:"Как тебя зовут и где на связи — чтобы прислать результат.",render:()=>
+   '<div class="field"><label>Имя *</label><input type="text" data-k="name" placeholder="Как к тебе обращаться"></div>'
+  +'<div class="two"><div class="field"><label>Telegram *</label><input type="text" data-k="tg" placeholder="@username"></div><div class="field"><label>Телефон</label><input type="tel" data-k="phone" placeholder="+7 ..."></div></div>'
+  +'<div class="field"><label>Ссылка на проект / основную соцсеть</label><input type="text" data-k="project" placeholder="https:// ..."></div>'
+  +'<div class="field"><label>Где ещё есть присутствие? (отметь и впиши)</label><div class="soc">'+socRow('ig','📸','Instagram','@ник или ссылка')+socRow('vk','🅥','ВКонтакте','ссылка / id')+socRow('max','Ⓜ️','MAX','ник / ссылка')+socRow('wa','🟢','WhatsApp','номер')+'</div></div>',req:["name","tg"]},
+ {n:"02",t:"Точка А: чем занимаешься и доход",h:"Можно выбрать несколько ролей.",render:()=>
+   '<div class="field"><label>Чем занимаешься? (можно несколько)</label><div class="chips" data-multi="occ">'+OCC.map(o=>chip('occ',o)).join('')+'</div><div class="field" style="margin-top:10px"><input type="text" data-k="occOther" placeholder="Своё — впиши, если нет в списке"></div></div>'
+  +'<div class="field"><label>Доход в месяц сейчас *</label><div class="chips" data-single="income">'+INC.map(o=>chip('income',o)).join('')+'</div></div>',req:["income"]},
+ {n:"03",t:"Точка Б: цель и срок",h:"Какую цифру хочешь — и к какому сроку.",render:()=>
+   '<div class="field"><label>Желаемый доход, ₽ / мес *</label><input type="number" class="money" data-k="goalSum" inputmode="numeric" placeholder="например 1 000 000"></div>'
+  +'<div class="field"><label>К какому сроку хочешь выйти на неё?</label><input type="month" data-k="goalDate"></div>',req:["goalSum"]},
+ {n:"04",t:"Что главное мешает выйти на неё сейчас?",h:"Опиши своими словами — абзац.",render:()=>'<div class="field"><textarea data-k="block" placeholder="Что тормозит больше всего..."></textarea></div>'},
+ {n:"05",t:"Что уже пробовал(а), чтобы вырасти?",h:"Курсы, наставники, инструменты, запуски...",render:()=>'<div class="field"><textarea data-k="tried" placeholder="Что делал(а) и к чему это привело..."></textarea></div>'},
+ {n:"06",t:"Что бесит больше всего в работе / ситуации?",h:"Честно — это важно для точного разбора.",render:()=>'<div class="field"><textarea data-k="pain" placeholder="Что раздражает / выматывает..."></textarea></div>'},
+ {n:"07",t:"Откуда узнал(а) про меня?",h:"Выбери подходящее.",render:()=>'<div class="chips" data-single="src">'+SRC.map(o=>chip('src',o)).join('')+'</div>'},
+ {n:"08",t:"Какую задачу решить прямо сейчас?",h:"Чтобы жизнь заметно улучшилась. Можно несколько.",render:()=>'<div class="chips" data-multi="task">'+TASK.map(o=>chip('task',o)).join('')+'</div><div class="field" style="margin-top:10px"><input type="text" data-k="taskOther" placeholder="Своя задача — впиши"></div>'},
+ {n:"09",t:"Последний платёж за решение проблемы",h:"Кому платил(а), сколько и что получил(а)?",render:()=>'<div class="field"><textarea data-k="lastpay" placeholder="Например: наставнику 150 000 ₽ — получил(а)..."></textarea></div>'},
+ {n:"10",t:"Готов(а) вкладываться в рост?",h:"Если увидишь рабочий механизм.",render:()=>'<div class="radios" data-single="invest">'+radio('invest','Да, готов(а)')+radio('invest','Нет')+radio('invest','Может быть')+'</div><div class="field" style="margin-top:10px"><input type="text" data-k="investOther" placeholder="Свой ответ (по желанию)"></div>'},
+ {n:"11",t:"Насколько готов(а) поработать со мной лично?",h:"",render:()=>'<div class="radios" data-single="ready">'+radio('ready','Уже готов(а)')+radio('ready','Надо прогреться — дайте кейсы')+radio('ready','Только присматриваюсь')+'</div>'},
+ {n:"12",t:"Твои активы",h:"Это нужно, чтобы рассчитать декомпозицию под тебя.",render:()=>
+   '<div class="field"><label>Аудитория по соцсетям (подписчиков)</label><div class="two"><input type="number" data-k="aud_ig" inputmode="numeric" placeholder="Instagram"><input type="number" data-k="aud_tg" inputmode="numeric" placeholder="Telegram"></div><div class="two" style="margin-top:12px"><input type="number" data-k="aud_yt" inputmode="numeric" placeholder="YouTube"><input type="number" data-k="aud_vk" inputmode="numeric" placeholder="ВК / другое"></div></div>'
+  +'<div class="field"><label>Какие активы уже есть?</label><div class="chips" data-multi="assets">'+ASSET.map(o=>chip('assets',o)).join('')+'</div></div>'
+  +'<div class="field"><label>Какие продукты есть?</label><input type="text" data-k="products" placeholder="Например: консультации, курс, наставничество"></div>'
+  +'<div class="field"><label>Средний чек продукта, ₽</label><input type="number" class="money" data-k="avgCheck" inputmode="numeric" placeholder="например 30 000"></div>'},
+ {n:"→",t:"Твоя декомпозиция",h:"3 сценария роста под твою цель. Расчёт примерный — точный соберём на разборе.",render:()=>decompose(),result:true},
+];
+let cur=0;
+function render(){
+  const st=STEPS[cur];
+  $("#stepHost").innerHTML='<div class="step"><div class="qnum">ВОПРОС '+st.n+' / '+(STEPS.length-1)+'</div><div class="qtitle">'+st.t+'</div>'+(st.h?'<div class="qhint">'+st.h+'</div>':'')+st.render()+'</div>';
+  const pct=Math.round((cur/(STEPS.length-1))*100);
+  $("#progFill").style.width=pct+"%";$("#pct").textContent=pct+"%";
+  $("#stepLabel").textContent=st.result?"Готово":("Шаг "+(cur+1)+" из "+(STEPS.length-1));
+  $("#backBtn").style.visibility=cur===0?'hidden':'visible';
+  $("#nextBtn").textContent=st.result?"Пройти заново":(cur===STEPS.length-2?"Показать результат →":"Далее →");
+  $("#err").classList.remove('show');hydrate();wire();window.scrollTo({top:0,behavior:'smooth'});
+}
+function hydrate(){
+  $$("[data-k]").forEach(el=>{if(S[el.dataset.k]!=null)el.value=S[el.dataset.k];});
+  $$(".chip").forEach(c=>{const arr=S[c.dataset.g];if(c.closest('[data-single]')){if(S[c.dataset.g]===c.dataset.v)c.classList.add('on');}else if(Array.isArray(arr)&&arr.includes(c.dataset.v))c.classList.add('on');});
+  $$(".radio").forEach(r=>{if(S[r.dataset.g]===r.dataset.v)r.classList.add('on');});
+  $$(".socrow").forEach(row=>{if(S['soc_on_'+row.dataset.soc])row.classList.add('on');});
+}
+function wire(){
+  $$("[data-k]").forEach(el=>el.addEventListener('input',()=>set(el.dataset.k,el.value)));
+  $$(".chips[data-multi] .chip").forEach(c=>c.addEventListener('click',()=>{const g=c.dataset.g;const arr=Array.isArray(S[g])?S[g]:[];const i=arr.indexOf(c.dataset.v);if(i>=0)arr.splice(i,1);else arr.push(c.dataset.v);set(g,arr);c.classList.toggle('on');}));
+  $$(".chips[data-single] .chip").forEach(c=>c.addEventListener('click',()=>{const g=c.dataset.g;set(g,c.dataset.v);$$('.chip[data-g="'+g+'"]').forEach(x=>x.classList.toggle('on',x===c));}));
+  $$(".radios .radio").forEach(r=>r.addEventListener('click',()=>{const g=r.dataset.g;set(g,r.dataset.v);$$('.radio[data-g="'+g+'"]').forEach(x=>x.classList.toggle('on',x===r));}));
+  $$(".socrow").forEach(row=>{const k=row.dataset.soc;row.querySelector('.top').addEventListener('click',()=>{row.classList.toggle('on');set('soc_on_'+k,row.classList.contains('on'));});});
+}
+function valid(st){if(!st.req)return true;return st.req.every(k=>String(S[k]||'').trim()!=='');}
+$("#nextBtn").addEventListener('click',()=>{
+  const st=STEPS[cur];
+  if(st.result){if(confirm('Начать анкету заново? Текущие ответы сотрутся.')){localStorage.removeItem(LS);const wp=document.body.dataset.wp;S={};S._wp=wp;cur=0;render();}return;}
+  if(!valid(st)){$("#err").classList.add('show');return;}
+  cur++;render();
+});
+$("#backBtn").addEventListener('click',()=>{if(cur>0){cur--;render();}});
+function midIncome(label){const m={"до 100к":80000,"100–150к":125000,"150–300к":225000,"300–500к":400000,"500–750к":625000,"750к–1млн":875000,"1–1,5 млн":1250000,"1,5–3 млн":2250000,"3–5 млн":4000000,"5–10 млн":7500000,"10 млн+":12000000};return m[label]||100000;}
+function decompose(){
+  const goal=Number(S.goalSum)||(midIncome(S.income)*3)||1000000;
+  const now=midIncome(S.income);
+  const aud=(Number(S.aud_ig)||0)+(Number(S.aud_tg)||0)+(Number(S.aud_yt)||0)+(Number(S.aud_vk)||0);
+  const baseCheck=Number(S.avgCheck)||30000;
+  const A={name:"Как сейчас — как у всех",tag:"Медленно",check:Math.round(baseCheck*0.5),cr:0.02,best:false,note:"Низкий чек и ручные продажи «в лоб». Чтобы дотянуть до цели — нужен огромный поток заявок вручную. Обычно упираешься в потолок и выгораешь."};
+  const B={name:"Групповая модель — но без системы",tag:"Средне",check:baseCheck,cr:0.05,best:false,note:"Уже группа/поток, чек выше. Но воронка «дырявая», нет автоматизации и дожима — половина заявок теряется."};
+  const C={name:"Групповая модель + мои инструменты",tag:"Быстро ×2–×10",check:Math.round(baseCheck*1.3),cr:0.12,best:true,note:"Групповая модель + воронка, автоворонки, ИИ-дожим и CRM. Меньше заявок → больше денег с той же аудитории. Реально за 1–3 запуска."};
+  const calc=s=>{const clients=Math.max(1,Math.ceil(goal/s.check));const leads=Math.ceil(clients/s.cr);const reach=aud>0?Math.min(999,Math.ceil(leads/(aud*0.02))):null;return{clients,leads,reach};};
+  const card=s=>{const c=calc(s);return '<div class="scen '+(s.best?'best':'')+'"><div class="tag">'+s.tag+'</div><h4>'+s.name+'</h4><div class="grid"><div class="metric"><div class="v">'+fmt(s.check)+' ₽</div><div class="l">средний чек</div></div><div class="metric"><div class="v">'+fmt(c.clients)+'</div><div class="l">клиентов / мес</div></div><div class="metric"><div class="v">'+fmt(c.leads)+'</div><div class="l">заявок нужно</div></div></div><div class="note">'+s.note+(aud>0?' <b class="dim">При базе '+fmt(aud)+' — это ≈ '+c.reach+' '+(c.reach===1?'запуск':'касания/запуска')+'.</b>':'')+'</div></div>';};
+  const occ=[].concat(S.occ||[]).join(', ')||(S.occOther||'—');
+  const taskS=[].concat(S.task||[]).join(', ')||S.taskOther||'—';
+  return '<div class="step"><div class="dtitle">Чтобы выйти на <span class="g">'+fmt(goal)+' ₽/мес</span>'+(S.goalDate?' к '+esc(S.goalDate):'')+':</div>'
+   +'<p class="qhint" style="margin-bottom:18px">Сейчас ≈ '+fmt(now)+' ₽/мес. Ниже — 3 пути к цели с одной и той же твоей аудиторией.</p>'
+   +card(A)+card(B)+card(C)
+   +'<div class="disc">⚠️ Расчёт примерный, для наглядности (чек и конверсии — усреднённые ориентиры). Точную декомпозицию под твой продукт и нишу соберём на личном разборе.</div>'
+   +'<div class="summary"><h5>Что ты заполнил(а)</h5>'
+   +'<div class="sline"><span class="k">Роль</span><span class="v">'+esc(occ)+'</span></div>'
+   +'<div class="sline"><span class="k">Точка А → Б</span><span class="v">'+esc(S.income||'—')+' → '+fmt(goal)+' ₽/мес</span></div>'
+   +'<div class="sline"><span class="k">Задача сейчас</span><span class="v">'+esc(taskS)+'</span></div>'
+   +'<div class="sline"><span class="k">Готовность работать лично</span><span class="v">'+esc(S.ready||'—')+'</span></div>'
+   +'<div class="sline"><span class="k">Аудитория / чек</span><span class="v">'+fmt(aud)+' подп. · '+fmt(baseCheck)+' ₽</span></div></div>'
+   +'<button class="btn" style="margin-top:20px" id="finBtn">Хочу разбор и точную декомпозицию →</button>'
+   +'<p class="foot">Твои ответы сохранены на этом устройстве. Скоро подключим авто-отправку в CRM.</p></div>';
+}
+document.addEventListener('click',e=>{if(e.target&&e.target.id==='finBtn')alert('Спасибо! Данные сохранены. Я свяжусь с тобой в Telegram по разбору 🚀');});
+setWP(S._wp||'gold');
+</script>
+</body>
+</html>
