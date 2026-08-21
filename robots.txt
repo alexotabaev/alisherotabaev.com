@@ -192,5 +192,10 @@ Disallow: /members/login*
 Disallow: /members/signup*
 Disallow: /files/*.html
 
+# Страницы под паролем: индексировать там нечего — содержимое зашифровано,
+# в файле лежит только шифротекст. Заодно их не трогают сборочные скрипты
+# (меню, счётчик, карта сайта): все они сверяются с этим списком.
+Disallow: /put-klienta/
+
 Sitemap: https://alisherotabaev.com/sitemap.xml
 Host: https://alisherotabaev.com
