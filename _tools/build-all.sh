@@ -6,6 +6,7 @@ cd "$(dirname "$0")/.."
 node _tools/opensource/build.mjs
 node _tools/news/build.mjs
 node _tools/services/build.mjs
+node _tools/razbor/build.mjs
 node _tools/guides/build.mjs
 node _tools/templates/build.mjs
 node _tools/cases/thumbs.mjs
