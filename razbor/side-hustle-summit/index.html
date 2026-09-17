@@ -340,6 +340,14 @@
   .shots figure.shot{margin:0;}
   .shots figure.wide{grid-column:1/-1;}
 
+  /* Сетка масштаба: точки — повторяющийся фон, подсветка — слои поверх с тем же шагом */
+  figure.dots{margin:28px 0 30px;max-width:560px;}
+  .dots-grid{position:relative;width:100%;
+    background-image:radial-gradient(circle closest-side,#d3c8b6 62%,transparent 70%);}
+  .dots-on{position:absolute;left:0;top:0;display:block;
+    background-image:radial-gradient(circle closest-side,var(--gold-dk) 62%,transparent 70%);}
+  figure.dots figcaption{font-size:14px;color:var(--muted);margin-top:12px;line-height:1.5;}
+
   .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:8px 0 26px;}
   .tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;line-height:1.45;}
   .tbl th{background:var(--cream);text-align:left;font-family:'Roboto Condensed';font-size:16px;}
@@ -531,6 +539,10 @@ body{padding-left:248px}
 <li>200 000 человек онлайн одновременно — это и стало рекордом</li>
 <li>представительница Книги рекордов Гиннесса была на площадке всю неделю и объявила рекорд прямо в эфире</li>
 </ul>
+<figure class="dots">
+  <div class="dots-grid" role="img" aria-label="Сетка из 2 000 точек, каждая — 100 человек. Подсвечено 10: это 1 000 человек из 200 000" style="aspect-ratio:50/40;background-size:2% 2.5%"><span class="dots-on" style="top:0%;width:20%;height:2.5%;background-size:10% 100%"></span></div>
+  <figcaption>Каждая точка — 100 человек, всего их 2 000. Золотые в левом верхнем углу — обычный вебинар на тысячу зрителей. Чтобы собрать столько людей, сколько было на саммите, нужно 200 таких вебинаров одновременно.</figcaption>
+</figure>
 <p class="ph">Скрин 3: момент объявления рекорда — цифра на экране</p>
 <p class="ph">Скрин 4: счётчик просмотров первого эфира на YouTube</p>
 <p>Для понимания роста: прошлый ивент команды собрал 1,2 млн регистраций и 150 000 человек онлайн. Цель этого — 2,5 млн регистраций.</p>

@@ -22,6 +22,9 @@
  *   📸 [СКРИН N: что снять]     — место под скрин, которого ещё нет
  *   [ПРОВЕРИТЬ: …], [ДОПИСАТЬ] — пометки автора (любые [СЛОВА КАПСОМ …])
  *   ::: lane … :::             — лента этапов: внутри #### этап, текст и скрины
+ *   ::: dots … :::             — сетка масштаба «одна точка — N человек», часть
+ *                                подсвечена. Внутри строки «всего:», «точка:»,
+ *                                «подсветить:» и необязательная «подпись:»
  *   **жирный**, *курсив*, [текст](https://…)
  *   ———                        — разделитель в исходнике, на страницу не выводится
  *
@@ -89,6 +92,8 @@ const slugify = (s) =>
 const TODO = /\[([А-ЯЁ]{3,}[А-ЯЁ ]*(?::[^\]]*)?)\]/g;
 const SHOT_TODO = /^📸\s*\[СКРИН\s+(\d+):\s*([^\]]+)\]\s*$/;
 const IMG = /^!\[([^\]]+)\]\((\S+?)(?:\s+"([^"]*)")?\)\s*$/;
+/* Сетка масштаба всегда в 50 столбцов: так 2 000 точек ложатся ровным прямоугольником 50×40. */
+const DOTS_COLS = 50;
 /* Строки-реакции для Telegram («🔥 - если разбор был ценным») на сайте не нужны. */
 const REACTION = /^(🔥|❤️|👍|💯)\s*-\s/;
 
@@ -126,6 +131,50 @@ function makeRenderer(slug, draft) {
     return draft ? `<p class="ph">Скрин ${n}: ${inline(what)}</p>` : '';
   };
 
+  /**
+   * Сетка масштаба. Точки рисуются повторяющимся фоном на чистом CSS: один
+   * элемент вместо двух тысяч тегов и ни строчки скрипта. Подсветка — слои
+   * поверх с тем же шагом: целые ряды одним слоем, неполный ряд вторым.
+   * Числа в подписи и в aria-label попадают в HTML текстом — картинка
+   * понятна и краулеру, и программе чтения с экрана.
+   */
+  function dots(src) {
+    const cfg = {};
+    for (const l of src.split('\n').map((x) => x.trim()).filter(Boolean)) {
+      const m = l.match(/^([а-яё]+):\s*(.+)$/i);
+      if (!m) throw new Error(`${slug}: в блоке dots непонятная строка «${l}»`);
+      cfg[m[1].toLowerCase()] = m[2].trim();
+    }
+    const num = (k) => {
+      const v = Number(String(cfg[k] ?? '').replace(/\s/g, ''));
+      if (!Number.isInteger(v) || v <= 0) throw new Error(`${slug}: в блоке dots нет числа «${k}:»`);
+      return v;
+    };
+    const total = num('всего');
+    const unit = num('точка');
+    const lit = num('подсветить');
+    const count = total / unit;
+    if (!Number.isInteger(count)) throw new Error(`${slug}: dots — «всего» не делится на «точка»`);
+    if (count % DOTS_COLS) throw new Error(`${slug}: dots — точек ${count}, нужно кратное ${DOTS_COLS}`);
+    if (lit % unit || lit > total) throw new Error(`${slug}: dots — «подсветить» должно делиться на «точка» и не превышать «всего»`);
+
+    const rows = count / DOTS_COLS;
+    const on = lit / unit;
+    const full = Math.floor(on / DOTS_COLS);
+    const rest = on % DOTS_COLS;
+    const pct = (a, b) => `${+((a / b) * 100).toFixed(4)}%`;
+    const layers = [];
+    if (full) layers.push(`<span class="dots-on" style="width:100%;height:${pct(full, rows)};background-size:${pct(1, DOTS_COLS)} ${pct(1, full)}"></span>`);
+    if (rest) layers.push(`<span class="dots-on" style="top:${pct(full, rows)};width:${pct(rest, DOTS_COLS)};height:${pct(1, rows)};background-size:${pct(1, rest)} 100%"></span>`);
+
+    const fmt = (n) => n.toLocaleString('ru-RU');
+    const label = `Сетка из ${fmt(count)} точек, каждая — ${fmt(unit)} человек. Подсвечено ${fmt(on)}: это ${fmt(lit)} человек из ${fmt(total)}`;
+    return `<figure class="dots">
+  <div class="dots-grid" role="img" aria-label="${esc(label)}" style="aspect-ratio:${DOTS_COLS}/${rows};background-size:${pct(1, DOTS_COLS)} ${pct(1, rows)}">${layers.join('')}</div>
+  ${cfg['подпись'] ? `<figcaption>${inline(cfg['подпись'])}</figcaption>` : ''}
+</figure>`;
+  }
+
   /** Разбирает кусок Markdown в список блоков { html, kind }. */
   function blocks(src, { inLane = false } = {}) {
     const out = [];
@@ -144,6 +193,15 @@ function makeRenderer(slug, draft) {
 
       if (!line) { flush(); continue; }
       if (line === '———' || REACTION.test(line)) { flush(); continue; }
+
+      if (!inLane && line === '::: dots') {
+        flush();
+        const body = [];
+        while (++i < lines.length && lines[i].trim() !== ':::') body.push(lines[i]);
+        if (i >= lines.length) throw new Error(`${slug}: блок ::: dots не закрыт строкой :::`);
+        out.push({ kind: 'dots', html: dots(body.join('\n')) });
+        continue;
+      }
 
       if (!inLane && line === '::: lane') {
         flush();
@@ -308,6 +366,14 @@ const EXTRA_CSS = `
   .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:18px;margin:26px 0;}
   .shots figure.shot{margin:0;}
   .shots figure.wide{grid-column:1/-1;}
+
+  /* Сетка масштаба: точки — повторяющийся фон, подсветка — слои поверх с тем же шагом */
+  figure.dots{margin:28px 0 30px;max-width:560px;}
+  .dots-grid{position:relative;width:100%;
+    background-image:radial-gradient(circle closest-side,#d3c8b6 62%,transparent 70%);}
+  .dots-on{position:absolute;left:0;top:0;display:block;
+    background-image:radial-gradient(circle closest-side,var(--gold-dk) 62%,transparent 70%);}
+  figure.dots figcaption{font-size:14px;color:var(--muted);margin-top:12px;line-height:1.5;}
 
   .tbl{overflow-x:auto;border:1px solid var(--line);border-radius:14px;margin:8px 0 26px;}
   .tbl table{border-collapse:collapse;width:100%;min-width:560px;font-size:15px;line-height:1.45;}
