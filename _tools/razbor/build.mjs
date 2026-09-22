@@ -25,6 +25,8 @@
  *   ::: dots … :::             — сетка масштаба «одна точка — N человек», часть
  *                                подсвечена. Внутри строки «всего:», «точка:»,
  *                                «подсветить:» и необязательная «подпись:»
+ *   ::: offer … :::            — врезка с призывом: «заголовок:», «текст:»
+ *                                (можно несколько строк), «кнопка:», «ссылка:»
  *   **жирный**, *курсив*, [текст](https://…)
  *   ———                        — разделитель в исходнике, на страницу не выводится
  *
@@ -175,6 +177,36 @@ function makeRenderer(slug, draft) {
 </figure>`;
   }
 
+  /**
+   * Врезка с призывом: заголовок, один-два абзаца и кнопка. Ссылка проверяется
+   * на месте — врезка без рабочего адреса хуже, чем её отсутствие.
+   */
+  function offer(src) {
+    const cfg = {};
+    const text = [];
+    for (const raw of src.split('\n')) {
+      const l = raw.trim();
+      if (!l) continue;
+      const m = l.match(/^([а-яё]+):\s*(.+)$/i);
+      if (!m) throw new Error(`${slug}: в блоке offer непонятная строка «${l}»`);
+      const k = m[1].toLowerCase();
+      if (k === 'текст') text.push(m[2].trim());
+      else cfg[k] = m[2].trim();
+    }
+    for (const k of ['заголовок', 'кнопка', 'ссылка']) {
+      if (!cfg[k]) throw new Error(`${slug}: в блоке offer нет строки «${k}:»`);
+    }
+    if (!text.length) throw new Error(`${slug}: в блоке offer нет ни одной строки «текст:»`);
+    if (!/^https?:\/\//.test(cfg['ссылка'])) {
+      throw new Error(`${slug}: в блоке offer ссылка «${cfg['ссылка']}» должна начинаться с http`);
+    }
+    return `<aside class="offer">
+  <p class="offer__h">${inline(cfg['заголовок'])}</p>
+${text.map((t) => `  <p>${inline(t)}</p>`).join('\n')}
+  <p class="offer__go"><a href="${esc(cfg['ссылка'])}" rel="noopener">${inline(cfg['кнопка'])}</a></p>
+</aside>`;
+  }
+
   /** Разбирает кусок Markdown в список блоков { html, kind }. */
   function blocks(src, { inLane = false } = {}) {
     const out = [];
@@ -193,6 +225,15 @@ function makeRenderer(slug, draft) {
 
       if (!line) { flush(); continue; }
       if (line === '———' || REACTION.test(line)) { flush(); continue; }
+
+      if (!inLane && line === '::: offer') {
+        flush();
+        const body = [];
+        while (++i < lines.length && lines[i].trim() !== ':::') body.push(lines[i]);
+        if (i >= lines.length) throw new Error(`${slug}: блок ::: offer не закрыт строкой :::`);
+        out.push({ kind: 'offer', html: offer(body.join('\n')) });
+        continue;
+      }
 
       if (!inLane && line === '::: dots') {
         flush();
@@ -366,6 +407,17 @@ const EXTRA_CSS = `
   .shots{display:grid;grid-template-columns:repeat(auto-fill,minmax(14rem,1fr));gap:18px;margin:26px 0;}
   .shots figure.shot{margin:0;}
   .shots figure.wide{grid-column:1/-1;}
+
+  /* Врезка с призывом: карточка в цветах страницы, кнопка как в общем блоке внизу */
+  .offer{margin:36px 0 14px;max-width:760px;border:1px solid var(--gold);border-radius:14px;
+    background:var(--cream);padding:26px 28px;}
+  .offer .offer__h{font-family:'Roboto Condensed';font-weight:700;font-size:22px;line-height:1.2;
+    color:var(--ink);margin:0 0 12px;}
+  .offer p{margin:0 0 12px;color:var(--ink-soft);}
+  .offer .offer__go{margin:20px 0 0;}
+  .offer .offer__go a{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+    padding:14px 26px;border-radius:999px;font-weight:700;}
+  .offer .offer__go a:hover,.offer .offer__go a:focus{background:var(--gold-dk);color:#fff;}
 
   /* Сетка масштаба: точки — повторяющийся фон, подсветка — слои поверх с тем же шагом */
   figure.dots{margin:28px 0 30px;max-width:560px;}

@@ -340,6 +340,17 @@
   .shots figure.shot{margin:0;}
   .shots figure.wide{grid-column:1/-1;}
 
+  /* Врезка с призывом: карточка в цветах страницы, кнопка как в общем блоке внизу */
+  .offer{margin:36px 0 14px;max-width:760px;border:1px solid var(--gold);border-radius:14px;
+    background:var(--cream);padding:26px 28px;}
+  .offer .offer__h{font-family:'Roboto Condensed';font-weight:700;font-size:22px;line-height:1.2;
+    color:var(--ink);margin:0 0 12px;}
+  .offer p{margin:0 0 12px;color:var(--ink-soft);}
+  .offer .offer__go{margin:20px 0 0;}
+  .offer .offer__go a{display:inline-block;background:var(--ink);color:#fff;text-decoration:none;
+    padding:14px 26px;border-radius:999px;font-weight:700;}
+  .offer .offer__go a:hover,.offer .offer__go a:focus{background:var(--gold-dk);color:#fff;}
+
   /* Сетка масштаба: точки — повторяющийся фон, подсветка — слои поверх с тем же шагом */
   figure.dots{margin:28px 0 30px;max-width:560px;}
   .dots-grid{position:relative;width:100%;
@@ -463,7 +474,7 @@ body{padding-left:248px}
     <h1 class="long">Разбор Side Hustle Summit: как Рассел Брансон и Иман Гаджи сделали самый большой запуск в истории инфобизнеса</h1>
     <p class="lead">Партнёрство, реклама по действиям человека, лестница денег, пять дней марафона, стек бонусов — и 8 мест, где при всём масштабе они потеряли продажи.</p>
     <p class="updated">Обновлено <b>11 сентября 2026</b></p>
-    <p class="draft-note" role="note">Черновик: страница закрыта от поисковиков. Пометок в тексте — 14, мест под скрины — 22.</p>
+    <p class="draft-note" role="note">Черновик: страница закрыта от поисковиков. Пометок в тексте — 15, мест под скрины — 19.</p>
   </div>
 </div>
 
@@ -520,6 +531,10 @@ body{padding-left:248px}
 </ol>
 <h2 id="chto-eto-voobsche-bylo">Что это вообще было</h2>
 <p>Side Hustle Summit 2026 — бесплатное онлайн-событие. 6–13 сентября, эфиры из Дубая с трансляцией на YouTube. Пять живых сессий: 6, 7, 8, 9 и 13 сентября. Корзина закрывается 13 сентября в полночь. <mark class="todo">ПРОВЕРИТЬ: в разных источниках 13 и 15 сентября — сверить по своим письмам и чату</mark></p>
+<figure class="shot wide">
+  <a href="/images/razbor/side-hustle-summit/ep-schedule.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ep-schedule.webp" width="1600" height="853" alt="Календарь марафона: с 6 по 13 сентября, пять живых сессий в 13:00 по восточному времени" loading="lazy" decoding="async" /></a>
+  <figcaption>Неделя размечена по дням: пять живых сессий с 6 по 13 сентября, все в одно время. Человек заранее знает, куда встраивать эфиры</figcaption>
+</figure>
 <p>Тема — ИИ-подработка с нуля. Обещание — выйти на $373 в день. Для тех, у кого нет опыта, аудитории, стартового капитала и желания светить лицом.</p>
 <p>Суть метода они называют «теневым оперированием». У креатора есть аудитория, у тебя — машина запуска. Вы вместе запускаете продукт и делите результат.</p>
 <p>Главный продукт — программа Monetise Имана Гаджи за $1995.</p>
@@ -543,10 +558,16 @@ body{padding-left:248px}
   <div class="dots-grid" role="img" aria-label="Сетка из 2 000 точек, каждая — 100 человек. Подсвечено 10: это 1 000 человек из 200 000" style="aspect-ratio:50/40;background-size:2% 2.5%"><span class="dots-on" style="top:0%;width:20%;height:2.5%;background-size:10% 100%"></span></div>
   <figcaption>Каждая точка — 100 человек, всего их 2 000. Золотые в левом верхнем углу — обычный вебинар на тысячу зрителей. Чтобы собрать столько людей, сколько было на саммите, нужно 200 таких вебинаров одновременно.</figcaption>
 </figure>
+<div class="shots">
+<figure class="shot wide">
+  <a href="/images/razbor/side-hustle-summit/ep-guinness-live.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ep-guinness-live.webp" width="1600" height="885" alt="Слайд эфира: логотип Книги рекордов Гиннесса и надпись «приходите вживую каждый день в 13:00 по восточному времени»" loading="lazy" decoding="async" /></a>
+  <figcaption>Рекорд на слайде подан не как достижение, а как причина прийти: «будьте в эфире вживую — каждый день в 13:00 по восточному времени»</figcaption>
+</figure>
 <figure class="shot">
   <a href="/images/razbor/side-hustle-summit/yt-episode1-views.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/yt-episode1-views.webp" width="1600" height="1290" alt="Первый эфир на YouTube «Let's Start a $373/Day Side Hustle Together»: 2 117 747 просмотров, закреплённая в чате ссылка и QR-код" loading="lazy" decoding="async" /></a>
   <figcaption>Первый эфир к 11 сентября — 2 117 747 просмотров. В чате закреплены ссылка и QR-код, а в описании пока лист ожидания: продажа ещё не открыта, буткемп обещан только первым 777</figcaption>
-</figure><p class="ph">Скрин 3: момент объявления рекорда — цифра на экране</p>
+</figure>
+</div>
 <p>Для понимания роста: прошлый ивент команды собрал 1,2 млн регистраций и 150 000 человек онлайн. Цель этого — 2,5 млн регистраций.</p>
 <p>Сколько заработали? Официальных цифр нет, корзина ещё открыта. Поэтому дальше моя модель, а не отчёт:</p>
 <ul>
@@ -757,6 +778,10 @@ body{padding-left:248px}
 <h2 id="dohodimost-parol-kotoryy-zvuchit-tolko-v-efire">Доходимость: пароль, который звучит только в эфире</h2>
 <p>Собрать 1,5 млн просмотров — полдела. Нужно, чтобы люди приходили каждый день.</p>
 <p><strong>Рабочие тетради под паролем.</strong> На каждый день — своя тетрадь. Но открыть её можно только паролем, который звучит в живом эфире. Не пришёл — тетради нет.</p>
+<figure class="shot wide">
+  <a href="/images/razbor/side-hustle-summit/ep-workbook-whatsapp.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ep-workbook-whatsapp.webp" width="1600" height="891" alt="Слайд с рабочей тетрадью первого дня и значком WhatsApp: «вступайте по ссылке в описании»" loading="lazy" decoding="async" /></a>
+  <figcaption>Тетрадь первого дня показывают прямо в эфире и тут же отправляют за ссылкой в описание — оттуда путь ведёт в WhatsApp-группу</figcaption>
+</figure>
 <p>А на третий день пароли разослали всем. Зачем?</p>
 <p>Моя версия: к третьему дню пароли своё отработали — приучили приходить вживую. Дальше задача меняется. Важнее, чтобы пропустившие догнали материал до основной продажи. Человек, который не видел первые дни, ничего не купит — он просто не понимает, о чём речь.</p>
 <p class="ph">Скрин 14: экран ввода пароля к рабочей тетради</p>
@@ -775,7 +800,10 @@ body{padding-left:248px}
 <p><strong>День 3 — как находить креаторов.</strong> Демонстрация поиска и рассылки креаторам. И в этот же день в стек добавили сервис автоматической рассылки креаторам и готовый список из 100 проверенных креаторов. Интервью с двумя учениками. <mark class="todo">ПРОВЕРИТЬ: имя гостевого спикера третьего дня</mark></p>
 <p><strong>День 4 — как делается воронка.</strong> Весь день Рассела. Демонстрация воронки и самая мощная продажа. <mark class="todo">ПРОВЕРИТЬ: имена спикеров VIP-сессии четвёртого дня</mark></p>
 <p><strong>День 5 (13 сентября) — живая сборка подработки с нуля.</strong> Финальная демонстрация всего пути и последний толчок перед закрытием корзины.</p>
-<p class="ph">Скрин 16: слайд первого дня с общей схемой</p>
+<figure class="shot wide">
+  <a href="/images/razbor/side-hustle-summit/ep-4step-system.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ep-4step-system.webp" width="1600" height="885" alt="Слайд «Система из четырёх шагов»: создать, распространить, доставить, масштабировать" loading="lazy" decoding="async" /></a>
+  <figcaption>Вся схема на одном слайде: создать продукт, распространить, доставить, масштабировать. Четыре шага — и дальше каждый день разбирают по одному</figcaption>
+</figure>
 <p>Посмотрите на официальные названия эпизодов — они сами по себе продают:</p>
 <ul>
 <li>эпизод 1: «Лучшая подработка для старта в 2026» — зарабатывать на партнёрстве с теми, у кого уже есть аудитория, оставаясь невидимым</li>
@@ -824,6 +852,16 @@ body{padding-left:248px}
 <li>список 100 проверенных креаторов</li>
 <li>конкурс продаж</li>
 </ul>
+<div class="shots">
+<figure class="shot wide">
+  <a href="/images/razbor/side-hustle-summit/ep-stack-day2.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ep-stack-day2.webp" width="1600" height="887" alt="Два слайда стека из разных дней: во втором дне — Digital Product Formula, Synthesise AI и бонус за быстрое действие для первых 777; в третьем — сто проверенных креаторов, ListKit и «Спроси Имана» только для эфира" loading="lazy" decoding="async" /></a>
+  <figcaption>Стек второго дня: продукт, Synthesise AI и бонус за быстрое действие — первым 777</figcaption>
+</figure>
+<figure class="shot wide">
+  <a href="/images/razbor/side-hustle-summit/ep-stack-day3.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ep-stack-day3.webp" width="1600" height="893" alt="Стек третьего дня: сто проверенных креаторов, ListKit и «Спроси Имана» только во время эфира" loading="lazy" decoding="async" /></a>
+  <figcaption>Стек третьего дня. Цена та же — $1995, а слева добавились креаторы и рассылка: ровно тема дня</figcaption>
+</figure>
+</div>
 <p>Итог — больше $19 458. А дальше цену спускают ступеньками: $19 458 → $10 000 → $8659 → и только потом $1995. Каждая ступенька делает финальную цифру всё меньше и меньше в глазах зрителя.</p>
 <figure class="shot">
   <a href="/images/razbor/side-hustle-summit/monetise-stack.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/monetise-stack.webp" width="1600" height="1369" alt="Стек Monetise с зачёркнутыми ценами: Synthesise AI $2999, Digital Product Formula 2.0 $1495, сервис рассылки $7164, страховка продукта $7800, итог $19 458 и цена $1995" loading="lazy" decoding="async" /></a>
@@ -885,9 +923,11 @@ body{padding-left:248px}
 <tr><td>Двое учеников (Беларусь <mark class="todo">ПРОВЕРИТЬ</mark>, Словения)</td><td>Через юмор, «мы такие же, как ты»</td><td>Молодёжь</td></tr>
 </tbody>
 </table></div>
-<p class="ph">Скрин 23: Рик Росс в эфире</p>
+<figure class="shot">
+  <a href="/images/razbor/side-hustle-summit/ep-after-hours-guests.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ep-after-hours-guests.webp" width="1600" height="1076" alt="Слайд закрытой части «After Hours»: гости дня — Рассел Брансон, основатель ClickFunnels, и Майрон Голден, бизнес-консультант" loading="lazy" decoding="async" /></a>
+  <figcaption>Закрытая часть «After Hours» и гости дня: Рассел Брансон и Майрон Голден. Каждый выступал не за себя — оба продавали Monetise</figcaption>
+</figure><p class="ph">Скрин 23: Рик Росс в эфире</p>
 <p class="ph">Скрин 24: интервью с двумя учениками</p>
-<p class="ph">Скрин 25: Эйлин Уайлдер или Майрон Голден на VIP-сессии</p>
 <p><strong>Спикеры приводят свою аудиторию.</strong> Эйлин Уайлдер крутила рекламу саммита со своей страницы: «специальный гость», её фото рядом с Иманом и Расселом. И текст — в её тональности: есть только два пути на ближайшие годы — продолжать менять часы на зарплату или построить доход, который принадлежит тебе. Гость не просто выступает, а ведёт в общую воронку свою аудиторию своим голосом.</p>
 <figure class="shot">
   <a href="/images/razbor/side-hustle-summit/ad-eileen-wilder.webp" target="_blank" rel="noopener"><img src="/images/razbor/side-hustle-summit/ad-eileen-wilder.webp" width="692" height="704" alt="Реклама саммита со страницы Эйлин Уайлдер: «Не увольняйся — начни подработку с ИИ», специальный гость" loading="lazy" decoding="async" /></a>
@@ -1007,6 +1047,13 @@ body{padding-left:248px}
 <p>На <mark class="todo">НАЗВАНИЕ ПЛАТФОРМЫ</mark> мы помогаем внедрять всё это шаг за шагом: воронку марафона, лестницу допродаж, рабочие тетради, прогрев, дожим через переписку. Большая часть сделана за вас — остаётся нажать пару кнопок.</p>
 <p>И то, что они упустили, — контент, живые каналы, системные продажи в переписке, продукт для тех, кто не купил, — мы тоже собираем в систему. А геймификация, которая у них держит учеников в движении, лежит в основе нашей платформы.</p>
 <p>Если откликается — запишитесь на экскурсию по платформе: <mark class="todo">ССЫЛКА НА ЭКСКУРСИЮ</mark>. Покажу, как собрать такой запуск у себя.</p>
+<p><strong>Почему я думаю, что они пробьют $100 млн.</strong> Считать только по продажам программы — значит недосчитать. Иман — совладелец Whop, а Whop берёт свой процент с каждой продажи, которую сделают ученики. Ученики прошлых потоков наработали, по подсчётам организаторов, $8,9 млн, $15 млн и $31 млн. Пока эти деньги идут через ту же кассу, запуск продолжает зарабатывать и после закрытия корзины. <mark class="todo">ПРОВЕРИТЬ: ставка Whop — называют около 3%, и цифру прошлого потока</mark></p>
+<aside class="offer">
+  <p class="offer__h">Хотите все слайды этого марафона с переводом?</p>
+  <p>Слайды Side Hustle Summit с переводом, детальный разбор структуры продаж и визуальная схема воронки целиком — и элементы, которые дали результат, и те, которых не хватило.</p>
+  <p>Это один из бонусов участникам марафона «Клиенты Каждый День»: вместе с ним отдаю все материалы разбора запуска Имана и Рассела.</p>
+  <p class="offer__go"><a href="https://newlevelsecrets.ru/kkd#tiers" rel="noopener">Забрать на марафоне «Клиенты Каждый День»</a></p>
+</aside>
 </div>
 </article>
 
